@@ -6,6 +6,7 @@ import funkin.backend.scripting.events.MenuChangeEvent;
 import funkin.backend.scripting.events.NameEvent;
 import funkin.backend.scripting.EventManager;
 import funkin.menus.credits.CreditsMain;
+import funkin.game.cutscenes.VideoCutscene;
 import funkin.backend.system.framerate.Framerate;
 import funkin.options.OptionsMenu;
 import funkin.editors.EditorPicker;
@@ -23,10 +24,16 @@ var menuItems:FlxTypedGroup<FlxSprite>;
 var menuItems = new FlxTypedGroup();
 var magenta:FlxSprite;
 
+// secret video stuff
+var typin:String = '';
+var codeClearTimer:Float = 0;
+
 public var canAccessDebugMenus:Bool = true;
 public var WEHOVERING:Bool = false;
 
 public var corners:Array<FlxSprite> = [];
+
+public var lerpCamZoom:Bool = false;
 
 FlxG.mouseControls = true;
 FlxG.mouse.enabled = true;
@@ -131,6 +138,11 @@ function create() {
     changeItem();
 }
 
+function postCreate(){
+    v3Vid = new VideoCutscene(Paths.video("secrets/V3"), function() {
+	});
+}
+
 var selectedSomethin:Bool = false;
 
 function update(elapsed:Float) {
@@ -153,16 +165,6 @@ function update(elapsed:Float) {
             persistentUpdate = false;
             persistentDraw = true;
         }
-        if (controls.UP_P)
-            changeItem(-1);
-
-        if (controls.DOWN_P)
-            changeItem(1);
-
-        if (controls.ACCEPT)
-        {
-            selectItem();
-        }
 
         // if (curSelected != null) postionCorners(curSelected);
     }
@@ -177,6 +179,47 @@ function update(elapsed:Float) {
 			}
 		}
     }
+
+    // this doesnt work yet typing stuff will give you a null function pointer in the console log
+    // the timer works though
+    if(codeClearTimer>0)codeClearTimer-=elapsed;
+	if(codeClearTimer<=0)typin='';
+	if(codeClearTimer<0)codeClearTimer=0;
+
+    if(FlxG.keys.firstJustPressed()!=-1){
+        codeClearTimer = 1 ; // 1 second to press next key in the code
+        var key:FlxKey = FlxG.keys.firstJustPressed();
+        typin += keyInput(key);
+        trace(typin);
+        switch(typin){
+            case 'garlic':
+                typin = '';
+
+                FlxG.sound.music.pause();
+                //openSubState(secretVid);
+            case 'v3':
+                typin = '';
+
+                FlxG.sound.music.pause();
+                openSubState(v3Vid);
+            case 'peepy': CoolUtil.browserLoad('https://itemlabel.com/products/peepy');
+            case 'natetdom':
+                typin = '';
+
+                FlxG.sound.music.pause();
+                //openSubState(secretVid);
+            case 'unbeatable':
+                typin = '';
+
+                FlxG.sound.music.pause();
+                //openSubState(secretVid);
+            case 'scrubb':
+                typin = '';
+
+                FlxG.sound.music.pause();
+                //openSubState(secretVid);
+        }
+    }
 }
 
 function selectItem() {
@@ -186,7 +229,7 @@ function selectItem() {
 
     if (Options.flashingMenu) FlxFlicker.flicker(magenta, 1.1, 0.15, false);
 
-    FlxTween.tween(menuItems.members[curSelected], {x: 480, y: 200}, .6, {ease: FlxEase.circOut});
+    FlxTween.tween(menuItems.members[curSelected], {x: 465, y: 200}, .6, {ease: FlxEase.circOut});
 
     FlxFlicker.flicker(menuItems.members[curSelected], 1, Options.flashingMenu ? 0.06 : 0.15, false, false, function(flick:FlxFlicker)
     {
@@ -273,3 +316,35 @@ function changeItem(huh:Int = 0) {
 
     space.put();
 } */
+
+function keyInput(k:FlxKey): String{
+    var asString = k.toString().toLowerCase();
+    switch(asString){
+        case 'zero' | 'numpadzero': return '0';
+        case 'one' | 'numpadone': return '1';
+        case 'two' | 'numpadtwo': return '2';
+        case 'three' | 'numpadthree': return '3';
+        case 'four' | 'numpadfour': return '4';
+        case 'five' | 'numpadfive': return '5';
+        case 'six' | 'numpadsix': return '6';
+        case 'seven' | 'numpadseven': return '7';
+        case 'eight' | 'numpadeight': return '8';
+        case 'nine' | 'numpadnine': return '9';
+        case 'backslash': return '\\';
+        case 'any' | 'none' | 'printscreen' | 'pageup' | 'pagedown' | 'home' | 'end' | 'insert' | 'escape' | 'delete' | 'backspace' | 'capslock' | 'enter' | 'shift' | 'control' | 'alt' | 'f1' | 'f2' | 'f3' | 'f4' | 'f5' | 'f6' | 'f7' | 'f8' | 'f9' | 'f0' | 'tab' | 'up' | 'down' | 'left' | 'right': return '';
+        case 'space': return ' ';
+        case 'slash': return '/';
+        case 'period' | 'numpadperiod': return '.';
+        case 'comma': return ',';
+        case 'lbracket': return '[';
+        case 'rbracket': return ']';
+        case 'semicolon': return ';';
+        case 'colon': return ':';
+        case 'plus' | 'numpadplus': return '+';
+        case 'minus' | 'numpadminus': return '-';
+        case 'asterisk' | 'numpadmultiply': return '*';
+        case 'graveaccent': return '`';
+        case 'quote': return '"';
+        default: return asString;
+    }
+}
