@@ -1,0 +1,9 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="mariohorror" y="0" isGF="false" color="#870C0A" isPlayer="false" holdTime="6.1" sprite="mariohorror">
+	<anim x="0" loop="false" y="0" fps="24" anim="MarioIdle0" name="idle"/>
+	<anim x="300" loop="false" y="147" fps="24" anim="MarioUp0" name="singUP"/>
+	<anim x="240" loop="false" y="-100" fps="24" anim="MarioLeft0" name="singLEFT"/>
+	<anim x="-90" loop="false" y="-133" fps="24" anim="MarioRight0" name="singRIGHT"/>
+	<anim x="170" loop="false" y="-215" fps="24" anim="MarioDown0" name="singDOWN"/>
+	<anim x="30" loop="false" y="30" fps="24" anim="MarioLaugh" name="laugh"/>
+</character>

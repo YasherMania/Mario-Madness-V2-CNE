@@ -1,0 +1,7 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="peach_exe" y="0" isGF="false" color="#A83455" isPlayer="false" holdTime="6.1" sprite="peach_EXE_death">
+	<anim x="205" loop="false" y="65" fps="24" anim="PeachDIES" name="death"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="PeachFalling1" name="falling"/>
+	<anim x="95" loop="false" y="5" fps="24" anim="PeachFalling1000" name="fall"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="PeachFalling2000" name="land"/>
+</character>

@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="bf4" y="350" isGF="false" color="#31B1D1" isPlayer="true" sprite="Act_4_FINALE_BF">
+	<anim x="-5" loop="false" y="0" fps="24" anim="Idle" name="idle"/>
+	<anim x="50" loop="false" y="124" fps="24" anim="Up" name="singUP"/>
+	<anim x="23" loop="false" y="-11" fps="24" anim="Left" name="singLEFT"/>
+	<anim x="7" loop="false" y="9" fps="24" anim="Right" name="singRIGHT"/>
+	<anim x="25" loop="false" y="-170" fps="24" anim="Down" name="singDOWN"/>
+</character>

@@ -1,0 +1,4 @@
+<!DOCTYPE codename-engine-character>
+<character x="200" icon="pico" y="500" isGF="false" color="#31B1D1" flipX="true" isPlayer="false" sprite="Too_Late_Pico_run">
+	<anim x="-5" loop="true" y="0" fps="24" anim="Legs" name="idle"/>
+</character>

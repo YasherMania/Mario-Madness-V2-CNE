@@ -1,0 +1,13 @@
+<!DOCTYPE codename-engine-character>
+<character x="350" icon="bf bitchless" camx="-700" y="0" isGF="false" color="#31B1D1" flipX="true" isPlayer="false" holdTime="8.1" sprite="bf crybaby">
+	<anim x="-5" loop="false" y="0" fps="24" anim="SCAREDIDLE" name="idle"/>
+	<anim x="-26" loop="false" y="64" fps="24" anim="SCAREDUP" name="singUP"/>
+	<anim x="-48" loop="false" y="-1" fps="24" anim="SCAREDLEFT" name="singRIGHT"/>
+	<anim x="-7" loop="false" y="-1" fps="24" anim="SCAREDRIGHT" name="singLEFT"/>
+	<anim x="-25" loop="false" y="-35" fps="24" anim="SCAREDDOWN" name="singDOWN"/>
+	<anim x="-29" loop="false" y="92" fps="24" anim="MISSSCAREDUP" name="singUPmiss"/>
+	<anim x="2" loop="false" y="24" fps="24" anim="MISSSCAREDRIGHT" name="singLEFTmiss"/>
+	<anim x="-50" loop="false" y="31" fps="24" anim="MISSSCAREDLEFT" name="singRIGHTmiss"/>
+	<anim x="-26" loop="false" y="-29" fps="24" anim="MISSSCAREDDOWN" name="singDOWNmiss"/>
+	<anim x="-25" loop="false" y="45" fps="24" anim="Act3Intro" name="intro"/>
+</character>
