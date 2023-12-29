@@ -6,22 +6,27 @@ import funkin.backend.scripting.events.MenuChangeEvent;
 import funkin.backend.scripting.events.NameEvent;
 import funkin.backend.scripting.EventManager;
 import funkin.menus.credits.CreditsMain;
+import funkin.backend.system.framerate.Framerate;
 import funkin.options.OptionsMenu;
 import funkin.editors.EditorPicker;
 import funkin.menus.ModSwitchMenu;
+import flixel.math.FlxPoint;
 import flixel.effects.FlxFlicker;
 import flixel.addons.display.FlxBackdrop;
 import funkin.backend.utils.CoolUtil;
 import openfl.text.TextFormat;
 import flixel.text.FlxTextBorderStyle;
-import funkin.backend.system.framerate.Framerate;
 
 var optionShit:Array<String> = ["MainGame", "WarpZone", "Freeplay", "Options", "Credits"];
 var curSelected:Int = 0;
 var menuItems:FlxTypedGroup<FlxSprite>;
 var menuItems = new FlxTypedGroup();
 var magenta:FlxSprite;
+
 public var canAccessDebugMenus:Bool = true;
+public var WEHOVERING:Bool = false;
+
+public var corners:Array<FlxSprite> = [];
 
 FlxG.mouseControls = true;
 FlxG.mouse.enabled = true;
@@ -35,7 +40,8 @@ window.resizable = true;
 
 function create() {
     CoolUtil.playMenuSong();
-    window.title = "Friday Night Funkin: Mario's Madness V2";
+    window.title = "Friday Night Funkin': Mario's Madness";
+
     bg = new FlxBackdrop(Paths.image('menus/mainmenu/bgs/bg0'));
     bg.scale.set(3.4,3.4);
     bg.velocity.set(-50, 0);
@@ -84,12 +90,53 @@ function create() {
     menuItems.members[4].y = 480;
     menuItems.members[4].x = 650;
     menuItems.members[3].y = 480;
+
+    // i will try to add this later its really puzzling me rn - apurples
+    /* for (i in 1...5) {
+        var corner:FlxSprite = new FlxSprite();
+        corner.frames = Paths.getSparrowAtlas("mainmenu/MM_Menu_Assets");
+        corner.animation.addByPrefix("idle", 'Corner$i', 24);
+        corner.animation.play("idle");
+
+        corner.updateHitbox();
+        corner.visible = false;
+        corner.ID = i - 1;
+
+        add(corner);
+
+        corners.push(corner);
+    }
+
+    cornerOffset = FlxTween.num(0, 7.5, 1.5, {
+        ease: FlxEase.circInOut,
+        type: 5, // pingpong
+        onUpdate: (_) -> {
+            for (corner in corners) {
+                if (corner != null) {
+                    switch (corner.ID) {
+                        case 0:
+                            corner.offset.set(cornerOffset.value, cornerOffset.value);
+                        case 1:
+                            corner.offset.set(-cornerOffset.value, cornerOffset.value);
+                        case 2:
+                            corner.offset.set(cornerOffset.value, -cornerOffset.value);
+                        case 3:
+                            corner.offset.set(-cornerOffset.value, -cornerOffset.value);
+                    }
+                }
+            }
+        }
+    }); */
+
     changeItem();
 }
 
 var selectedSomethin:Bool = false;
 
 function update(elapsed:Float) {
+    FlxG.camera.scroll.x = FlxMath.lerp(FlxG.camera.scroll.x, (FlxG.mouse.screenX-(FlxG.width/2)) * 0.015, (1/30)*240*elapsed);
+	FlxG.camera.scroll.y = FlxMath.lerp(FlxG.camera.scroll.y, (FlxG.mouse.screenY-6-(FlxG.height/2)) * 0.015, (1/30)*240*elapsed);
+
     if (FlxG.sound.music.volume < 0.8)
         FlxG.sound.music.volume += 0.5 * elapsed;
 
@@ -116,6 +163,19 @@ function update(elapsed:Float) {
         {
             selectItem();
         }
+
+        // if (curSelected != null) postionCorners(curSelected);
+    }
+
+	if (!selectedSomethin){
+		for (i in menuItems.members){
+			if (FlxG.mouse.overlaps(i)){
+				curSelected = menuItems.members.indexOf(i);
+				changeItem();
+
+                if (FlxG.mouse.justPressed) selectItem();
+			}
+		}
     }
 }
 
@@ -125,6 +185,8 @@ function selectItem() {
 	FlxG.sound.play(Paths.sound('menu/confirm'));
 
     if (Options.flashingMenu) FlxFlicker.flicker(magenta, 1.1, 0.15, false);
+
+    FlxTween.tween(menuItems.members[curSelected], {x: 480, y: 200}, .6, {ease: FlxEase.circOut});
 
     FlxFlicker.flicker(menuItems.members[curSelected], 1, Options.flashingMenu ? 0.06 : 0.15, false, false, function(flick:FlxFlicker)
     {
@@ -141,6 +203,7 @@ function selectItem() {
             case 'Freeplay':
                 FlxG.switchState(new FreeplayState());
             case 'Options':
+                FlxG.sound.music.fadeOut(0.5, 0);
                 FlxG.switchState(new OptionsMenu());
             case 'Credits':
                 FlxG.switchState(new CreditsMain());
@@ -152,10 +215,9 @@ function changeItem(huh:Int = 0) {
     var event = event("onChangeItem", EventManager.get(MenuChangeEvent).recycle(curSelected, FlxMath.wrap(curSelected + huh, 0, menuItems.length-1), huh, huh != 0));
     if (event.cancelled) return;
 
-    curSelected = event.value;
+    // if (event.playMenuSFX) CoolUtil.playMenuSFX("SCROLL", 0.7); sound goes kinda wonky so im commenting this for now - apurples
 
-    if (event.playMenuSFX)
-        CoolUtil.playMenuSFX("SCROLL", 0.7);
+    curSelected = event.value;
 
     menuItems.forEach(function(spr:FlxSprite) {
     spr.animation.play('idle');
@@ -170,3 +232,44 @@ function changeItem(huh:Int = 0) {
     spr.centerOffsets();
 });
 }
+
+/* function postionCorners(obj:FlxSprite, ?space:FlxPoint) {
+    if (space == null)
+        space = FlxPoint.get(12.5, 12.5);
+
+    var res:FlxPoint = menuInfo[currentLevel].res;
+    var postions:Map<Int, FlxPoint> = [
+        0 => FlxPoint.get((obj.x-obj.offset.x) - space.x, (obj.y-obj.offset.y) - space.y),
+        1 => FlxPoint.get(((obj.x-obj.offset.x) + res.x) + space.x, (obj.y-obj.offset.y) - space.y),
+        2 => FlxPoint.get((obj.x-obj.offset.x) - space.x, ((obj.y-obj.offset.y) + res.y) + space.y),
+        3 => FlxPoint.get(((obj.x-obj.offset.x) + res.x) + space.x, ((obj.y-obj.offset.y) + res.y) + space.y)
+    ];
+
+    for (corner in corners) {
+        if (corner == null)
+            continue;
+
+        var postion:FlxPoint = postions[corner.ID];
+
+        if (postion == null)
+            continue;
+
+        corner.setPosition(postion.x, postion.y);
+        corner.visible = true;
+
+        switch (corner.ID) // I swear im not weird - lunar
+        {
+            case 1:
+                corner.x -= corner.width / 1.9;
+            case 2:
+                corner.y -= corner.height / 1.75;
+            case 3:
+                corner.x -= corner.width / 1.9;
+                corner.y -= corner.height / 1.75;
+        }
+
+        postion.put();
+    }
+
+    space.put();
+} */
