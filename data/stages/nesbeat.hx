@@ -16,12 +16,23 @@ function onCountdown(event:CountdownEvent) event.cancelled = true;
 // i will reorganize this code later - apurples
 function create() {
         dad.alpha = 0;
+
         Lib.application.window.title="Friday Night Funkin': Mario's Madness | Unbeatable | RedTV53 ft. theWAHbox, scrumbo_, FriedFrick & Ironik";
         bg.screenCenter();
 	bg.alpha = 0;
         bg.antialiasing = true;
         add(bg);
         FlxTween.tween(bg, {angle: 360}, 40, {ease: FlxEase.smootherStepInOut, type: FlxTween.PINGPONG});
+
+	strumLines.members[0].characters[1].alpha = 0;
+	tree.x = -200;
+	georgeW.x = 1400;
+	grass.alpha = 0;
+
+	dh = new Character(dad.x - 200, dad.y - 100, "DHD");
+	dh.scale.x = dh.scale.y = dad.scale.x;
+	dh.alpha = 0;
+	insert(members.indexOf(boyfriend), dh);
 
         blackBarThingie = new FlxSprite().makeSolid(FlxG.width, FlxG.height, FlxColor.BLACK);
         blackBarThingie.setGraphicSize(Std.int(blackBarThingie.width + 100));
@@ -106,12 +117,14 @@ function update(elapsed:Float){
 	shader.time = time;
 }
 var dummyvar = 0;
+
 function postUpdate(elapsed:Float) {
     	switch(curCameraTarget) {
         	case 0:
                 	dad.visible = true;
                 	boyfriend.visible = false;
                 	gf.visible = false;
+			strumLines.members[0].characters[1].visible = true;
                     
                 	if (dummyvar != -1) {
 		 	       blackBarThingie.alpha = 0.3;
@@ -125,6 +138,7 @@ function postUpdate(elapsed:Float) {
                 	boyfriend.alpha = 1;
                 	boyfriend.visible = true;
                 	gf.visible = true;
+			strumLines.members[0].characters[1].visible = false;
                 	gf.alpha = 1;      
                 	if (dummyvar != 1) {
 		        	blackBarThingie.alpha = 0.3;
@@ -171,8 +185,16 @@ function mid() {
 	}
 }
 
-function return() {
-	//after the middlescroll sections
+function part1cantbeat() {
+	//shit function name, i know, but it's the one part where it speeds up and goes middlescroll
+	for (i in beatuspart) i.visible = true;
+	for (goob in goobersL) goob.animation.play('p1', true);
+	for (goob in goobersR) goob.animation.play('p1', true);
+}
+
+function cantbeatOver() {
+	for (i in beatuspart) i.visible = false;
+
 	for (i in 0...4) {
     		cpuStrums.members[i].x = 96 + i * 105;
 		cpuStrums.members[i].alpha = 1;
@@ -181,14 +203,20 @@ function return() {
 	}
 }
 
-function part1cantbeat() {
-	//shit function name, i know, but it's the one part where it speeds up and goes middlescroll
-	for (i in beatuspart) i.visible = true;
-	for (goob in goobersL) goob.animation.play('p1', true);
-	for (goob in goobersR) goob.animation.play('p1', true);
+function part2trans1() {
+	trace("part2!!! 'aim your zapper gun'!!");
+	grass.alpha = 1;
+	FlxTween.tween(dad, {alpha: 0},2, {ease: FlxEase.linear, type: FlxTween.ONESHOT});
+	//transition into part 2!!!
 }
 
-function part2trans() {
-	trace("part2!!! 'aim your zapper gun'!!");
+function part2trans2() {
 	//transition into part 2!!!
+	camGame.bgColor = FlxColor.fromRGB(85,149,218,255);
+	strumLines.members[0].characters[1].alpha = 1;
+	strumLines.members[0].characters[1].y += 2000;
+	FlxTween.tween(bg, {alpha: 0}, 2, {ease: FlxEase.smootherStepInOut, type: FlxTween.ONESHOT});
+	FlxTween.tween(tree, {x: 200}, 2, {ease: FlxEase.smootherStepInOut, type: FlxTween.ONESHOT});
+	FlxTween.tween(georgeW, {x: 1000}, 2, {ease: FlxEase.smootherStepInOut, type: FlxTween.ONESHOT});
+	FlxTween.tween(strumLines.members[0].characters[1], {y: strumLines.members[0].characters[1].y - 2000}, 3, {ease: FlxEase.smootherStepInOut, type: FlxTween.ONESHOT});
 }
