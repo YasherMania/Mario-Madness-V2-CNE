@@ -1,0 +1,25 @@
+<!DOCTYPE codename-engine-stage>
+<stage folder="stages/meat/"> 
+	<sprite x="-1995" y="466.5" sprite="Overdue_Final_BG_floorfixed" alpha = "0" name="Overdue_Final_BG_floorfixed"/>
+	<sprite x="-2045" y="-1280" sprite="Overdue_Final_BG_topfixed" name="Overdue_Final_BG_topfixed"/>
+	<sprite x="-3193" name="TL_Meat_Sky" sprite="TL_Meat_Sky" y="-1766"/>
+	<sprite x="-3009" name="TL_Meat_BG" sprite="TL_Meat_BG" y="-1740"/>
+	<sprite x="-1525.5" name="TL_Meat_FG_string" sprite="TL_Meat_FG_string" y="-1384.5"/>
+        <sprite x="-3184" name="TL_Meat_FarBG" sprite="TL_Meat_FarBG" y="-1775"/>
+        <sprite x="-2939" name="TL_Meat_MedBG" sprite="TL_Meat_MedBG" y="-1661"/>
+	<sprite x="-3146.5" name="TL_Meat_Ground" sprite="TL_Meat_Ground" y="-1687"/>
+	<sprite x="-291.5" name="TL_Meat_Pupil" sprite="TL_Meat_Pupil" y="-448"/>
+	<sprite x="-2023" y="-1008" sprite="BackTrees" name="BackTrees"/>
+	<sprite x="-1674" y="-1021" sprite="Front Trees" name="FrontTrees"/>
+	<sprite x="-1787" y="-1033" sprite="Road" name="Road"/>
+	<dad x="-1138.5" y="-423.5"/>
+	<sprite x="-1955" y="-933" sprite="car" name="car"/>
+        <gf x="80.5" y="-567"/>
+	<bf x="380.5" y="-367"/>
+	<combo x="406.5" y="-140"/>
+	<sprite x="-2030" y="-954" sprite="Foreground Trees" name="ForegroundTrees"/>
+	<sprite x="-2014.5" name="TL_Meat_FG_topteeth" sprite="TL_Meat_FG_topteeth" y="-1751.5"/>
+	<sprite x="-3237" name="TL_Meat_CloseFG" sprite="TL_Meat_CloseFG" y="-1731"/>
+	<sprite x="-1814.5" name="TL_Meat_FG_bottomteeth" sprite="TL_Meat_FG_bottomteeth" y="464"/>
+	<sprite x="-3184" scale ="5.5" sprite="TL_Meat_Fog" y="-1780" updateHitbox="true" name="TL_Meat_Fog"/>
+</stage>

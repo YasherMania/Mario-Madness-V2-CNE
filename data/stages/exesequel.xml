@@ -1,0 +1,16 @@
+<!DOCTYPE codename-engine-stage>
+<stage folder="stages/exe2/">
+	<sprite x="-1491" name="SS_sky" sprite="SS_sky" y="2.25"/>
+	<sprite x="-1452" name="SS_castle" sprite="SS_castle" y="15.25"/>
+	<sprite x="-1851" name="Starman_BG_Fire_Assets" sprite="Starman_BG_Fire_Assets" y="-415.25"/>
+	<sprite x="1169" y="-258.5" sprite="Starman_BG_Fire_Assets" type="loop" name="Starman_BG_Fire" flipX="true"/>
+	<sprite x="-1554" name="SS_farplatforms" sprite="SS_farplatforms" y="19.25"/>
+	<sprite x="218.5" name="SS_POWblock" sprite="SS_POWblock" y="1259.25"/>
+	<sprite x="-1566" name="SS_midplatforms" sprite="SS_midplatforms" y="-33.75"/>
+	<sprite x="-1465" name="SS_floor" sprite="SS_floor" y="-39.75"/>
+	<combo x="754.5" y="886.25"/>
+	<dad x="-713" y="547.75"/>
+	<gf x="1198" y="847.25"/>
+	<bf x="926.5" y="680.25"/>
+	<sprite x="-1531" name="SS_foreground" sprite="SS_foreground" y="-39.75"/>
+</stage>

@@ -1,0 +1,16 @@
+{
+	"opponentModeAllowed": true,
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"beatsPerMesure": 4,
+	"bpm": 128,
+	"difficulties": [
+		"Hard"
+	],
+	"needsVoices": true,
+	"parsedColor": -7927030,
+	"displayName": "starman-slaughter",
+	"icon": "marioSS",
+	"name": "starman-slaughter",
+	"color": "#870B0A"
+}
