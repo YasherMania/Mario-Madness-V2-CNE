@@ -1,5 +1,8 @@
 <!DOCTYPE codename-engine-stage>
 <stage zoom="1" name="philly" folder="stages/beatus/">
+	<sprite name="tree" sprite="tree" scroll="0.4" scale="5" x="200" y="300" antialiasing="false"/>
+	<sprite name="georgeW" sprite="arbust" scroll="0.4" scale="5" x="1000" y="450" antialiasing="false"/>
+	<sprite name="grass" sprite="grass" scroll="0.6" scale="5" x="500" y="600" antialiasing="false"/>
 	<sprite name="bg" sprite="bars" scroll="0" scale="3"/>
 	<dad x="0" y="0" />
 	<gf x="400" y="0" />
