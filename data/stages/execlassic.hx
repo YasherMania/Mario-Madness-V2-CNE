@@ -3,8 +3,11 @@ var camxoffset:Float = 0;
 var camyoffset:Float = 0;
 var dadxoffset:Float = -100;
 var dadyoffset:Float = 0;
+var camBR = null;
 
 function create() {
+    FlxG.cameras.add(camBR = new HudCamera(), false);
+    camBR.bgColor = 0;
     defaultCamZoom = 0.6;
 
     remove(dad);
@@ -67,6 +70,15 @@ function beatHit(curBeat) {
             defaultCamZoom = 0.7;
             FlxTween.tween(FlxG.camera, {zoom: 0.7}, 0.2, {ease: FlxEase.sineInOut});
         case 35:
-            defaultCamZoom = 0.5;   
+            defaultCamZoom = 0.5;
+        case 340:
+            dark.cameras = [camBR];
+            dad.playAnim("laugh");
+            camHUD.alpha = 0.000;
+            defaultCamZoom = 0.7;
+        case 355:
+            dark.cameras = [camHUD];
+            camHUD.alpha = 1;
+            defaultCamZoom = 0.6;
     }
 }
