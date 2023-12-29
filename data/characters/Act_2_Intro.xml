@@ -1,0 +1,5 @@
+<!DOCTYPE codename-engine-character>
+<character x="50" icon="Ultra_M1_Assets" y="0" isGF="false" camy="-200" color="#870C0A" isPlayer="false" sprite="Act_2_Intro">
+	<anim x="-5" loop="false" y="0" fps="24" anim="Anim1" name="intro"/>
+	<anim x="-5" loop="false" y="0" fps="24" anim="EyesBG" name="eyes"/>
+</character>

@@ -1,0 +1,16 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="bf4" y="350" isGF="false" color="#31B1D1" flipX="false" isPlayer="true" sprite="Act_4_secondperspective">
+	<anim x="-5" loop="false" y="0" fps="24" anim="BFIldle" name="idle"/>
+	<anim x="-6" loop="false" y="39" fps="24" anim="BFUp0" name="singUP"/>
+	<anim x="60" loop="false" y="175" fps="24" anim="BFUpALT" name="singUP-alt"/>
+	<anim x="-13" loop="false" y="14" fps="24" anim="BFRight0" name="singLEFT"/>
+	<anim x="27" loop="false" y="-1" fps="24" anim="BFRightALT" name="singLEFT-alt"/>
+	<anim x="27" loop="false" y="-1" fps="24" anim="BFLeftALT" name="singRIGHT-alt"/>
+	<anim x="-23" loop="false" y="-1" fps="24" anim="BFLeft" name="singRIGHT"/>
+	<anim x="10" loop="false" y="-65" fps="24" anim="BFDownALT" name="singDOWN-alt"/>
+	<anim x="-20" loop="false" y="-35" fps="24" anim="BFDown0" name="singDOWN"/>
+	<anim x="31" loop="false" y="66" fps="24" anim="MISSUP" name="singUPmiss"/>
+	<anim x="25" loop="false" y="26" fps="24" anim="MISSLEFT" name="singLEFTmiss"/>
+	<anim x="-23" loop="false" y="9" fps="24" anim="MISSRIGHT" name="singRIGHTmiss"/>
+	<anim x="-16" loop="false" y="6" fps="24" anim="MISSDOWN" name="singDOWNmiss"/>
+</character>

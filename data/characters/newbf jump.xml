@@ -1,0 +1,6 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="bfexenew" y="350" isGF="false" flipX="true" color="#31B1D1" isPlayer="true" sprite="MM_Boyfriend_Assets_jump">
+	<anim x="-5" loop="false" y="0" fps="24" anim="JUMP name="jump"/>
+	<anim x="-5" loop="false" y="0" fps="24" anim="JUMPLAND name="land"/>
+
+</character>

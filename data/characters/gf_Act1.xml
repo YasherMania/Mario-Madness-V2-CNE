@@ -1,0 +1,13 @@
+<!DOCTYPE codename-engine-character>
+<character x="50" icon="gfexenew" y="0" isGF="false" camy="-200" color="#F90101" isPlayer="false" gameOverChar="" sprite="AllStars_Girlfriend_Assets_v2">
+	<anim x="-5" loop="false" y="0" fps="24" anim="GFIdle" name="idle"/>
+	<anim x="-11" loop="false" y="42" fps="24" anim="GFUp0" name="singUP"/>
+	<anim x="-23" loop="false" y="5" fps="24" anim="GFRight0" name="singRIGHT"/>
+	<anim x="77" loop="false" y="12" fps="24" anim="GFLeft0" name="singLEFT"/>
+	<anim x="-15" loop="false" y="-38" fps="24" anim="GFDown0" name="singDOWN"/>
+	<anim x="-17" loop="false" y="37" fps="24" anim="GFMissUp" name="singUPmiss"/>
+	<anim x="-27" loop="false" y="19" fps="24" anim="GFMissLeft" name="singLEFTmiss"/>
+	<anim x="80" loop="false" y="17" fps="24" anim="GFMissRight" name="singRIGHTmiss"/>
+	<anim x="-13" loop="false" y="-8" fps="24" anim="GFMissDown" name="singDOWNmiss"/>
+	<anim x="57" loop="false" y="12" fps="24" anim="GF Dodge" name="dodge"/>
+</character>

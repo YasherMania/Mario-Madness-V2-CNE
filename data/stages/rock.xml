@@ -1,0 +1,7 @@
+<stage zoom="0.9" name="rock" folder="stages/rock">
+<sprite name="red" x="0" y="200" sprite="red" scale="1.2"/>
+<sprite name="island" x="-800" y="-200" sprite="island_but_dumb" scale="1.2"/>
+<girlfriend y="350" x="800" scale="0.75"/>
+<dad x="400" y="450" camyoffset="0" scale="0.75"/>
+<boyfriend x="1200" y="325" scale="0.75" camyoffset="-150"/>
+</stage>

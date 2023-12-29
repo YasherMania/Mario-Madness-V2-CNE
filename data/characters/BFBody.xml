@@ -1,0 +1,5 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="MXdemise" y="0" isGF="false" color="#11B400" flipX="true" isPlayer="false" holdTime="6.1" sprite="Demise_BF_Assets">
+	<anim x="0" loop="true" y="-1000" fps="24" anim="Bottom" name="Legs"/>
+	<anim x="0" loop="true" y="0" fps="24" anim="BF Right Arm" name="Right Arm"/>
+</character>

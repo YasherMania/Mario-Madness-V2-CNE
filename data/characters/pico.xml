@@ -1,0 +1,13 @@
+<!DOCTYPE codename-engine-character>
+<character x="100" icon="pico" y="300" isGF="false" color="#B7D855" flipX="true" isPlayer="false" gameOverChar="pico_gameover" sprite="pico">
+	<anim x="-5" loop="false" y="0" fps="24" anim="Pico Idle Dance" name="idle"/>
+	<anim x="-31" loop="false" y="49" fps="24" anim="PicoUp0" name="singUP"/>
+	<anim x="20" loop="false" y="-95" fps="24" anim="PicoDown0" name="singDOWN"/>
+	<anim x="22" loop="false" y="-16" fps="24" anim="PicoLeft0" name="singRIGHT"/>
+	<anim x="60" loop="false" y="19" fps="24" anim="PicoRight0" name="singLEFT"/>
+	<anim x="16" loop="false" y="61" fps="24" anim="PicoUpMiss" name="singUPmiss"/>
+	<anim x="74" loop="false" y="-59" fps="24" anim="PicoDownMiss" name="singDOWNmiss"/>
+	<anim x="7" loop="false" y="4" fps="24" anim="PicoLeftMiss" name="singLEFTmiss"/>
+	<anim x="65" loop="false" y="36" fps="24" anim="PicoRightMiss" name="singRIGHTmiss"/>
+	<anim x="84" loop="false" y="172" fps="24" anim="PicoShoot" name="shoot"/>
+</character>

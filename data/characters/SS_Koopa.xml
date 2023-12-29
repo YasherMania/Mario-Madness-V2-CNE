@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character>
+<character x="-100" icon="SS_Koopa" y="-1100" isGF="false" color="#870C0A" isPlayer="false" holdTime="6.1" sprite="SS_Koopa">
+	<anim x="0" loop="false" y="0" fps="24" anim="Idle" name="idle"/>
+	<anim x="25" loop="false" y="102" fps="24" anim="Up" name="singUP"/>
+	<anim x="80" loop="false" y="-25" fps="24" anim="Left" name="singLEFT"/>
+	<anim x="-244" loop="false" y="-60" fps="24" anim="Right" name="singRIGHT"/>
+	<anim x="-45" loop="false" y="-55" fps="24" anim="Down" name="singDOWN"/>
+</character>

@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="bf4" y="350" isGF="false" color="#31B1D1" flipX="true" isPlayer="true" sprite="ultram_final_bf">
+	<anim x="-5" loop="false" y="0" fps="24" anim="bf idle" name="idle"/>
+	<anim x="-16" loop="false" y="-1" fps="24" anim="bf up" name="singUP"/>
+	<anim x="8" loop="false" y="-11" fps="24" anim="bf left" name="singLEFT"/>
+	<anim x="-23" loop="false" y="-1" fps="24" anim="bf right" name="singRIGHT"/>
+	<anim x="5" loop="false" y="0" fps="24" anim="bf down" name="singDOWN"/>
+</character>
