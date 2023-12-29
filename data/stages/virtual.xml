@@ -1,0 +1,60 @@
+<!DOCTYPE codename-engine-stage>
+<stage folder="stages/virtual/" zoom=".6">
+	<sprite x="-400" sprite="headbg" y="-200" scale="2" alpha="0.2" name="yourhead">
+		
+		
+		<property type="bool" name="visible" value="false"/>
+		
+	
+	</sprite>
+	<sprite x="-1200" scrolly="0.6" sprite="Wall Bg" y="-750" name="vwall" scrollx="0.6"/>
+	<sprite x="-1200" scrolly="0.75" sprite="Back Pipes" y="-750" name="backPipes" scrollx="0.75"/>
+	<sprite x="-1200" scrolly="0.75" sprite="Back Platform" y="-750" name="backFloor" scrollx="0.75"/>
+	<sprite x="800" scrolly="0.75" sprite="v_koopa_thorny" y="200" scale="0.8" name="turtle" scrollx="0.75">
+		
+		
+		<property type="bool" name="visible" value="false"/>
+		
+		
+		<property type="float" name="alpha" value="0.5"/>
+		
+		
+		<anim loop="false" x="0" anim="glitch in" fps="24" y="0" type="none" name="glitch"/>
+		
+		
+		<anim loop="false" x="0" anim="Koopa Idle Glitch" fps="24" y="0" type="beat" name="idle"/>
+		
+	
+	</sprite>
+	<sprite x="200" scrolly="0.75" sprite="v_koopa_thorny" y="200" scale="0.8" name="turtle2" scrollx="0.75">
+		
+		
+		<property type="bool" name="visible" value="false"/>
+		
+		
+		<anim loop="false" x="0" anim="glitch in" fps="24" y="0" type="none" name="glitch"/>
+		
+		
+		<anim loop="false" x="0" anim="Koopa Idle Glitch" fps="24" y="0" type="beat" name="idle"/>
+		
+	
+	</sprite>
+	<sprite x="-1200" name="frontPipes" sprite="Front Pipes" y="-750"/>
+	<sprite x="-1200" name="frontFloor" sprite="Main Platform" y="-750"/>
+	<sprite x="-1400" scrolly="0.75" sprite="Corner top Left Pipes" y="-600" name="cornerPipes" scrollx="0.75"/>
+	<sprite x="-1200" name="crazyFloor" sprite="Platform" y="-170">
+		
+		
+		<property type="bool" name="visible" value="false"/>
+		
+	
+	</sprite>
+	<sprite x="900" scrolly="0.9" sprite="Mr_Virtual_Girlfriend_Assets_jaj" name="gfwasTaken" scrollx="0.9">
+		<anim x="0" loop="false" y="0" fps="24" anim="GF Dancing Beat" type="beat" name="idle"/>
+		<property type="float" value="0" name="alpha"/>
+	</sprite>
+	<gf/>
+	<dad x="100" y="200"/>
+	<bf x="1100" y="100"/>
+	<combo/>
+</stage>

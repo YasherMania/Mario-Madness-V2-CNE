@@ -1,0 +1,14 @@
+{
+    "params": [
+        {
+            "name": "Game Zoom",
+            "type": "String",
+            "defaultValue": "0.015"
+        },
+		{
+            "name": "HUD Zoom",
+            "type": "String",
+            "defaultValue": "0.03"
+        }
+    ]
+}

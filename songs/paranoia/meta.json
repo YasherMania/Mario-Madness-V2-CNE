@@ -1,15 +1,16 @@
 {
 	"opponentModeAllowed": false,
-	"difficulties": [
-		"HARD"
-	],
-	"icon": "face",
-	"parsedColor": -7179779,
 	"coopAllowed": false,
 	"stepsPerBeat": 4,
 	"beatsPerMesure": 4,
-	"displayName": "paranoia",
-	"needsVoices": true,
 	"bpm": 145,
-	"name": "paranoia"
+	"difficulties": [
+		"HARD"
+	],
+	"needsVoices": true,
+	"parsedColor": -65536,
+	"displayName": "paranoia",
+	"icon": "v",
+	"name": "paranoia",
+	"color": "#FF0000"
 }

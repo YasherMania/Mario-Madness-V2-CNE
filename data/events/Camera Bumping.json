@@ -1,0 +1,13 @@
+{
+	"params": [
+		{
+			"name": "Interval",
+			"type": "String",
+			"defaultValue": "4"
+		},{
+			"name": "Strength",
+			"type": "String",
+			"defaultValue": "1"
+		}
+	]
+}
