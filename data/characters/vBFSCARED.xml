@@ -1,0 +1,12 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="bfvsad" y="350" isGF="false" color="#000000" flipX="true" isPlayer="true" holdTime="6.1" sprite="MRV_Boyfriend_Assets">
+	<anim x="-7" loop="false" y="30" fps="24" anim="SCAREDIDLE" name="idle"/>
+	<anim x="-10" loop="false" y="32" fps="24" anim="SCAREDLEFT" name="singLEFT"/>
+	<anim x="-10" loop="false" y="52" fps="24" anim="MISSSCAREDLEFT" name="singLEFTmiss"/>
+	<anim x="-46" loop="false" y="31" fps="24" anim="SCAREDRIGHT" name="singRIGHT"/>
+	<anim x="-40" loop="false" y="61" fps="24" anim="MISSSCAREDRIGHT" name="singRIGHTmiss"/>
+	<anim x="-28" loop="false" y="90" fps="24" anim="SCAREDUP" name="singUP"/>
+	<anim x="-23" loop="false" y="123" fps="24" anim="MISSSCAREDUP" name="singUPmiss"/>
+	<anim x="-21" loop="false" y="-6" fps="24" anim="SCAREDDOWN" name="singDOWN"/>
+	<anim x="-22" loop="false" y="0" fps="24" anim="MISSSCAREDDOWN" name="singDOWNmiss"/>
+</character>
