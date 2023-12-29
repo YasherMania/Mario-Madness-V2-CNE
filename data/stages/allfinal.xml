@@ -1,0 +1,35 @@
+<!DOCTYPE codename-engine-stage>
+<stage folder="stages/final/">
+	<sprite x="-1548" y="-1217" sprite="act1_sky" name="act1_sky"/>
+	<sprite x="-1554" y="-868" sprite="act1_skyline" name="act1_skyline"/>
+	<sprite x="-1533" y="-904" sprite="act1_bgbuildings" name="act1_bgbuildings"/>
+	<sprite x="-1466" y="-851" sprite="act1_floor" name="act1_floor"/>
+	<sprite x="-283" y="-456" sprite="act2_static" alpha="0" scale="2.9" name="act2_static"/>
+	<sprite x="-709" y="-645" sprite="act2_scroll1" scale="1.7" scrollx="0" name="act2_scroll1"/>
+	<sprite x="-828" y="-720" sprite="act2_pipes_far" alpha="0" scale="1.7" name="act2_pipes_far"/>
+	<sprite x="-573" y="-612" sprite="act2_pipes_middle" alpha="0" scale="2" name="act2_pipes_middle"/>
+	<sprite x="-622" y="-493" sprite="act2_pipes_close" alpha="0" scale="1.6" name="act2_pipes_close"/>
+	<sprite x="0" y="0" sprite="act2_pipes_waryosh" alpha="0" scale="1.4" name="act2_pipes_L"/>
+	<sprite x="750" y="0" sprite="act2_pipes_waryosh" alpha="0" scale="1.4" name="act2_pipes_yosh"/>
+	<sprite x="-750" y="-154" sprite="act2_pipes_waryosh" alpha="0" scale="1.4" name="act2_pipes_war"/>
+	<sprite x="-1144" name="Act3_Hills" sprite="Act3_Hills" y="153.5"/>
+	<sprite x="-841.5" name="Act3_Ultra_M" sprite="Act3_Ultra_M" y="-519.5"/>
+	<sprite x="501" y="117" sprite="Act3_bfpipe" scale="1.4" name="Act3_bfpipe"/>
+	<sprite x="181.5" name="Act3_Ultra_Pupils" sprite="Act3_Ultra_Pupils" y="-193"/>
+	<gf x="1336" y="156"/>
+	<sprite x="-703" y="-482" sprite="act2_abyss_gradient" alpha="0" scale="2" name="act2_abyss_gradient"/>
+	<dad x="-890.5" y="-528"/>
+	<sprite x="-714" y="-335" sprite="act2_pipes_lgbf" alpha="0" scale="1.4" name="act2_pipes_lgbf"/>
+	<bf x="1028" y="-82.5"/>
+	<combo/>
+	<sprite x="-1465" y="-851" sprite="act1_fg" name="act1_fg"/>
+	<sprite x="-1288" name="act3Spotlight" sprite="act3Spotlight" y="-941"/>
+	<sprite sprite="Act_4_FINALE_Lightingmcqueen" alpha="0" name="Act_4_FINALE_Lightingmcqueen"/>
+	<sprite x="-1689" sprite="act3" y="-1223" updateHitbox="true"  alpha="0" scale="4" name="act3"/>
+	<sprite x="781" y="598" sprite="bf pipe final" scale="2" alpha="0"  name="bf pipe final"/>
+	<sprite x="-183" y="-334" sprite="gray static" scale="2" alpha="0" name="graystatic"/>
+	<sprite x="-213" y="-130.5" sprite="bg ripple" scale="2" alpha="0" name="bgripple"/>
+	<sprite x="1138" y="-359.5" sprite="she got infected with the exe" alpha="0"  name="she got infected with the exe"/>
+	<sprite x="-956" y="-330.5" sprite="memory" alpha="0"  name="memory"/>
+	<sprite x="-235" y="-238" sprite="spotlight" scale="2"  alpha="0" name="spotlight"/>
+</stage>
