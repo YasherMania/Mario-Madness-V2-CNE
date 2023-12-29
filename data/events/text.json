@@ -1,0 +1,19 @@
+{
+	"params": [
+		{
+			"name": "1st row",
+			"type": "String",
+			"defaultValue": ""
+		},
+		{
+			"name": "2nd row",
+			"type": "String",
+			"defaultValue": ""
+		},
+		{
+			"name": "3rd row",
+			"type": "String",
+			"defaultValue": ""
+		}
+	]
+}

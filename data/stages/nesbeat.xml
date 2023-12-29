@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-stage>
+<stage zoom="1" name="philly" folder="stages/beatus/">
+	<sprite name="bg" sprite="bars" scroll="0" scale="3"/>
+	<dad x="0" y="0" />
+	<gf x="400" y="0" />
+	<boyfriend x="37	0" y="0" />
+
+</stage>

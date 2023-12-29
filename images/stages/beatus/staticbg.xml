@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="staticbg.png" width="3166" height="363">
+	<SubTexture name="staticbg castle0000" x="1697" y="1" width="367" height="361" frameX="-281" frameY="-3" frameWidth="650" frameHeight="367"/>
+	<SubTexture name="staticbg castle0001" x="2067" y="1" width="364" height="361" frameX="-281" frameY="-3" frameWidth="650" frameHeight="367"/>
+	<SubTexture name="staticbg castle0002" x="2434" y="1" width="364" height="361" frameX="-281" frameY="-3" frameWidth="650" frameHeight="367"/>
+	<SubTexture name="staticbg castle0003" x="2801" y="1" width="364" height="361" frameX="-281" frameY="-3" frameWidth="650" frameHeight="367"/>
+	<SubTexture name="staticbg duck0000" x="1" y="1" width="421" height="361" frameX="-3" frameY="-3" frameWidth="650" frameHeight="367"/>
+	<SubTexture name="staticbg duck0001" x="425" y="1" width="421" height="361" frameX="-3" frameY="-3" frameWidth="650" frameHeight="367"/>
+	<SubTexture name="staticbg duck0002" x="849" y="1" width="421" height="361" frameX="-3" frameY="-3" frameWidth="650" frameHeight="367"/>
+	<SubTexture name="staticbg duck0003" x="1273" y="1" width="421" height="361" frameX="-3" frameY="-3" frameWidth="650" frameHeight="367"/>
+</TextureAtlas>

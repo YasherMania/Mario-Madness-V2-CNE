@@ -1,0 +1,18 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="bf" y="0" isGF="false" color="#31B0D1" flipX="true" isPlayer="true" holdTime="6.1" sprite="MM_IHY_Boyfriend_AssetsFINAL">
+	<anim x="0" loop="false" y="0" fps="24" anim="IDLE" name="idle"/>
+	<anim x="5" loop="false" y="4" fps="24" anim="LEFT" name="singLEFT"/>
+	<anim x="5" loop="false" y="15" fps="24" anim="MISSRIGHT" name="singLEFTmiss"/>
+	<anim x="5" loop="false" y="13" fps="24" anim="RIGHT" name="singRIGHT"/>
+	<anim x="5" loop="false" y="40" fps="24" anim="MISSLEFT" name="singRIGHTmiss"/>
+	<anim x="-26" loop="false" y="67" fps="24" anim="UP" name="singUP"/>
+	<anim x="-25" loop="false" y="68" fps="24" anim="MISSUP" name="singUPmiss"/>
+	<anim x="-25" loop="false" y="-45" fps="24" anim="DOWN" name="singDOWN"/>
+	<anim x="-25" loop="false" y="10" fps="24" anim="MISSDOWN" name="singDOWNmiss"/>
+	<anim x="45" loop="false" y="10" fps="24" anim="PreJump" name="PreJump"/>
+	<anim x="230" loop="true" y="75" fps="24" anim="Spin" name="Spin"/>
+	<anim x="305" loop="false" y="34" fps="24" anim="Attack" name="Attack"/>
+	<anim x="-255" loop="true" y="-145" fps="24" anim="Capejajacomoelcharter" name="Capeanim"/>
+	<anim x="-230" loop="false" y="-135" fps="24" anim="CapeFail" name="CapeanimMISS"/>
+	<anim x="35" loop="false" y="35" fps="24" anim="Yeah" name="YEAH"/>
+</character>

@@ -1,0 +1,19 @@
+<!DOCTYPE codename-engine-splashes>
+<splashes sprite="game/splashes/diamond" alpha="0.6" scale="0.7">
+<strum id="0"> <!-- LEFT -->
+    <anim name="splashleft1" anim="note splash purple" fps="24" x="0" y="0" indices="0,1,2,3" />
+    <anim name="splashleft2" anim="note splash purpleR" fps="24" x="20" y="-10" indices="0,1,2,3" />
+</strum>
+<strum id="1"> <!-- DOWN -->
+    <anim name="splashdown1" anim="note splash blue" fps="24" x="-10" y="0" indices="0,1,2,3" />
+    <anim name="splashdown2" anim="note splash blueR" fps="24" x="20" y="-10" indices="0,1,2,3" />
+</strum>
+<strum id="2"> <!-- UP -->
+    <anim name="splashup1" anim="note splash green" fps="24" x="-10" y="10" indices="0,1,2,3" />
+    <anim name="splashup2" anim="note splash greenR" fps="24" x="10" y="-10" indices="0,1,2,3" />
+</strum>
+<strum id="3"> <!-- RIGHT -->
+    <anim name="splashright1" anim="note splash red" fps="24" x="-5" y="5" indices="0,1,2,3" />
+    <anim name="splashright2" anim="note splash redR" fps="24" x="0" y="-10" indices="0,1,2,3" />
+</strum>
+</splashes>

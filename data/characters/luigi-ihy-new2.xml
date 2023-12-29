@@ -1,0 +1,11 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="luigiH" y="0" isGF="false" color="#11B400" isPlayer="false" holdTime="6.1" sprite="Luigi_IHY_Assets_New2">
+	<anim x="0" loop="false" y="0" fps="24" anim="LuigiIdle" name="idle"/>
+	<anim x="206" loop="false" y="64" fps="24" anim="LuigiLeft" name="singLEFT"/>
+	<anim x="25" loop="false" y="0" fps="24" anim="LuigiRight" name="singRIGHT"/>
+	<anim x="95" loop="false" y="150" fps="24" anim="LuigiUp" name="singUP"/>
+	<anim x="95" loop="false" y="-200" fps="24" anim="LuigiDown" name="singDOWN"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="Luigi Lava Hand" name="Lava Hands"/>
+	<anim x="100" loop="false" y="0" fps="24" anim="Luigi Falling" name="Falling"/>
+	<anim x="98" loop="false" y="131" fps="24" anim="Luigi Knees" name="Knees"/>
+</character>

@@ -1,0 +1,5 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="MXdemise" y="0" isGF="false" color="#11B400" flipX="true" isPlayer="false" holdTime="6.1" sprite="MX_Demise_Assets">
+	<anim x="0" loop="true" y="0" fps="24" anim="MX Running Legs" name="Legs"/>
+	<anim x="0" loop="true" y="0" fps="24" anim="MX Running Right Arm" name="Right Arm"/>
+</character>

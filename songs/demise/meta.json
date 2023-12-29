@@ -1,0 +1,16 @@
+{
+	"opponentModeAllowed": false,
+	"icon": "",
+	"difficulties": [
+		"HARD"
+	],
+	"parsedColor": -15034368,
+	"color": "#1A9800",
+	"name": "demise",
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "demise",
+	"beatsPerMesure": 4,
+	"needsVoices": true,
+	"bpm": 150
+}

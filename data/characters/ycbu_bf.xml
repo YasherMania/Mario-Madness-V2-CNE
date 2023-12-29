@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="bf" camx="230" y="50" isGF="false" scale="0.9" camy="0" flipX="true" isPlayer="true" holdTime="6.1" sprite="YouCannotBeatUS_BF_Assets">
+	<anim x="0" loop="false" y="0" fps="24" anim="BF idle dance" name="idle"/>
+	<anim x="-26" loop="false" y="0" fps="24" anim="BF NOTE UP0" name="singUP"/>
+	<anim x="-20" loop="false" y="0" fps="24" anim="BF NOTE LEFT0" name="singLEFT"/>
+	<anim x="-12" loop="false" y="0" fps="24" anim="BF NOTE RIGHT0" name="singRIGHT"/>
+	<anim x="-25" loop="false" y="0" fps="24" anim="BF NOTE DOWN0" name="singDOWN"/>
+</character>
