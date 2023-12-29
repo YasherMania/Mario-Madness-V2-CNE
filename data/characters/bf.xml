@@ -1,0 +1,12 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="bf" y="350" isGF="false" color="#31B0D1" flipX="true" isPlayer="true" holdTime="6.1" sprite="MM_Boyfriend_Assets_CAUSAPE">
+	<anim x="-4" loop="false" y="30" fps="24" anim="IDLE" name="idle"/>
+	<anim x="4" loop="false" y="31" fps="24" anim="LEFT" name="singLEFT"/>
+	<anim x="3" loop="false" y="37" fps="24" anim="MISSRIGHT" name="singLEFTmiss"/>
+	<anim x="-46" loop="false" y="31" fps="24" anim="RIGHT" name="singRIGHT"/>
+	<anim x="-45" loop="false" y="59" fps="24" anim="MISSRIGHT" name="singRIGHTmiss"/>
+	<anim x="-28" loop="false" y="90" fps="24" anim="UP" name="singUP"/>
+	<anim x="-28" loop="false" y="94" fps="24" anim="MISSUP" name="singUPmiss"/>
+	<anim x="-21" loop="false" y="-6" fps="24" anim="DOWN" name="singDOWN"/>
+	<anim x="-20" loop="false" y="40" fps="24" anim="MISSDOWN" name="singDOWNmiss"/>
+</character>
