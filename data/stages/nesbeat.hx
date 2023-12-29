@@ -1,7 +1,15 @@
 import openfl.Lib;
+import flixel.group.FlxGroup;
 var blackBarThingie:FlxSprite;
 var shader:CustomShader = null;
 var time:Float=0;
+
+var goobersL:FlxGroup;
+var goobersR:FlxGroup;
+var beatuspart:FlxGroup;
+
+var light1:FlxSprite;
+var light2:FlxSprite;
 
 function onCountdown(event:CountdownEvent) event.cancelled = true;
 
@@ -21,10 +29,73 @@ function create() {
         blackBarThingie.screenCenter();
         add(blackBarThingie);
 
+    	var light1 = new FlxSprite(-25, -200);
+    	light1.frames = Paths.getSparrowAtlas('stages/beatus/ycbu_lightning');
+    	light1.animation.addByPrefix('uh', "lightning", 24, true);
+    	light1.antialiasing = true;
+	light1.setGraphicSize(Std.int(light1.width * 1.2));
+    	light1.updateHitbox();
+    	add(light1);
+	light1.animation.play('uh', true);
+	light1.visible = false;
+		//i know there might be a better way to do this but uhhh not right now
+    	var light2 = new FlxSprite(850, -200);
+    	light2.frames = Paths.getSparrowAtlas('stages/beatus/ycbu_lightning');
+    	light2.animation.addByPrefix('uh', "lightning", 24, true);
+    	light2.antialiasing = true;
+	light2.setGraphicSize(Std.int(light2.width * 1.2));
+    	light2.updateHitbox();
+    	add(light2);
+	light2.animation.play('uh', true);
+
+    	goobersL = new FlxGroup(500);
+
+	for (i in 0...3) {
+    		var goob = new FlxSprite(-100, i * 500);
+    		goob.frames = Paths.getSparrowAtlas('stages/beatus/YouCannotBeatUS_Fellas_Assets');
+    		goob.animation.addByPrefix('p1', "Rotat e", 24, true);
+    		goob.animation.addByPrefix('p2', "Bird Up", 24, true);
+    		goob.animation.addByPrefix('p3', "Lakitu", 24, true);
+    		goob.antialiasing = true;
+		goob.setGraphicSize(Std.int(goob.width * 0.5));
+    		goob.updateHitbox();
+		goob.velocity.y = -500;
+    		add(goob);
+		goobersL.add(goob);
+		goob.animation.play('p1', true);
+	}
+
+    	goobersR = new FlxGroup(500);
+
+	for (i in 0...3) {
+    		var goob = new FlxSprite(800, i * 500);
+    		goob.frames = Paths.getSparrowAtlas('stages/beatus/YouCannotBeatUS_Fellas_Assets');
+    		goob.animation.addByPrefix('p1', "Rotat e", 24, true);
+    		goob.animation.addByPrefix('p2', "Bird Up", 24, true);
+    		goob.animation.addByPrefix('p3', "Lakitu", 24, true);
+    		goob.antialiasing = true;
+		goob.setGraphicSize(Std.int(goob.width * 0.5));
+    		goob.updateHitbox();
+		goob.velocity.y = 500;
+    		add(goob);
+		goobersR.add(goob);
+		goob.animation.play('p1', true);
+	}
+
         shader = new CustomShader("crt");
 	shader.anaglyphIntensity = 0.3;
 	shader.whiteIntensity = 0.7;
         camGame.addShader(shader);
+
+	boyfriend.x -= 150;
+	gf.x -= 150;
+
+    	beatuspart = new FlxGroup(500);
+	beatuspart.add(light1);
+	beatuspart.add(light2);
+	for (i in goobersL) beatuspart.add(i);
+	for (i in goobersR) beatuspart.add(i);
+	for (i in beatuspart) i.visible = false;
 }
 
 function postCreate(){
@@ -36,31 +107,41 @@ function update(elapsed:Float){
 }
 var dummyvar = 0;
 function postUpdate(elapsed:Float) {
-    switch(curCameraTarget) {
-        case 0:
-                dad.visible = true;
-                boyfriend.visible = false;
-                gf.visible = false;
+    	switch(curCameraTarget) {
+        	case 0:
+                	dad.visible = true;
+                	boyfriend.visible = false;
+                	gf.visible = false;
                     
-                if (dummyvar != -1) {
-		        blackBarThingie.alpha = 0.3;
-                        FlxTween.tween(blackBarThingie, {alpha: 0},1, {ease: FlxEase.linear, type: FlxTween.ONESHOT});    
-            	        dummyvar = -1;
-                }
+                	if (dummyvar != -1) {
+		 	       blackBarThingie.alpha = 0.3;
+                        	FlxTween.tween(blackBarThingie, {alpha: 0},1, {ease: FlxEase.linear, type: FlxTween.ONESHOT});    
+            	        	dummyvar = -1;
+                	}
 
-                alreadychange = false;
-        case 1:
-                dad.visible = false;
-                boyfriend.alpha = 1;
-                boyfriend.visible = true;
-                gf.visible = true;
-                gf.alpha = 1;      
-                if (dummyvar != 1) {
-		        blackBarThingie.alpha = 0.3;
-                        FlxTween.tween(blackBarThingie, {alpha: 0},1, {ease: FlxEase.linear, type: FlxTween.ONESHOT});    
-                        dummyvar = 1;
-                }
-    }
+                	alreadychange = false;
+        	case 1:
+                	dad.visible = false;
+                	boyfriend.alpha = 1;
+                	boyfriend.visible = true;
+                	gf.visible = true;
+                	gf.alpha = 1;      
+                	if (dummyvar != 1) {
+		        	blackBarThingie.alpha = 0.3;
+                        	FlxTween.tween(blackBarThingie, {alpha: 0},1, {ease: FlxEase.linear, type: FlxTween.ONESHOT});    
+                        	dummyvar = 1;
+                	}
+    	}
+	for (goob in goobersL) {
+		if (goob.y < -500) {
+			goob.y = 1000;
+		}
+	}
+	for (goob in goobersR) {
+		if (goob.y > 1000) {
+			goob.y = -500;
+		}
+	}
 }
 
 function beatHit(curBeat)
@@ -102,6 +183,9 @@ function return() {
 
 function part1cantbeat() {
 	//shit function name, i know, but it's the one part where it speeds up and goes middlescroll
+	for (i in beatuspart) i.visible = true;
+	for (goob in goobersL) goob.animation.play('p1', true);
+	for (goob in goobersR) goob.animation.play('p1', true);
 }
 
 function part2trans() {
