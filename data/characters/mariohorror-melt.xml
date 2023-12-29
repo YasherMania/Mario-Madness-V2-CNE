@@ -1,0 +1,11 @@
+<!DOCTYPE codename-engine-character>
+<character x="-40" icon="meltedmario" camx="-320" y="-90" isGF="false" camy="-190" color="#870A07" isPlayer="false" sprite="Melted_MarioEXE_Assets">
+	<anim x="0" loop="false" y="0" fps="24" anim="meltio idle" name="idle"/>
+	<anim x="1" loop="false" y="-321" fps="24" anim="meltio down" name="singDOWN"/>
+	<anim x="89" loop="false" y="68" fps="24" anim="meltio left" name="singLEFT"/>
+	<anim x="-57" loop="false" y="367" fps="24" anim="meltio up" name="singUP"/>
+	<anim x="32" loop="false" y="-34" fps="24" anim="meltio right" name="singRIGHT"/>
+	<anim x="0" loop="false" y="80" fps="24" anim="meltio scream" name="end"/>
+	<anim x="90" loop="false" y="70" fps="24" anim="meltio jump 2" name="fall"/>
+	<anim x="40" loop="true" y="130" fps="24" anim="meltio jump0" name="jump"/>
+</character>

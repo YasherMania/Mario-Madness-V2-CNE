@@ -1,0 +1,9 @@
+<!DOCTYPE codename-engine-character>
+<character x="-80" icon="marioex2" camx="-320" y="-110" isGF="false" camy="-190" color="#460705" isPlayer="false" sprite="NEW_Mario_EXE_V2_Assets">
+	<anim x="1" loop="false" y="0" fps="24" anim="MarioIdle0" name="idle"/>
+	<anim x="172" loop="false" y="-216" fps="24" anim="MarioDown0" name="singDOWN"/>
+	<anim x="320" loop="false" y="-87" fps="24" anim="MarioLeft0" name="singLEFT"/>
+	<anim x="317" loop="false" y="193" fps="24" anim="MarioUp0" name="singUP"/>
+	<anim x="-79" loop="false" y="-134" fps="24" anim="MarioRight0" name="singRIGHT"/>
+	<anim x="20" loop="false" y="26" fps="22" anim="MarioLaugh" name="laugh"/>
+</character>
