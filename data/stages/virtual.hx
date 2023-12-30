@@ -94,7 +94,8 @@ function gf(){
     for (i in [camGame, camHUD, crazyFloor]) i.visible = true;
     for (e in [vwall, backPipes, backFloor, turtle, turtle2, frontPipes, frontFloor, cornerPipes, gfwasTaken]) e.visible = false;
     tweenCam = false;
-    NdllUtil.getFunction('transparency','transparency_get_windows_transparent',4)(0, 0, 0, 0);
+    FlxG.camera.bgColor = 0xFF000101;
+    NdllUtil.getFunction('transparency','transparency_get_windows_transparent',4)(1, 1, 0, 0);
 }
 
 function measureHit(){
