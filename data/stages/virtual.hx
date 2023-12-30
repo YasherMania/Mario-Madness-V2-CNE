@@ -4,20 +4,20 @@ var intro:FlxSound;
 var turtlesTime, tweenCam, startresize:Bool = false;
 
 // WINDOW MOVE VAR
-var winx:Int;
-var winy:Int;
+public var winx:Int;
+public var winy:Int;
 
 // i dont remember why im using this but ok
-var changex:Int;
-var changey:Int;
+public var changex:Int;
+public var changey:Int;
 
 // WINDOW SIZE CHANGE VAR
-var resizex:Int = 1280;
-var resizey:Int = 720;
+public var resizex:Int = 1280;
+public var resizey:Int = 720;
 
 // MONITOR RESOLUTION
-var fsX:Int = 1920;
-var fsY:Int = 1080;
+public var fsX:Int = 1920;
+public var fsY:Int = 1080;
 
 window.x = 325;
 window.y = 175;
@@ -118,20 +118,20 @@ function whatsTheMatterBoy(){
 }
 
 function preGfWindow(){
-    FlxTween.tween(window, {x: 0, y: 0, width: 1980, height: 1080}, 1.6, {
+    FlxTween.tween(window, {x: 0, y: 0, width: 1920, height: 1080}, 1.6, {
         ease: FlxEase.expoIn,
         onComplete: function(twn:FlxTween){
             // CppAPI.setTransparency(window.title, 0x001957);
             startresize = false;
             window.borderless = false;
-            window.fullscreen = true;
+            // window.fullscreen = true;
         }
     });
 }
 
 function noMoreFullscreen(){
     window.borderless = false;
-    window.fullscreen = false;
+    // window.fullscreen = false;
     FlxTween.tween(window, {x: 325, y: 175, width: resizex, height: resizey}, 1, {ease: FlxEase.expoOut});
     crazyFloor.visible = false;
 }
