@@ -1,4 +1,5 @@
 import flixel.addons.display.FlxBackdrop;
+import openfl.system.Capabilities;
 import funkin.backend.utils.NdllUtil; // NEEDED FOR THE TRANSPARENT WINDOW SHIT !!!
 
 var intro:FlxSound;
@@ -13,12 +14,12 @@ public var changex:Int;
 public var changey:Int;
 
 // WINDOW SIZE CHANGE VAR
-public var resizex:Int = 1280;
-public var resizey:Int = 720;
+public var resizex:Int = Capabilities.screenResolutionX / 1.5;
+public var resizey:Int = Capabilities.screenResolutionY / 1.5;
 
 // MONITOR RESOLUTION
-public var fsX:Int = 1920;
-public var fsY:Int = 1080;
+public var fsX:Int = Capabilities.screenResolutionX;
+public var fsY:Int = Capabilities.screenResolutionY;
 
 window.x = 325;
 window.y = 175;
@@ -121,7 +122,7 @@ function whatsTheMatterBoy(){
 }
 
 function preGfWindow(){
-    FlxTween.tween(window, {x: 0, y: 0, width: 1920, height: 1080}, 1.6, {
+    FlxTween.tween(window, {x: 0, y: 0, width: fsX, height: fsY}, 1.6, {
         ease: FlxEase.expoIn,
         onComplete: function(twn:FlxTween){
             // CppAPI.setTransparency(window.title, 0x001957);

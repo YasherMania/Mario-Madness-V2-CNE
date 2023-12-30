@@ -140,8 +140,8 @@ function create() {
 
     FlxG.cameras.add(camFPS = new HudCamera(), false);
     camFPS.bgColor = 0;
-    fpsfunniCounter = new FlxText(10,10, 400, 18);
-    fpsfunniCounter.setFormat("_sans", 14, FlxColor.WHITE, "LEFT");
+    fpsfunniCounter = new FlxText(10, 8, 400, 18);
+    fpsfunniCounter.setFormat("Mario2.ttf", 10, 0xFFA11B1B);
     fpsfunniCounter.antialiasing = true;
     fpsfunniCounter.scrollFactor.set();
     fpsfunniCounter.cameras = [camFPS];
