@@ -3,17 +3,20 @@
 import flixel.addons.display.FlxBackdrop;
 import openfl.Lib;
 
-var camxoffset:Float = 0;
-var camyoffset:Float = 0;
-var dadxoffset:Float = -1000;
-var dadyoffset:Float = 0;
 var path1:String = "stages/demise/1/";
 var path2:String = "stages/demise/2/";
-var shader:CustomShader = null; //suck ass
-var shader2:CustomShader = null; //suck ass
+
+var tv = new CustomShader('85');
+var tv2 = new CustomShader('tv85');
+
 
 
 function postCreate() {
+
+    camHUD.addShader(tv);
+    camHUD.addShader(tv2);
+    camGame.addShader(tv);
+    camGame.addShader(tv2);
     iconP2.flipX =true;
     iconP1.flipX =true;
     health = 2;
