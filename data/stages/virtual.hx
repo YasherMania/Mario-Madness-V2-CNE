@@ -92,6 +92,7 @@ function gf(){
     for (i in [camGame, camHUD, yourhead, crazyFloor]) i.visible = true;
     for (e in [vwall, backPipes, backFloor, turtle, turtle2, frontPipes, frontFloor, cornerPipes, gfwasTaken]) e.visible = false;
     tweenCam = false;
+    health = 1;
 }
 
 function measureHit(){
@@ -126,4 +127,11 @@ function preGfWindow(){
             window.fullscreen = true;
         }
     });
+}
+
+function noMoreFullscreen(){
+    window.borderless = false;
+    window.fullscreen = false;
+    FlxTween.tween(window, {x: 325, y: 175, width: resizex, height: resizey}, 1, {ease: FlxEase.expoOut});
+    crazyFloor.visible = false;
 }
