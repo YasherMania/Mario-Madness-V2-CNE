@@ -12,16 +12,23 @@ var path2:String = "stages/demise/2/";
 var shader:CustomShader = null; //suck ass
 var shader2:CustomShader = null; //suck ass
 
+
+function postCreate() {
+    iconP2.flipX =true;
+    iconP1.flipX =true;
+    health = 2;
+}
+
 function create() {
 
     Lib.application.window.title="Friday Night Funkin': Mario's Madness | Demise | KennyL";    
 
     defaultCamZoom = 0.8;
 
-    dad.x = 700;
+    dad.x = 600;
     dad.y = - 100;
     boyfriend.y = 800;
-    boyfriend.x = 300;
+    boyfriend.x = 275;
 
 
     remove(dad);
@@ -89,9 +96,16 @@ function create() {
     add(boyfriend);
 }
 
+function postUpdate() {
+    iconP2.x = FlxG.height/0.8;
+    iconP2.y = 565;
+}
+
 function update() { 
     arm.visible = dad.animation.curAnim.name == "idle";
     arm2.visible = boyfriend.animation.curAnim.name == "idle";
+    arm2.playAnim("Right Arm") = boyfriend.animation.curAnim.name == "idle";
+    arm.playAnim("Right Arm") = dad.animation.curAnim.name == "idle";
 }
 
 function onCameraMove(){
@@ -99,4 +113,11 @@ function onCameraMove(){
            defaultCamZoom = 0.55;
     if (curCameraTarget == 1)
            defaultCamZoom = 0.8;
+}
+
+function stepHit() {
+    switch (curStep)
+    {
+        //case :
+    }
 }

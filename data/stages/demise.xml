@@ -1,1 +1,3 @@
-<stage zoom=".8"/>
+<stage zoom=".8">
+<dad camxoffset="-500" camyoffset="200"/>
+</stage>
