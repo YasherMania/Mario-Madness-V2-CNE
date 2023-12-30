@@ -1,4 +1,5 @@
 import flixel.addons.display.FlxBackdrop;
+import funkin.backend.utils.NdllUtil; // NEEDED FOR THE TRANSPARENT WINDOW SHIT !!!
 
 var intro:FlxSound;
 var turtlesTime, tweenCam, startresize:Bool = false;
@@ -25,6 +26,7 @@ window.width = resizex;
 window.height = resizey;
 window.fullscreen = false;
 window.resizable = false;
+NdllUtil.getFunction('transparency','transparency_get_windows_transparent',4)(1, 0, 0, 0);
 
 camHUD.visible = false;
 
@@ -89,10 +91,10 @@ function hideCam() for (i in [camGame, camHUD]) i.visible = false;
 function beatHit() if (turtlesTime) for (i in [turtle, turtle2]) i.animation.play('idle');
 
 function gf(){
-    for (i in [camGame, camHUD, yourhead, crazyFloor]) i.visible = true;
+    for (i in [camGame, camHUD, crazyFloor]) i.visible = true;
     for (e in [vwall, backPipes, backFloor, turtle, turtle2, frontPipes, frontFloor, cornerPipes, gfwasTaken]) e.visible = false;
     tweenCam = false;
-    health = 1;
+    NdllUtil.getFunction('transparency','transparency_get_windows_transparent',4)(0, 0, 0, 0);
 }
 
 function measureHit(){
@@ -134,4 +136,6 @@ function noMoreFullscreen(){
     // window.fullscreen = false;
     FlxTween.tween(window, {x: 325, y: 175, width: resizex, height: resizey}, 1, {ease: FlxEase.expoOut});
     crazyFloor.visible = false;
+    yourhead.visible = true;
+    NdllUtil.getFunction('transparency','transparency_get_windows_transparent',4)(1, 0, 0, 0);
 }
