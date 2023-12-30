@@ -138,7 +138,7 @@ function create() {
     timeTxt.cameras = [camHUD];
     //PauseSubState.script = 'data/scripts/funnypause';
 
-    FlxG.cameras.add(camFPS = new HudCamera(), false);
+    /*FlxG.cameras.add(camFPS = new HudCamera(), false);
     camFPS.bgColor = 0;
     fpsfunniCounter = new FlxText(10,10, 400, 18);
     fpsfunniCounter.setFormat("_sans", 14, FlxColor.WHITE, "LEFT");
@@ -149,10 +149,10 @@ function create() {
     cacheCount = 0;
     currentTime = 0;
     times = [];
-    finalFPS = 0;
-    Framerate.fpsCounter.visible = false;
-    Framerate.memoryCounter.visible = false;
-    Framerate.codenameBuildField.visible = false;
+    finalFPS = 0;*/
+    Framerate.fpsCounter.visible = true;
+    Framerate.memoryCounter.visible = true;
+    Framerate.codenameBuildField.visible = true;
 }
 
 function onSongStart() for (i in [timeBar, timeBarBG, timeTxt, botplayTxt]) FlxTween.tween(i, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
