@@ -2,6 +2,8 @@ import flixel.addons.display.FlxBackdrop;
 import openfl.system.Capabilities;
 import funkin.backend.utils.NdllUtil; // NEEDED FOR THE TRANSPARENT WINDOW SHIT !!!
 
+var setTransparent = NdllUtil.getFunction('transparent','ndllexample_set_windows_transparent', 4);
+
 var intro:FlxSound;
 var turtlesTime, focusCamGf:Bool = false;
 
@@ -25,7 +27,6 @@ changex = window.x;
 changey = window.y;
 window.fullscreen = false;
 window.resizable = false;
-NdllUtil.getFunction('transparency','transparency_get_windows_transparent',4)(255, 255, 255, 254);
 
 camHUD.visible = false;
 
@@ -47,6 +48,8 @@ function create(){
     gfwasTaken.alpha = 0;
     insert(1, gfwasTaken);
 }
+
+function postCreate() setTransparent(false, 255, 255, 254); // incase you restart the song during the transparent window part!!
 
 function postUpdate(){
     if (focusCamGf){
@@ -87,7 +90,7 @@ function gf(){
     focusCamGf = false;
     FlxG.camera.bgColor = 0xFF000101;
     camHUD.alpha = 1;
-    NdllUtil.getFunction('transparency','transparency_get_windows_transparent',4)(1, 1, 0, 0);
+    setTransparent(true, 0, 1, 1);
 }
 
 function measureHit(){
@@ -119,7 +122,6 @@ function preGfWindow(){
             // CppAPI.setTransparency(window.title, 0x001957);
             window.borderless = false;
             // window.fullscreen = true;
-            File.copy("wallpaper", relPath);
         }
     });
 }
@@ -130,5 +132,5 @@ function noMoreFullscreen(){
     FlxTween.tween(window, {x: 325, y: 175, width: resizex, height: resizey}, 1, {ease: FlxEase.expoOut});
     crazyFloor.visible = false;
     yourhead.visible = true;
-    NdllUtil.getFunction('transparency','transparency_get_windows_transparent',4)(255, 255, 255, 254);
+    setTransparent(false, 255, 255, 254);
 }
