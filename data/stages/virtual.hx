@@ -80,6 +80,13 @@ function turtles(){
     }
 }
 
+function startShake(){
+    if (curBeat % 8 == 0){
+        camGame.shake(0.35, 0.2);
+        camHUD.shake(0.35, 0.2);
+    }
+}
+
 function hideCam() camGame.visible = false;
 
 function beatHit() if (turtlesTime) for (i in [turtle, turtle2]) i.animation.play('idle');
