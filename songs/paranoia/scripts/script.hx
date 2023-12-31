@@ -66,11 +66,11 @@ function stepHit(){
             case 488:
                 for (i in [tweenWindow1X, tweenWindow1Y]) i.active = false;
                 tweenWindow2Y.active = true;
-                FlxTween.tween(window, {x: 325, y: 175}, 0.5, {ease: FlxEase.expoOut});
+                FlxTween.tween(window, {x: winX, y: winY}, 0.5, {ease: FlxEase.expoOut});
             case 576: tweenWindow2X.active = true;
             case 935:
                 for (i in [tweenWindow2X, tweenWindow2Y]) i.active = false;
-                FlxTween.tween(window, {x: 325, y: 175}, .5, {ease: FlxEase.cubeInOut});
+                FlxTween.tween(window, {x: winX, y: winY}, .5, {ease: FlxEase.cubeInOut});
         }
     }
 }
