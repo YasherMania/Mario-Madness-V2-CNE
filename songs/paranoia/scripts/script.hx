@@ -16,55 +16,61 @@ function create(){
 }
 
 function beatHit(){
-    if (curBeat == 241) FlxTween.tween(camHUD, {alpha: 0}, 0.5, {ease: FlxEase.quadInOut});
-    if (curBeat == 242) vocals.volume = 1; // for those who missed the note during virtual's speech
+    switch(curBeat){
+        case 241: FlxTween.tween(camHUD, {alpha: 0}, 0.5, {ease: FlxEase.quadInOut});
+        case 242: vocals.volume = 1; // for those who missed the note during virtual's speech
+        case 323, 435, 503: bgBeatMore = false;
+        case 371, 439: bgBeatMore = true;
+    }
 }
 
 function stepHit(){
-    switch (curStep){
-		case 320:
-			window.x = changex - 20;
-			window.y = changey + 50;
-		case 324:
-			window.x = changex + 20;
-			window.y = changey - 50;
-		case 328:
-			window.x = changex + 100;
-			window.y = changey + 100;
-		case 332:
-			window.x = changex + 100;
-			window.y = changey - 100;
-			FlxTween.tween(window, {x: changex / 4, y: Std.int(changey / 4)}, 0.2, {startDelay: 0.2, ease: FlxEase.backIn});
-        case 336:
-            tweenWindow1X.active = true;
-            tweenWindow1Y.active = true;
-        case 384:
-            for (i in [tweenWindow1X, tweenWindow1Y]){
-                i.percent += 0.20;
-                new FlxTimer().start(0.1, function(tmr:FlxTimer){
-                    i.active = false;
-                });
-            }
-        case 392:
-            for (i in [tweenWindow1X, tweenWindow1Y]){
-                i.active = true;
-                i.percent += 0.20;
-                new FlxTimer().start(0.1, function(tmr:FlxTimer){
-                    i.active = false;
-                });
-            }
-        case 400:
-            for (i in [tweenWindow1X, tweenWindow1Y]){
-                i.percent += 0.20;
-                i.active = true;
-            }
-        case 488:
-            for (i in [tweenWindow1X, tweenWindow1Y]) i.active = false;
-            tweenWindow2Y.active = true;
-            FlxTween.tween(window, {x: 325, y: 175}, 0.5, {ease: FlxEase.expoOut});
-        case 576: tweenWindow2X.active = true;
-        case 935:
-            for (i in [tweenWindow2X, tweenWindow2Y]) i.active = false;
-            FlxTween.tween(window, {x: 325, y: 175}, .5, {ease: FlxEase.cubeInOut});
+    if (FlxG.save.data.virtualWindow){
+        switch (curStep){
+            case 320:
+                window.x = changex - 20;
+                window.y = changey + 50;
+            case 324:
+                window.x = changex + 20;
+                window.y = changey - 50;
+            case 328:
+                window.x = changex + 100;
+                window.y = changey + 100;
+            case 332:
+                window.x = changex + 100;
+                window.y = changey - 100;
+                FlxTween.tween(window, {x: changex / 4, y: Std.int(changey / 4)}, 0.2, {startDelay: 0.2, ease: FlxEase.backIn});
+            case 336:
+                tweenWindow1X.active = true;
+                tweenWindow1Y.active = true;
+            case 384:
+                for (i in [tweenWindow1X, tweenWindow1Y]){
+                    i.percent += 0.20;
+                    new FlxTimer().start(0.1, function(tmr:FlxTimer){
+                        i.active = false;
+                    });
+                }
+            case 392:
+                for (i in [tweenWindow1X, tweenWindow1Y]){
+                    i.active = true;
+                    i.percent += 0.20;
+                    new FlxTimer().start(0.1, function(tmr:FlxTimer){
+                        i.active = false;
+                    });
+                }
+            case 400:
+                for (i in [tweenWindow1X, tweenWindow1Y]){
+                    i.percent += 0.20;
+                    i.active = true;
+                }
+            case 488:
+                for (i in [tweenWindow1X, tweenWindow1Y]) i.active = false;
+                tweenWindow2Y.active = true;
+                FlxTween.tween(window, {x: 325, y: 175}, 0.5, {ease: FlxEase.expoOut});
+            case 576: tweenWindow2X.active = true;
+            case 935:
+                for (i in [tweenWindow2X, tweenWindow2Y]) i.active = false;
+                FlxTween.tween(window, {x: 325, y: 175}, .5, {ease: FlxEase.cubeInOut});
+        }
     }
 }

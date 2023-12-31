@@ -5,7 +5,12 @@ import funkin.backend.utils.NdllUtil; // NEEDED FOR THE TRANSPARENT WINDOW SHIT 
 var setTransparent = NdllUtil.getFunction('transparent','ndllexample_set_windows_transparent', 4);
 
 var intro:FlxSound;
-var turtlesTime, focusCamGf:Bool = false;
+var turtlesTime, focusCamGf, shake:Bool = false;
+public var bgBeatMore:Bool = true;
+
+// DEFAULT WINDOW POSITIONS
+public var winX:Int = 325;
+public var winY:Int = 185;
 
 // i dont remember why im using this but ok
 public var changex:Int;
@@ -19,8 +24,8 @@ public var resizey:Int = Capabilities.screenResolutionY / 1.5;
 public var fsX:Int = Capabilities.screenResolutionX;
 public var fsY:Int = Capabilities.screenResolutionY;
 
-window.x = 325;
-window.y = 175;
+window.x = winX;
+window.y = winY;
 window.width = resizex;
 window.height = resizey;
 changex = window.x;
@@ -70,6 +75,8 @@ function onSongStart(){
     defaultCamZoom = .6;
 }
 
+function endSong() window.resizable = true;
+
 function turtles(){
     for (i in [turtle, turtle2]){
         i.visible = true;
@@ -80,27 +87,38 @@ function turtles(){
     }
 }
 
-function startShake(){
-    if (curBeat % 8 == 0){
-        camGame.shake(0.35, 0.2);
-        camHUD.shake(0.35, 0.2);
-    }
-}
+function startShake() shake = true;
+
+function stopShake() shake = false;
 
 function hideCam() camGame.visible = false;
 
-function beatHit() if (turtlesTime) for (i in [turtle, turtle2]) i.animation.play('idle');
+function beatHit(){
+    if (turtlesTime) for (i in [turtle, turtle2]) i.animation.play('idle');
+
+    if (bgBeatMore && curBeat % 2 == 0){
+        yourhead.alpha = 0.8;
+        yourhead.y = -200;
+        FlxTween.tween(yourhead, {y: -122, alpha: 0.2}, 0.4, {ease: FlxEase.quadOut});
+    }
+
+    if (shake && curBeat % 8 == 0){
+        camGame.shake(0.0035, 0.2);
+        camHUD.shake(0.0035, 0.2);
+    }
+}
 
 function gf(){
     for (i in [camGame, camHUD, crazyFloor]) i.visible = true;
     for (e in [vwall, backPipes, backFloor, turtle, turtle2, frontPipes, frontFloor, cornerPipes, gfwasTaken]) e.visible = false;
+    if (!FlxG.save.data.virtualTrans) yourhead.visible = true;
     focusCamGf = false;
     FlxG.camera.bgColor = 0xFF000101;
     camHUD.alpha = 1;
-    setTransparent(true, 0, 1, 1);
+    if (FlxG.save.data.virtualTrans) setTransparent(true, 0, 1, 1);
 }
 
-function measureHit(){
+function measureHit() if (!bgBeatMore){
     yourhead.alpha = 0.8;
 	yourhead.y = -200;
 	FlxTween.tween(yourhead, {y: -122, alpha: 0.2}, 0.4, {ease: FlxEase.quadOut});
@@ -123,21 +141,21 @@ function whatsTheMatterBoy(){
 }
 
 function preGfWindow(){
-    FlxTween.tween(window, {x: 0, y: 0, width: fsX, height: fsY}, 1.6, {
-        ease: FlxEase.expoIn,
-        onComplete: function(twn:FlxTween){
-            // CppAPI.setTransparency(window.title, 0x001957);
-            window.borderless = false;
-            // window.fullscreen = true;
-        }
-    });
+    if (FlxG.save.data.virtualWindow){
+        FlxTween.tween(window, {x: 0, y: 0, width: fsX, height: fsY}, 1.6, {
+            ease: FlxEase.expoIn,
+            onComplete: function(twn:FlxTween){
+                // CppAPI.setTransparency(window.title, 0x001957);
+                window.borderless = false;
+            }
+        });
+    }
 }
 
 function noMoreFullscreen(){
     window.borderless = false;
-    // window.fullscreen = false;
     FlxTween.tween(window, {x: 325, y: 175, width: resizex, height: resizey}, 1, {ease: FlxEase.expoOut});
     crazyFloor.visible = false;
     yourhead.visible = true;
-    setTransparent(false, 255, 255, 254);
+    if (FlxG.save.data.virtualTrans) setTransparent(false, 255, 255, 254);
 }

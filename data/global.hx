@@ -3,9 +3,11 @@ import funkin.backend.utils.NativeAPI;
 static var initialized:Bool = false;
 
 function new(){
-    // settings that get set to true on first launch
+    // settings that get set to their default values on first launch
     if (FlxG.save.data.flashingLights == null) FlxG.save.data.flashingLights = true;
     if (FlxG.save.data.streamerMode == null) FlxG.save.data.streamerMode = false;
+    if (FlxG.save.data.virtualWindow == null) FlxG.save.data.virtualWindow = true;
+    if (FlxG.save.data.virtualTrans == null) FlxG.save.data.virtualTrans = true; // transgender mr virtual
     if (FlxG.save.data.transparency_value == null) FlxG.save.data.transparency_value = 0;
 
     // Psych Options
