@@ -63,7 +63,7 @@ function stepHit(){
                     i.percent += 0.20;
                     i.active = true;
                 }
-            case 488:
+            case 448:
                 for (i in [tweenWindow1X, tweenWindow1Y]) i.active = false;
                 tweenWindow2Y.active = true;
                 FlxTween.tween(window, {x: winX, y: winY}, 0.5, {ease: FlxEase.expoOut});
@@ -71,6 +71,8 @@ function stepHit(){
             case 935:
                 for (i in [tweenWindow2X, tweenWindow2Y]) i.active = false;
                 FlxTween.tween(window, {x: winX, y: winY}, .5, {ease: FlxEase.cubeInOut});
+            case 1360:
+                dadZoom = .5;
         }
     }
 }

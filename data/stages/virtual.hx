@@ -6,7 +6,11 @@ var setTransparent = NdllUtil.getFunction('transparent','ndllexample_set_windows
 
 var intro:FlxSound;
 var turtlesTime, focusCamGf, shake:Bool = false;
+
 public var bgBeatMore:Bool = true;
+
+public var dadZoom:Float = .5;
+public var bfZoom:Float = .8;
 
 // DEFAULT WINDOW POSITIONS
 public var winX:Int = 325;
@@ -63,6 +67,13 @@ function postUpdate(){
     }
 }
 
+function update(){
+    switch (curCameraTarget){
+        case 0: defaultCamZoom = dadZoom;
+        case 1: defaultCamZoom = bfZoom;
+    }
+}
+
 function onCountdown(event:CountdownEvent) event.cancelled = true;
 
 function onStartCountdown(){
@@ -70,10 +81,7 @@ function onStartCountdown(){
     FlxTween.tween(camGame, {zoom: 0.5}, 1.3, {ease: FlxEase.expoOut});
 }
 
-function onSongStart(){
-    camHUD.visible = true;
-    defaultCamZoom = .6;
-}
+function onSongStart() camHUD.visible = true;
 
 function endSong() window.resizable = true;
 
@@ -115,6 +123,7 @@ function gf(){
     focusCamGf = false;
     FlxG.camera.bgColor = 0xFF000101;
     camHUD.alpha = 1;
+    dadZoom = bfZoom;
     if (FlxG.save.data.virtualTrans) setTransparent(true, 0, 1, 1);
 }
 
@@ -154,7 +163,7 @@ function preGfWindow(){
 
 function noMoreFullscreen(){
     window.borderless = false;
-    FlxTween.tween(window, {x: 325, y: 175, width: resizex, height: resizey}, 1, {ease: FlxEase.expoOut});
+    FlxTween.tween(window, {x: winX, y: winY, width: resizex, height: resizey}, 1, {ease: FlxEase.expoOut});
     crazyFloor.visible = false;
     yourhead.visible = true;
     if (FlxG.save.data.virtualTrans) setTransparent(false, 255, 255, 254);
