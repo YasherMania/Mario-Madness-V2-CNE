@@ -3,11 +3,7 @@ import openfl.system.Capabilities;
 import funkin.backend.utils.NdllUtil; // NEEDED FOR THE TRANSPARENT WINDOW SHIT !!!
 
 var intro:FlxSound;
-var turtlesTime, tweenCam, startresize:Bool = false;
-
-// WINDOW MOVE VAR
-public var winx:Int;
-public var winy:Int;
+var turtlesTime, focusCamGf:Bool = false;
 
 // i dont remember why im using this but ok
 public var changex:Int;
@@ -25,9 +21,11 @@ window.x = 325;
 window.y = 175;
 window.width = resizex;
 window.height = resizey;
+changex = window.x;
+changey = window.y;
 window.fullscreen = false;
 window.resizable = false;
-NdllUtil.getFunction('transparency','transparency_get_windows_transparent',4)(1, 0, 0, 0);
+NdllUtil.getFunction('transparency','transparency_get_windows_transparent',4)(255, 255, 255, 254);
 
 camHUD.visible = false;
 
@@ -51,15 +49,10 @@ function create(){
 }
 
 function postUpdate(){
-    if (tweenCam){
+    if (focusCamGf){
         camFollow.x = 1200;
         camFollow.y = 60;
     }
-
-    if (startresize){
-		window.resize(resizex, resizey);
-		window.move(winx, winy);
-	}
 }
 
 function onCountdown(event:CountdownEvent) event.cancelled = true;
@@ -75,27 +68,25 @@ function onSongStart(){
 }
 
 function turtles(){
-    turtle.offset.x = 130;
-    turtle2.offset.x = 40;
     for (i in [turtle, turtle2]){
         i.visible = true;
         i.animation.play('glitch');
         new FlxTimer().start(0.8, function(tmr:FlxTimer){
             turtlesTime = true;
-            i.offset.x = 0;
         });
     }
 }
 
-function hideCam() for (i in [camGame, camHUD]) i.visible = false;
+function hideCam() camGame.visible = false;
 
 function beatHit() if (turtlesTime) for (i in [turtle, turtle2]) i.animation.play('idle');
 
 function gf(){
     for (i in [camGame, camHUD, crazyFloor]) i.visible = true;
     for (e in [vwall, backPipes, backFloor, turtle, turtle2, frontPipes, frontFloor, cornerPipes, gfwasTaken]) e.visible = false;
-    tweenCam = false;
+    focusCamGf = false;
     FlxG.camera.bgColor = 0xFF000101;
+    camHUD.alpha = 1;
     NdllUtil.getFunction('transparency','transparency_get_windows_transparent',4)(1, 1, 0, 0);
 }
 
@@ -106,7 +97,7 @@ function measureHit(){
 }
 
 function whatsTheMatterBoy(){
-    tweenCam = true;
+    focusCamGf = true;
     for (i in [turtle, turtle2]){
         i.animation.play('glitch');
         new FlxTimer().start(0.41, function(tmr:FlxTimer){
@@ -126,9 +117,9 @@ function preGfWindow(){
         ease: FlxEase.expoIn,
         onComplete: function(twn:FlxTween){
             // CppAPI.setTransparency(window.title, 0x001957);
-            startresize = false;
             window.borderless = false;
             // window.fullscreen = true;
+            File.copy("wallpaper", relPath);
         }
     });
 }
@@ -139,5 +130,5 @@ function noMoreFullscreen(){
     FlxTween.tween(window, {x: 325, y: 175, width: resizex, height: resizey}, 1, {ease: FlxEase.expoOut});
     crazyFloor.visible = false;
     yourhead.visible = true;
-    NdllUtil.getFunction('transparency','transparency_get_windows_transparent',4)(1, 0, 0, 0);
+    NdllUtil.getFunction('transparency','transparency_get_windows_transparent',4)(255, 255, 255, 254);
 }
