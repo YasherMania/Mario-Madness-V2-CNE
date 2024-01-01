@@ -28,6 +28,12 @@ public var resizey:Int = Capabilities.screenResolutionY / 1.5;
 public var fsX:Int = Capabilities.screenResolutionX;
 public var fsY:Int = Capabilities.screenResolutionY;
 
+// shader shit
+var dupe:CustomShader = null;
+var dupeTimer:Int = 0;
+var dupeMax:Int = 4;
+var inc:Bool = true;
+
 window.x = winX;
 window.y = winY;
 window.width = resizex;
@@ -56,6 +62,11 @@ function create(){
     gfwasTaken.animation.addByPrefix('dies', 'GF Dies lol', 24, false);
     gfwasTaken.alpha = 0;
     insert(1, gfwasTaken);
+
+    dupe = new CustomShader("camDupe");
+    dupe.multi = 1;
+    dupe.mirrorS = false;
+    camGame.addShader(dupe);
 }
 
 function postCreate() setTransparent(false, 255, 255, 254); // incase you restart the song during the transparent window part!!
@@ -114,6 +125,21 @@ function beatHit(){
         camGame.shake(0.0035, 0.2);
         camHUD.shake(0.0035, 0.2);
     }
+
+    if(dupeTimer != 0){
+        if(curBeat % dupeTimer == 0){
+            if(inc){
+                dupe.mirrorS = false;
+                dupe.data.multi.value[0] += 1;
+                if(dupe.data.multi.value[0] == dupeMax) inc = false;
+            }else{
+                dupe.mirrorS = true;
+                dupe.data.multi.value[0] -= 1;
+                if(dupe.data.multi.value[0] == 1) inc = true;
+            }
+            // angel.strength = ((0.25 / 4))  * dupe.multi;
+        }	
+    }
 }
 
 function measureHit() if (!bgBeatMore){
@@ -156,6 +182,22 @@ function preGfWindow(){
             }
         });
     }
+}
+
+function dupingTime1(){
+    dupeTimer = 4;
+    dupeMax = 3;
+}
+
+function dupingTime2(){
+    dupeTimer = 1;
+    dupeMax = 6;
+}
+
+function stopDupe(){
+    dupeTimer = 0;
+    dupe.mirrorS = false;
+    dupe.multi = 1;
 }
 
 function gf(){
