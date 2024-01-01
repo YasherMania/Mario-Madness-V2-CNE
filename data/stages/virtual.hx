@@ -83,7 +83,7 @@ function onStartCountdown(){
 
 function onSongStart() camHUD.visible = true;
 
-function endSong() window.resizable = true;
+function onSongEnd() window.resizable = true;
 
 function turtles(){
     for (i in [turtle, turtle2]){
