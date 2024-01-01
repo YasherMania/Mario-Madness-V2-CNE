@@ -116,17 +116,6 @@ function beatHit(){
     }
 }
 
-function gf(){
-    for (i in [camGame, camHUD, crazyFloor]) i.visible = true;
-    for (e in [vwall, backPipes, backFloor, turtle, turtle2, frontPipes, frontFloor, cornerPipes, gfwasTaken]) e.visible = false;
-    if (!FlxG.save.data.virtualTrans) yourhead.visible = true;
-    focusCamGf = false;
-    FlxG.camera.bgColor = 0xFF000101;
-    camHUD.alpha = 1;
-    dadZoom = bfZoom;
-    if (FlxG.save.data.virtualTrans) setTransparent(true, 0, 1, 1);
-}
-
 function measureHit() if (!bgBeatMore){
     yourhead.alpha = 0.8;
 	yourhead.y = -200;
@@ -149,6 +138,14 @@ function whatsTheMatterBoy(){
     });
 }
 
+function noMoreFullscreen(){
+    window.borderless = false;
+    FlxTween.tween(window, {x: winX, y: winY, width: resizex, height: resizey}, 1, {ease: FlxEase.expoOut});
+    crazyFloor.visible = false;
+    yourhead.visible = true;
+    if (FlxG.save.data.virtualTrans) setTransparent(false, 255, 255, 254);
+}
+
 function preGfWindow(){
     if (FlxG.save.data.virtualWindow){
         FlxTween.tween(window, {x: 0, y: 0, width: fsX, height: fsY}, 1.6, {
@@ -161,10 +158,13 @@ function preGfWindow(){
     }
 }
 
-function noMoreFullscreen(){
-    window.borderless = false;
-    FlxTween.tween(window, {x: winX, y: winY, width: resizex, height: resizey}, 1, {ease: FlxEase.expoOut});
-    crazyFloor.visible = false;
-    yourhead.visible = true;
-    if (FlxG.save.data.virtualTrans) setTransparent(false, 255, 255, 254);
+function gf(){
+    for (i in [camGame, camHUD, crazyFloor]) i.visible = true;
+    for (e in [vwall, backPipes, backFloor, turtle, turtle2, frontPipes, frontFloor, cornerPipes, gfwasTaken]) e.visible = false;
+    if (!FlxG.save.data.virtualTrans) yourhead.visible = true;
+    focusCamGf = false;
+    FlxG.camera.bgColor = 0xFF000101;
+    camHUD.alpha = 1;
+    dadZoom = bfZoom;
+    if (FlxG.save.data.virtualTrans) setTransparent(true, 0, 1, 1);
 }
