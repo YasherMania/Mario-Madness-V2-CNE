@@ -34,6 +34,8 @@ var dupeTimer:Int = 0;
 var dupeMax:Int = 4;
 var inc:Bool = true;
 
+var angel:CustomShader = null;
+
 window.x = winX;
 window.y = winY;
 window.width = resizex;
@@ -67,6 +69,10 @@ function create(){
     dupe.multi = 1;
     dupe.mirrorS = false;
     camGame.addShader(dupe);
+
+    angel = new CustomShader("angel");
+    angel.data.pixel.value = [1, 1];
+    angel.data.stronk.value = [1, 1];
 }
 
 function postCreate() setTransparent(false, 255, 255, 254); // incase you restart the song during the transparent window part!!
@@ -78,10 +84,17 @@ function postUpdate(){
     }
 }
 
-function update(){
+function update(elapsed:Float){
     switch (curCameraTarget){
         case 0: defaultCamZoom = dadZoom;
         case 1: defaultCamZoom = bfZoom;
+    }
+
+    if(angel != null){
+        angel.data.stronk.value[0] = FlxMath.lerp(angel.data.stronk.value[0], 0, FlxMath.bound(elapsed * 8, 0, 1));
+
+        angel.data.pixel.value[0] = FlxMath.lerp(angel.data.pixel.value[0], 1, FlxMath.bound(elapsed * 4, 0, 1));
+        angel.data.iTime.value = [Conductor.songPosition / 1000];
     }
 }
 
@@ -129,15 +142,17 @@ function beatHit(){
     if(dupeTimer != 0){
         if(curBeat % dupeTimer == 0){
             if(inc){
+                angel.data.pixel.value[0] = [2, 2];
                 dupe.mirrorS = false;
                 dupe.data.multi.value[0] += 1;
                 if(dupe.data.multi.value[0] == dupeMax) inc = false;
             }else{
+                angel.data.pixel.value[0] = [.5, .5];
                 dupe.mirrorS = true;
                 dupe.data.multi.value[0] -= 1;
                 if(dupe.data.multi.value[0] == 1) inc = true;
             }
-            // angel.strength = ((0.25 / 4))  * dupe.multi;
+            angel.data.stronk.value[0] = ((0.25 / 4))  * dupe.data.multi.value[0];
         }	
     }
 }
@@ -187,6 +202,8 @@ function preGfWindow(){
 function dupingTime1(){
     dupeTimer = 4;
     dupeMax = 3;
+    camGame.addShader(angel);
+    camHUD.addShader(angel);
 }
 
 function dupingTime2(){
