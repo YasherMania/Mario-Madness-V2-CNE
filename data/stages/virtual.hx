@@ -202,8 +202,7 @@ function preGfWindow(){
 function dupingTime1(){
     dupeTimer = 4;
     dupeMax = 3;
-    camGame.addShader(angel);
-    camHUD.addShader(angel);
+    for (i in [camGame, camHUD]) i.addShader(angel);
 }
 
 function dupingTime2(){
@@ -215,6 +214,7 @@ function stopDupe(){
     dupeTimer = 0;
     dupe.mirrorS = false;
     dupe.multi = 1;
+    for (i in [camGame, camHUD]) i.removeShader(angel);
 }
 
 function gf(){
