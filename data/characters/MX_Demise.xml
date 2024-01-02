@@ -5,6 +5,4 @@
 	<anim x="425" loop="false" y="0" fps="24" anim="MX Sing Left" name="singLEFT"/>
 	<anim x="200" loop="false" y="-50" fps="24" anim="MX Sing Down" name="singDOWN"/>
 	<anim x="-100" loop="false" y="315" fps="24" anim="MX Sing Up" name="singUP"/>
-	<anim x="0" loop="true" y="0" fps="24" anim="MX Running Legs" name="Legs"/>
-	<anim x="0" loop="true" y="0" fps="24" anim="MX Running Right Arm" name="Right Arm"/>
 </character>
