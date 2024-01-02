@@ -98,9 +98,11 @@ function update(elapsed:Float){
     }
 }
 
-function onPostNoteCreation(event) {    
-    var note = event.note;
-	note.splash = "red";
+function onPostNoteCreation(event) {  
+    var note = event.note;  
+    if (FlxG.save.data.Splashes) note.splash = "redDiamond";
+    else if (FlxG.save.data.Splashes == 0) note.splash = "redVanilla";
+    else return;
 }
 
 function onCountdown(event:CountdownEvent) event.cancelled = true;
