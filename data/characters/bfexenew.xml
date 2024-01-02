@@ -1,14 +1,19 @@
 <!DOCTYPE codename-engine-character>
 <character x="0" icon="bf" y="350" isGF="false" color="#31B3D1" flipX="true" isPlayer="true" sprite="MM_Boyfriend_SHADED_Assetsa">
+	<anim x="-4" loop="false" y="30" fps="24" anim="IDLE0" name="idle"/>
 	<anim x="4" loop="false" y="31" fps="24" anim="LEFT0" name="singLEFT"/>
 	<anim x="-28" loop="false" y="90" fps="24" anim="UP0" name="singUP"/>
+	<anim x="-21" loop="false" y="-6" fps="24" anim="DOWN0" name="singDOWN"/>
 	<anim x="-46" loop="false" y="31" fps="24" anim="RIGHT0" name="singRIGHT"/>
+	<anim x="-4" loop="false" y="30" fps="24" anim="IDLESCARED" name="idle-alt"/>
+	<anim x="3" loop="false" y="31" fps="24" anim="LEFTSCARED" name="singLEFT-alt"/>
+	<anim x="-28" loop="false" y="90" fps="24" anim="UPSCARED" name="singUP-alt"/>
+	<anim x="-21" loop="false" y="-6" fps="24" anim="DOWNSCARED" name="singDOWN-alt"/>
+	<anim x="-46" loop="false" y="31" fps="24" anim="RIGHTSCARED" name="singRIGHT-alt"/>
 	<anim x="-43" loop="false" y="63" fps="24" anim="MISSLEFT" name="singLEFTmiss"/>
 	<anim x="-29" loop="false" y="40" fps="24" anim="MISSDOWN" name="singDOWNmiss"/>
 	<anim x="-28" loop="false" y="94" fps="24" anim="MISSUP" name="singUPmiss"/>
 	<anim x="3" loop="false" y="37" fps="24" anim="MISSRIGHT" name="singRIGHTmiss"/>
-	<anim x="-21" loop="false" y="-6" fps="24" anim="DOWN0" name="singDOWN"/>
 	<anim x="12" loop="false" y="78" fps="24" anim="DODGE" name="dodge"/>
 	<anim x="0" loop="false" y="108" fps="24" anim="HIT" name="hurt"/>
-	<anim x="-4" loop="false" y="30" fps="24" anim="IDLE0" name="idle"/>
 </character>

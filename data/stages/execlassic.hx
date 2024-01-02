@@ -1,5 +1,5 @@
 var path = "stages/execlassic/";
-var camxoffset:Float = 0;
+var camxoffset:Float = -100;
 var camyoffset:Float = 0;
 var dadxoffset:Float = -100;
 var dadyoffset:Float = 0;
@@ -9,12 +9,15 @@ function create() {
     FlxG.cameras.add(camBR = new HudCamera(), false);
     camBR.bgColor = 0;
     defaultCamZoom = 0.6;
+    mycharIdleAlt = false;
 
     remove(dad);
+    remove(strumLines.members[0].characters[1]);
     remove(gf);
     remove(boyfriend);
 
     gf.scrollFactor.set(1, 1);
+    strumLines.members[0].characters[1].visible = false;
 
     boyfriend.x = 1000;
     boyfriend.y = 120;
@@ -25,10 +28,28 @@ function create() {
 
     boyfriend.cameraOffset = FlxPoint.weak(camxoffset, camyoffset);
     dad.cameraOffset = FlxPoint.weak(dadxoffset, dadyoffset);
+    strumLines.members[0].characters[1].cameraOffset = FlxPoint.weak(dadxoffset, dadyoffset);
 
     bg = new FlxSprite(-1000, -850).loadGraphic(Paths.image(path + "Castillo fondo de hasta atras"));
     bg.antialiasing = true;
     add(bg);
+
+    fireL = new FlxSprite(-1400, -800 + 1300);
+    fireL.frames = Paths.getFrames(path + "Starman_BG_Fire_Assets");
+    fireL.animation.addByPrefix("idle", "fire anim effects", 24, true);
+    fireL.antialiasing = true;
+    //fireL.alpha = 0.00001;
+    fireL.animation.play("idle");
+    add(fireL);
+
+    fireR = new FlxSprite(700, -800 + 1300);
+    fireR.frames = Paths.getFrames(path + "Starman_BG_Fire_Assets");
+    fireR.animation.addByIndices('delay', 'fire anim effects', [8,9,10,11,12,13,14,15,0,1,2,3,4,5,6,7], "", 24, true);
+    fireR.antialiasing = true;
+    //fireR.alpha = 0.00001;
+    fireR.flipX = true;
+    fireR.animation.play('delay');
+    add(fireR);
 
     floor = new FlxSprite(-1000, -850).loadGraphic(Paths.image(path + "Suelo y brillo atmosferico"));
     floor.antialiasing = true;
@@ -50,8 +71,18 @@ function create() {
     dark.antialiasing = true;
     add(dark);
 
+    smoke = new FlxSprite(-1000, -850).loadGraphic(Paths.image(path + "smoke"));
+    smoke.scrollFactor.set();
+    smoke.alpha = 0.8;
+    smoke.screenCenter();
+    smoke.cameras = [camHUD];
+    smoke.antialiasing = true;
+    smoke.alpha = 0.00001;
+    add(smoke);
+
     add(gf);
     add(dad);
+    add(strumLines.members[0].characters[1]);
     add(boyfriend);
 }
 
@@ -79,6 +110,19 @@ function beatHit(curBeat) {
         case 355:
             dark.cameras = [camHUD];
             camHUD.alpha = 1;
-            defaultCamZoom = 0.6;
+            defaultCamZoom = 0.5;
+            strumLines.members[0].characters[1].visible = true;
+            dad.visible = false;
+            mycharIdleAlt = true;
+        case 516:
+            strumLines.members[0].characters[1].playAnim("laugh");
+            FlxTween.tween(fireL, {y: -800}, 20, {ease: FlxEase.quadInOut});
+            FlxTween.tween(fireR, {y: -800}, 20, {ease: FlxEase.quadInOut});
+            FlxTween.tween(smoke, {alpha: 1}, 25);
+            FlxTween.tween(FlxG.camera, {zoom: 0.7}, 13, {ease: FlxEase.sineInOut});
+        case 553:
+            defaultCamZoom = 0.7;
+        case 580:
+            defaultCamZoom = 1;
     }
 }
