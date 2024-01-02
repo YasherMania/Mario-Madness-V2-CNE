@@ -56,17 +56,19 @@ public var ratingStuff:Array<Dynamic> = [
     ['SS+', 1]
 ];
 
-function onPostNoteCreation(event) {    
-    if (FlxG.save.data.Splashes) {
-    	var note = event.note;
-	    note.splash = "diamond";
-    }
-    else if (FlxG.save.data.Splashes == 0) {
-        var note = event.note;
-        note.splash = "vanilla";
-    }
-    else if (FlxG.save.data.Splashes == null) {
-        return;
+function onPostNoteCreation(event) {
+    if (!curStage == "virtual"){
+        if (FlxG.save.data.Splashes) {
+            var note = event.note;
+            note.splash = "diamond";
+        }
+        else if (FlxG.save.data.Splashes == 0) {
+            var note = event.note;
+            note.splash = "vanilla";
+        }
+        else if (FlxG.save.data.Splashes == null) {
+            return;
+        }
     }
 }
 

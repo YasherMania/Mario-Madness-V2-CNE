@@ -98,6 +98,11 @@ function update(elapsed:Float){
     }
 }
 
+function onPostNoteCreation(event) {    
+    var note = event.note;
+	note.splash = "red";
+}
+
 function onCountdown(event:CountdownEvent) event.cancelled = true;
 
 function onStartCountdown(){
