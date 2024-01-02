@@ -5,4 +5,5 @@
 	<anim x="-54" loop="false" y="339" fps="24" anim="VAltRight" name="singRIGHT"/>
 	<anim x="80" loop="false" y="590" fps="24" anim="VAltUp" name="singUP"/>
 	<anim x="100" loop="false" y="280" fps="24" anim="VAltDown" name="singDOWN"/>
+	<anim x="118" loop="false" y="744" fps="24" anim="VTransformation" name="transform"/>
 </character>

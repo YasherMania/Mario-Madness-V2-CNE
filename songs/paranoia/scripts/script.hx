@@ -71,8 +71,10 @@ function stepHit(){
             case 935:
                 for (i in [tweenWindow2X, tweenWindow2Y]) i.active = false;
                 FlxTween.tween(window, {x: winX, y: winY}, .5, {ease: FlxEase.cubeInOut});
-            case 1360:
-                dadZoom = .5;
+            case 1348:
+                FlxTween.tween(camGame, {zoom: .5}, .775, {ease: FlxEase.quadOut}).onComplete = function(){
+                    dadZoom = .5;
+                }
         }
     }
 }
