@@ -226,7 +226,7 @@ function stopDupe(){
 
 function gf(){
     for (i in [camGame, camHUD, crazyFloor]) i.visible = true;
-    for (e in [vwall, backPipes, backFloor, turtle, turtle2, frontPipes, frontFloor, cornerPipes, gfwasTaken]) e.visible = false;
+    for (e in [vwall, backPipes, backFloor, turtle, turtle2, frontPipes, frontFloor, cornerPipes, gfwasTaken]) remove(e);
     if (!FlxG.save.data.virtualTrans) yourhead.visible = true;
     focusCamGf = false;
     FlxG.camera.bgColor = 0xFF000101;

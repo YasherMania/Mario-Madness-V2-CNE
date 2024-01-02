@@ -57,18 +57,11 @@ public var ratingStuff:Array<Dynamic> = [
 ];
 
 function onPostNoteCreation(event) {
+    var note = event.note;
     if (!curStage == "virtual"){
-        if (FlxG.save.data.Splashes) {
-            var note = event.note;
-            note.splash = "diamond";
-        }
-        else if (FlxG.save.data.Splashes == 0) {
-            var note = event.note;
-            note.splash = "vanilla";
-        }
-        else if (FlxG.save.data.Splashes == null) {
-            return;
-        }
+        if (FlxG.save.data.Splashes) note.splash = "diamond";
+        else if (FlxG.save.data.Splashes == 0) note.splash = "vanilla";
+        else return;
     }
 }
 
