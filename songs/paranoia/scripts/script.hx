@@ -1,3 +1,5 @@
+// most of these vars and events are in the virtual stage hx file btw, im a pretty messy programmer tbh - apurples
+
 var tweenWindow1X, tweenWindow1Y, tweenWindow2X, tweenWindow2Y:FlxTween;
 
 function create(){
@@ -71,6 +73,17 @@ function stepHit(){
             case 935:
                 for (i in [tweenWindow2X, tweenWindow2Y]) i.active = false;
                 FlxTween.tween(window, {x: winX, y: winY}, .5, {ease: FlxEase.cubeInOut});
+            case 1168: timer = .1;
+            case 1232:
+                gfCamX = 1350;
+                FlxG.camera.followLerp = .005;
+                FlxTween.tween(camGame, {zoom: .775}, 4, {ease: FlxEase.quadInOut}).onComplete = function(){
+                    bfZoom = .775;
+                }
+            case 1288: FlxTween.tween(camGame, {zoom: .825}, .25, {ease: FlxEase.quintOut}).onComplete = function(){bfZoom = .825;}
+            case 1292: FlxTween.tween(camGame, {zoom: .875}, .1, {ease: FlxEase.quintOut}).onComplete = function(){bfZoom = .875;}
+            case 1294: FlxTween.tween(camGame, {zoom: .925}, .1, {ease: FlxEase.quintOut}).onComplete = function(){bfZoom = .925;}
+            case 1296: if (FlxG.save.data.flashingLights) camGame.flash(FlxColor.BLACK, 1);
             case 1348:
                 FlxTween.tween(camGame, {zoom: .5}, .775, {ease: FlxEase.quadOut}).onComplete = function(){
                     dadZoom = .5;

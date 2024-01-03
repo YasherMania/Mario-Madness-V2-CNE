@@ -8,7 +8,8 @@ var turtlesTime, shake, cancelCameraMove, gfCamTime:Bool = false;
 
 public var bgBeatMore:Bool = true;
 
-var timer:Float = .75;
+public var timer:Float = .75;
+public var gfCamX:Float = 750;
 
 public var dadZoom:Float = .5;
 public var bfZoom:Float = .8;
@@ -91,7 +92,7 @@ function update(elapsed:Float){
 
     if (gfCamTime){
         timer += elapsed;
-        camFollow.x = (750 + (100 * Math.sin(timer)));
+        camFollow.x = (gfCamX + (100 * Math.sin(timer)));
         camFollow.y = (500 + (100 * Math.cos(timer)));
         camGame.shake(.00225, 99999999999);
         camHUD.shake(.00175, 99999999999);
@@ -203,6 +204,7 @@ function noMoreFullscreen(){
     crazyFloor.visible = false;
     yourhead.visible = true;
     dadZoom = bfZoom = .85;
+    FlxG.camera.followLerp = 0.04;
     camGame.shake(.00225, .001);
     camHUD.shake(.00175, .001);
     if (FlxG.save.data.virtualTrans) setTransparent(false, 255, 255, 254);
