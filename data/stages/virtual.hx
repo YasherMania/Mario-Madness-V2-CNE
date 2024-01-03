@@ -4,10 +4,11 @@ import funkin.backend.utils.NdllUtil; // NEEDED FOR THE TRANSPARENT WINDOW SHIT 
 
 var setTransparent = NdllUtil.getFunction('transparent','ndllexample_set_windows_transparent', 4);
 
-var intro:FlxSound;
-var turtlesTime, focusCamGf, shake:Bool = false;
+var turtlesTime, shake, cancelCameraMove, gfCamTime:Bool = false;
 
 public var bgBeatMore:Bool = true;
+
+var timer:Float = .75;
 
 public var dadZoom:Float = .5;
 public var bfZoom:Float = .8;
@@ -45,11 +46,9 @@ changey = window.y;
 window.fullscreen = false;
 window.resizable = false;
 
-camHUD.visible = false;
+camGame.visible = camHUD.visible = false;
 
 function create(){
-    intro = FlxG.sound.load(Paths.sound('game/virtualintro'));
-
     yourhead = new FlxBackdrop(Paths.image('stages/virtual/headbg'), -400, -200, 1, 1);
     yourhead.setGraphicSize(Std.int(yourhead.width * 2));
     yourhead.alpha = 0.2;
@@ -77,13 +76,6 @@ function create(){
 
 function postCreate() setTransparent(false, 255, 255, 254); // incase you restart the song during the transparent window part!!
 
-function postUpdate(){
-    if (focusCamGf){
-        camFollow.x = 1200;
-        camFollow.y = 60;
-    }
-}
-
 function update(elapsed:Float){
     switch (curCameraTarget){
         case 0: defaultCamZoom = dadZoom;
@@ -95,6 +87,14 @@ function update(elapsed:Float){
 
         angel.data.pixel.value[0] = FlxMath.lerp(angel.data.pixel.value[0], 1, FlxMath.bound(elapsed * 4, 0, 1));
         angel.data.iTime.value = [Conductor.songPosition / 1000];
+    }
+
+    if (gfCamTime){
+        timer += elapsed;
+        camFollow.x = (750 + (100 * Math.sin(timer)));
+        camFollow.y = (500 + (100 * Math.cos(timer)));
+        camGame.shake(.00225, 99999999999);
+        camHUD.shake(.00175, 99999999999);
     }
 }
 
@@ -108,13 +108,20 @@ function onPostNoteCreation(event) {
 function onCountdown(event:CountdownEvent) event.cancelled = true;
 
 function onStartCountdown(){
-    intro.play();
+    FlxG.sound.play(Paths.sound('game/virtualintro'));
+    camGame.zoom = 1;
+    camGame.visible = true;
     FlxTween.tween(camGame, {zoom: 0.5}, 1.3, {ease: FlxEase.expoOut});
 }
 
-function onSongStart() camHUD.visible = true;
+function onSongStart(){
+    camHUD.visible = true;
+    FlxG.camera.followLerp = 0.04;
+}
 
 function onSongEnd() window.resizable = true;
+
+function onCameraMove(e) if(cancelCameraMove) e.cancel();
 
 function turtles(){
     for (i in [turtle, turtle2]){
@@ -171,7 +178,8 @@ function measureHit() if (!bgBeatMore){
 }
 
 function whatsTheMatterBoy(){
-    focusCamGf = true;
+    cancelCameraMove = true;
+    FlxTween.tween(camFollow, {x: 1200, y: 60}, 1, {ease: FlxEase.cubeInOut});
     for (i in [turtle, turtle2]){
         i.animation.play('glitch');
         new FlxTimer().start(0.41, function(tmr:FlxTimer){
@@ -187,10 +195,16 @@ function whatsTheMatterBoy(){
 }
 
 function noMoreFullscreen(){
+    cancelCameraMove = false;
+    gfCamTime = false;
     window.borderless = false;
+    cameraMovementEnabled = true;
     FlxTween.tween(window, {x: winX, y: winY, width: resizex, height: resizey}, 1, {ease: FlxEase.expoOut});
     crazyFloor.visible = false;
     yourhead.visible = true;
+    dadZoom = bfZoom = .85;
+    camGame.shake(.00225, .001);
+    camHUD.shake(.00175, .001);
     if (FlxG.save.data.virtualTrans) setTransparent(false, 255, 255, 254);
 }
 
@@ -228,9 +242,10 @@ function gf(){
     for (i in [camGame, camHUD, crazyFloor]) i.visible = true;
     for (e in [vwall, backPipes, backFloor, turtle, turtle2, frontPipes, frontFloor, cornerPipes, gfwasTaken]) remove(e);
     if (!FlxG.save.data.virtualTrans) yourhead.visible = true;
-    focusCamGf = false;
     FlxG.camera.bgColor = 0xFF000101;
     camHUD.alpha = 1;
-    dadZoom = bfZoom = .65;
+    dadZoom = bfZoom = .4;
+    gfCamTime = true;
+    cameraMovementEnabled = false;
     if (FlxG.save.data.virtualTrans) setTransparent(true, 0, 1, 1);
 }

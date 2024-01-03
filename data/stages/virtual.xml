@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-stage>
-<stage folder="stages/virtual/" zoom="1">
+<stage folder="stages/virtual/" zoom="0.5">
 	<sprite x="-1200" scrolly="0.6" sprite="Wall Bg" y="-750" name="vwall" scrollx="0.6"/>
 	<sprite x="-1200" scrolly="0.75" sprite="Back Pipes" y="-750" name="backPipes" scrollx="0.75"/>
 	<sprite x="-1200" scrolly="0.75" sprite="Back Platform" y="-750" name="backFloor" scrollx="0.75"/>
