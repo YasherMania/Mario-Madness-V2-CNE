@@ -74,6 +74,7 @@ function stepHit(){
             case 1348:
                 FlxTween.tween(camGame, {zoom: .5}, .775, {ease: FlxEase.quadOut}).onComplete = function(){
                     dadZoom = .5;
+                    bfZoom = .85;
                 }
         }
     }

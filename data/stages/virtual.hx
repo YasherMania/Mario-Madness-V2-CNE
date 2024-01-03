@@ -231,6 +231,6 @@ function gf(){
     focusCamGf = false;
     FlxG.camera.bgColor = 0xFF000101;
     camHUD.alpha = 1;
-    dadZoom = bfZoom;
+    dadZoom = bfZoom = .65;
     if (FlxG.save.data.virtualTrans) setTransparent(true, 0, 1, 1);
 }

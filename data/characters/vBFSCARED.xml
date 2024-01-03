@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character x="0" icon="bfvsad" y="350" isGF="false" color="#000000" flipX="true" isPlayer="true" holdTime="6.1" sprite="MRV_Boyfriend_Assets">
+<character x="0" icon="bfvsad" y="350" isGF="false" color="#000000" flipX="true" isPlayer="true" holdTime="6.1" sprite="MRV_Boyfriend_Assets_SCARED">
 	<anim x="-7" loop="false" y="30" fps="24" anim="SCAREDIDLE" name="idle"/>
 	<anim x="-10" loop="false" y="32" fps="24" anim="SCAREDLEFT" name="singLEFT"/>
 	<anim x="-10" loop="false" y="52" fps="24" anim="MISSSCAREDLEFT" name="singLEFTmiss"/>
