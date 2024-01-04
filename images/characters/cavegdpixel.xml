@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="cavegdpixel.png" width="583" height="51">
+	<SubTexture name="pixelgrand idle0000" x="221" y="1" width="49" height="49" frameX="-0" frameY="-0" frameWidth="49" frameHeight="49"/>
+	<SubTexture name="pixelgrand idle0001" x="273" y="1" width="49" height="49" frameX="-0" frameY="-0" frameWidth="49" frameHeight="49"/>
+	<SubTexture name="pixelgrand idle0002" x="325" y="1" width="49" height="49" frameX="-0" frameY="-0" frameWidth="49" frameHeight="49"/>
+	<SubTexture name="pixelgrand idle0003" x="221" y="1" width="49" height="49" frameX="-0" frameY="-0" frameWidth="49" frameHeight="49"/>
+	<SubTexture name="pixelgrand idle0004" x="273" y="1" width="49" height="49" frameX="-0" frameY="-0" frameWidth="49" frameHeight="49"/>
+	<SubTexture name="pixelgrand idle0005" x="325" y="1" width="49" height="49" frameX="-0" frameY="-0" frameWidth="49" frameHeight="49"/>
+	<SubTexture name="pixelgrand idle0006" x="221" y="1" width="49" height="49" frameX="-0" frameY="-0" frameWidth="49" frameHeight="49"/>
+	<SubTexture name="pixelgrand right0000" x="1" y="1" width="55" height="49" frameX="-0" frameY="-0" frameWidth="55" frameHeight="49"/>
+	<SubTexture name="pixelgrand right0001" x="59" y="1" width="55" height="49" frameX="-0" frameY="-0" frameWidth="55" frameHeight="49"/>
+	<SubTexture name="pixelgrand left0000" x="377" y="1" width="49" height="49" frameX="-0" frameY="-0" frameWidth="49" frameHeight="49"/>
+	<SubTexture name="pixelgrand left0001" x="429" y="1" width="49" height="49" frameX="-0" frameY="-0" frameWidth="49" frameHeight="49"/>
+	<SubTexture name="pixelgrand up0000" x="481" y="1" width="49" height="48" frameX="-0" frameY="-0" frameWidth="49" frameHeight="48"/>
+	<SubTexture name="pixelgrand up0001" x="533" y="1" width="49" height="48" frameX="-0" frameY="-0" frameWidth="49" frameHeight="48"/>
+	<SubTexture name="pixelgrand down0000" x="117" y="1" width="49" height="49" frameX="-0" frameY="-0" frameWidth="49" frameHeight="49"/>
+	<SubTexture name="pixelgrand down0001" x="169" y="1" width="49" height="49" frameX="-0" frameY="-0" frameWidth="49" frameHeight="49"/>
+</TextureAtlas>

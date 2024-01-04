@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="cavebfpixel.png" width="941" height="54">
+	<SubTexture name="cavebfpixel idle0000" x="213" y="1" width="47" height="52" frameX="-0" frameY="-0" frameWidth="47" frameHeight="52"/>
+	<SubTexture name="cavebfpixel idle0001" x="263" y="1" width="47" height="52" frameX="-0" frameY="-0" frameWidth="47" frameHeight="52"/>
+	<SubTexture name="cavebfpixel idle0002" x="313" y="1" width="47" height="52" frameX="-0" frameY="-0" frameWidth="47" frameHeight="52"/>
+	<SubTexture name="cavebfpixel left0000" x="559" y="1" width="45" height="52" frameX="-0" frameY="-0" frameWidth="45" frameHeight="52"/>
+	<SubTexture name="cavebfpixel left0001" x="607" y="1" width="45" height="52" frameX="-0" frameY="-0" frameWidth="45" frameHeight="52"/>
+	<SubTexture name="cavebfpixel down0000" x="363" y="1" width="46" height="52" frameX="-0" frameY="-0" frameWidth="46" frameHeight="52"/>
+	<SubTexture name="cavebfpixel down0001" x="412" y="1" width="46" height="52" frameX="-0" frameY="-0" frameWidth="46" frameHeight="52"/>
+	<SubTexture name="cavebfpixel right0000" x="107" y="1" width="50" height="52" frameX="-0" frameY="-0" frameWidth="50" frameHeight="52"/>
+	<SubTexture name="cavebfpixel right0001" x="160" y="1" width="50" height="52" frameX="-0" frameY="-0" frameWidth="50" frameHeight="52"/>
+	<SubTexture name="cavebfpixel up0000" x="847" y="1" width="45" height="52" frameX="-0" frameY="-0" frameWidth="45" frameHeight="52"/>
+	<SubTexture name="cavebfpixel up0001" x="895" y="1" width="45" height="52" frameX="-0" frameY="-0" frameWidth="45" frameHeight="52"/>
+	<SubTexture name="cavebfpixel mleft0000" x="655" y="1" width="45" height="52" frameX="-0" frameY="-0" frameWidth="45" frameHeight="52"/>
+	<SubTexture name="cavebfpixel mleft0001" x="703" y="1" width="45" height="52" frameX="-0" frameY="-0" frameWidth="45" frameHeight="52"/>
+	<SubTexture name="cavebfpixel mdown0000" x="461" y="1" width="46" height="52" frameX="-0" frameY="-0" frameWidth="46" frameHeight="52"/>
+	<SubTexture name="cavebfpixel mdown0001" x="510" y="1" width="46" height="52" frameX="-0" frameY="-0" frameWidth="46" frameHeight="52"/>
+	<SubTexture name="cavebfpixel mright0000" x="1" y="1" width="50" height="52" frameX="-0" frameY="-0" frameWidth="50" frameHeight="52"/>
+	<SubTexture name="cavebfpixel mright0001" x="54" y="1" width="50" height="52" frameX="-0" frameY="-0" frameWidth="50" frameHeight="52"/>
+	<SubTexture name="cavebfpixel mup0000" x="751" y="1" width="45" height="52" frameX="-0" frameY="-0" frameWidth="45" frameHeight="52"/>
+	<SubTexture name="cavebfpixel mup0001" x="799" y="1" width="45" height="52" frameX="-0" frameY="-0" frameWidth="45" frameHeight="52"/>
+</TextureAtlas>

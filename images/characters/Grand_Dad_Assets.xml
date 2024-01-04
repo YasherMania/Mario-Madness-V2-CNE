@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="Grand_Dad_Assets.png" width="2460" height="2922">
+	<SubTexture name="GrandDown0000" x="1" y="1" width="764" height="649" frameX="-0" frameY="-0" frameWidth="764" frameHeight="649"/>
+	<SubTexture name="GrandDown0001" x="1" y="653" width="764" height="649" frameX="-0" frameY="-0" frameWidth="764" frameHeight="649"/>
+	<SubTexture name="GrandDown0002" x="1" y="653" width="764" height="649" frameX="-0" frameY="-0" frameWidth="764" frameHeight="649"/>
+	<SubTexture name="GrandDown0003" x="768" y="1" width="764" height="649" frameX="-0" frameY="-0" frameWidth="764" frameHeight="649"/>
+	<SubTexture name="GrandDown0004" x="768" y="1" width="764" height="649" frameX="-0" frameY="-0" frameWidth="764" frameHeight="649"/>
+	<SubTexture name="GrandDown0005" x="768" y="653" width="764" height="649" frameX="-0" frameY="-0" frameWidth="764" frameHeight="649"/>
+	<SubTexture name="GrandDown0006" x="768" y="653" width="764" height="649" frameX="-0" frameY="-0" frameWidth="764" frameHeight="649"/>
+	<SubTexture name="GrandDown0007" x="768" y="653" width="764" height="649" frameX="-0" frameY="-0" frameWidth="764" frameHeight="649"/>
+	<SubTexture name="GrandDown0008" x="768" y="653" width="764" height="649" frameX="-0" frameY="-0" frameWidth="764" frameHeight="649"/>
+	<SubTexture name="GrandDown0009" x="768" y="653" width="764" height="649" frameX="-0" frameY="-0" frameWidth="764" frameHeight="649"/>
+	<SubTexture name="GrandIdle0000" x="2016" y="531" width="393" height="519" frameX="-0" frameY="-0" frameWidth="393" frameHeight="519"/>
+	<SubTexture name="GrandIdle0001" x="2016" y="531" width="393" height="519" frameX="-0" frameY="-0" frameWidth="393" frameHeight="519"/>
+	<SubTexture name="GrandIdle0002" x="2066" y="1" width="393" height="519" frameX="-0" frameY="-0" frameWidth="393" frameHeight="519"/>
+	<SubTexture name="GrandIdle0003" x="2066" y="1" width="393" height="519" frameX="-0" frameY="-0" frameWidth="393" frameHeight="519"/>
+	<SubTexture name="GrandIdle0004" x="2066" y="1" width="393" height="519" frameX="-0" frameY="-0" frameWidth="393" frameHeight="519"/>
+	<SubTexture name="GrandIdle0005" x="1856" y="2152" width="393" height="519" frameX="-0" frameY="-0" frameWidth="393" frameHeight="519"/>
+	<SubTexture name="GrandIdle0006" x="1856" y="2152" width="393" height="519" frameX="-0" frameY="-0" frameWidth="393" frameHeight="519"/>
+	<SubTexture name="GrandIdle0007" x="1856" y="2152" width="393" height="519" frameX="-0" frameY="-0" frameWidth="393" frameHeight="519"/>
+	<SubTexture name="GrandIdle0008" x="1444" y="2362" width="393" height="519" frameX="-0" frameY="-0" frameWidth="393" frameHeight="519"/>
+	<SubTexture name="GrandIdle0009" x="1444" y="2362" width="393" height="519" frameX="-0" frameY="-0" frameWidth="393" frameHeight="519"/>
+	<SubTexture name="GrandIdle0010" x="1444" y="2362" width="393" height="519" frameX="-0" frameY="-0" frameWidth="393" frameHeight="519"/>
+	<SubTexture name="GrandIdle0011" x="1" y="2402" width="393" height="519" frameX="-0" frameY="-0" frameWidth="393" frameHeight="519"/>
+	<SubTexture name="GrandIdle0012" x="1" y="2402" width="393" height="519" frameX="-0" frameY="-0" frameWidth="393" frameHeight="519"/>
+	<SubTexture name="GrandIdle0013" x="1" y="2402" width="393" height="519" frameX="-0" frameY="-0" frameWidth="393" frameHeight="519"/>
+	<SubTexture name="GrandLeft0000" x="1444" y="1835" width="409" height="524" frameX="-0" frameY="-0" frameWidth="409" frameHeight="524"/>
+	<SubTexture name="GrandLeft0001" x="1594" y="1098" width="409" height="524" frameX="-0" frameY="-0" frameWidth="409" frameHeight="524"/>
+	<SubTexture name="GrandLeft0002" x="1594" y="1098" width="409" height="524" frameX="-0" frameY="-0" frameWidth="409" frameHeight="524"/>
+	<SubTexture name="GrandLeft0003" x="1856" y="1625" width="409" height="524" frameX="-0" frameY="-0" frameWidth="409" frameHeight="524"/>
+	<SubTexture name="GrandLeft0004" x="1856" y="1625" width="409" height="524" frameX="-0" frameY="-0" frameWidth="409" frameHeight="524"/>
+	<SubTexture name="GrandLeft0005" x="2006" y="1098" width="409" height="524" frameX="-0" frameY="-0" frameWidth="409" frameHeight="524"/>
+	<SubTexture name="GrandLeft0006" x="2006" y="1098" width="409" height="524" frameX="-0" frameY="-0" frameWidth="409" frameHeight="524"/>
+	<SubTexture name="GrandLeft0007" x="2006" y="1098" width="409" height="524" frameX="-0" frameY="-0" frameWidth="409" frameHeight="524"/>
+	<SubTexture name="GrandLeft0008" x="2006" y="1098" width="409" height="524" frameX="-0" frameY="-0" frameWidth="409" frameHeight="524"/>
+	<SubTexture name="GrandLeft0009" x="2006" y="1098" width="409" height="524" frameX="-0" frameY="-0" frameWidth="409" frameHeight="524"/>
+	<SubTexture name="GrandRight0000" x="1" y="1305" width="528" height="527" frameX="-0" frameY="-0" frameWidth="528" frameHeight="527"/>
+	<SubTexture name="GrandRight0001" x="532" y="1305" width="528" height="527" frameX="-0" frameY="-0" frameWidth="528" frameHeight="527"/>
+	<SubTexture name="GrandRight0002" x="532" y="1305" width="528" height="527" frameX="-0" frameY="-0" frameWidth="528" frameHeight="527"/>
+	<SubTexture name="GrandRight0003" x="1063" y="1305" width="528" height="527" frameX="-0" frameY="-0" frameWidth="528" frameHeight="527"/>
+	<SubTexture name="GrandRight0004" x="1063" y="1305" width="528" height="527" frameX="-0" frameY="-0" frameWidth="528" frameHeight="527"/>
+	<SubTexture name="GrandRight0005" x="1535" y="1" width="528" height="527" frameX="-0" frameY="-0" frameWidth="528" frameHeight="527"/>
+	<SubTexture name="GrandRight0006" x="1535" y="1" width="528" height="527" frameX="-0" frameY="-0" frameWidth="528" frameHeight="527"/>
+	<SubTexture name="GrandRight0007" x="1535" y="1" width="528" height="527" frameX="-0" frameY="-0" frameWidth="528" frameHeight="527"/>
+	<SubTexture name="GrandRight0008" x="1535" y="1" width="528" height="527" frameX="-0" frameY="-0" frameWidth="528" frameHeight="527"/>
+	<SubTexture name="GrandRight0009" x="1535" y="1" width="528" height="527" frameX="-0" frameY="-0" frameWidth="528" frameHeight="527"/>
+	<SubTexture name="GrandUp0000" x="1535" y="531" width="478" height="564" frameX="-0" frameY="-0" frameWidth="478" frameHeight="564"/>
+	<SubTexture name="GrandUp0001" x="1" y="1835" width="478" height="564" frameX="-0" frameY="-0" frameWidth="478" frameHeight="564"/>
+	<SubTexture name="GrandUp0002" x="1" y="1835" width="478" height="564" frameX="-0" frameY="-0" frameWidth="478" frameHeight="564"/>
+	<SubTexture name="GrandUp0003" x="482" y="1835" width="478" height="564" frameX="-0" frameY="-0" frameWidth="478" frameHeight="564"/>
+	<SubTexture name="GrandUp0004" x="482" y="1835" width="478" height="564" frameX="-0" frameY="-0" frameWidth="478" frameHeight="564"/>
+	<SubTexture name="GrandUp0005" x="963" y="1835" width="478" height="564" frameX="-0" frameY="-0" frameWidth="478" frameHeight="564"/>
+	<SubTexture name="GrandUp0006" x="963" y="1835" width="478" height="564" frameX="-0" frameY="-0" frameWidth="478" frameHeight="564"/>
+	<SubTexture name="GrandUp0007" x="963" y="1835" width="478" height="564" frameX="-0" frameY="-0" frameWidth="478" frameHeight="564"/>
+	<SubTexture name="GrandUp0008" x="963" y="1835" width="478" height="564" frameX="-0" frameY="-0" frameWidth="478" frameHeight="564"/>
+	<SubTexture name="GrandUp0009" x="963" y="1835" width="478" height="564" frameX="-0" frameY="-0" frameWidth="478" frameHeight="564"/>
+</TextureAtlas>
