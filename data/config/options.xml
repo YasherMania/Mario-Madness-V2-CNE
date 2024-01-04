@@ -1,8 +1,9 @@
 <!DOCTYPE codename-mod-options>
 <menu name="Mario Options" desc="Options for Mario's Madness">
     <menu name="Mr Virtual Options">
-        <checkbox id="virtualWindow" name="Window Mechanics" desc="If checked, windows will move around while playing Paranoia. You can disable this if you find this annoying."/>
+        <checkbox id="virtualWindow" name="Window Mechanics" desc="If checked, windows will move around while playing Paranoia. You can disable if you find this annoying."/>
         <checkbox id="virtualTrans" name="Transparent Window" desc="If checked, the window will go transparent during a specific part in Paranoia."/>
+        <checkbox id="virtualShaders" name="Shaders" desc="If checked, shaders will occur in paranoia. Disable if you're sensitive to cameras duplicating and/or if you are sensitive to flashy shaders."/>
     </menu>
     <checkbox id="flashingLights" name="Flashing Lights" desc="If checked, flashing lights will occur in menus and songs. Disable if you are sensitive to this!"/>
     <checkbox id="streamerMode" name="Streamer Mode" desc="Changes parameters that can be annoying when playing. If you are a streamer or if you are recording this game, we recommend you to activate this option. (This does not disable other options in this menu.)"/>

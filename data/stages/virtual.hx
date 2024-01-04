@@ -68,7 +68,7 @@ function create(){
     dupe = new CustomShader("camDupe");
     dupe.multi = 1;
     dupe.mirrorS = false;
-    camGame.addShader(dupe);
+    if (FlxG.save.data.virtualShaders) camGame.addShader(dupe);
 
     angel = new CustomShader("angel");
     angel.data.pixel.value = [1, 1];
@@ -225,7 +225,7 @@ function preGfWindow(){
 function dupingTime1(){
     dupeTimer = 4;
     dupeMax = 3;
-    for (i in [camGame, camHUD]) i.addShader(angel);
+    if (FlxG.save.data.virtualShaders) for (i in [camGame, camHUD]) i.addShader(angel);
 }
 
 function dupingTime2(){
