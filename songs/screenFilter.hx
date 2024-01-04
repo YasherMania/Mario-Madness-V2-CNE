@@ -1,8 +1,8 @@
 /**
     Purpose of this is to see notes as they can be
     blended in the background by having a big black square
-    behind camHUD, so they work for any kind of strumlines
-    without any conflict for coop and opponent mode :thumpsup:
+    behind camHUD, so they work for any kind of strumline
+    without any conflict for coop and opponent mode :thumbsup:
 **/
 
 function postCreate() {

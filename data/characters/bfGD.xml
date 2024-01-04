@@ -1,16 +1,16 @@
-<!DOCTYPE codename-engine-character> <!-- Made with WizardMantis's Character Converter -->
-<character y="350" flipX="true" gameOverChar="bfGDDIES">
-	<anim name="idle" anim="BF idle dance" x="-5"/>
-	<anim name="singLEFT" anim="BF NOTE LEFT0" x="33" y="11"/>
-	<anim name="singDOWN" anim="BF NOTE DOWN0" x="-42" y="-27"/>
-	<anim name="singUP" anim="BF NOTE UP0" x="-65" y="27"/>
-	<anim name="singRIGHT" anim="BF NOTE RIGHT0" x="-69" y="6"/>
-	<anim name="firstDeath" anim="Boyfriend dies" x="17" y="191"/>
-	<anim name="deathLoop" anim="Boyfriend Dead Loop" x="17" y="191"/>
-	<anim name="deathConfirm" anim="Boyfriend Dead confirm" x="17" y="209"/>
-	<anim name="dodge" anim="Boyfriend Dodge" x="20"/>
-	<anim name="singDOWNmiss" anim="BF NOTE DOWN MISS" x="-42" y="-27"/>
-	<anim name="singUPmiss" anim="BF NOTE UP MISS" x="-55" y="28"/>
-	<anim name="singRIGHTmiss" anim="BF NOTE RIGHT MISS" x="-67" y="6"/>
-	<anim name="singLEFTmiss" anim="BF NOTE LEFT MISS" x="31" y="9"/>
+<!DOCTYPE codename-engine-character>
+<character gameOverChar="bfGDDIES" flipX="true" y="350" icon="gbf">
+	<anim x="-5" anim="BF idle dance" name="idle"/>
+	<anim x="-87" y="11" anim="BF NOTE LEFT0" name="singRIGHT"/>
+	<anim x="-39" y="-27" anim="BF NOTE DOWN0" name="singDOWN"/>
+	<anim x="-16" y="29" anim="BF NOTE UP0" name="singUP"/>
+	<anim x="41" y="6" anim="BF NOTE RIGHT0" name="singLEFT"/>
+
+	<anim x="17" y="191" anim="Boyfriend dies" name="firstDeath"/>
+	<anim x="17" y="191" anim="Boyfriend Dead Loop" name="deathLoop"/>
+	<anim x="17" y="209" anim="Boyfriend Dead confirm" name="deathConfirm"/>
+	<anim x="-42" y="-27" anim="BF NOTE DOWN MISS" name="singDOWNmiss"/>
+	<anim x="-15" y="28" anim="BF NOTE UP MISS" name="singUPmiss"/>
+	<anim x="33" y="6" anim="BF NOTE RIGHT MISS" name="singRIGHTmiss"/>
+	<anim x="-79" y="9" anim="BF NOTE LEFT MISS" name="singLEFTmiss"/>
 </character>

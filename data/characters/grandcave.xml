@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character> <!-- Made with WizardMantis's Character Converter -->
-<character antialiasing="false" y="190" camx="-30" camy="-60" scale="12">
+<character icon="cavedad" antialiasing="false" y="190" camx="-30" camy="-60" scale="12">
 	<anim name="idle" anim="pixelgrand idle" x="-85"/>
 	<anim name="singDOWN" anim="pixelgrand down" x="-85"/>
 	<anim name="singLEFT" anim="pixelgrand left" x="-73"/>

@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character> <!-- Made with WizardMantis's Character Converter -->
-<character antialiasing="false" x="-90" y="338" flipX="true" scale="12">
+<character icon="cavebf" antialiasing="false" x="-90" y="338" flipX="true" scale="12">
 	<anim name="idle" anim="cavebfpixel idle" fps="12"/>
 	<anim name="singLEFT" anim="cavebfpixel left" fps="12"/>
 	<anim name="singDOWN" anim="cavebfpixel down" fps="12"/>

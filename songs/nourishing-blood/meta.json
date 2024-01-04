@@ -10,7 +10,7 @@
 	"needsVoices": true,
 	"parsedColor": -12287156,
 	"displayName": "Nourishing Blood",
-	"icon": "L",
-	"name": "icon-gdad",
+	"icon": "gdad",
+	"name": "nourishing-blood",
 	"color": "#44834C"
 }

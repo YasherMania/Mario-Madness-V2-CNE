@@ -23,14 +23,14 @@ function postUpdate() {
 
 function beatHit() {
     if (curBeat >= 4 && curBeat <= 228) {
-        camZoomingInterval = 2;
+        camZoomingInterval = 1;
     }
     if (curBeat >= 244 && curBeat <= 359) {
-        camZoomingInterval = 2;
+        camZoomingInterval = 1;
     }
     if (curBeat >= 392 && curBeat <= 404) {
         ofs2 = 170;
-        camZoomingInterval = 2;
+        camZoomingInterval = 1;
     }
 }
 
