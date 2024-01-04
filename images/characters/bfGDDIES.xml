@@ -2,7 +2,7 @@
 <!--
 Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
 -->
-<TextureAtlas imagePath="Grand_Dad_GAMEOVER.png" width="7939" height="5740">
+<TextureAtlas imagePath="bfGDDIES.png" width="7939" height="5740">
 	<SubTexture name="BF Dead Loop0000" x="1" y="1" width="520" height="609" frameX="-0" frameY="-0" frameWidth="520" frameHeight="609"/>
 	<SubTexture name="BF Dead Loop0001" x="1" y="1" width="520" height="609" frameX="-0" frameY="-0" frameWidth="520" frameHeight="609"/>
 	<SubTexture name="BF Dead Loop0002" x="524" y="1" width="520" height="609" frameX="-0" frameY="-0" frameWidth="520" frameHeight="609"/>

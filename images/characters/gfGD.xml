@@ -2,7 +2,7 @@
 <!--
 Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
 -->
-<TextureAtlas imagePath="Grand_DadGF_woman.png" width="7908" height="1577">
+<TextureAtlas imagePath="gfGD.png" width="7908" height="1577">
 	<SubTexture name="GF Dancing Beat0000" x="1" y="1" width="716" height="786" frameX="-0" frameY="-0" frameWidth="716" frameHeight="786"/>
 	<SubTexture name="GF Dancing Beat0001" x="720" y="1" width="716" height="786" frameX="-0" frameY="-0" frameWidth="716" frameHeight="786"/>
 	<SubTexture name="GF Dancing Beat0002" x="1439" y="1" width="716" height="786" frameX="-0" frameY="-0" frameWidth="716" frameHeight="786"/>

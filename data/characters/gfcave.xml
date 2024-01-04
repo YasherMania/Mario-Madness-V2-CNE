@@ -1,0 +1,4 @@
+<!DOCTYPE codename-engine-character> <!-- Made with WizardMantis's Character Converter -->
+<character antialiasing="false" x="120" y="320" scale="12">
+	<anim name="idle" anim="cavepixelgranddad idle" fps="12"/>
+</character>

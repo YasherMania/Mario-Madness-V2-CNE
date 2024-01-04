@@ -2,7 +2,7 @@
 <!--
 Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
 -->
-<TextureAtlas imagePath="Grand_DadBFSTINK.png" width="2662" height="2828">
+<TextureAtlas imagePath="bfGD.png" width="2662" height="2828">
 	<SubTexture name="BF NOTE DOWN0000" x="2264" y="987" width="394" height="435" frameX="-0" frameY="-0" frameWidth="394" frameHeight="435"/>
 	<SubTexture name="BF NOTE DOWN0001" x="798" y="2376" width="394" height="435" frameX="-0" frameY="-0" frameWidth="394" frameHeight="435"/>
 	<SubTexture name="BF NOTE DOWN0002" x="798" y="2376" width="394" height="435" frameX="-0" frameY="-0" frameWidth="394" frameHeight="435"/>
