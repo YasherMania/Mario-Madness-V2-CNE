@@ -8,6 +8,8 @@ var turtlesTime, shake, cancelCameraMove, gfCamTime:Bool = false;
 
 public var bgBeatMore:Bool = true;
 
+var pixelTween:NumTween;
+
 public var timer:Float = .75;
 public var gfCamX:Float = 750;
 
@@ -31,6 +33,8 @@ public var fsX:Int = Capabilities.screenResolutionX;
 public var fsY:Int = Capabilities.screenResolutionY;
 
 // shader shit
+var pixel:CustomShader = null;
+
 var dupe:CustomShader = null;
 var dupeTimer:Int = 0;
 var dupeMax:Int = 4;
@@ -64,6 +68,17 @@ function create(){
     gfwasTaken.animation.addByPrefix('dies', 'GF Dies lol', 24, false);
     gfwasTaken.alpha = 0;
     insert(1, gfwasTaken);
+
+    pixel = new CustomShader("mosaicShader");
+    pixel.data.uBlocksize.value = [40, 40];
+    camGame.addShader(pixel);
+
+    pixelTween = FlxTween.num(40, 0, 0.7, {ease: FlxEase.quadIn, onUpdate: (_) -> {
+        pixel.data.uBlocksize.value = [pixelTween.value, pixelTween.value];
+    }});
+    pixelTween.onComplete = function(){
+        camGame.removeShader(pixel);
+    }
 
     dupe = new CustomShader("camDupe");
     dupe.multi = 1;
