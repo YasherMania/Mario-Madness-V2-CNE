@@ -3,7 +3,7 @@
     <checkbox id="flashingLights" name="Flashing Lights" desc="If checked, flashing lights will occur in menus and songs. Disable if you are sensitive to this!"/>
     <checkbox id="streamerMode" name="Streamer Mode" desc="Changes parameters that can be annoying when playing. If you are a streamer or if you are recording this game, we recommend you to activate this option. (This does not disable other options in this menu.)"/>
     <menu name="Accessability Options">
-        <number id="transparency_value" name="alpha" desc="Sets the transparency of the screen filter,&#xA;increase it if you have a hard time seeing notes" min="0" max="0.9" change="0.1"/>
+        <number id="transparency_value" name="alpha" desc="Sets the transparency of the screen filter,&#xA;increase it if you have a hard time seeing notes" min="0.2" max="0.9" change="0.1"/>
     </menu>
 </menu>
 
