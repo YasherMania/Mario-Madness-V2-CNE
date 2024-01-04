@@ -1,15 +1,25 @@
+import flixel.tweens.FlxTween.FlxTweenType;
+
 var path = "stages/execlassic/";
-var camxoffset:Float = -100;
+var camxoffset:Float = -70; //-100
 var camyoffset:Float = 0;
-var dadxoffset:Float = -100;
-var dadyoffset:Float = 0;
+var dadxoffset:Float = -270; //-100
+var dadyoffset:Float = 100;
 var camBR = null;
+
+var mosaic:CustomShader = null;
+var mosaicTween:NumTween;
+var camTween:NumTween;
 
 function create() {
     FlxG.cameras.add(camBR = new HudCamera(), false);
     camBR.bgColor = 0;
     defaultCamZoom = 0.6;
     mycharIdleAlt = false;
+
+    mosaic = new CustomShader("mosaicShader");
+    mosaic.data.uBlocksize.value = [0.1,0.1];
+    camGame.addShader(mosaic);
 
     remove(dad);
     remove(strumLines.members[0].characters[1]);
@@ -103,9 +113,10 @@ function beatHit(curBeat) {
         case 35:
             defaultCamZoom = 0.5;
         case 340:
+            mycharIdleAlt = true;
             dark.cameras = [camBR];
             dad.playAnim("laugh");
-            camHUD.alpha = 0.000;
+            camHUD.alpha = 0.0001;
             defaultCamZoom = 0.7;
         case 355:
             dark.cameras = [camHUD];
@@ -113,7 +124,6 @@ function beatHit(curBeat) {
             defaultCamZoom = 0.5;
             strumLines.members[0].characters[1].visible = true;
             dad.visible = false;
-            mycharIdleAlt = true;
         case 516:
             strumLines.members[0].characters[1].playAnim("laugh");
             FlxTween.tween(fireL, {y: -800}, 20, {ease: FlxEase.quadInOut});
@@ -124,5 +134,17 @@ function beatHit(curBeat) {
             defaultCamZoom = 0.7;
         case 580:
             defaultCamZoom = 1;
+        case 583:
+            mosaicTween = FlxTween.num(0.1, 80, 5, {ease: FlxEase.circInOut, onUpdate: (_) -> {
+                mosaic.data.uBlocksize.value = [mosaicTween.value, mosaicTween.value];
+            }});
+        case 590:
+            camTween = FlxTween.num(1, 0.0001, 1, {ease: FlxEase.sineInOut, onUpdate: (_) -> {
+                camGame.alpha = camTween.value;
+            }});
+        case 595:
+            camTween = FlxTween.num(1, 0.0001, 1, {ease: FlxEase.sineInOut, onUpdate: (_) -> {
+                camHUD.alpha = camTween.value;
+            }});
     }
 }
