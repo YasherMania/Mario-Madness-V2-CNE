@@ -9,6 +9,7 @@ function new(){
     if (FlxG.save.data.transparency_value == null) FlxG.save.data.transparency_value = 0;
 
     // Psych Options
+    if (FlxG.save.data.ShowPsychUI == null) FlxG.save.data.ShowPsychUI = true;
     if (FlxG.save.data.Splashes == null) FlxG.save.data.Splashes = 0;
     if (FlxG.save.data.PauseMusic == null) FlxG.save.data.PauseMusic = 0;
     if (FlxG.save.data.botplayOption == null) FlxG.save.data.botplayOption = false;

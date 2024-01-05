@@ -20,6 +20,7 @@ import openfl.Lib;
 import flixel.FlxG;
 import funkin.options.Options;
 
+if (FlxG.save.data.ShowPsychUI) {
 // fps vars
 var finalFPS:Float = 0;
 var memories = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
@@ -233,3 +234,4 @@ function postCreate() {
 }
 
 function destroy() for (i in [Framerate.fpsCounter, Framerate.memoryCounter, Framerate.codenameBuildField]) i.visible = true;
+}

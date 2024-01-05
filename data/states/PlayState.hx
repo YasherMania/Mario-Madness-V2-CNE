@@ -23,66 +23,57 @@ function create() {
         case 'its-a-me':
 				autor = '      TheWAHbox\n ft. Sandi and Comodo_';
 
-			case 'Starman Slaughter':
-				autor = 'Sandi ft. RedTV53\n FriedFrick and theWAHbox';
+		case 'Starman Slaughter':
+			autor = 'Sandi ft. RedTV53\n FriedFrick and theWAHbox';
 
-			case 'Golden Land':
-				autor = 'FriedFrick';
-
-			case 'All-Stars':
-				autor = 'iKenny';
-
-			// Warp Zone Songs
-			case 'Oh God No':
-				autor = 'iKenny';
-			case 'i-hate-you':
-				autor = 'iKenny';
-			case 'Powerdown':
+		case 'i-hate-you':
+			autor = 'iKenny';
+		case 'Powerdown':
 				autor = 'iKenny ft. TaeSkull';
-			case 'Demise':
-				autor = 'iKenny';
-			case 'Alone':
-				autor = 'RedTV53';
-			case 'Apparition':
-				autor = 'FriedFrick';
+		case 'Demise':
+			autor = 'iKenny';
+		case 'Alone':
+			autor = 'RedTV53';
+		case 'Apparition':
+			autor = 'FriedFrick';
 
-			// Extra songs
-			case 'Racetraitors':
-				autor = 'iKenny';
-			case 'Dark Forest':
-				autor = 'iKenny';
-			case 'Bad Day':
-				autor = 'RedTV53';
-			case 'So Cool':
-				autor = 'FriedFrick ft. TheWAHBox';
-			case 'Nourishing Blood':
-				autor = 'iKenny';
-			case 'Unbeatable':
-				autor = 'RedTV53\n ft. theWAHbox and scrumbo_';
-			case 'Paranoia':
-				autor = 'Sandi ft. iKenny';
-			case 'Day Out':
-				autor = 'TheWAHBox';
-			case 'Thalassophobia':
-				autor = 'Hazy ft. TaeSkull';
-			case 'Promotion':
-				autor = 'Sandi';
-			case 'Dictator':
-				autor = 'iKenny';
-			case 'Last Course':
-				autor = 'FriedFrick ft. Sandi';
-			case 'No Hope':
-				autor = 'FriedFrick';
-			case 'The End':
-				autor = 'iKenny';
-			case 'MARIO SING AND GAME RYTHM 9':
-				autor = 'TaeSkull';
-			case 'Overdue':
-				autor = 'FriedFrick ft. Sandi';
-			case 'Abandoned':
-				autor = 'TheWAHBox ft. FriedFrick';
-			case 'No Party':
-				autor = 'iKenny';
+		// Extra songs
+		case 'Racetraitors':
+			autor = 'iKenny';
+		case 'Dark Forest':
+			autor = 'iKenny';
+		case 'Bad Day':
+			autor = 'RedTV53';
+		case 'So Cool':
+			autor = 'FriedFrick ft. TheWAHBox';
+		case 'Nourishing Blood':
+			autor = 'iKenny';
+		case 'Unbeatable':
+			autor = 'RedTV53\n ft. theWAHbox and scrumbo_';
+		case 'Paranoia':
+			autor = 'Sandi ft. iKenny';
+		case 'Day Out':
+			autor = 'TheWAHBox';
+		case 'Thalassophobia':
+			autor = 'Hazy ft. TaeSkull';
+		case 'Promotion':
+			autor = 'Sandi';
+		case 'Dictator':
+			autor = 'iKenny';
+		case 'Last Course':
+			autor = 'FriedFrick ft. Sandi';
+		case 'No Hope':
+			autor = 'FriedFrick';
+		case 'The End':
+			autor = 'iKenny';
+		case 'MARIO SING AND GAME RYTHM 9':
+			autor = 'TaeSkull';
+		case 'Overdue':
+			autor = 'FriedFrick ft. Sandi';
+		case 'Abandoned':
+			autor = 'TheWAHBox ft. FriedFrick';
+		case 'No Party':
+			autor = 'iKenny';
     }
 
     var format = new FlxTextFormat(0x000000, false, false, gbcolor);
@@ -134,8 +125,16 @@ function disappear() {
 }
 
 function postCreate() {
-    healthOverlay = new FlxSprite(healthBarBG.x - 41, healthBarBG.y - 17).loadGraphic(Paths.image("game/healthBarBG"));
-    healthOverlay.cameras = [camHUD];
-    insert(members.indexOf(iconP1), healthOverlay);
-    healthBarBG.visible = false;
+	if (FlxG.save.data.ShowPsychUI) {
+    	healthOverlay = new FlxSprite(healthBarBG.x - 41, healthBarBG.y - 17).loadGraphic(Paths.image("game/healthBarBG"));
+    	healthOverlay.cameras = [camHUD];
+    	insert(members.indexOf(iconP1), healthOverlay);
+    	healthBarBG.visible = false;
+	} else {
+		remove(healthBarBG);
+		insert(members.indexOf(iconP1), healthBarBG);
+		healthBarBG.loadGraphic(Paths.image("game/healthBarBG"));
+		healthBarBG.x = 295;
+		healthBarBG.y = 642;
+	}
 }
