@@ -3,9 +3,29 @@
 	<sprite name="tree" sprite="tree" scroll="0.4" scale="5" x="200" y="300" antialiasing="false"/>
 	<sprite name="georgeW" sprite="arbust" scroll="0.4" scale="5" x="1000" y="450" antialiasing="false"/>
 	<sprite name="grass" sprite="grass" scroll="0.6" scale="5" x="500" y="600" antialiasing="false"/>
+
+	<sprite name="castle" sprite="castle" scroll="0.4" scale="4" x="200" y="800" antialiasing="false" alpha="0"/>
+	<sprite name="castle2" sprite="castle2" scroll="0.4" scale="4" x="200" y="-400" antialiasing="false" alpha="0"/>
+	<sprite name="plat" sprite="platnes" scroll="0.4" scale="4" x="1600" y="300" antialiasing="false" alpha="0"/>
+	<sprite name="lava" x="200" y="1600" sprite="nesLava" scroll="0.3" scale="4" antialiasing="false" alpha="0">
+		<anim name="idle" anim="lava hot ow ow its too hot aaa" loop="true" fps="12"/>
+	</sprite>
+
 	<sprite name="bg" sprite="bars" scroll="0" scale="3"/>
+
+	<sprite name="staticbg1" x="250" y="200" sprite="staticbg" scroll="0" scale="2.2" antialiasing="false" alpha="0">
+		<anim name="idle" anim="staticbg duck" loop="true" fps="12"/>
+	</sprite>
+	<sprite name="staticbg2" x="250" y="200" sprite="staticbg" scroll="0" scale="2.4" antialiasing="false" alpha="0">
+		<anim name="idle" anim="staticbg castle" loop="true" fps="12"/>
+	</sprite>
+	<sprite name="staticc" x="-65" y="15" sprite="static" scroll="0" scale="1.2" antialiasing="false" alpha="0">
+		<anim name="idle" anim="static idle" loop="true" fps="12"/>
+	</sprite>
+
 	<dad x="0" y="0" />
 	<gf x="400" y="0" />
-	<boyfriend x="37	0" y="0" />
+	<boyfriend x="370" y="0" />
 
+	<sprite name="cross" sprite="duckCrosshair" scroll="0" scale="20" antialiasing="false" x="600" y="300"/>
 </stage>
