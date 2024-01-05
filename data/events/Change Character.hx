@@ -74,10 +74,12 @@ function onEvent(_)
                 if (isPlayer) {
                     icon.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 1, 0)) - 26);
                     icoP1 = icon;
+                    icon.health = healthBar.percent;
                 }
                 else {
                     icon.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 1, 0))) - (icon.width - 26);
                     icoP2 = icon;
+                    icon.health = healthBar.percent;
                 }
     
                 var leftColor:Int = dad.iconColor != null && Options.colorHealthBar ? dad.iconColor : 0xFFFF0000;
@@ -85,6 +87,12 @@ function onEvent(_)
                 var colors = [leftColor, rightColor];
                 healthBar.createFilledBar((PlayState.opponentMode ? colors[1] : colors[0]), (PlayState.opponentMode ? colors[0] : colors[1]));
                 healthBar.updateBar();
+
+                // this is such a shitty way for losing icon detection but whatever it works LOL - apurples
+                health -= .001;
+                new FlxTimer().start(.001, function(tmr:FlxTimer){
+                    health += .001;
+                });
             }
         }
     }

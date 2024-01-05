@@ -1,6 +1,7 @@
 // most of these vars and events are in the virtual stage hx file btw, im a pretty messy programmer tbh - apurples
 
 var tweenWindow1X, tweenWindow1Y, tweenWindow2X, tweenWindow2Y:FlxTween;
+var timerTween:NumTween;
 
 function create(){
     // i'll try to make this an array later, i aint too proud of this code
@@ -73,7 +74,11 @@ function stepHit(){
             case 935:
                 for (i in [tweenWindow2X, tweenWindow2Y]) i.active = false;
                 FlxTween.tween(window, {x: winX, y: winY}, .5, {ease: FlxEase.cubeInOut});
-            case 1168: timer = .1;
+            case 1168: 
+                timer = .75;
+                timerTween = FlxTween.num(.75, .075, 1, {ease: FlxEase.quartIn, onUpdate: (_) -> {
+                    timer = .075;
+                }});
             case 1232:
                 gfCamX = 1350;
                 FlxG.camera.followLerp = .005;
