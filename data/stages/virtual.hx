@@ -112,6 +112,11 @@ function update(elapsed:Float){
         camGame.shake(.00225, 99999999999);
         camHUD.shake(.00175, 99999999999);
     }
+
+    if (FlxG.keys.justPressed.TWO){
+        FlxG.switchState(new FreeplayState());
+        onSongEnd();
+    }
 }
 
 function onPostNoteCreation(event) {  
@@ -136,7 +141,7 @@ function onSongStart(){
 }
 
 function onSongEnd(){
-    setTransparent(false, 0, 0, 0);
+    setTransparent(true, 24, 47, 23); // hopefully this is a color thats never used in this mod lol
     window.resizable = true;
 }
 

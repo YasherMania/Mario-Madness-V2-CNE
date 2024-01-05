@@ -2,13 +2,12 @@ public var icoP1:HealthIcon;
 public var icoP2:HealthIcon;
 
 function postCreate() {
-    // god i wish there was an easier way to make custom icon boppings - apurples
     icoP1 = new HealthIcon(boyfriend != null ? boyfriend.getIcon() : "face", true);
     icoP2 = new HealthIcon(dad != null ? dad.getIcon() : "face", false);
     for(ico in [icoP1, icoP2]) {
         ico.y = healthBar.y - (ico.height / 2);
         ico.cameras = [camHUD];
-        insert(31, ico);
+        insert(members.indexOf(healthBar) + 2, ico);
     }
 
     for (i in [iconP1, iconP2]) remove(i); // fuck you og icons
@@ -27,5 +26,5 @@ function beatHit(){
         i.scale.set(1.1, 1.1);
         FlxTween.tween(i.scale, {x: 1, y: 1}, (0.5 * (1 / (Conductor.bpm / 60))), {ease: FlxEase.cubeOut});
     }
-    icoP2.origin.set(150, 75);
+    icoP2.origin.set(147.5, 75);
 }
