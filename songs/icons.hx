@@ -2,11 +2,6 @@ public var icoP1:HealthIcon;
 public var icoP2:HealthIcon;
 
 function postCreate() {
-    healthOverlay = new FlxSprite(healthBarBG.x - 41, healthBarBG.y - 17).loadGraphic(Paths.image("game/healthBarBG"));
-    healthOverlay.cameras = [camHUD];
-    insert(members.indexOf(iconP1), healthOverlay);
-    healthBarBG.visible = false;
-
     // god i wish there was an easier way to make custom icon boppings - apurples
     icoP1 = new HealthIcon(boyfriend != null ? boyfriend.getIcon() : "face", true);
     icoP2 = new HealthIcon(dad != null ? dad.getIcon() : "face", false);
