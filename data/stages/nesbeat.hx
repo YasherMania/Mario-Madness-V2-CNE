@@ -54,6 +54,10 @@ var freeze = false;
 var swapped = false;
 var tarVel = 500;
 var ySpd = 500;
+var icon1:HealthIcon = iconP1;
+var icon2:HealthIcon = iconP1;
+var icon3:HealthIcon = iconP1;
+
 
 // hello!!! its me, bromaster!!! i know this code is a little messy, but uhhh, it works!!
 function create() {
@@ -223,12 +227,24 @@ function create() {
 
 	strumLines.members[2].characters[1].y = 500;
 	strumLines.members[2].characters[1].alpha = 0;
+
 }
 var savedEvents = [];
 function postCreate(){
         //camHUD.alpha=0;
 	savedEvents = events.copy();
-	strumLines.members[2].onHit.add(function(e:GFHitEvent) {});
+        icon1 = new HealthIcon(strumLines.members[0].characters[0].getIcon(), false);
+        icon1.cameras = [camHUD];
+        icon1.y = healthBar.y - (icon1.height / 2);
+        add(icon1);
+        icon2 = new HealthIcon(strumLines.members[0].characters[1].getIcon(), false);
+        icon2.cameras = [camHUD];
+        icon2.y = healthBar.y - (icon2.height / 2);
+        add(icon2);
+        icon3 = new HealthIcon(strumLines.members[0].characters[2].getIcon(), false);
+        icon3.cameras = [camHUD];
+        icon3.y = healthBar.y - (icon3.height / 2);
+        add(icon3);
 }
 var dummyvar = 0;
 
@@ -306,6 +322,23 @@ function postUpdate(elapsed:Float) {
 			gameOver();
 		}
 	}
+	iconP2.alpha = 0;
+	icon1.x = iconP2.x;
+	icon1.y = iconP1.y;
+	icon1.scale.x = iconP2.scale.x;
+	icon1.scale.y = iconP2.scale.y;
+	icon2.x = iconP2.x;
+	icon2.y = iconP1.y;
+	icon2.scale.x = iconP2.scale.x;
+	icon2.scale.y = iconP2.scale.y;
+	icon3.x = iconP2.x;
+	icon3.y = iconP1.y;
+	icon3.scale.x = iconP2.scale.x;
+	icon3.scale.y = iconP2.scale.y;
+
+	icon1.alpha = strumLines.members[0].characters[0].alpha;
+	icon2.alpha = strumLines.members[0].characters[1].alpha;
+	icon3.alpha = strumLines.members[0].characters[2].alpha;
 }
 
 function beatHit(curBeat)
@@ -331,6 +364,7 @@ function beatHit(curBeat)
 	if (curBeat > 796) {
 		camGame.bgColor = FlxColor.BLACK;
 	}
+
 }
 function stepHit(curStep){
         switch(curStep){
