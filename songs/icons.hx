@@ -8,7 +8,7 @@ function postCreate() {
     for(ico in [icoP1, icoP2]) {
         ico.y = healthBar.y - (ico.height / 2);
         ico.cameras = [camHUD];
-        insert(32, ico);
+        insert(31, ico);
     }
 
     for (i in [iconP1, iconP2]) remove(i); // fuck you og icons

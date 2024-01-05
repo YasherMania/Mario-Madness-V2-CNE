@@ -73,7 +73,7 @@ function create(){
     pixel.data.uBlocksize.value = [40, 40];
     camGame.addShader(pixel);
 
-    pixelTween = FlxTween.num(40, 0, 0.7, {ease: FlxEase.quadIn, onUpdate: (_) -> {
+    pixelTween = FlxTween.num(40, 0, 0.7, {onUpdate: (_) -> {
         pixel.data.uBlocksize.value = [pixelTween.value, pixelTween.value];
     }});
     pixelTween.onComplete = function(){
@@ -135,7 +135,10 @@ function onSongStart(){
     FlxG.camera.followLerp = 0.04;
 }
 
-function onSongEnd() window.resizable = true;
+function onSongEnd(){
+    setTransparent(false, 0, 0, 0);
+    window.resizable = true;
+}
 
 function onCameraMove(e) if(cancelCameraMove) e.cancel();
 
