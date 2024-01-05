@@ -27,5 +27,5 @@ function beatHit(){
         i.scale.set(1.1, 1.1);
         FlxTween.tween(i.scale, {x: 1, y: 1}, (0.5 * (1 / (Conductor.bpm / 60))), {ease: FlxEase.cubeOut});
     }
-    icoP2.origin.set(200, 105);
+    icoP2.origin.set(150, 75);
 }
