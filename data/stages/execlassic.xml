@@ -1,0 +1,15 @@
+<!DOCTYPE codename-engine-stage>
+<stage folder="stages/exe1/">
+	<sprite x="-1170" name="Castillo fondo de hasta atras" sprite="Castillo fondo de hasta atras" y="-712"/>
+	<sprite x="-1321" name="Starman_BG_Fire_Assets" y="666.5" sprite="Starman_BG_Fire_Assets"/>
+	<sprite x="1115"  y="682.5" sprite="Starman_BG_Fire_Assets" spr.flipX="true" name="Starman_BG_Fire_Assets2"/>
+	<sprite x="-1321" name="Suelo y brillo atmosferico" sprite="Suelo y brillo atmosferico" y="-668"/>
+	<sprite x="-1107" name="CLadrillosPapus" sprite="CLadrillosPapus" y="-534"/>
+	<sprite x="-1304" name="Arboles y sombra" sprite="Arboles y sombra" y="-592"/>
+	<gf x="718.5" y="311.5"/>
+	<dad x="-88" y="359.5"/>
+	<bf x="947" y="431.5"/>
+	<combo x="635.5" y="654"/>
+	<sprite x="-1751.1" sprite="dark" y="-1084.5" updateHitbox="true" scale="3.7" name="dark"/>
+	<sprite x="-1282" updateHitbox="true" y="-701" sprite="smoke" scale="3.1" name="smoke"/>
+</stage>

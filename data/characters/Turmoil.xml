@@ -1,0 +1,10 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="Turmoil" y="0" isGF="false" color="#870C0A" isPlayer="false" holdTime="6.1" sprite="Turmoil">
+	<anim x="0" loop="false" y="0" fps="24" anim="turmoil idle" name="idle"/>
+	<anim x="80" loop="false" y="105" fps="24" anim="turmoil up" name="singUP"/>
+	<anim x="89" loop="false" y="-24" fps="24" anim="turmoil left0" name="singLEFT"/>
+	<anim x="-35" loop="false" y="-13" fps="24" anim="turmoil right0" name="singRIGHT"/>
+	<anim x="105" loop="false" y="-125" fps="24" anim="turmoil down0" name="singDOWN"/>
+	<anim x="31" loop="false" y="-135" fps="24" anim="Toungue1" name="charge"/>
+	<anim x="120" loop="false" y="-5" fps="24" anim="Toungue2" name="attack"/>
+</character>

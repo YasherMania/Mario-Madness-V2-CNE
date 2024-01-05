@@ -1,0 +1,17 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="bfexenew"  y="350" isGF="false" color="#31B1D1" flipX="true" isPlayer="false" sprite="bfexenew">
+	<anim x="-5" loop="false" y="0" fps="24" anim="IDLE0" name="idle"/>
+	<anim x="-5" loop="false" y="0" fps="24" anim="IDLESCARED0" name="idle-alt"/>
+	<anim x="29" loop="false" y="64" fps="24" anim="UP0" name="singUP"/>
+	<anim x="30" loop="false" y="65" fps="24" anim="UPSCARED0" name="singUP-alt"/>
+	<anim x="-27" loop="false" y="-1" fps="24" anim="LEFT0" name="singRIGHT"/>
+	<anim x="-26" loop="false" y="-1" fps="24" anim="LEFTSCARED" name="singLEFT-alt"/>
+	<anim x="27" loop="false" y="-1" fps="24" anim="RIGHTSCARED" name="singRIGHT-alt"/>
+	<anim x="27" loop="false" y="-1" fps="24" anim="RIGHT0" name="singLEFT"/>
+	<anim x="-20" loop="false" y="-35" fps="24" anim="DOWNSCARED" name="singDOWN-alt"/>
+	<anim x="-20" loop="false" y="-35" fps="24" anim="DOWN0" name="singDOWN"/>
+	<anim x="31" loop="false" y="67" fps="24" anim="MISSUP" name="singUPmiss"/>
+	<anim x="-30" loop="false" y="6" fps="24" anim="MISSLEFT" name="singLEFTmiss"/>
+	<anim x="27" loop="false" y="29" fps="24" anim="MISSRIGHT" name="singRIGHTmiss"/>
+	<anim x="-16" loop="false" y="6" fps="24" anim="MISSDOWN" name="singDOWNmiss"/>
+</character>

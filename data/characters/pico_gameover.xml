@@ -1,0 +1,6 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="pico" y="350" isGF="false" color="#B7D855" isPlayer="true" sprite="Pico gameover">
+	<anim x="0" loop="false" y="0" fps="24" anim="Pico Game Over Anim" name="firstDeath"/>
+	<anim x="-10" loop="false" y="-50" fps="24" anim="Pico Game Over Confirm" name="deathConfirm"/>
+	<anim x="0" loop="true" y="-50" fps="24" anim="Pico Game Over Confirm" name="deathLoop"/>
+</character>

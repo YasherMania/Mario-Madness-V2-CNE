@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character x="0" icon="MXdemise" y="0" isGF="false" color="#4B130E" isPlayer="false" holdTime="6.1" sprite="MX_Demise_Assets">
+<character x="0" icon="MXdemise" y="0" isGF="false" color="#11B400" isPlayer="false" holdTime="6.1" sprite="MX_Demise_Assets">
 	<anim x="0" loop="true" y="-50" fps="24" anim="MX Running Upper Body" name="idle"/>
 	<anim x="-300" loop="false" y="100" fps="24" anim="MX Sing Right" name="singRIGHT"/>
 	<anim x="425" loop="false" y="0" fps="24" anim="MX Sing Left" name="singLEFT"/>
