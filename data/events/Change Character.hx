@@ -63,23 +63,23 @@ function onEvent(_)
         strumLines.members[_.event.params[0]].characters.insert(_.event.params[1], character);
 
         if (_.event.params[1] == '0') {
-            var icon:HealthIcon = isPlayer ? PlayState.icoP1 : PlayState.icoP2;
+            var icon:HealthIcon = isPlayer ? icoP1 : icoP2;
             if (icon.graphic != data.preloadData.icon) {
                 remove(icon);
                 icon = new HealthIcon(character.getIcon(), isPlayer);
                 icon.cameras = [camHUD];
                 icon.y = healthBar.y - (icon.height / 2);
                 insert(members.indexOf(healthBar)+2, icon);
-
+    
                 if (isPlayer) {
                     icon.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 1, 0)) - 26);
-                    PlayState.icoP1 = icon;
+                    icoP1 = icon;
                 }
                 else {
                     icon.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 1, 0))) - (icon.width - 26);
-                    PlayState.icoP2 = icon;
+                    icoP2 = icon;
                 }
-
+    
                 var leftColor:Int = dad.iconColor != null && Options.colorHealthBar ? dad.iconColor : 0xFFFF0000;
                 var rightColor:Int = boyfriend.iconColor != null && Options.colorHealthBar ? boyfriend.iconColor : 0xFF66FF33;
                 var colors = [leftColor, rightColor];
