@@ -1,4 +1,4 @@
-var healthOverlay:FlxSprite;
+public var healthOverlay:FlxSprite;
 
 function postCreate() {
     healthOverlay = new FlxSprite(healthBarBG.x - 41, healthBarBG.y - 17).loadGraphic(Paths.image("game/healthBarBG"));

@@ -63,7 +63,7 @@ function onEvent(_)
         strumLines.members[_.event.params[0]].characters.insert(_.event.params[1], character);
 
         if (_.event.params[1] == '0') {
-            var icon:HealthIcon = isPlayer ? iconP1 : iconP2;
+            var icon:HealthIcon = isPlayer ? PlayState.icoP1 : PlayState.icoP2;
             if (icon.graphic != data.preloadData.icon) {
                 remove(icon);
                 icon = new HealthIcon(character.getIcon(), isPlayer);
@@ -73,11 +73,11 @@ function onEvent(_)
 
                 if (isPlayer) {
                     icon.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 1, 0)) - 26);
-                    iconP1 = icon;
+                    PlayState.icoP1 = icon;
                 }
                 else {
                     icon.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 1, 0))) - (icon.width - 26);
-                    iconP2 = icon;
+                    PlayState.icoP2 = icon;
                 }
 
                 var leftColor:Int = dad.iconColor != null && Options.colorHealthBar ? dad.iconColor : 0xFFFF0000;
