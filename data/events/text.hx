@@ -3,7 +3,7 @@ import openfl.text.TextFormat;
 var firstTxt:FlxText;
 var secondTxt:FlxText;
 var thirdTxt:FlxText;
-var size = 150;
+var size = 135;
 var timer = 50;
 function create() {
 	firstTxt = new FlxText(0, 250, 2000, "", 1000);
@@ -84,4 +84,12 @@ function beatHit(curBeat) {
 		thirdTxt.text = "";
 		timer = 0;
 	}
+}
+
+function whiteScreen() {
+	size = 200;
+}
+
+function back2p1() {
+	size = 135;
 }
