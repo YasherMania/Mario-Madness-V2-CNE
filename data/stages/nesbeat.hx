@@ -1,6 +1,9 @@
 import openfl.Lib;
 import flixel.group.FlxGroup;
 import funkin.editors.EditorTreeMenu;
+import hxvlc.openfl.Video;
+import hxvlc.flixel.FlxVideo;
+var curVideo:Video;
 
 public var isUnbeatable = true;
 
@@ -42,9 +45,26 @@ var bowz;
 
 var dogTalk = false;
 var bowzTalk = false;
+var robTalk = false;
+var lakTalk = false;
+var curAnim = "p1";
+
+//modchart vars
+var freeze = false;
+var swapped = false;
+var tarVel = 500;
+var ySpd = 500;
 
 // hello!!! its me, bromaster!!! i know this code is a little messy, but uhhh, it works!!
 function create() {
+	//Video.initInstance();
+	trace("video inited!");
+
+        curVideo = new FlxVideo();
+        curVideo.onEndReached.add(curVideo.dispose);
+        var path = Paths.file("videos/hutcherson.mp4");
+	curVideo.load(Assets.getPath(path));
+
 	cross.visible = false;
 
         dad.alpha = 0;
@@ -70,7 +90,7 @@ function create() {
         blackBarThingie.screenCenter();
         add(blackBarThingie);
 
-    	var light1 = new FlxSprite(-25, -200);
+    	light1 = new FlxSprite(-25, -200);
     	light1.frames = Paths.getSparrowAtlas('stages/beatus/ycbu_lightning');
     	light1.animation.addByPrefix('uh', "lightning", 24, true);
     	light1.antialiasing = true;
@@ -80,7 +100,7 @@ function create() {
 	light1.animation.play('uh', true);
 	light1.visible = false;
 		//i know there might be a better way to do this but uhhh not right now
-    	var light2 = new FlxSprite(900, -200);
+    	light2 = new FlxSprite(900, -200);
     	light2.frames = Paths.getSparrowAtlas('stages/beatus/ycbu_lightning');
     	light2.animation.addByPrefix('uh', "lightning", 24, true);
     	light2.antialiasing = true;
@@ -95,12 +115,11 @@ function create() {
     		var goob = new FlxSprite(-100, i * 500);
     		goob.frames = Paths.getSparrowAtlas('stages/beatus/YouCannotBeatUS_Fellas_Assets');
     		goob.animation.addByPrefix('p1', "Rotat e", 24, true);
-    		goob.animation.addByPrefix('p2', "Bird Up", 24, true);
-    		goob.animation.addByPrefix('p3', "Lakitu", 24, true);
+    		goob.animation.addByPrefix('p2', "Bird Up", 24, false);
+    		goob.animation.addByPrefix('p3', "Lakitu", 24, false);
     		goob.antialiasing = true;
 		goob.setGraphicSize(Std.int(goob.width * 0.5));
     		goob.updateHitbox();
-		goob.velocity.y = -500;
     		add(goob);
 		goobersL.add(goob);
 		goob.animation.play('p1', true);
@@ -112,12 +131,11 @@ function create() {
     		var goob = new FlxSprite(850, i * 500);
     		goob.frames = Paths.getSparrowAtlas('stages/beatus/YouCannotBeatUS_Fellas_Assets');
     		goob.animation.addByPrefix('p1', "Rotat e", 24, true);
-    		goob.animation.addByPrefix('p2', "Bird Up", 24, true);
-    		goob.animation.addByPrefix('p3', "Lakitu", 24, true);
+    		goob.animation.addByPrefix('p2', "Bird Up", 24, false);
+    		goob.animation.addByPrefix('p3', "Lakitu", 24, false);
     		goob.antialiasing = true;
 		goob.setGraphicSize(Std.int(goob.width * 0.5));
     		goob.updateHitbox();
-		goob.velocity.y = 500;
     		add(goob);
 		goobersR.add(goob);
 		goob.animation.play('p1', true);
@@ -136,8 +154,8 @@ function create() {
 	shader.kMaskLight = 1.5;
         camGame.addShader(shader);
 
-	boyfriend.x -= 400;
-	gf.x += 50;
+	boyfriend.x = dad.x - 100;
+	gf.x = 300;
 
     	beatuspart = new FlxGroup(500);
 	beatuspart.add(light1);
@@ -210,6 +228,7 @@ var savedEvents = [];
 function postCreate(){
         //camHUD.alpha=0;
 	savedEvents = events.copy();
+	strumLines.members[2].onHit.add(function(e:GFHitEvent) {});
 }
 var dummyvar = 0;
 
@@ -221,6 +240,11 @@ function postUpdate(elapsed:Float) {
                 	gf.visible = false;
 			strumLines.members[0].characters[1].visible = true;
 			strumLines.members[0].characters[2].visible = true;
+			strumLines.members[2].characters[1].visible = true;
+			bowz.visible = true;
+			dog.visible = true;
+			lakitu.visible = true;
+			rob.visible = true;
                     
                 	if (dummyvar != -1) {
 		 	       blackBarThingie.alpha = 0.3;
@@ -235,6 +259,11 @@ function postUpdate(elapsed:Float) {
                 	gf.visible = true; 
 			strumLines.members[0].characters[1].visible = false;
 			strumLines.members[0].characters[2].visible = false;
+			strumLines.members[2].characters[1].visible = false;
+			bowz.visible = false;
+			dog.visible = false;
+			lakitu.visible = false;
+			rob.visible = false;
                 	if (dummyvar != 1) {
 		        	blackBarThingie.alpha = 0.3;
                         	FlxTween.tween(blackBarThingie, {alpha: 0},1, {ease: FlxEase.linear, type: FlxTween.ONESHOT});    
@@ -245,8 +274,14 @@ function postUpdate(elapsed:Float) {
 		if (goob.y < -500) {
 			goob.y = 1000;
 		}
+		if (goob.y > 1000) {
+			goob.y = -500;
+		}
 	}
 	for (goob in goobersR) {
+		if (goob.y < -500) {
+			goob.y = 1000;
+		}
 		if (goob.y > 1000) {
 			goob.y = -500;
 		}
@@ -312,21 +347,16 @@ function START() {
 	gf.visible = true;
 }
 
-var curVideo = null;
-import hxvlc.flixel.FlxVideo;
+
 function gameOver() {
-	health = 0.1;
-	inst.time = 0;
-	inst.volume = 0;
-	isGameOver = true;
-	trace("uh oh you died!!");
-        curVideo = new FlxVideo();
-        curVideo.onEndReached.add(curVideo.dispose);
-        var path = Paths.file("videos/hutcherson.mp4");
-        curVideo.play(Assets.getPath(path));
+    health = 0.1;
+    inst.time = 0;
+    inst.volume = 0;
+    isGameOver = true;
+    trace("uh oh you died!!");
+        curVideo.play();
         trace("video played!");
         if (curVideo == null) trace("video did not play! did you check if the video name is spelled correctly?");
-
 }
 
 function update(elapsed:Float){
@@ -344,6 +374,10 @@ function update(elapsed:Float){
 		inst.volume = 1;
 		vocals.volume = 1;
 	}
+
+	for (goob in goobersL) goob.y -= (ySpd / 250);
+	for (goob in goobersR) goob.y += ySpd / 250;
+	trace(ySpd/100);
 }
 function end() {
 	curVideo.dispose();
@@ -376,6 +410,7 @@ function end() {
 	resyncVocals();
 	for (s in strumLines) s.generate(s.data, null);
 	events = savedEvents.copy();
+	cantbeatOver();
 }
 
 function fadeOpp() {
@@ -411,6 +446,7 @@ function part1cantbeat() {
 
 function cantbeat(anim:String) {
 	trace(anim);
+	curAnim = anim;
 	beatUsPart = true;
 	for (i in beatuspart) i.visible = true;
 	if (anim != "p1") {
@@ -578,12 +614,20 @@ function bfUnsolo() {
 
 function robEnter() {
 	rob.x = 1200;
+	bowzTalk = false;
+	dogTalk = false;
+	robTalk = true;
+	lakTalk = false;
 	FlxTween.tween(rob, {x:700}, 0.7, {ease: FlxEase.smootherStepOut, type: FlxTween.ONESHOT});
 	FlxTween.tween(rob, {y:300}, 0.7, {ease: FlxEase.smootherStepIn, type: FlxTween.ONESHOT});
 }
 
 function lakituEnter() {
 	lakitu.x = -400;
+	bowzTalk = false;
+	dogTalk = false;
+	robTalk = false;
+	lakTalk = true;
 	FlxTween.tween(lakitu, {x:0}, 0.7, {ease: FlxEase.smootherStepOut, type: FlxTween.ONESHOT});
 	FlxTween.tween(lakitu, {y:300}, 0.7, {ease: FlxEase.smootherStepIn, type: FlxTween.ONESHOT});
 }
@@ -608,9 +652,70 @@ function dogEnter() {
 	FlxTween.tween(dog, {y:0}, 0.7, {ease: FlxEase.backOut, type: FlxTween.ONESHOT});
 }
 
+function updateYSPD(value:float) {
+	ySpd = value;
+}
+
 function onDadHit(event) {
 	if (dogTalk) dog.playSingAnim(event.direction);
 	if (bowzTalk) bowz.playSingAnim(event.direction);
+	if (event.note.strumLine == strumLines.members[3]) {
+		if (robTalk) rob.animation.play('1', true);
+		if (lakTalk) lakitu.animation.play('1', true);
+		if (curAnim != "p1" ) {
+			for (goob in goobersL) goob.animation.play(curAnim, true);
+			for (goob in goobersR) goob.animation.play(curAnim, true);
+		}
+	}
+	//THE HOLY MODCHART STRUM!!! (the one to the far right of the chart editor)
+	if (event.note.strumLine == strumLines.members[4]) {
+		if (event.note.strumID == 0) {
+			freeze = !freeze;
+			trace("freeze = " + freeze);
+			if (freeze) tarVel = 0;
+			if (!freeze) {
+				tarVel = 500;
+				ySpd = tarVel;
+			}
+		}
+		if (event.note.strumID == 1) {
+			tarVel *= -1;
+			FlxTween.num(-3000, tarVel, 0.2, {ease:FlxEase.smootherStepOut}, updateYSPD);
+		}
+		if (event.note.strumID == 2) {
+			tarVel *= -1;
+			FlxTween.num(3000, tarVel, 0.2, {ease:FlxEase.smootherStepOut}, updateYSPD);
+		}
+		if (event.note.strumID == 3) {
+			swapped = !swapped;
+			trace("swapped = " + swapped);
+			if (curAnim == "p1") {
+			if (swapped) {
+			for (goob in goobersL) FlxTween.tween(goob,{x:850},0.2,{ease:FlxEase.smootherStepOut});
+			for (goob in goobersR) FlxTween.tween(goob,{x:-100},0.2,{ease:FlxEase.smootherStepOut});
+			FlxTween.tween(light1,{x:900},0.2,{ease:FlxEase.smootherStepOut});
+			FlxTween.tween(light2,{x:-25},0.2,{ease:FlxEase.smootherStepOut});
+			} else {
+			for (goob in goobersL) FlxTween.tween(goob,{x:-100},0.2,{ease:FlxEase.smootherStepOut});
+			for (goob in goobersR) FlxTween.tween(goob,{x:850},0.2,{ease:FlxEase.smootherStepOut});
+			FlxTween.tween(light1,{x:-25},0.2,{ease:FlxEase.smootherStepOut});
+			FlxTween.tween(light2,{x:900},0.2,{ease:FlxEase.smootherStepOut});
+			}
+			} else {
+			if (swapped) {
+			for (goob in goobersL) FlxTween.tween(goob,{x:900},0.2,{ease:FlxEase.smootherStepOut});
+			for (goob in goobersR) FlxTween.tween(goob,{x:-50},0.2,{ease:FlxEase.smootherStepOut});
+			FlxTween.tween(light1,{x:900},0.2,{ease:FlxEase.smootherStepOut});
+			FlxTween.tween(light2,{x:-25},0.2,{ease:FlxEase.smootherStepOut});
+			} else {
+			for (goob in goobersL) FlxTween.tween(goob,{x:-50},0.2,{ease:FlxEase.smootherStepOut});
+			for (goob in goobersR) FlxTween.tween(goob,{x:900},0.2,{ease:FlxEase.smootherStepOut});
+			FlxTween.tween(light1,{x:-25},0.2,{ease:FlxEase.smootherStepOut});
+			FlxTween.tween(light2,{x:900},0.2,{ease:FlxEase.smootherStepOut});
+			}
+			}
+		}
+	}
 }
 
 function whiteScreen(what) {
@@ -691,7 +796,6 @@ function bowzEnter2() {
 	strumLines.members[2].characters[1].y = 500;
 	strumLines.members[2].characters[1].alpha = 1;
 	FlxTween.tween(strumLines.members[2].characters[1], {y:0}, 0.7, {ease: FlxEase.backOut, type: FlxTween.ONESHOT});
-
 }
 
 function bowzEnter() {
@@ -716,19 +820,27 @@ function dogEnter2() {
 function robEnter2() {
 	rob.y = 500;
 	rob.alpha = 1;
+	bowzTalk = false;
+	dogTalk = false;
 	FlxTween.tween(rob, {y:300}, 0.7, {ease: FlxEase.backOut, type: FlxTween.ONESHOT});
 }
 
 function lakituEnter2() {
 	lakitu.y = 500;
 	lakitu.alpha = 1;
+	bowzTalk = false;
+	dogTalk = false;
 	FlxTween.tween(lakitu, {y:300}, 0.7, {ease: FlxEase.backOut, type: FlxTween.ONESHOT});
 }
 
 //"SCORE ONE MILLION!!"
 function ONEMILLION() {
-	var ONEMILLION = true;
-	lakitu.alpha = 0;
+	trace("SCORE ONE MILLION!");
+	FlxTween.num(0, 1000000, 0.75, {ease:FlxEase.cubeOut}, updateValue);
+}
+
+function updateValue(value:Float) {
+	thirdTxt.text = Std.string(Std.int(value));
 }
 
 function bowzEnter2() {
@@ -748,6 +860,10 @@ function bowzEnter3() {
 	FlxTween.tween(bowz, {y:0}, 0.7, {ease: FlxEase.backOut, type: FlxTween.ONESHOT});
 }
 
+function lakituGone() {
+	lakitu.alpha = 0;
+}
+
 //THE LAST FUNCTION!!!!!
 //WOOHOO!!!!!!!!!!!!!!!!!!!
 //IM SO FUCKING TIRED
@@ -760,7 +876,11 @@ function WEARENINTENDO() {
 	strumLines.members[0].characters[2].alpha = 0;
 	strumLines.members[2].characters[1].alpha = 0;
 	bowz.alpha = 1;
+	bowz.x = 500;
+	bowz.y = 0;
 	dog.alpha = 1;
+	dog.x = -500;
+	dog.y = 0;
 	strumLines.members[0].characters[0].x = 0;
 	lakitu.alpha = 1;
 	rob.alpha = 1;
@@ -771,4 +891,15 @@ function WEARENINTENDO() {
 	firstTxt.text = "";
 	secondTxt.text = "";
 	thirdTxt.text = "";
+	bowzTalk = false;
+	dogTalk = false;
+}
+
+function YOUCANNOTBEATUS() {
+	bowzTalk = true;
+	dogTalk = true;
+	lakTalk = true;
+	robTalk = true;
+	lakitu.animation.play('1', true);
+	rob.animation.play('1', true);
 }
