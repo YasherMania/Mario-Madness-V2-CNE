@@ -1,4 +1,5 @@
 import funkin.backend.system.framerate.Framerate;
+import flixel.FlxG;
 
 var canDoShit:Bool = true;
 
