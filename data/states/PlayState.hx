@@ -136,5 +136,10 @@ function postCreate() {
 		healthBarBG.loadGraphic(Paths.image("game/healthBarBG"));
 		healthBarBG.x = 295;
 		healthBarBG.y = 642;
+		for (i in [scoreTxt, missesTxt, accuracyTxt]) {
+			i.font = Paths.font("Mario2.ttf");
+			i.color = 0xFFf42626;
+			i.size = 10;
+		}
 	}
 }

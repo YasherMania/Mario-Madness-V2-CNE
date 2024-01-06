@@ -137,7 +137,7 @@ function create() {
     timeBar.cameras = [camHUD];
     timeBarBG.cameras = [camHUD];
     timeTxt.cameras = [camHUD];
-    //PauseSubState.script = 'data/scripts/funnypause';
+    PauseSubState.script = 'data/scripts/funnypause';
 
     FlxG.cameras.add(camFPS = new HudCamera(), false);
     camFPS.bgColor = 0;
