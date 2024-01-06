@@ -327,18 +327,29 @@ function postUpdate(elapsed:Float) {
 	icon1.y = iconP1.y;
 	icon1.scale.x = iconP2.scale.x;
 	icon1.scale.y = iconP2.scale.y;
-	icon2.x = iconP2.x;
-	icon2.y = iconP1.y;
-	icon2.scale.x = iconP2.scale.x;
-	icon2.scale.y = iconP2.scale.y;
-	icon3.x = iconP2.x;
-	icon3.y = iconP1.y;
-	icon3.scale.x = iconP2.scale.x;
-	icon3.scale.y = iconP2.scale.y;
 
 	icon1.alpha = strumLines.members[0].characters[0].alpha;
+	if (strumLines.members[0].characters[0].alpha > 0.1) {
+		icon2.x = iconP2.x - 50;
+		icon2.y = iconP1.y;
+		icon2.scale.x = iconP2.scale.x / 1.5;
+		icon2.scale.y = iconP2.scale.y / 1.5;
+		icon3.x = iconP2.x - 100;
+		icon3.y = iconP1.y;
+		icon3.scale.x = iconP2.scale.x / 2;
+		icon3.scale.y = iconP2.scale.y / 2;
+	} else {
+		icon2.x = iconP2.x;
+		icon2.y = iconP1.y;
+		icon2.scale.x = iconP2.scale.x;
+		icon2.scale.y = iconP2.scale.y;
+		icon3.x = iconP2.x;
+		icon3.y = iconP1.y;
+		icon3.scale.x = iconP2.scale.x;
+		icon3.scale.y = iconP2.scale.y;
+	}
 	icon2.alpha = strumLines.members[0].characters[1].alpha;
-	icon3.alpha = strumLines.members[0].characters[2].alpha;
+	icon3.alpha = strumLines.members[0].characters[2].alpha + strumLines.members[2].characters[1].alpha;
 }
 
 function beatHit(curBeat)
@@ -458,7 +469,7 @@ function fadeOpp() {
 function mid() {
 	//middlescroll
 	for (i in 0...4) {
-    		FlxTween.tween(playerStrums.members[i], {x:425 + i * 105}, 1, {ease: FlxEase.quintOut});
+    		FlxTween.tween(playerStrums.members[i], {x:425 + i * 105}, 1, {ease: FlxEase.quintInOut});
 	}
 }
 

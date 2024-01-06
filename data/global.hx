@@ -1,9 +1,11 @@
 import funkin.backend.utils.NativeAPI;
+import hxvlc.openfl.Video;
 
 static var initialized:Bool = false;
 
 function new(){
     // settings that get set to true on first launch
+
     if (FlxG.save.data.flashingLights == null) FlxG.save.data.flashingLights = true;
     if (FlxG.save.data.streamerMode == null) FlxG.save.data.streamerMode = false;
     if (FlxG.save.data.transparency_value == null) FlxG.save.data.transparency_value = 0;

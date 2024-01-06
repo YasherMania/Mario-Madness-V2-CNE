@@ -13,7 +13,7 @@ function create(){
 }
 
 function update(){
-    new FlxTimer().start(.2, function() {FlxTween.tween(warning, {alpha: 1}, .75);});
+    new FlxTimer().start(.2, function() {FlxTween.tween(warningTxt, {alpha: 1}, .75);});
 
     if (FlxG.keys.justPressed.ENTER && canDoShit) pressedEnter();
     else if (FlxG.keys.justPressed.ESCAPE) pressedEscape();
@@ -23,7 +23,7 @@ function pressedEnter(){
 	canDoShit = false;
     FlxTween.tween(FlxG.camera, {alpha: 0}, .75, {ease: FlxEase.quintOut});
 	CoolUtil.playMenuSFX(1);
-    FlxTween.tween(window, {x: 500, y: 175, width: 960, height: 720}, 1, {ease: FlxEase.sineOut});
+    FlxTween.tween(window, {x: 650, y: 325, width: 640, height: 360}, 1, {ease: FlxEase.sineOut});
 	new FlxTimer().start(2, function() {
 		FlxG.switchState(new TitleState());
 	});
