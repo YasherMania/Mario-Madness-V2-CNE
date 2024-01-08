@@ -1,7 +1,7 @@
-static var mycharIdleAlt = false;
+static var bfexeidleAlt = false;
 
 function onPlayAnim(e) {
-    if(mycharIdleAlt) {
+    if(bfexeidleAlt) {
         if(e.animName == "idle") e.animName = "idle-alt";
     }
 }

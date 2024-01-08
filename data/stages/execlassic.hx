@@ -113,7 +113,7 @@ function beatHit(curBeat) {
         case 35:
             defaultCamZoom = 0.5;
         case 340:
-            mycharIdleAlt = true;
+            bfexeidleAlt = true;
             dark.cameras = [camBR];
             dad.playAnim("laugh");
             camHUD.alpha = 0.0001;

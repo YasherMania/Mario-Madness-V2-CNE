@@ -106,10 +106,10 @@ function update(elapsed:Float) {
             persistentUpdate = false;
             persistentDraw = true;
         }
-        if (controls.UP_P)
+        if (controls.RIGHT_P)
             changeItem(-1);
 
-        if (controls.DOWN_P)
+        if (controls.LEFT_P)
             changeItem(1);
 
         if (controls.ACCEPT)
