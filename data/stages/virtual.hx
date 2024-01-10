@@ -126,6 +126,8 @@ function onPostNoteCreation(event) {
     else return;
 }
 
+function onPlayerHit(event:NoteHitEvent) event.ratingPrefix = "game/score/paranoia/";
+
 function onCountdown(event:CountdownEvent) event.cancelled = true;
 
 function onStartCountdown(){
