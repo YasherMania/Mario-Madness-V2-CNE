@@ -105,17 +105,7 @@ function create(event) {
     for (q in [bg,modeTxt,descAll,desctext,creditsTxt,line1,line2,title,levelDifficulty]) {
         FlxTween.tween(q, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut});
     }
-    /*
-    FlxTween.tween(bg, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut});
-    FlxTween.tween(modeTxt, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
-    FlxTween.tween(descAll, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
-    FlxTween.tween(desctext, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
-    FlxTween.tween(creditsTxt, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
-    FlxTween.tween(line1, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
-    FlxTween.tween(line2, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
-    FlxTween.tween(title, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
-    FlxTween.tween(levelDifficulty, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
-    */
+
     grpMenuShit = new FlxTypedGroup();
 	add(grpMenuShit);
 
