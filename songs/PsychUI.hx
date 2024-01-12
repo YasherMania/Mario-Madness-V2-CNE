@@ -179,6 +179,7 @@ function update(elapsed:Float) {
         botplayTxt.visible = true;
     } else if (!FlxG.save.data.botplayOption) {
         botplayTxt.visible = false;
+        player.cpu = false;
     }
 
     finalFPS = CoolUtil.fpsLerp(finalFPS, FlxG.elapsed == 0 ? 0 : (1 / FlxG.elapsed), 0.25);

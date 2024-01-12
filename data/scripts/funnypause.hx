@@ -22,7 +22,7 @@ var modeTxt:FlxText;
 var songandcredits:FlxText;
 var desctext:FlxText;
 var txtdesc:String;
-var songName = PlayState.SONG.meta.name;
+var songName = PlayState.SONG.meta.displayName;
 var author = PlayState.SONG.meta.author;
 var funni:Array<String> = [];
 
