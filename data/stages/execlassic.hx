@@ -2,7 +2,7 @@ import flixel.tweens.FlxTween.FlxTweenType;
 
 var path = "stages/execlassic/";
 var camxoffset:Float = -70; //-100
-var camyoffset:Float = 0;
+var camyoffset:Float = -100;
 var dadxoffset:Float = -270; //-100
 var dadyoffset:Float = 100;
 var camBR = null;
@@ -14,8 +14,8 @@ var camTween:NumTween;
 function create() {
     FlxG.cameras.add(camBR = new HudCamera(), false);
     camBR.bgColor = 0;
-    defaultCamZoom = 0.6;
-    mycharIdleAlt = false;
+    defaultCamZoom = 0.5;
+    bfexeidleAlt = false;
 
     mosaic = new CustomShader("mosaicShader");
     mosaic.data.uBlocksize.value = [0.1,0.1];
@@ -111,7 +111,7 @@ function beatHit(curBeat) {
             defaultCamZoom = 0.7;
             FlxTween.tween(FlxG.camera, {zoom: 0.7}, 0.2, {ease: FlxEase.sineInOut});
         case 35:
-            defaultCamZoom = 0.5;
+            defaultCamZoom = 0.52;
         case 340:
             bfexeidleAlt = true;
             dark.cameras = [camBR];

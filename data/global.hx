@@ -24,10 +24,10 @@ static var redirectStates:Map<FlxState, String> = [
 ];
 
 function update(elapsed) {
-    if (FlxG.keys.justPressed.F6)
-        NativeAPI.allocConsole();
     if (FlxG.keys.justPressed.F5)
         FlxG.resetState();
+    if (FlxG.keys.justPressed.F6)
+        NativeAPI.allocConsole();
 }
 
 function preStateSwitch() {

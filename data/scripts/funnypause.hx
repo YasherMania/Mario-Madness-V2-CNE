@@ -6,6 +6,8 @@ import funkin.backend.scripting.events.MenuChangeEvent;
 import funkin.backend.scripting.events.NameEvent;
 import funkin.backend.scripting.EventManager;
 import FlxG;
+import lime.utils.Assets;
+import openfl.utils.Assets;
 import PlayState;
 import funkin.game.StrumLine;
 import flixel.tweens.FlxTweenType;
@@ -19,7 +21,10 @@ var staticShader:CustomShader = null;
 var modeTxt:FlxText;
 var songandcredits:FlxText;
 var desctext:FlxText;
+var txtdesc:String;
 var songName = PlayState.SONG.meta.name;
+var author = PlayState.SONG.meta.author;
+var funni:Array<String> = [];
 
 function create(event) {
     event.cancel();
@@ -42,29 +47,75 @@ function create(event) {
     add(bg);
 
     modeTxt = new FlxText(566, 31,0,"Freeplay",17);
+    modeTxt.alpha = 0;
     modeTxt.setFormat(Paths.font("MarioNES.ttf"),17,FlxColor.WHITE, "Center", FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     add(modeTxt);
 
     desctext = new FlxText(566, 271, 0, "", 12);
     desctext.text = "Description";
+    desctext.alpha = 0;
     desctext.setFormat(Paths.font("MarioNES.ttf"), 17);
     add(desctext);
 
     line1 = new FlxSprite(566, modeTxt.y + 30).makeGraphic(630, 3, FlxColor.WHITE);
+    line1.alpha = 0;
     add(line1);
 
     line2 = new FlxSprite(566, desctext.y + 30).makeGraphic(630, 3, FlxColor.WHITE);
+    line2.alpha = 0;
     add(line2);
 
+    txtdesc = Paths.txt("desc/" + songName);
+    funni = CoolUtil.coolTextFile(txtdesc);
+
     descAll = new FlxText(566, desctext.y + 40, 700, "", 12);
-    descAll.text = "q"; // Got too tired to finish this line;
-    descAll.setFormat(Paths.font("mariones.ttf"), 17);
+    descAll.text = funni[0];
+    descAll.alpha = 0;
+    descAll.setFormat(Paths.font("marioNES.ttf"), 17);
     add(descAll);
 
-    var txtdesc:String;
+    title = new FlxText(566, modeTxt.y + 40, 700, songName, 22);
+    title.setFormat(Paths.font('marioNES.ttf'), 22);
+    title.alpha = 0;
+    title.scrollFactor.set();
+    title.updateHitbox();
+    add(title);
 
+    levelDifficulty = new FlxText(566, modeTxt.y + 60, 700, "", 32);
+    levelDifficulty.text = "\n" + author;
+    //levelDifficulty.text = replace('\n', ' '); 
+    //levelDifficulty.text = levelDifficulty.text.replace('\n', ' ');
+    levelDifficulty.alpha = 0;
+    levelDifficulty.scrollFactor.set();
+    levelDifficulty.setFormat(Paths.font('mariones.ttf'), 17);
+    levelDifficulty.updateHitbox();
+    add(levelDifficulty);
+
+    creditsTxt = new FlxText(566, levelDifficulty.y + 60, 700, "", 12);
+    creditsTxt.text = funni[1];
+    creditsTxt.alpha = 0;
+    creditsTxt.setFormat(Paths.font("marioNES.ttf"), 17);
+    add(creditsTxt);
+
+    botplaytxt = new FlxText(1150,690,0,"Botplay", 17);
+    botplaytxt.alpha = FlxG.save.data.botplayOption ? 1 : 0;
+    botplaytxt.setFormat(Paths.font("marioNES.ttf"), 17);
+    add(botplaytxt);
+
+    for (q in [bg,modeTxt,descAll,desctext,creditsTxt,line1,line2,title,levelDifficulty]) {
+        FlxTween.tween(q, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut});
+    }
+    /*
     FlxTween.tween(bg, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut});
-
+    FlxTween.tween(modeTxt, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
+    FlxTween.tween(descAll, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
+    FlxTween.tween(desctext, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
+    FlxTween.tween(creditsTxt, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
+    FlxTween.tween(line1, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
+    FlxTween.tween(line2, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
+    FlxTween.tween(title, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
+    FlxTween.tween(levelDifficulty, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
+    */
     grpMenuShit = new FlxTypedGroup();
 	add(grpMenuShit);
 
@@ -170,6 +221,7 @@ function selectOption() {
 		case "Botplay":
             if (FlxG.save.data.ShowPsychUI) {
                 FlxG.save.data.botplayOption = !FlxG.save.data.botplayOption;
+                botplaytxt.alpha = FlxG.save.data.botplayOption ? 1 : 0;
             }
             //player.cpu = !player.cpu; Imma figure out why this doesn't work (Yes I have tried putting PlayState.player.cpu)
 		case "Exit":

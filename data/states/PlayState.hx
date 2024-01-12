@@ -8,7 +8,8 @@ var line1:FlxSprite;
 var line2:FlxSprite;
 var gbcolor:FlxColor = 0xFFF42626;
 var newName = PlayState.SONG.meta.displayName;
-var autor:String = "";
+public static var autor:String = "";
+public var format = new FlxTextFormat(0x000000, false, false, gbcolor);
 
 function create() {
     titleText = new FlxText(400, 304.5, 0, newName, 42);
@@ -21,11 +22,9 @@ function create() {
 
     switch (curSong) {
         case 'its-a-me':
-				autor = '      TheWAHbox\n ft. Sandi and Comodo_';
-
+			autor = '      TheWAHbox\n ft. Sandi and Comodo_';
 		case 'Starman Slaughter':
 			autor = 'Sandi ft. RedTV53\n FriedFrick and theWAHbox';
-
 		case 'i-hate-you':
 			autor = 'iKenny';
 		case 'Powerdown':
@@ -36,7 +35,6 @@ function create() {
 			autor = 'RedTV53';
 		case 'Apparition':
 			autor = 'FriedFrick';
-
 		// Extra songs
 		case 'Racetraitors':
 			autor = 'iKenny';
@@ -76,7 +74,6 @@ function create() {
 			autor = 'iKenny';
     }
 
-    var format = new FlxTextFormat(0x000000, false, false, gbcolor);
     format.leading = -5;
 
     autorText = new FlxText(400, titleText.y + 70, 0, autor, 35);
