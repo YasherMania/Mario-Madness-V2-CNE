@@ -14,6 +14,8 @@ var chatcolor4:FlxTextFormat = new FlxTextFormat(0xFFE4F55F, false, false, 0xFF0
 var chatcolor5:FlxTextFormat = new FlxTextFormat(0xFFF04891, false, false, 0xFF000000);
 
 function postCreate() {
+	camGame.alpha = 0;
+	camHUD.alpha = 0;
     	miya = new FlxSprite(250, 100);
     	miya.frames = Paths.getSparrowAtlas('stages/real/miyamoto');
     	miya.animation.addByPrefix('idle', "miyamoto still", 24, true);
@@ -92,6 +94,12 @@ function amario() { dad.animation.play("hey", true); }
 function normal() {
 	dad.danceOnBeat = true;
 	noPosSet = false;
+	FlxTween.tween(camHUD, {alpha:1}, 1, {ease: FlxEase.sineInOut, type: FlxTween.ONESHOT});
+}
+
+function beatHit(curBeat) {
+	if (curBeat == 0) FlxTween.tween(camGame, {alpha:1}, 2, {ease: FlxEase.sineInOut, type: FlxTween.ONESHOT});
+	if (curBeat == 0) defaultCamZoom = 0.63;
 }
 
 function miyaleave() {
