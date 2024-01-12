@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-stage>
-<stage zoom="0.63" name="directstream" folder="stages/real/">
+<stage zoom="1" name="directstream" folder="stages/real/">
 	<sprite name="redbg" sprite="direct bg red" scroll="0" scale="1.25" x="-400" y="-100"/>
 	<sprite name="bg" sprite="direct bg grey" scroll="0" scale="1.25" x="-400" y="-200" alpha="0"/>
 
