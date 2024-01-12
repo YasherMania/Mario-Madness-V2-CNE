@@ -9,6 +9,7 @@ public var isUnbeatable = true;
 
 var blackBarThingie:FlxSprite;
 var shader:CustomShader = null;
+var shader2:CustomShader = null;
 var time:Float=0;
 
 var goobersL:FlxGroup;
@@ -58,9 +59,30 @@ var icon1:HealthIcon = iconP1;
 var icon2:HealthIcon = iconP1;
 var icon3:HealthIcon = iconP1;
 
+var noteNum = 0;
+var noteRotL:FlxGroup;
+var noteRotR:FlxGroup;
 
 // hello!!! its me, bromaster!!! i know this code is a little messy, but uhhh, it works!!
+function onNoteCreation(e) {
+	noteNum += 1;
+	var n = e.note;
+	if (n.isSustainNote) {
+		if (noteNum % 2 == 0) {
+			noteRotL.add(n);
+			n.angle = 5;
+		}
+		if (noteNum % 2 != 0) {
+			noteRotR.add(n);
+			n.angle = -5;
+		}
+	}
+}
+
 function create() {
+    	noteRotL = new FlxGroup(50000);
+    	noteRotR = new FlxGroup(50000);
+	shader2 = new CustomShader("WiggleShader");
 	//Video.initInstance();
 	trace("video inited!");
 
@@ -245,9 +267,13 @@ function postCreate(){
         icon3.cameras = [camHUD];
         icon3.y = healthBar.y - (icon3.height / 2);
         add(icon3);
+
+	shader2.uSpeed = 0.1;
+	shader2.uFrequency = 5;
+	shader2.uWaveAmplitude = 0.05;
 }
 var dummyvar = 0;
-
+var angg = 0;
 function postUpdate(elapsed:Float) {
     	switch(curCameraTarget) {
         	case 0:
@@ -350,6 +376,8 @@ function postUpdate(elapsed:Float) {
 	}
 	icon2.alpha = strumLines.members[0].characters[1].alpha;
 	icon3.alpha = strumLines.members[0].characters[2].alpha + strumLines.members[2].characters[1].alpha;
+	time += 0.5;
+	shader2.uTime = time;
 }
 
 function beatHit(curBeat)
@@ -405,7 +433,6 @@ function gameOver() {
 }
 
 function update(elapsed:Float){
-	time += 100;
 	if (health < 0.1) gameOver();
 	if (isGameOver) {
 		health = 0.1;
@@ -422,7 +449,6 @@ function update(elapsed:Float){
 
 	for (goob in goobersL) goob.y -= (ySpd / 250);
 	for (goob in goobersR) goob.y += ySpd / 250;
-	trace(ySpd/100);
 }
 function end() {
 	curVideo.dispose();
