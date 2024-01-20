@@ -6,3 +6,10 @@ function postCreate() {
     insert(members.indexOf(iconP1), healthOverlay);
     healthBarBG.visible = false;
 }
+
+function onSongEnd(){
+    if (wasInWarpState){
+        FlxG.switchState(new ModState("customStates/WarpState"));
+        wasInWarpState = false;
+    }
+}

@@ -33,8 +33,9 @@ Framerate.codenameBuildField.visible = true;
 
 window.resizable = true;
 
+function new() if (FlxG.sound.music == null || !FlxG.sound.music.playing) CoolUtil.playMenuSong();
+
 function create() {
-    CoolUtil.playMenuSong();
     window.title = "Friday Night Funkin: Mario's Madness V2";
     bg = new FlxBackdrop(Paths.image('menus/mainmenu/bgs/bg0'));
     bg.scale.set(3.4,3.4);
@@ -137,7 +138,8 @@ function selectItem() {
             case 'MainGame':
                 FlxG.switchState(new StoryMenuState());
             case 'WarpZone':
-                FlxG.switchState(new MainMenuState());
+                FlxG.switchState(new ModState("customStates/WarpState"));
+                FlxTween.tween(FlxG.sound.music, {volume: 0}, .35);
             case 'Freeplay':
                 FlxG.switchState(new FreeplayState());
             case 'Options':
