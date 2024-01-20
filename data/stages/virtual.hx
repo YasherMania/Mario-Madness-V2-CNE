@@ -1,8 +1,13 @@
 import flixel.addons.display.FlxBackdrop;
 import openfl.system.Capabilities;
-import funkin.backend.utils.NdllUtil; // NEEDED FOR THE TRANSPARENT WINDOW SHIT !!!
+import sys.FileSystem;
+import funkin.backend.utils.NdllUtil; // NEEDED FOR THE TRANSPARENT WINDOW AND WALLPAPER SHIT !!!
 
-var setTransparent = NdllUtil.getFunction('transparent','ndllexample_set_windows_transparent', 4);
+var setTransparent = NdllUtil.getFunction('transparent', 'ndllexample_set_windows_transparent', 4);
+
+// wallpaper stuff !!
+var setWallpaper = NdllUtil.getFunction("ndll_wallpaper", "change_wallpaper", 1);
+var realPath = StringTools.replace(FileSystem.absolutePath(Assets.getPath("assets/images/stages/virtual/toolate.bmp")), "/", "\\");
 
 var turtlesTime, shake, cancelCameraMove, gfCamTime:Bool = false;
 
@@ -151,10 +156,13 @@ function onStrumCreation(event) {
 }
 
 function onPostNoteCreation(event) {  
-    var note = event.note;  
+    var note = event.note;
     if (FlxG.save.data.Splashes) note.splash = "redDiamond";
     else if (FlxG.save.data.Splashes == 0) note.splash = "redVanilla";
     else return;
+
+    // fixes sustain note's x offset
+    if (note.isSustainNote)  note.frameOffset.x -= note.frameWidth / 4; 
 }
 
 function onPlayerHit(event:NoteHitEvent) event.ratingPrefix = "game/score/paranoia/"; // this sucks but coloring the rating stuff with coding didnt work sooo
@@ -271,8 +279,11 @@ function preGfWindow(){
         FlxTween.tween(window, {x: 0, y: 0, width: fsX, height: fsY}, 1.6, {
             ease: FlxEase.expoIn,
             onComplete: function(twn:FlxTween){
-                // CppAPI.setTransparency(window.title, 0x001957);
                 window.borderless = false;
+                if (FlxG.save.data.virtualWallpaper){
+                    setWallpaper(realPath);
+                    trace(realPath);
+                }
             }
         });
     }
@@ -306,4 +317,5 @@ function gf(){
     gfCamTime = true;
     cameraMovementEnabled = false;
     if (FlxG.save.data.virtualTrans) setTransparent(true, 0, 1, 1);
+    if (FlxG.save.data.virtualWallpaper) setWallpaper(realPath); // being run again to prevent black background
 }
