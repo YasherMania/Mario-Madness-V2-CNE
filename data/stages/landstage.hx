@@ -3,9 +3,23 @@ var noteOffset:Float = 17;
 var noteSusX:Float = 7;
 var noteSusY:Float = 12 / 2;
 
+var staticShader:CustomShader = null;
+var border:CustomShader = null;
+
+function create(){
+	staticShader = new CustomShader("TVStatic");
+	staticShader.data.strengthMulti.value = [0.5, 0.5];
+	staticShader.data.imtoolazytonamethis.value = [0.3, 0.3];
+	camGame.addShader(staticShader);
+
+	border = new CustomShader("border");
+	camGame.addShader(border);
+}
+
 function postCreate(){
     healthOverlay.loadGraphic(Paths.image("game/healthbars/gb"));
-    hudTxt.color = timeTxt.color = fpsfunniCounter.color = 0xFFADADAD;
+    hudTxt.color = timeTxt.color = 0xFFADADAD;
+	FlxTween.color(fpsfunniCounter, 1, 0xFFA11B1B, 0xFFADADAD);
     timeBar.createFilledBar(0xFF000000,0xFFADADAD);
 }
 
@@ -45,3 +59,5 @@ function onPostNoteCreation(event) {
     //else if (FlxG.save.data.Splashes == 0) note.splash = "redVanilla";
     //else return;
 }
+
+function onSongEnd() FlxTween.color(fpsfunniCounter, 1, 0xFFADADAD, 0xFFA11B1B);

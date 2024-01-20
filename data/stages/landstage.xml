@@ -1,0 +1,6 @@
+<!DOCTYPE codename-engine-stage>
+<stage zoom="1" folder="stages/gb/"> 
+    <gf x="400" y="100" scroll="1"/>
+    <bf x="869" y="133"/>
+    <dad x="-21" y="103"/>
+</stage>
