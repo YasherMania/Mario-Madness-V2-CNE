@@ -165,7 +165,7 @@ function selectItem() {
             case 'Options':
                 FlxG.switchState(new OptionsMenu());
             case 'Credits':
-                FlxG.switchState(new CreditsMain());
+                FlxG.switchState(new ModState("customStates/MarioCreditsState"));
         }
     });
 }
