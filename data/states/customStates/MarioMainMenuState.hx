@@ -23,6 +23,10 @@ var menuItems = new FlxTypedGroup();
 var magenta:FlxSprite;
 public var canAccessDebugMenus:Bool = true;
 
+// shader stuff
+var ntsc:CustomShader = null;
+var bloom:CustomShader = null;
+
 FlxG.mouseControls = true;
 FlxG.mouse.enabled = true;
 FlxG.mouse.visible = true;
@@ -86,11 +90,25 @@ function create() {
     menuItems.members[4].x = 650;
     menuItems.members[3].y = 480;
     changeItem();
+
+    ntsc = new CustomShader("NTSCGlitch");
+    ntsc.data.glitchAmount.value = [0.4, 0.4];
+    FlxG.camera.addShader(ntsc);
+
+    bloom = new CustomShader("Bloom");
+    bloom.data.Size.value = [1, 1];
+    bloom.data.dim.value = [.5, .5];
+    FlxG.camera.addShader(bloom);
 }
 
 var selectedSomethin:Bool = false;
-
+var fullTimer:Float = 0;
 function update(elapsed:Float) {
+    fullTimer += elapsed;
+
+    FlxG.camera.scroll.x = FlxMath.lerp(FlxG.camera.scroll.x, (FlxG.mouse.screenX-(FlxG.width/2)) * 0.015, (1/30)*240*elapsed);
+	FlxG.camera.scroll.y = FlxMath.lerp(FlxG.camera.scroll.y, (FlxG.mouse.screenY-6-(FlxG.height/2)) * 0.015, (1/30)*240*elapsed);
+
     if (FlxG.sound.music.volume < 0.8)
         FlxG.sound.music.volume += 0.5 * elapsed;
 
@@ -118,6 +136,8 @@ function update(elapsed:Float) {
             selectItem();
         }
     }
+
+    if (ntsc != null) ntsc.data.time.value = [fullTimer, fullTimer];
 }
 
 function selectItem() {

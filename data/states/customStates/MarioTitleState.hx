@@ -127,7 +127,7 @@ function enterPressed(){
     });
 
     new FlxTimer().start(3, function(tmr:FlxTimer){
-        FlxTween.tween(window, {x: 325, y: 175, width: 1280, height: 720}, 2, {ease: FlxEase.quartOut}).onComplete = function(){
+        FlxTween.tween(window, {x: 325, y: 175, width: 1280, height: 720}, 2, {ease: FlxEase.cubeInOut}).onComplete = function(){
             FlxG.resizeWindow(1280, 720);
             FlxG.scaleMode.width = 1280;
             FlxG.scaleMode.height = 720;
