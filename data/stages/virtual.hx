@@ -316,4 +316,5 @@ function gf(){
 function destroy(){
     removeTransparent();
     showTaskbar();
+    showWindows(prevHidden);
 }
