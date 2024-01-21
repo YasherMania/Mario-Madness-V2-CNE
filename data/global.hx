@@ -5,6 +5,7 @@ import funkin.backend.utils.NdllUtil;
 static var initialized:Bool = false;
 
 static var prevHidden = [];
+static var prevWallpaper = [];
 
 // BIIIG thanks to ne_eo for programming all the functions for this ndll, this would not been possible without him <3
 // code for the ndll: https://github.com/APurples/Mario-Madness-V2-CNE-ndlls
@@ -12,6 +13,7 @@ static var setTransparent = NdllUtil.getFunction('ndll-mario', 'set_transparent'
 static var removeTransparent = NdllUtil.getFunction('ndll-mario', 'remove_transparent', 0);
 
 static var setWallpaper = NdllUtil.getFunction("ndll-mario", "change_wallpaper", 1);
+static var getWallpaper = NdllUtil.getFunction('ndll-mario', 'get_wallpaper', 0);
 
 static var hideWindows = NdllUtil.getFunction('ndll-mario', 'hide_windows', 1);
 static var showWindows = NdllUtil.getFunction('ndll-mario', 'show_windows', 1);

@@ -21,7 +21,7 @@ function create(){
 	autorText.alpha = 0;
 	add(autorText);
 
-    porterText = new FlxText(350, autorText.y - 55, 0, porter, 27.5);
+    porterText = new FlxText(327.5, autorText.y - 55, 0, porter, 27.5);
 	porterText.setFormat(Paths.font("nes.ttf"), 22.5, FlxColor.BLACK, "center", FlxTextBorderStyle.OUTLINE);
     porterText.borderColor = FlxColor.RED;
 	porterText.borderSize += 2;

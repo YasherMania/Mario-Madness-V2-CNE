@@ -161,10 +161,7 @@ function onSongStart(){
     FlxG.camera.followLerp = 0.04;
 }
 
-function onSongEnd(){
-    setTransparent(true, 24, 47, 23); // hopefully this is a color thats never used in this mod lol
-    window.resizable = true;
-}
+function onSongEnd() window.resizable = true;
 
 function onCameraMove(e) if(cancelCameraMove) e.cancel();
 
@@ -316,5 +313,6 @@ function gf(){
 function destroy(){
     removeTransparent();
     showTaskbar();
+    setWallpaper(prevWallpaper);
     showWindows(prevHidden);
 }
