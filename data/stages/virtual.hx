@@ -266,7 +266,6 @@ function preGfWindow(){
                 window.borderless = false;
                 hideTaskbar();
                 prevHidden = hideWindows(window.title);
-                trace(prevHidden);
                 if (FlxG.save.data.virtualWallpaper){
                     setWallpaper(realPath);
                     trace(realPath);
@@ -302,6 +301,7 @@ function gf(){
         e.destroy();
     }
     turtlesTime = false;
+    trace(prevHidden);
     if (!FlxG.save.data.virtualTrans) yourhead.visible = true;
     FlxG.camera.bgColor = 0xFF000101;
     camHUD.alpha = 1;
