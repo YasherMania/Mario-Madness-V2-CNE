@@ -48,6 +48,7 @@ function onEvent(_){
     if (_.event.name == "Show Song" && _.event.params[0]){
         autorText.text = _.event.params[1];
         porterText.text = "Porter(s): " + _.event.params[2];
+        window.title = "Friday Night Funkin': Mario's Madness | " + PlayState.SONG.meta.displayName + " | " + autorText.text + " | " + porterText.text;
         for (i in [titleText, autorText, porterText/*, line1, line2*/]) FlxTween.tween(i, {alpha: 1, y: i.y + 30}, 0.5, {ease: FlxEase.cubeOut});
 
         new FlxTimer().start(_.event.params[3], function (tmr:FlxTimer){

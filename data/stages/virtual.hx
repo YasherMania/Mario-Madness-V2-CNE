@@ -213,7 +213,7 @@ function beatHit(){
     }
 }
 
-function measureHit() if (!bgBeatMore){
+function measureHit() if (!bgBeatMore && curStep < 2209){
     yourhead.alpha = 0.8;
 	yourhead.y = -200;
 	FlxTween.tween(yourhead, {y: -122, alpha: 0.2}, 0.4, {ease: FlxEase.quadOut});

@@ -40,7 +40,7 @@ window.resizable = true;
 function new() if (FlxG.sound.music == null || !FlxG.sound.music.playing) CoolUtil.playMenuSong();
 
 function create() {
-    window.title = "Friday Night Funkin: Mario's Madness";
+    window.title = "Friday Night Funkin': Mario's Madness";
     bg = new FlxBackdrop(Paths.image('menus/mainmenu/bgs/bg0'));
     bg.scale.set(3.4,3.4);
     bg.velocity.set(-50, 0);
@@ -158,14 +158,16 @@ function selectItem() {
             case 'MainGame':
                 FlxG.switchState(new StoryMenuState());
             case 'WarpZone':
-                FlxG.switchState(new ModState("customStates/game/WarpState"));
+                //FlxG.switchState(new ModState("customStates/game/WarpState"));
+                FlxG.switchState(new MainMenuState());
                 FlxTween.tween(FlxG.sound.music, {volume: 0}, .35);
             case 'Freeplay':
                 FlxG.switchState(new FreeplayState());
             case 'Options':
                 FlxG.switchState(new OptionsMenu());
             case 'Credits':
-                FlxG.switchState(new ModState("customStates/menus/MarioCreditsState"));
+                FlxG.switchState(new CreditsMain());
+                //FlxG.switchState(new ModState("customStates/menus/MarioCreditsState"));
         }
     });
 }
