@@ -150,7 +150,7 @@ function onPlayerHit(event:NoteHitEvent) event.ratingPrefix = "game/score/parano
 function onCountdown(event:CountdownEvent) event.cancelled = true;
 
 function onStartCountdown(){
-    FlxG.sound.play(Paths.sound('game/virtualintro'));
+    FlxG.sound.play(Paths.sound('game/virtual/virtualintro'));
     camGame.zoom = 1;
     camGame.visible = true;
     FlxTween.tween(camGame, {zoom: 0.5}, 1.3, {ease: FlxEase.expoOut});
