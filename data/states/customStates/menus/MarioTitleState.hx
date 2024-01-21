@@ -1,6 +1,6 @@
 import funkin.backend.system.framerate.Framerate;
 
-var canDoShit:Bool = true;
+var canDoShit:Bool = false;
 
 FlxG.resizeWindow(960, 720);
 FlxG.resizeGame(960, 720);
@@ -24,7 +24,7 @@ function create(){
     FlxG.cameras.add(camEnter, false);
 	camEnter.bgColor = 0x00000000;
 
-    FlxTween.tween(FlxG.camera, {zoom: 1}, 2, {ease: FlxEase.quartInOut});
+    FlxTween.tween(FlxG.camera, {zoom: 1}, 2, {ease: FlxEase.quartInOut}).onComplete = function(){canDoShit = true;};
 
     estatica = new FlxSprite(-250);
     estatica.frames = Paths.getFrames('menus/mainmenu/estatica_uwu');

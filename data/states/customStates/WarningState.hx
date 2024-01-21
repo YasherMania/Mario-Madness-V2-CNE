@@ -1,6 +1,6 @@
 import funkin.options.OptionsMenu;
 
-var canDoShit:Bool = true;
+var canDoShit:Bool = false;
 var optionsPressed:Bool = false;
 
 function create(){
