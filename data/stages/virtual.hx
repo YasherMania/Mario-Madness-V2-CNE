@@ -255,7 +255,7 @@ function noMoreFullscreen(){
     camHUD.shake(.00175, .001);
     if (FlxG.save.data.virtualTrans) removeTransparent();
     showTaskbar();
-    showWindows(prevHidden);
+    if (FlxG.save.data.virtualApps) showWindows(prevHidden);
 }
 
 function preGfWindow(){
@@ -265,7 +265,7 @@ function preGfWindow(){
             onComplete: function(twn:FlxTween){
                 window.borderless = false;
                 hideTaskbar();
-                prevHidden = hideWindows(window.title);
+                if (FlxG.save.data.virtualApps) prevHidden = hideWindows(window.title);
                 if (FlxG.save.data.virtualWallpaper){
                     setWallpaper(realPath);
                     trace(realPath);

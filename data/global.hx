@@ -39,6 +39,7 @@ function new(){
     if (FlxG.save.data.virtualWindow == null) FlxG.save.data.virtualWindow = true;
     if (FlxG.save.data.virtualTrans == null) FlxG.save.data.virtualTrans = true; // transgender mr virtual
     if (FlxG.save.data.virtualWallpaper == null) FlxG.save.data.virtualWallpaper = true;
+    if (FlxG.save.data.virtualApps == null) FlxG.save.data.virtualApps = true;
     if (FlxG.save.data.virtualShaders == null) FlxG.save.data.virtualShaders = true;
     if (FlxG.save.data.transparency_value == null) FlxG.save.data.transparency_value = 0;
 

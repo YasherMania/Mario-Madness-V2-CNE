@@ -5,6 +5,7 @@
             <checkbox id="virtualWindow" name="Window Mechanics" desc="If checked, windows will move around while playing Paranoia. You can disable if you find this annoying."/>
             <checkbox id="virtualTrans" name="Transparent Window" desc="If checked, the window will go transparent during a specific part in Paranoia. May or may not work depending on your pc specs!!"/>
             <checkbox id="virtualWallpaper" name="Wallpaper" desc="If checked, the wallpaper will get changed during a specific part in Paranoia. (This can lag your game for a moment!)"/>
+            <checkbox id="virtualApps" name="Hide Apps" desc="If checked, most of your apps will get hidden during a specific part in Paranoia. Some can even fully close without warning like your browser or even an app you work on. If leaving this enabled, be sure to save any of your stuff if you haven't already as you can lose your progress!"/>
             <checkbox id="virtualShaders" name="Shaders" desc="If checked, shaders will occur in paranoia. Disable if you're sensitive to cameras duplicating and/or if you are sensitive to flashy shaders."/>
         </menu>
         <checkbox id="streamerMode" name="Streamer Mode" desc="Changes parameters that can be annoying when playing. If you are a streamer or if you are recording this game, we recommend you to activate this option. (This does not disable other options in this menu.)"/>
