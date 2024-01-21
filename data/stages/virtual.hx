@@ -78,6 +78,8 @@ function create(){
 }
 
 function update(elapsed:Float){
+    if (health <= 0 && window.width != fsX && window.height != fsY) setWallpaper(prevWallpaper);
+
     switch (curCameraTarget){
         case 0: defaultCamZoom = dadZoom;
         case 1: defaultCamZoom = bfZoom;
