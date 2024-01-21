@@ -1,14 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
--->
-<TextureAtlas imagePath="texture.png" width="907" height="850">
-	<SubTexture name="note splash red 0" x="687" y="1" width="204" height="196" frameX="-90" frameY="-67" frameWidth="382" frameHeight="304"/>
-	<SubTexture name="note splash red 1" x="304" y="594" width="300" height="255" frameX="-41" frameY="-27" frameWidth="382" frameHeight="304"/>
-	<SubTexture name="note splash red 2" x="304" y="1" width="380" height="295" frameX="-2" frameY="-4" frameWidth="382" frameHeight="304"/>
-	<SubTexture name="note splash red 3" x="1" y="1" width="300" height="381" rotated="true" frameX="-0" frameY="-0" frameWidth="382" frameHeight="304"/>
-	<SubTexture name="note splash redR 0" x="687" y="200" width="204" height="195" frameX="-86" frameY="-33" frameWidth="382" frameHeight="304"/>
-	<SubTexture name="note splash redR 1" x="607" y="594" width="299" height="255" frameX="-40" frameY="-13" frameWidth="382" frameHeight="304"/>
-	<SubTexture name="note splash redR 2" x="304" y="299" width="376" height="292" frameX="-6" frameY="-0" frameWidth="382" frameHeight="304"/>
-	<SubTexture name="note splash redR 3" x="1" y="385" width="300" height="381" rotated="true" frameX="-0" frameY="-0" frameWidth="382" frameHeight="304"/>
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="paranoia.png">
+	<!-- Made using Maru Aseprite JSON to XML converter -->
+	<SubTexture name="splash 100000" x="0" y="0" width="64" height="64"/>
+	<SubTexture name="splash 100001" x="64" y="0" width="64" height="64"/>
+	<SubTexture name="splash 100002" x="128" y="0" width="64" height="64"/>
+	<SubTexture name="splash 100003" x="0" y="64" width="64" height="64"/>
+	<SubTexture name="splash 200000" x="64" y="64" width="64" height="64"/>
+	<SubTexture name="splash 200001" x="128" y="64" width="64" height="64"/>
+	<SubTexture name="splash 200002" x="0" y="128" width="64" height="64"/>
+	<SubTexture name="splash 200003" x="64" y="128" width="64" height="64"/>
 </TextureAtlas>
