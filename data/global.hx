@@ -7,6 +7,7 @@ static var initialized:Bool = false;
 static var prevHidden = [];
 
 // BIIIG thanks to ne_eo for programming all the functions for this ndll, this would not been possible without him <3
+// code for the ndll: https://github.com/APurples/Mario-Madness-V2-CNE-ndlls
 static var setTransparent = NdllUtil.getFunction('ndll-mario', 'set_transparent', 4);
 static var removeTransparent = NdllUtil.getFunction('ndll-mario', 'remove_transparent', 0);
 
