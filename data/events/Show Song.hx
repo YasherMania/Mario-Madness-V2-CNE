@@ -40,8 +40,17 @@ function create(){
     line1.cameras = [camHUD];
     line1.color = FlxColor.RED;
     line1.alpha = 0;
+    // lines are wip
     //add(line1);
     //add(line2);
+}
+
+function update(){
+    // mfw when upscroll players - apurples, a downscroll player
+    if (!downscroll){
+        autorText.y = titleText.y + 70;
+        porterText.y = autorText.y + 55;
+    }
 }
 
 function onEvent(_){
@@ -49,7 +58,10 @@ function onEvent(_){
         autorText.text = _.event.params[1];
         porterText.text = "Porter(s): " + _.event.params[2];
         window.title = "Friday Night Funkin': Mario's Madness | " + PlayState.SONG.meta.displayName + " | " + autorText.text + " | " + porterText.text;
-        for (i in [titleText, autorText, porterText/*, line1, line2*/]) FlxTween.tween(i, {alpha: 1, y: i.y + 30}, 0.5, {ease: FlxEase.cubeOut});
+        for (i in [titleText, autorText, porterText/*, line1, line2*/]){
+            if (downscroll) FlxTween.tween(i, {alpha: 1, y: i.y + 30}, 0.5, {ease: FlxEase.cubeOut});
+            else FlxTween.tween(i, {alpha: 1, y: i.y - 30}, 0.5, {ease: FlxEase.cubeOut});
+        }
 
         new FlxTimer().start(_.event.params[3], function (tmr:FlxTimer){
             for (i in [titleText, autorText, porterText/*, line1, line2*/]) FlxTween.tween(i, {alpha: 0}, 0.5, {ease: FlxEase.cubeOut});
