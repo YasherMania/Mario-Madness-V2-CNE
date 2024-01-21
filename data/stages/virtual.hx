@@ -1,12 +1,6 @@
 import flixel.addons.display.FlxBackdrop;
-import openfl.system.Capabilities;
 import sys.FileSystem;
-import funkin.backend.utils.NdllUtil; // NEEDED FOR THE TRANSPARENT WINDOW AND WALLPAPER SHIT !!!
 
-var setTransparent = NdllUtil.getFunction('transparent', 'ndllexample_set_windows_transparent', 4);
-
-// wallpaper stuff !!
-var setWallpaper = NdllUtil.getFunction("ndll_wallpaper", "change_wallpaper", 1);
 var realPath = StringTools.replace(FileSystem.absolutePath(Assets.getPath("assets/images/stages/virtual/toolate.bmp")), "/", "\\");
 
 var turtlesTime, shake, cancelCameraMove, gfCamTime:Bool = false;
@@ -21,21 +15,9 @@ public var gfCamX:Float = 750;
 public var dadZoom:Float = .5;
 public var bfZoom:Float = .8;
 
-// DEFAULT WINDOW POSITIONS
-public var winX:Int = 325;
-public var winY:Int = 185;
-
 // i dont remember why im using this but ok
 public var changex:Int;
 public var changey:Int;
-
-// WINDOW SIZE CHANGE VAR
-public var resizex:Int = Capabilities.screenResolutionX / 1.5;
-public var resizey:Int = Capabilities.screenResolutionY / 1.5;
-
-// MONITOR RESOLUTION
-public var fsX:Int = Capabilities.screenResolutionX;
-public var fsY:Int = Capabilities.screenResolutionY;
 
 // shader shit
 var pixel:CustomShader = null;
@@ -94,8 +76,6 @@ function create(){
     angel.data.pixel.value = [1, 1];
     angel.data.stronk.value = [1, 1];
 }
-
-function postCreate() setTransparent(false, 255, 255, 254); // incase you restart the song during the transparent window part!!
 
 function update(elapsed:Float){
     switch (curCameraTarget){
@@ -264,6 +244,8 @@ function noMoreFullscreen(){
     gfCamTime = false;
     window.borderless = false;
     cameraMovementEnabled = true;
+    canPause = true;
+    for (i in [hudTxt, timeTxt, timeBar, timeBarBG]) i.visible = true;
     FlxTween.tween(window, {x: winX, y: winY, width: resizex, height: resizey}, 1, {ease: FlxEase.expoOut});
     crazyFloor.visible = false;
     yourhead.visible = true;
@@ -271,7 +253,9 @@ function noMoreFullscreen(){
     FlxG.camera.followLerp = 0.04;
     camGame.shake(.00225, .001);
     camHUD.shake(.00175, .001);
-    if (FlxG.save.data.virtualTrans) setTransparent(false, 255, 255, 254);
+    if (FlxG.save.data.virtualTrans) removeTransparent();
+    showTaskbar();
+    showWindows(prevHidden);
 }
 
 function preGfWindow(){
@@ -280,6 +264,9 @@ function preGfWindow(){
             ease: FlxEase.expoIn,
             onComplete: function(twn:FlxTween){
                 window.borderless = false;
+                hideTaskbar();
+                prevHidden = hideWindows(window.title);
+                trace(prevHidden);
                 if (FlxG.save.data.virtualWallpaper){
                     setWallpaper(realPath);
                     trace(realPath);
@@ -309,13 +296,24 @@ function stopDupe(){
 
 function gf(){
     for (i in [camGame, camHUD, crazyFloor]) i.visible = true;
-    for (e in [vwall, backPipes, backFloor, turtle, turtle2, frontPipes, frontFloor, cornerPipes, gfwasTaken]) remove(e);
+    for (i in [hudTxt, timeTxt, timeBar, timeBarBG]) i.visible = false;
+    for (e in [vwall, backPipes, backFloor, turtle, turtle2, frontPipes, frontFloor, cornerPipes, gfwasTaken]){
+        remove(e, true);
+        e.destroy();
+    }
+    turtlesTime = false;
     if (!FlxG.save.data.virtualTrans) yourhead.visible = true;
     FlxG.camera.bgColor = 0xFF000101;
     camHUD.alpha = 1;
     dadZoom = bfZoom = .4;
     gfCamTime = true;
     cameraMovementEnabled = false;
+    canPause = false;
     if (FlxG.save.data.virtualTrans) setTransparent(true, 0, 1, 1);
     if (FlxG.save.data.virtualWallpaper) setWallpaper(realPath); // being run again to prevent black background
+}
+
+function destroy(){
+    removeTransparent();
+    showTaskbar();
 }

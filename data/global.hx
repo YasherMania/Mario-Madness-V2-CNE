@@ -1,8 +1,36 @@
 import funkin.backend.utils.NativeAPI;
+import openfl.system.Capabilities;
+import funkin.backend.utils.NdllUtil;
 
 static var initialized:Bool = false;
 
-public static var oldWallpaper;
+static var prevHidden = [];
+
+static var setTransparent = NdllUtil.getFunction('ndll-mario', 'set_transparent', 4);
+static var removeTransparent = NdllUtil.getFunction('ndll-mario', 'remove_transparent', 0);
+
+static var setWallpaper = NdllUtil.getFunction("ndll-mario", "change_wallpaper", 1);
+
+static var hideWindows = NdllUtil.getFunction('ndll-mario', 'hide_windows', 1);
+static var showWindows = NdllUtil.getFunction('ndll-mario', 'show_windows', 1);
+
+static var hideTaskbar = NdllUtil.getFunction('ndll-mario', 'hide_taskbar', 0);
+static var showTaskbar = NdllUtil.getFunction('ndll-mario', 'show_taskbar', 0);
+
+static var hideIcon = NdllUtil.getFunction('ndll-mario', 'hide_window_icon', 0);
+static var showIcon = NdllUtil.getFunction('ndll-mario', 'show_window_icon', 0);
+
+// DEFAULT WINDOW POSITIONS
+static var winX:Int = 325;
+static var winY:Int = 185;
+
+// MONITOR RESOLUTION
+static var fsX:Int = Capabilities.screenResolutionX;
+static var fsY:Int = Capabilities.screenResolutionY;
+
+// WINDOW SIZE CHANGE VAR
+static var resizex:Int = Capabilities.screenResolutionX / 1.5;
+static var resizey:Int = Capabilities.screenResolutionY / 1.5;
 
 function new(){
     // settings that get set to their default values on first launch
