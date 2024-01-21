@@ -1,9 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character x="200" icon="gb" camx="0" y="400" isGF="false" scale="6" camy="0" color="#949494" isPlayer="false" antialiasing="false" holdTime="6.1" sprite="GB_Phase1">
-	<anim x="0" loop="false" y="0" fps="24" anim="idle" name="idle"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="up" name="singUP"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="left" name="singLEFT"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="right" name="singRIGHT"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="down" name="singDOWN"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="evil" name="evil"/>
-</character>
