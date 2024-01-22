@@ -21,7 +21,7 @@ function create(){
 	autorText.alpha = 0;
 	add(autorText);
 
-    porterText = new FlxText(327.5, autorText.y - 55, 0, porter, 27.5);
+    porterText = new FlxText(327.5, autorText.y - 55, 0, porter, 22.5);
 	porterText.setFormat(Paths.font("nes.ttf"), 22.5, FlxColor.BLACK, "center", FlxTextBorderStyle.OUTLINE);
     porterText.borderColor = FlxColor.RED;
 	porterText.borderSize += 2;
@@ -57,13 +57,15 @@ function onEvent(_){
     if (_.event.name == "Show Song" && _.event.params[0]){
         autorText.text = _.event.params[1];
         porterText.text = "Porter(s): " + _.event.params[2];
+        porterText.scale.set(_.event.params[3], _.event.params[3]);
+        porterText.x = _.event.params[4];
         window.title = "Friday Night Funkin': Mario's Madness | " + PlayState.SONG.meta.displayName + " | " + autorText.text + " | " + porterText.text;
         for (i in [titleText, autorText, porterText/*, line1, line2*/]){
             if (downscroll) FlxTween.tween(i, {alpha: 1, y: i.y + 30}, 0.5, {ease: FlxEase.cubeOut});
             else FlxTween.tween(i, {alpha: 1, y: i.y - 30}, 0.5, {ease: FlxEase.cubeOut});
         }
 
-        new FlxTimer().start(_.event.params[3], function (tmr:FlxTimer){
+        new FlxTimer().start(_.event.params[5], function (tmr:FlxTimer){
             for (i in [titleText, autorText, porterText/*, line1, line2*/]) FlxTween.tween(i, {alpha: 0}, 0.5, {ease: FlxEase.cubeOut});
         });
     }

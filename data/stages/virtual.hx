@@ -29,14 +29,16 @@ var inc:Bool = true;
 
 var angel:CustomShader = null;
 
-window.x = winX;
-window.y = winY;
-window.width = resizex;
-window.height = resizey;
-changex = window.x;
-changey = window.y;
-window.fullscreen = false;
-window.resizable = false;
+if (FlxG.save.data.virtualWindow){
+    window.x = winX;
+    window.y = winY;
+    window.width = resizex;
+    window.height = resizey;
+    changex = window.x;
+    changey = window.y;
+    window.fullscreen = false;
+    window.resizable = false;
+}
 
 camGame.visible = camHUD.visible = false;
 
