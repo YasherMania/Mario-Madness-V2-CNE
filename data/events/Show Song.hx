@@ -56,7 +56,7 @@ function update(){
 function onEvent(_){
     if (_.event.name == "Show Song" && _.event.params[0]){
         autorText.text = _.event.params[1];
-        porterText.text = "Porter(s): " + _.event.params[2];
+        porterText.text = "Ported by: " + _.event.params[2];
         porterText.scale.set(_.event.params[3], _.event.params[3]);
         porterText.x = _.event.params[4];
         window.title = "Friday Night Funkin': Mario's Madness | " + PlayState.SONG.meta.displayName + " | " + autorText.text + " | " + porterText.text;
