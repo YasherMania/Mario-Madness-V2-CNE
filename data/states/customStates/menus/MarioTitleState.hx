@@ -8,6 +8,7 @@ FlxG.resizeWindow(fsX / 2, fsY / 1.5);
 FlxG.resizeGame(fsX / 2, fsY / 1.5);
 FlxG.scaleMode.width = fsX / 2;
 FlxG.scaleMode.height = fsY / 1.5;
+window.x = 500;
 
 Framerate.fpsCounter.visible = false;
 Framerate.memoryCounter.visible = false;
