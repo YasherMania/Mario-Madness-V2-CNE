@@ -1,0 +1,14 @@
+<!DOCTYPE codename-engine-character>
+<character isPlayer="true" flipX="true" holdTime="4" x="-170" y="300"> <!-- CONVERTED VIA psychjsontocodenamexml.py by Burgerballs -->
+
+   <anim name="idle" anim="facecam bf idle" loop="false" x="0" y="0"/>
+   <anim name="singLEFT" anim="facecam bf left" loop="false" x="0" y="0"/>
+   <anim name="singDOWN" anim="facecam bf down" loop="false" x="0" y="0"/>
+   <anim name="singUP" anim="facecam bf up" loop="false" x="0" y="0"/>
+   <anim name="singRIGHT" anim="facecam bf right" loop="false" x="0" y="0"/>
+   <anim name="singLEFTmiss" anim="facecam bf miss left" loop="false" x="0" y="0"/>
+   <anim name="singDOWNmiss" anim="facecam bf miss down" loop="false" x="0" y="0"/>
+   <anim name="singUPmiss" anim="facecam bf miss up" loop="false" x="0" y="0"/>
+   <anim name="singRIGHTmiss" anim="facecam bf miss right" loop="false" x="0" y="0"/>
+
+</character>
