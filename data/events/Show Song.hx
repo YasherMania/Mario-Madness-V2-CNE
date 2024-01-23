@@ -18,6 +18,7 @@ function create(){
 	autorText.borderSize += 2;
     autorText.borderColor = FlxColor.RED;
     autorText.cameras = [camHUD];
+    autorText.screenCenter(FlxAxes.X);
 	autorText.alpha = 0;
 	add(autorText);
 
@@ -26,6 +27,7 @@ function create(){
     porterText.borderColor = FlxColor.RED;
 	porterText.borderSize += 2;
     porterText.cameras = [camHUD];
+    porterText.screenCenter(FlxAxes.X);
 	porterText.alpha = 0;
 	add(porterText);
 
@@ -58,14 +60,14 @@ function onEvent(_){
         autorText.text = _.event.params[1];
         porterText.text = "Ported by: " + _.event.params[2];
         porterText.scale.set(_.event.params[3], _.event.params[3]);
-        porterText.x = _.event.params[4];
         window.title = "Friday Night Funkin': Mario's Madness | " + PlayState.SONG.meta.displayName + " | " + autorText.text + " | " + porterText.text;
+        for (i in [autorText, porterText]) i.screenCenter(FlxAxes.X);
         for (i in [titleText, autorText, porterText/*, line1, line2*/]){
             if (downscroll) FlxTween.tween(i, {alpha: 1, y: i.y + 30}, 0.5, {ease: FlxEase.cubeOut});
             else FlxTween.tween(i, {alpha: 1, y: i.y - 30}, 0.5, {ease: FlxEase.cubeOut});
         }
 
-        new FlxTimer().start(_.event.params[5], function (tmr:FlxTimer){
+        new FlxTimer().start(_.event.params[4], function (tmr:FlxTimer){
             for (i in [titleText, autorText, porterText/*, line1, line2*/]) FlxTween.tween(i, {alpha: 0}, 0.5, {ease: FlxEase.cubeOut});
         });
     }

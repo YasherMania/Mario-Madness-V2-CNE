@@ -23,12 +23,12 @@ function update(){
 }
 
 function pressedEnter(){
-	canDoShit = false;
+	canDoShit = window.resizable = false;
     FlxG.sound.play(Paths.sound("warpzone/accept"));
     FlxTween.tween(warning, {y: 750}, 1, {
         ease: FlxEase.cubeIn,
         onComplete: function(twn:FlxTween){
-            FlxTween.tween(window, {x: 500, y: 175, width: 960, height: 720}, 1.5, {
+            FlxTween.tween(window, {x: 500, y: 175, width: fsX / 2, height: fsY / 1.5}, 1.5, {
                 ease: FlxEase.cubeInOut,
                 onComplete: function(twn:FlxTween){
                     FlxG.switchState(new TitleState());

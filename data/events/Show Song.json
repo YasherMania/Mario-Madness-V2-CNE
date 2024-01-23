@@ -21,11 +21,6 @@
 			"defaultValue": "22.5"
 		},
 		{
-			"name": "Porter Text X Offset",
-			"type": "String",
-			"defaultValue": "335"
-		},
-		{
 			"name": "Fade out Timer",
 			"type": "String",
 			"defaultValue": "5"

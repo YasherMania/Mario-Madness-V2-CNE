@@ -2,15 +2,12 @@ import funkin.backend.system.framerate.Framerate;
 
 var canDoShit:Bool = false;
 
-FlxG.resizeWindow(960, 720);
-FlxG.resizeGame(960, 720);
-FlxG.scaleMode.width = 960;
-FlxG.scaleMode.height = 720;
-window.resizable = false;
-window.x = 500;
-window.title = "Friday Night Funkin': Mario's Madness";
-
 FlxG.camera.zoom = 1.1;
+
+FlxG.resizeWindow(fsX / 2, fsY / 1.5);
+FlxG.resizeGame(fsX / 2, fsY / 1.5);
+FlxG.scaleMode.width = fsX / 2;
+FlxG.scaleMode.height = fsY / 1.5;
 
 Framerate.fpsCounter.visible = false;
 Framerate.memoryCounter.visible = false;
