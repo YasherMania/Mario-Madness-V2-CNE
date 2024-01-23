@@ -165,8 +165,6 @@ function onSongStart(){
     FlxG.camera.followLerp = 0.04;
 }
 
-function onSongEnd() window.resizable = true;
-
 function onCameraMove(e) if(cancelCameraMove) e.cancel();
 
 function turtles(){
@@ -319,4 +317,5 @@ function destroy(){
     showTaskbar();
     setWallpaper(prevWallpaper);
     showWindows(prevHidden);
+    window.resizable = true;
 }
