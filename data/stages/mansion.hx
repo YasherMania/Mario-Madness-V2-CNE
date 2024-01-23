@@ -39,12 +39,16 @@ function scare() {
 function update(elapsed) {
 
 	if (jump.scale.x > 0) {
-		jump.scale.x -= spd * elapsed * 30;
+		jump.scale.x = jump.scale.x / 1.008;
 	}
-	jump.alpha = (jump.scale.x) / 4;
+	jump.alpha = (jump.scale.x) / 2;
 	jump.scale.y = jump.scale.x / 3;
 	jump.x = jump.scale.x * 100 + 200;
 	if (health > 0.1) {
 		health -= jump.alpha / 600;
 	}
+	camGame.x = jump.alpha * FlxG.random.int(25, 50);
+	camGame.y = jump.alpha * FlxG.random.int(25, 50);
+	camHUD.x = jump.alpha * FlxG.random.int(25, 50);
+	camHUD.y = jump.alpha * FlxG.random.int(25, 50);
 }
