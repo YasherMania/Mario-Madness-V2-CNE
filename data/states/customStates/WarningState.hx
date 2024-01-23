@@ -12,8 +12,6 @@ function create(){
     add(warning);
 
     FlxG.sound.play(Paths.sound("menu/warningMenu"));
-
-    prevWallpaper = getWallpaper(); // this is for paranoia
 }
 
 function update(){

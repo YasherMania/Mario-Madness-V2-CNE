@@ -89,6 +89,8 @@ function create(){
     curtain.screenCenter(FlxAxes.X);
     curtain.cameras = [camEnter];
     add(curtain);
+
+    prevWallpaper = getWallpaper(); // this is for paranoia
 }
 
 function update(){
