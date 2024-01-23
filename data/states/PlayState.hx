@@ -121,6 +121,14 @@ function disappear() {
     }
 }
 
+function postUpdate() {
+	if (FlxG.save.data.botplayOption) {
+		healthOverlay.loadGraphic(Paths.image("game/healthBarBGLuigi"));
+	} else {
+		healthOverlay.loadGraphic(Paths.image("game/healthBarBG"));
+	}
+}
+
 function postCreate() {
 	if (FlxG.save.data.ShowPsychUI) {
     	healthOverlay = new FlxSprite(healthBarBG.x - 41, healthBarBG.y - 17).loadGraphic(Paths.image("game/healthBarBG"));

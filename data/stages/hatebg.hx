@@ -31,7 +31,7 @@ function create() {
     wall = new FlxSprite(-1000, -700).loadGraphic(Paths.image(path + "Ladrillos y ventanas"));
 
     brimstone = new FlxSprite(0, 250).loadGraphic(Paths.image(path + "deg"));
-    brimstone.scale.set(4,4);
+    brimstone.scale.set(4,4.3);
     brimstone.scrollFactor.set(0,1);
 
     add(wall);

@@ -106,6 +106,7 @@ function create() {
     botplayTxt.borderSize = 1.25;
     botplayTxt.alpha = 0;
     botplayTxt.cameras = [camHUD];
+    botplayTxt.visible = false;
     add(botplayTxt);
 
     timeBarBG = new FlxSprite();
@@ -142,7 +143,7 @@ function create() {
     FlxG.cameras.add(camFPS = new HudCamera(), false);
     camFPS.bgColor = 0;
     fpsfunniCounter = new FlxText(10,10, 400, 18);
-    fpsfunniCounter.setFormat("_sans", 14, FlxColor.WHITE, "LEFT");
+    fpsfunniCounter.setFormat("Mario2.ttf", 10, 0xFFe30000);
     fpsfunniCounter.antialiasing = true;
     fpsfunniCounter.scrollFactor.set();
     fpsfunniCounter.cameras = [camFPS];
@@ -173,13 +174,15 @@ function update(elapsed:Float) {
     if (songScore > 0 || acc > 0 || misses > 0) hudTxt.text = "Score: " + songScore + "    Misses: " + misses +  "    Rating: " + rating + " (" + acc + "%)";
 
     if (FlxG.save.data.botplayOption) {
-        botplaySine += 180 *  FlxG.elapsed;
-        botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
+       // botplaySine += 180 *  FlxG.elapsed;
+        //botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
         player.cpu = true;
-        botplayTxt.visible = true;
+        hudTxt.color = 0xFF007403;
+        timeTxt.color = 0xFF007403;
     } else if (!FlxG.save.data.botplayOption) {
-        botplayTxt.visible = false;
         player.cpu = false;
+        hudTxt.color = 0xFFf42626;
+        timeTxt.color = 0xFFf42626;
     }
 
     finalFPS = CoolUtil.fpsLerp(finalFPS, FlxG.elapsed == 0 ? 0 : (1 / FlxG.elapsed), 0.25);

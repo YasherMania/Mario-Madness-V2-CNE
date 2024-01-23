@@ -11,6 +11,7 @@ import openfl.utils.Assets;
 import PlayState;
 import funkin.game.StrumLine;
 import flixel.tweens.FlxTweenType;
+import funkin.game.StrumLine;
 
 var pauseCam = new FlxCamera();
 var bg:FlxSprite;
@@ -25,6 +26,7 @@ var txtdesc:String;
 var songName = PlayState.SONG.meta.displayName;
 var author = PlayState.SONG.meta.author;
 var funni:Array<String> = [];
+var ispixel:Array<String> = ['', '0', '150', '1', '0', '0', '215'];
 
 function create(event) {
     event.cancel();
@@ -109,9 +111,12 @@ function create(event) {
     grpMenuShit = new FlxTypedGroup();
 	add(grpMenuShit);
 
-    for (i in 0...4) {
+    for (i in 0...menuItems.length) {
         var option = menuItems[i];
-        var button = new FlxSprite(-252,(130 * i) + 100); //25
+        var offset:Float = (88 - (Math.max(menuItems.length, 4) - 4) * 80) - (Std.parseFloat(ispixel[4]) * 5);
+        var theY:String = ispixel[6];
+        if(menuItems.contains("Botplay")) theY = ispixel[2];
+        var button = new FlxSprite(-235, ((i * Std.parseFloat(theY)) + offset)); //25
         button.scale.set(0.5,0.5);
         button.frames = Paths.getFrames('menus/pausemenu/'+ option);
         button.animation.addByPrefix("idle", option + " basic", 24, false);
@@ -124,7 +129,9 @@ function create(event) {
     }
     grpMenuShit.members[1].alpha = 0.6;
     grpMenuShit.members[2].alpha = 0.6;
-    grpMenuShit.members[3].alpha = 0.6;
+    if (menuItems.contains("Botplay") && !PlayState.isStoryMode) {
+        grpMenuShit.members[3].alpha = 0.6;
+    }
     FlxTween.tween(bg, {x:-200}, 1, {ease:FlxEase.circOut});
     for (i in grpMenuShit.members) {
         FlxTween.tween(i, {x:25}, 1, {ease:FlxEase.circOut});
@@ -213,6 +220,7 @@ function selectOption() {
                 FlxG.save.data.botplayOption = !FlxG.save.data.botplayOption;
                 botplaytxt.alpha = FlxG.save.data.botplayOption ? 1 : 0;
             }
+            // Unless there is a way to get the luigi strum skin to regenerate the strums there is no way to get the luigi strum to appear without reloading the song
             //player.cpu = !player.cpu; Imma figure out why this doesn't work (Yes I have tried putting PlayState.player.cpu)
 		case "Exit":
 			CoolUtil.playMenuSong();
