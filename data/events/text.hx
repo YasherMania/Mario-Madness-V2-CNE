@@ -3,7 +3,7 @@ import openfl.text.TextFormat;
 var firstTxt:FlxText;
 var secondTxt:FlxText;
 var thirdTxt:FlxText;
-var size = 150;
+var size = 135;
 var timer = 50;
 function create() {
 	firstTxt = new FlxText(0, 250, 2000, "", 1000);
@@ -34,6 +34,9 @@ function create() {
 function onEvent(e) {
 	if (e.event.name == 'text') {
 		timer = 50;
+		firstTxt.setFormat(Paths.font("Retro_Gaming.ttf"), size, FlxColor.fromString("0xf77d62"));
+		secondTxt.setFormat(Paths.font("Retro_Gaming.ttf"), size, FlxColor.fromString("0xf77d62"));
+		thirdTxt.setFormat(Paths.font("Retro_Gaming.ttf"), size, FlxColor.fromString("0xf77d62"));
 		firstTxt.text = e.event.params[0];
 		secondTxt.text = e.event.params[1];
 		thirdTxt.text = e.event.params[2];
@@ -53,11 +56,29 @@ function onEvent(e) {
 
 function update(elapsed) {
 	if (timer > 0) {
-		trace("text timer is at " + timer);
 		timer -= elapsed * 60;
 	}
 	if (timer < 1 && timer > 0) {
-		trace("text timer is at " + timer);
+		firstTxt.text = "";
+		secondTxt.text = "";
+		thirdTxt.text = "";
+		timer = 0;
+	}
+	if (timer < 45 && timer > 44) {
+		if (camGame.bgColor == FlxColor.WHITE) {
+			firstTxt.setFormat(Paths.font("Retro_Gaming.ttf"), size, FlxColor.BLACK, "center");
+			secondTxt.setFormat(Paths.font("Retro_Gaming.ttf"), size, FlxColor.BLACK, "center");
+			thirdTxt.setFormat(Paths.font("Retro_Gaming.ttf"), size, FlxColor.BLACK, "center");
+		} else {
+			firstTxt.setFormat(Paths.font("Retro_Gaming.ttf"), size, FlxColor.WHITE, "center");
+			secondTxt.setFormat(Paths.font("Retro_Gaming.ttf"), size, FlxColor.WHITE, "center");
+			thirdTxt.setFormat(Paths.font("Retro_Gaming.ttf"), size, FlxColor.WHITE, "center");
+		}
+	}
+}
+
+function beatHit(curBeat) {
+	if (curBeat % 4 == 0 && timer < 35) {
 		firstTxt.text = "";
 		secondTxt.text = "";
 		thirdTxt.text = "";
@@ -65,11 +86,10 @@ function update(elapsed) {
 	}
 }
 
-function beatHit(curBeat) {
-	if (curBeat % 4 == 0 && timer < 25) {
-		firstTxt.text = "";
-		secondTxt.text = "";
-		thirdTxt.text = "";
-		timer = 0;
-	}
+function whiteScreen() {
+	size = 200;
+}
+
+function back2p1() {
+	size = 135;
 }

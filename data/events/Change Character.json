@@ -1,0 +1,19 @@
+{
+	"params": [
+		{
+			"name": "Strumline",
+			"type": "StrumLine",
+			"defaultValue": 0
+		},
+        {
+            "name": "Character Index",
+            "type": "String",
+            "defaultValue": "0"
+        },
+        {
+            "name": "Name",
+            "type": "String",
+            "defaultValue": "bf"
+        }
+	]
+}

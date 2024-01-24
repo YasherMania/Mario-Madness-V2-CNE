@@ -1,0 +1,10 @@
+<!DOCTYPE codename-engine-character>
+<character icon="betanew" isPlayer="false" flipX="false" holdTime="4" x="-170" y="40" camx="100" camy="100" scale="1.2" sprite="betanew"> <!-- CONVERTED VIA psychjsontocodenamexml.py by Burgerballs -->
+   <anim name="idle" anim="LuigiSitIdle" loop="false" x="-149" y="-217"/>
+   <anim name="singRIGHT" anim="LuigiSitRight" loop="false" x="-149" y="-217"/>
+   <anim name="singDOWN" anim="LuigiSitDown" loop="false" x="-104" y="-220"/>
+   <anim name="singUP" anim="LuigiSitUp" loop="false" x="-108" y="-210"/>
+   <anim name="singLEFT" anim="LuigiSitLeft" loop="false" x="-109" y="-218"/>
+   <anim name="stand" anim="LuigiStandingUp" loop="false" x="-148" y="-44"/>
+
+</character>
