@@ -3,10 +3,11 @@ import flixel.effects.FlxFlicker;
 
 var canDoShit:Bool = true;
 
-FlxG.resizeWindow(fsX / 2, fsY / 1.5);
-FlxG.resizeGame(fsX / 2, fsY / 1.5);
-FlxG.scaleMode.width = fsX / 2;
-FlxG.scaleMode.height = fsY / 1.5;
+// the scaling could be incorrect depending on your monitor's resolution btw !
+FlxG.resizeWindow(fsX / 2.084691, fsY / 1.562952);
+FlxG.resizeGame(fsX / 2.084691, fsY / 1.562952);
+FlxG.scaleMode.width = fsX / 2.084691;
+FlxG.scaleMode.height = fsY / 1.562952;
 FlxG.mouse.visible = false;
 window.x = 500;
 
@@ -31,6 +32,7 @@ function new(){
 function create(){
     FlxG.cameras.add(camEnter, false);
 	camEnter.bgColor = 0x00000000;
+    camEnter.width += 1;
 
     FlxG.camera.shake(0.000005, 999999999999);
 	FlxG.camera.zoom = 0.875 * 1.1;
