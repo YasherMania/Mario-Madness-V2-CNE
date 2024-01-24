@@ -1,6 +1,7 @@
 import funkin.backend.utils.NativeAPI;
 import openfl.system.Capabilities;
 import funkin.backend.utils.NdllUtil;
+import lime.graphics.Image;
 
 static var initialized:Bool = false;
 
@@ -54,6 +55,8 @@ function new(){
     if (FlxG.save.data.colouredBar == null) FlxG.save.data.colouredBar = false;
     if (FlxG.save.data.showBar == null) FlxG.save.data.showBar = false;
     if (FlxG.save.data.showTxt == null) FlxG.save.data.showTxt = false;
+
+    window.setIcon(Image.fromBytes(Assets.getBytes(Paths.image('icon16'))));
 }
 
 static var redirectStates:Map<FlxState, String> = [
