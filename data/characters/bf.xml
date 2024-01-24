@@ -1,5 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character x="0" icon="bf" y="350" isGF="false" isPlayer="false" sprite="MM_Boyfriend_Assets_jump">
-	<anim x="0" loop="false" y="0" fps="24" anim="JUMP0" name="jump"/>
-	<anim x="-10" loop="false" y="-261" fps="24" anim="JUMPLAND0" name="Land"/>
-</character>
