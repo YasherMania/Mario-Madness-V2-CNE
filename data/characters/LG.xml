@@ -1,8 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character x="-1450" icon="LG" y="200" isGF="false" camy="-200" color="#870C0A" isPlayer="false" sprite="LG_Sprites">
-	<anim x="-5" loop="false" y="0" fps="24" anim="LG Idle" name="idle"/>
-	<anim x="-186" loop="false" y="132" fps="24" anim="LG Up" name="singUP"/>
-	<anim x="20" loop="false" y="-70" fps="24" anim="LG Left" name="singLEFT"/>
-	<anim x="-263" loop="false" y="-53" fps="24" anim="LG Right" name="singRIGHT"/>
-	<anim x="-185" loop="false" y="-38" fps="24" anim="LG Down" name="singDOWN"/>
-</character>

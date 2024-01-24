@@ -1,8 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character x="-200" icon="peach_exe" y="-200" isGF="false" color="#A83455" isPlayer="false" holdTime="6.1" sprite="peach_exe">
-	<anim x="0" loop="false" y="0" fps="24" anim="PeachIdle" name="idle"/>
-	<anim x="25" loop="false" y="247" fps="24" anim="PeachUp" name="singUP"/>
-	<anim x="425" loop="false" y="-210" fps="24" anim="PeachLeft" name="singLEFT"/>
-	<anim x="35" loop="false" y="-188" fps="24" anim="PeachRight" name="singRIGHT"/>
-	<anim x="235" loop="false" y="-315" fps="24" anim="PeachDown" name="singDOWN"/>
-</character>

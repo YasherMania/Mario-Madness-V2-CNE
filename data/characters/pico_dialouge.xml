@@ -1,6 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character x="60" icon="pico" y="320" isGF="false" color="#B7D855" flipX="true" isPlayer="false" gameOverChar="pico_gameover" sprite="pico_dialogue">
-	<anim x="0" loop="false" y="0" fps="24" anim="PicoDIalogue1" name="1"/>
-	<anim x="55" loop="false" y="95" fps="24" anim="PicoDialogue2" name="2"/>
-	<anim x="25" loop="false" y="75" fps="24" anim="PicoDialogue3" name="3"/>
-</character>

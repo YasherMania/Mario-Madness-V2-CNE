@@ -1,5 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character x="1500" icon="M GF" y="-850" isGF="false" color="#31B1D1" flipX="true" isPlayer="true" holdTime="8.1" sprite="Act3_Ultra_M_Head">
-	<anim x="0" loop="false" y="0" fps="24" anim="ultra m static head0000" name="idle"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="ultra m lyrics 1" name="speak"/>
-</character>
