@@ -48,7 +48,7 @@ function create() {
     add(bg);
 
     estatica = new FlxSprite();
-    estatica.frames = Paths.getFrames('menus/mainmenu/estatica_uwu');
+    estatica.frames = Paths.getFrames('menus/estatica_uwu');
     estatica.animation.addByPrefix('idle', "Estatica papu", 15);
     estatica.animation.play('idle');
     estatica.antialiasing = false;

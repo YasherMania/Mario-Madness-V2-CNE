@@ -1,13 +1,13 @@
 import funkin.backend.system.framerate.Framerate;
+import flixel.effects.FlxFlicker;
 
-var canDoShit:Bool = false;
-
-FlxG.camera.zoom = 1.1;
+var canDoShit:Bool = true;
 
 FlxG.resizeWindow(fsX / 2, fsY / 1.5);
 FlxG.resizeGame(fsX / 2, fsY / 1.5);
 FlxG.scaleMode.width = fsX / 2;
 FlxG.scaleMode.height = fsY / 1.5;
+FlxG.mouse.visible = false;
 window.x = 500;
 
 Framerate.fpsCounter.visible = false;
@@ -16,122 +16,235 @@ Framerate.codenameBuildField.visible = false;
 
 var camEnter = new FlxCamera();
 
-function new() CoolUtil.playMenuSong();
+var hands:Array<FlxSprite> = [];
+
+var ntsc:CustomShader = null;
+var staticShader:CustomShader = null;
+var bloom:CustomShader = null;
+var ntscGlitch:CustomShader = null;
+
+function new(){
+    CoolUtil.playMenuSong();
+    FlxG.sound.music.volume = 0;
+}
 
 function create(){
     FlxG.cameras.add(camEnter, false);
 	camEnter.bgColor = 0x00000000;
 
-    FlxTween.tween(FlxG.camera, {zoom: 1}, 2, {ease: FlxEase.quartInOut}).onComplete = function(){canDoShit = true;};
+    FlxG.camera.shake(0.000005, 999999999999);
+	FlxG.camera.zoom = 0.875 * 1.1;
 
-    estatica = new FlxSprite(-250);
-    estatica.frames = Paths.getFrames('menus/mainmenu/estatica_uwu');
-    estatica.animation.addByPrefix('idle', "Estatica papu", 15);
-    estatica.animation.play('idle');
-    estatica.antialiasing = false;
-    estatica.color = FlxColor.RED;
-    estatica.alpha = 0.25;
-    add(estatica);
+    staticShader = new CustomShader("TVStatic");
+    FlxG.camera.addShader(staticShader);
 
-    bg = new FlxSprite(0, 375).loadGraphic(Paths.image('menus/title/floor'));
-    bg.screenCenter(FlxAxes.X);
-    add(bg);
+    bloom = new CustomShader("Bloom");
+    bloom.data.dim.value = [.5, .5];
+    camEnter.addShader(bloom);
 
-    hand1 = new FlxSprite(-85, 125);
-    hand1.scale.set(.775, .775);
-    hand1.frames = Paths.getSparrowAtlas('menus/title/titleAssets');
-    hand1.animation.addByPrefix('idle', "Spookihand", 24);
-    hand1.animation.play("idle", true);
-    FlxTween.tween(hand1, {y: hand1.y - 25}, 2, {ease: FlxEase.sineInOut, type: 4});
-    FlxTween.tween(hand1, {angle: 7.5}, 1, {ease: FlxEase.sineInOut, type: 4});
-    add(hand1);
+    ntsc = new CustomShader("NTSCFilter");
+    camEnter.addShader(ntsc);
 
-    hand2 = new FlxSprite(445, 125);
-    hand2.scale.set(.775, .775);
-    hand2.frames = Paths.getSparrowAtlas('menus/title/titleAssets');
-    hand2.animation.addByPrefix('idle', "Spookihand", 24);	
-    hand2.animation.play("idle", true);
-    FlxTween.tween(hand2, {y: hand2.y - 25}, 2, {ease: FlxEase.sineInOut, type: 4});
-    FlxTween.tween(hand2, {angle: -7.5}, 1, {ease: FlxEase.sineInOut, type: 4});
-    hand2.flipX = true;
-    add(hand2);
+    blackSprite = new FlxSprite().makeGraphic(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
+	blackSprite.updateHitbox();
+	blackSprite.screenCenter();
 
-    bf = new FlxSprite(45, 315);
-    bf.scale.set(.65, .65);
-    bf.frames = Paths.getSparrowAtlas('menus/title/titleAssets');
-    bf.animation.addByPrefix('idle', "BF", 24);	
-    bf.animation.play("idle", true);
-    add(bf);
+    _static = new FlxSprite(0,-350);
+	_static.frames = Paths.getSparrowAtlas('menus/estatica_uwu');
+	_static.animation.addByPrefix('idle', "Estatica papu", 15);
+	_static.animation.play('idle');
+	_static.alpha = 0.33;
+	_static.cameras = [FlxG.camera];
+	_static.color = FlxColor.RED;
+	_static.screenCenter(FlxAxes.X);
+	add(_static);
 
-    gf = new FlxSprite(460, 250);
-    gf.scale.set(.65, .65);
-    gf.frames = Paths.getSparrowAtlas('menus/title/titleAssets');
-    gf.animation.addByPrefix('idle', "GF", 24);	
-    gf.animation.play("idle", true);
-    add(gf);
+    bottomGroup = new FlxSpriteGroup();
+	bottomGroup.cameras = [FlxG.camera];
+    bottomGroup.setPosition(-170, -26.5);
+	add(bottomGroup);
 
-    titleText = new FlxSprite(185, 600);
-    titleText.frames = Paths.getSparrowAtlas('menus/title/enter');
-    titleText.animation.addByPrefix('idle', "EnterLoop", 24, true);
-    titleText.animation.addByPrefix('press', "EnterBegin", 24, false);		
-    titleText.animation.play('idle');
-    titleText.cameras = [camEnter];
-    add(titleText);
+    floor = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/title/floor'));
+	floor.scale.set(0.95, 0.95);
+	floor.updateHitbox();
+	floor.setPosition(-40.0567375886525, 360); // bros being specific
+	bottomGroup.add(floor);
 
-    logo = new FlxSprite(-50, -250).loadGraphic(Paths.image('menus/title/MMv2LogoFINAL'));
-    FlxTween.tween(logo, {y: logo.y + 25}, 4, {ease: FlxEase.sineInOut, type: 4});
-    logo.scale.set(.3, .3);
-    logo.cameras = [camEnter];
-    add(logo);
+    for (i in 0...2) {
+        var hand:FlxSprite = new FlxSprite(96 + (601 * i), 125);
+        hand.frames = Paths.getSparrowAtlas("menus/title/titleAssets");
+        hand.animation.addByPrefix("idle", "Spookihand", 24, true);
+        hand.animation.play("idle", true);
+        hand.scale.set(0.75, 0.75);
+        hand.updateHitbox();
+        bottomGroup.add(hand);
 
-    curtain = new FlxSprite(0, -325).loadGraphic(Paths.image('menus/title/duh'));
-    FlxTween.tween(curtain, {y: -650}, 1.75, {ease: FlxEase.sineOut});
-    curtain.scale.set(1.25, 1.25);
-    curtain.screenCenter(FlxAxes.X);
-    curtain.cameras = [camEnter];
-    add(curtain);
+        ntscGlitch = new CustomShader("NTSCGlitch");
+        ntscGlitch.data.glitchAmount.value = [.2, .2];
+        hand.shader = ntscGlitch;
+
+        hand.flipX = i == 1; // WHAT NO WAY!!
+
+        hand.ID = i;
+        hands.push(hand);
+    }
+
+    bf = new FlxSprite(303, 312);
+    bf.frames = Paths.getSparrowAtlas("menus/title/titleAssets");
+    bf.animation.addByPrefix("idle", "BF", 24, false);
+    bf.scale.set(0.75, 0.75);
+    bf.updateHitbox();
+    bottomGroup.add(bf);
+
+    gf = new FlxSprite(705, 230);
+    gf.frames = Paths.getSparrowAtlas("menus/title/titleAssets");
+    gf.animation.addByPrefix("idle", "GF", 24, false);
+    gf.scale.set(0.75, 0.75);
+    gf.updateHitbox();
+    bottomGroup.add(gf);
+
+    enterSprite = new FlxSprite(0, 560);
+    enterSprite.frames = Paths.getSparrowAtlas("menus/title/enter");
+    enterSprite.animation.addByPrefix("idle", "EnterLoop", 24, false);
+    enterSprite.animation.addByPrefix("press", "EnterBegin", 24, false);
+    enterSprite.animation.play("idle");
+    enterSprite.cameras = [camEnter];
+    enterSprite.updateHitbox();
+    enterSprite.screenCenter(FlxAxes.X);
+    enterSprite.x -= 2;
+    add(enterSprite);
+
+    logoBl = new FlxSprite(0, 60).loadGraphic(Paths.image('menus/title/MMv2LogoFINAL'));
+	logoBl.setGraphicSize(Std.int(logoBl.width * (0.295 * 0.9)));
+	logoBl.updateHitbox();
+	logoBl.screenCenter(FlxAxes.X);
+	logoBl.cameras = [camEnter];
+	add(logoBl);
+
+    curtain = new FlxSprite().loadGraphic(Paths.image('menus/title/duh'));
+	curtain.scale.set(1.289 * 0.9, 1.286 * 0.9);
+	curtain.updateHitbox();
+	curtain.screenCenter();
+	curtain.cameras = [camEnter];
+	curtain.y = -682.501606766917 * 0.25;
+	add(curtain);
 
     prevWallpaper = getWallpaper(); // this is for paranoia
+
+    blackSprite.cameras = [camEnter];
+	add(blackSprite);
+
+    new FlxTimer().start(Conductor.stepCrochet/1000 * 2, (_) -> {
+        FlxG.sound.music.volume = 0;
+        FlxG.sound.music.fadeIn((Conductor.stepCrochet/1000 * 16) * 2, 0, 1.2);
+
+        FlxTween.tween(blackSprite, {alpha: 0}, Conductor.stepCrochet/1000 * 6, {onComplete: (_) -> {
+            blackSprite.alpha = 0.05;
+            FlxFlicker.flicker(blackSprite, 999999999999);
+        }});
+        
+        FlxTween.tween(curtain, {y: -682.501606766917}, Conductor.stepCrochet/1000 * 4, {ease: FlxEase.circOut, startDelay: (Conductor.stepCrochet/1000) / 8});
+        FlxG.camera.zoom += 0.075;
+        FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom - 0.075}, (Conductor.stepCrochet/1000 * 12), {ease: FlxEase.circOut});
+    });
 }
 
 function update(){
-    FlxG.camera.shake(.001, 9999999999999999);
+    if (FlxG.sound.music != null) Conductor.songPosition = FlxG.sound.music.time;
+
+    if (ntsc != null) ntsc.data.uFrame.value = [Conductor.songPosition];
+
+    if (staticShader != null) staticShader.data.iTime.value = [Conductor.songPosition];
 
     if (controls.ACCEPT && canDoShit) enterPressed();
+
+    for (hand in hands) {
+        if (hand != null) {
+            hand.y = 125 + 20 * FlxMath.fastCos((curBeat / 4) * Math.PI);
+            hand.offset.x = 80.125 + FlxG.random.float(-3.5, 3.5);
+
+            hand.angle = 10 * (hand.ID == 1 ? -1 : 1) * FlxMath.fastSin((curBeat / 4) * Math.PI);
+        }
+    }
+
+    if (logoBl != null) logoBl.y = 60 + 7.5 * FlxMath.fastCos((curBeat / 3) * Math.PI);
 }
 
 function enterPressed(){
     canDoShit = false;
-    titleText.animation.play("press");
     CoolUtil.playMenuSFX(1);
-    if (FlxG.save.data.flashingLights) camEnter.flash(0xB7FF0000);
+    /*if (FlxG.save.data.flashingLights && bloom != null){
+        bloom.data.Size.value = [18 * 2, 18 * 2];
+        bloom.data.dim.value = [0.25, 0.25];
 
-    // there is def a better way fixing offsets when a different animation plays but this will do for now - apurples
-    titleText.x -= 122.5;
-    titleText.y -= 85;
+        var twn1:NumTween;
+        var twn2:NumTween;
 
-    for (i in [FlxG.camera, camEnter]) FlxTween.tween(i, {zoom: 1.05}, 1, {ease: FlxEase.sineInOut});
+        twn1 = FlxTween.num(18.0 * 2, 3.0, 1.5, {
+            onUpdate: (_) -> {
+                bloom.data.Size.value = [twn1.value, twn1.value];
+            }
+        });
 
-    new FlxTimer().start(.6, function(tmr:FlxTimer){
-        titleText.alpha = 0;
+        twn2 = FlxTween.num(0.25, 2.0, 1.5, {
+            onUpdate: (_) -> {
+                bloom.data.dim.value = [twn2.value, twn2.value];
+            }
+        });
+    }*/
+
+    enterSprite.offset.set(127, 85);
+	enterSprite.animation.play("press", true);
+	enterSprite.animation.finishCallback = (_) -> {enterSprite.visible = false;};
+
+    FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.075}, Conductor.stepCrochet/1000 * 4, {ease: FlxEase.circOut});
+
+    new FlxTimer().start(Conductor.stepCrochet/1000 * 2, function(tmr:FlxTimer) {
+        FlxTween.tween(curtain, {y: curtain.y - 40}, (Conductor.stepCrochet/1000), {
+            ease: FlxEase.circInOut,
+            onComplete: (_) -> {
+                FlxTween.tween(curtain, {y: 3}, Conductor.stepCrochet/1000 * 4.6, {ease: FlxEase.quintOut, startDelay: 0.03});
+
+                FlxFlicker.stopFlickering(blackSprite); 
+                blackSprite.alpha = 0; blackSprite.visible = true;
+
+                FlxTween.tween(blackSprite, {alpha: 1}, Conductor.stepCrochet/1000 * 2, {
+                    startDelay: 0.04,
+                    onComplete: (_) -> {
+                        FlxG.updateFramerate = 30; // Makes it smoother and consistant
+                        
+                        FlxTween.tween(window, {x: 325, width: resizex, height: resizey}, 0.3 * 4, {
+                            ease: FlxEase.circInOut,
+                            onComplete: function(twn:FlxTween){
+                                completeWindowTwn();
+                            }
+                        });
+
+                        FlxG.camera.visible = false;
+                        camEnter.visible = false;
+                    }
+                });
+            }
+        });
     });
+}
 
-    new FlxTimer().start(1.5, function(tmr:FlxTimer){
-        FlxTween.tween(curtain, {y: curtain.y - 25}, .5, {ease: FlxEase.sineOut});
-    });
+function completeWindowTwn(){
+    FlxG.resizeWindow(resizex, resizey);
+    FlxG.resizeGame(resizex, resizey);
+    FlxG.scaleMode.width = resizex;
+    FlxG.scaleMode.height = resizey;
+    FlxG.updateFramerate = Options.fpsCounter;
 
-    new FlxTimer().start(2, function(tmr:FlxTimer){
-        FlxTween.tween(curtain, {y: 25}, 1, {ease: FlxEase.sineOut});
-        FlxG.camera.fade(FlxColor.BLACK, 1);
-        camEnter.fade(FlxColor.BLACK, 1);
-    });
+    FlxG.mouse.visible = true;
+    FlxG.switchState(new MainMenuState());
+};
 
-    new FlxTimer().start(3, function(tmr:FlxTimer){
-        FlxTween.tween(window, {x: 325, width: resizex, height: resizey}, 2, {ease: FlxEase.cubeInOut}).onComplete = function(){
-            FlxG.resizeWindow(resizex, resizey);
-            FlxG.scaleMode.width = resizex;
-            FlxG.scaleMode.height = resizey;
-            FlxG.switchState(new MainMenuState());
-        };
-    });
+function stepHit(){
+    if (enterSprite != null && curStep % 2 == 0 && enterSprite.animation.name != "press")
+        enterSprite.animation.play("idle", true);
+
+    if (curStep % 2 == 0)
+        bf.animation.play("idle");
+        gf.animation.play("idle");
 }
