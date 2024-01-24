@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Act3_Ultra_M.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="torso idle 10000" x="5" y="5" width="1550" height="1178" frameX="-599" frameY="-25" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10001" x="1565" y="5" width="1556" height="1169" frameX="-598" frameY="-30" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10002" x="1565" y="5" width="1556" height="1169" frameX="-598" frameY="-30" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10003" x="3131" y="5" width="1581" height="1158" frameX="-599" frameY="-38" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10004" x="3131" y="5" width="1581" height="1158" frameX="-599" frameY="-38" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10005" x="4722" y="5" width="1587" height="1152" frameX="-601" frameY="-39" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10006" x="4722" y="5" width="1587" height="1152" frameX="-601" frameY="-39" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10007" x="6319" y="5" width="1586" height="1151" frameX="-603" frameY="-33" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10008" x="6319" y="5" width="1586" height="1151" frameX="-603" frameY="-33" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10009" x="5" y="1193" width="1573" height="1161" frameX="-604" frameY="-23" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10010" x="5" y="1193" width="1573" height="1161" frameX="-604" frameY="-23" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10011" x="1588" y="1193" width="1558" height="1166" frameX="-604" frameY="-18" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10012" x="1588" y="1193" width="1558" height="1166" frameX="-604" frameY="-18" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10013" x="3156" y="1193" width="1551" height="1166" frameX="-604" frameY="-18" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10014" x="3156" y="1193" width="1551" height="1166" frameX="-604" frameY="-18" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10015" x="3156" y="1193" width="1551" height="1166" frameX="-604" frameY="-18" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10016" x="3156" y="1193" width="1551" height="1166" frameX="-604" frameY="-18" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10017" x="3156" y="1193" width="1551" height="1166" frameX="-604" frameY="-18" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10018" x="3156" y="1193" width="1551" height="1166" frameX="-604" frameY="-18" frameWidth="2189" frameHeight="1203"/>
+	<SubTexture name="torso idle 10019" x="3156" y="1193" width="1551" height="1166" frameX="-604" frameY="-18" frameWidth="2189" frameHeight="1203"/>
+
+</TextureAtlas>
