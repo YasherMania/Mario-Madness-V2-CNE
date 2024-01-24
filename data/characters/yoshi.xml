@@ -1,8 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character x="50" icon="yoshi M" y="0" isGF="false" camy="-200"camx="-200" color="#870C0A" isPlayer="false" sprite="yoshi">
-	<anim x="-5" loop="false" y="0" fps="24" anim="yoshi idle" name="idle"/>
-	<anim x="0" loop="false" y="67" fps="24" anim="YOSHI UP" name="singUP"/>
-	<anim x="35" loop="false" y="-10" fps="24" anim="yoshi left" name="singLEFT"/>
-	<anim x="-118" loop="false" y="42" fps="24" anim="yoshi right" name="singRIGHT"/>
-	<anim x="24" loop="false" y="-97" fps="24" anim="yoshi down" name="singDOWN"/>
-</character>

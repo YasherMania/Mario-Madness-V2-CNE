@@ -1,8 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character x="0" icon="MX" y="0" isGF="false" scale ="1.3" color="#870C0A" isPlayer="false" holdTime="6.1" sprite="MX">
-	<anim x="0" loop="false" y="0" fps="24" anim="MXIdle instancia" name="idle"/>
-	<anim x="90" loop="false" y="700" fps="24" anim="MXUp instancia" name="singUP"/>
-	<anim x="850" loop="false" y="405" fps="24" anim="MXLeft instancia" name="singLEFT"/>
-	<anim x="-55" loop="false" y="-268" fps="24" anim="MXRight instancia" name="singRIGHT"/>
-	<anim x="15" loop="false" y="-315" fps="24" anim="MXDown instancia" name="singDOWN"/>
-</character>
