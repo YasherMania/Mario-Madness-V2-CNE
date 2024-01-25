@@ -165,7 +165,7 @@ function update(){
 
     var currentBeat = (Conductor.songPosition / 1000) * (Conductor.bpm / 60);
 
-    if (bloom != null /*&& !transitioning*/) {
+    if (bloom != null && canDoShit) {
         bloom.data.Size.value = [1.0 + (0.5 * FlxMath.fastSin(currentBeat * 2))];
     }
 
