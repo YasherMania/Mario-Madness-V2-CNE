@@ -12,9 +12,9 @@ FlxG.mouse.visible = false;
 window.x = 500;
 window.y = 195;
 
-Framerate.fpsCounter.visible = false;
-Framerate.memoryCounter.visible = false;
-Framerate.codenameBuildField.visible = false;
+Framerate.fpsCounter.visible = true;
+Framerate.memoryCounter.visible = true;
+Framerate.codenameBuildField.visible = true;
 
 var camEnter = new FlxCamera();
 
@@ -41,6 +41,7 @@ function create(){
 	FlxG.camera.zoom = 0.875 * 1.1;
 
     staticShader = new CustomShader("TVStatic");
+    staticShader.data.strengthMulti.value = [1, 1];
     FlxG.camera.addShader(staticShader);
 
     bloom = new CustomShader("Bloom");
@@ -162,16 +163,22 @@ function update(){
 
     if (controls.ACCEPT && canDoShit) enterPressed();
 
+    var currentBeat = (Conductor.songPosition / 1000) * (Conductor.bpm / 60);
+
+    if (bloom != null /*&& !transitioning*/) {
+        bloom.data.Size.value = [1.0 + (0.5 * FlxMath.fastSin(currentBeat * 2))];
+    }
+
     for (hand in hands) {
         if (hand != null) {
-            hand.y = 125 + 20 * FlxMath.fastCos((curBeat / 4) * Math.PI);
+            hand.y = 125 + 20 * FlxMath.fastCos((currentBeat / 4) * Math.PI);
             hand.offset.x = 80.125 + FlxG.random.float(-3.5, 3.5);
 
-            hand.angle = 10 * (hand.ID == 1 ? -1 : 1) * FlxMath.fastSin((curBeat / 4) * Math.PI);
+            hand.angle = 10 * (hand.ID == 1 ? -1 : 1) * FlxMath.fastSin((currentBeat / 4) * Math.PI);
         }
     }
 
-    if (logoBl != null) logoBl.y = 60 + 7.5 * FlxMath.fastCos((curBeat / 3) * Math.PI);
+    if (logoBl != null) logoBl.y = 60 + 7.5 * FlxMath.fastCos((currentBeat / 3) * Math.PI);
 }
 
 function enterPressed(){
