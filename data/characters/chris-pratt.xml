@@ -1,0 +1,12 @@
+<!DOCTYPE codename-engine-character>
+<character isPlayer="false" flipX="false" holdTime="4" x="20" y="260" camX="-30" camY="-20"> <!-- CONVERTED VIA psychjsontocodenamexml.py by Burgerballs -->
+
+   <anim name="idle" anim="chris pratt idle" loop="false" x="0" y="0"/>
+   <anim name="singLEFT" anim="chris pratt left" loop="false" x="84" y="58"/>
+   <anim name="singRIGHT" anim="chris pratt right" loop="false" x="8" y="59"/>
+   <anim name="singDOWN" anim="chris pratt down" loop="false" x="24" y="28"/>
+   <anim name="singUP" anim="chris pratt up" loop="false" x="15" y="47"/>
+   <anim name="hey" anim="chris pratt mario" loop="false" x="138" y="101"/>
+   <anim name="itsame" anim="chris pratt itsame" loop="false" x="-9" y="0"/>
+
+</character>
