@@ -1,4 +1,5 @@
 import funkin.options.OptionsMenu;
+import funkin.backend.system.framerate.Framerate;
 
 var canDoShit:Bool = false;
 var optionsPressed:Bool = false;
@@ -27,6 +28,7 @@ function pressedEnter(){
         ease: FlxEase.cubeIn,
         onComplete: function(twn:FlxTween){
             FlxG.updateFramerate = 30; // for the smoothness
+            for (i in [Framerate.fpsCounter, Framerate.memoryCounter, Framerate.codenameBuildField]) FlxTween.tween(i, {alpha: .6}, 1.5, {ease: FlxEase.circInOut});
             FlxTween.tween(window, {x: 500, y: 195, width: fsX / 2.084691, height: fsY / 1.562952}, 1.5, {
                 ease: FlxEase.circInOut,
                 onComplete: function(twn:FlxTween){

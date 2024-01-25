@@ -1,7 +1,7 @@
 import funkin.backend.system.framerate.Framerate;
 import flixel.effects.FlxFlicker;
 
-var canDoShit:Bool = true;
+var transitioning:Bool = false;
 
 // the scaling could be incorrect depending on your monitor's resolution btw !
 FlxG.resizeWindow(fsX / 2.084691, fsY / 1.562952);
@@ -12,11 +12,9 @@ FlxG.mouse.visible = false;
 window.x = 500;
 window.y = 195;
 
-Framerate.fpsCounter.visible = true;
-Framerate.memoryCounter.visible = true;
-Framerate.codenameBuildField.visible = true;
+Framerate.fpsCounter.alpha = Framerate.memoryCounter.alpha = Framerate.codenameBuildField.alpha = .6;
 
-var camEnter = new FlxCamera();
+var camGame, camEnter = new FlxCamera();
 
 var hands:Array<FlxSprite> = [];
 
@@ -37,7 +35,7 @@ function create(){
     camEnter.height += 1;
     camEnter.width += 1;
 
-    FlxG.camera.shake(0.000005, 999999999999);
+    FlxG.camera.shake(0.001, 999999999999);
 	FlxG.camera.zoom = 0.875 * 1.1;
 
     staticShader = new CustomShader("TVStatic");
@@ -86,7 +84,6 @@ function create(){
         bottomGroup.add(hand);
 
         ntscGlitch = new CustomShader("NTSCGlitch");
-        ntscGlitch.data.glitchAmount.value = [.2, .2];
         hand.shader = ntscGlitch;
 
         hand.flipX = i == 1; // WHAT NO WAY!!
@@ -161,11 +158,11 @@ function update(){
 
     if (staticShader != null) staticShader.data.iTime.value = [Conductor.songPosition];
 
-    if (controls.ACCEPT && canDoShit) enterPressed();
+    if (controls.ACCEPT) enterPressed();
 
     var currentBeat = (Conductor.songPosition / 1000) * (Conductor.bpm / 60);
 
-    if (bloom != null && canDoShit) {
+    if (bloom != null && !transitioning) {
         bloom.data.Size.value = [1.0 + (0.5 * FlxMath.fastSin(currentBeat * 2))];
     }
 
@@ -182,7 +179,7 @@ function update(){
 }
 
 function enterPressed(){
-    canDoShit = false;
+    transitioning = true;
     CoolUtil.playMenuSFX(1);
     
     /*if (FlxG.save.data.flashingLights){
@@ -206,6 +203,9 @@ function enterPressed(){
 	enterSprite.animation.play("press", true);
 	enterSprite.animation.finishCallback = (_) -> {enterSprite.visible = false;};
 
+    zoomOutTwn.cancel();
+    curtainUpTwn.cancel();
+
     FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.075}, Conductor.stepCrochet/1000 * 4, {ease: FlxEase.circOut});
 
     new FlxTimer().start(Conductor.stepCrochet/1000 * 2, function(tmr:FlxTimer) {
@@ -222,6 +222,8 @@ function enterPressed(){
                     onComplete: (_) -> {
                         FlxG.updateFramerate = 30; // Makes it smoother and consistant
                         
+                        for (i in [Framerate.fpsCounter, Framerate.memoryCounter, Framerate.codenameBuildField])
+                            FlxTween.tween(i, {alpha: 1}, .3 * 4, {ease: FlxEase.circInOut});
                         FlxTween.tween(window, {x: 325, width: resizex, height: resizey}, 0.3 * 4, {
                             ease: FlxEase.circInOut,
                             onComplete: function(twn:FlxTween){
