@@ -1,9 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character x="0" icon="Mario dead too late" y="350" isGF="true" color="#31B1D1" isPlayer="false" sprite="Mario dead too late">
-	<anim x="0" loop="false" y="0" fps="24" anim="mario idle" name="idle"/>
-	<anim x="70" loop="false" y="160" fps="24" anim="mario up" name="singUP"/>
-	<anim x="5" loop="false" y="-205" fps="24" anim="mario down" name="singDOWN"/>
-	<anim x="145" loop="false" y="-25" fps="24" anim="mario left" name="singLEFT"/>
-	<anim x="30" loop="false" y="-75" fps="24" anim="mario right" name="singRIGHT"/>
-	<anim x="70" loop="false" y="160" fps="24" anim="mario fade away" name="singUP-alt"/>
-</character>

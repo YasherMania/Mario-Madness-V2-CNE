@@ -1,0 +1,13 @@
+<!DOCTYPE codename-engine-stage>
+<stage zoom="1" name="directstream" folder="stages/real/">
+	<sprite name="redbg" sprite="direct bg red" scroll="0" scale="1.25" x="-400" y="-100"/>
+	<sprite name="bg" sprite="direct bg grey" scroll="0" scale="1.25" x="-400" y="-200" alpha="0"/>
+
+	<dad x="200" y="-100" scroll="0"/>
+
+	<gf x="900" y="-430" scroll="0"/>
+	<boyfriend x="1200" y="-510" scroll="0"/>
+	<sprite name="bord" sprite="facecam border" scroll="0" scale="1" x="1025" y="-210"/>
+	<sprite name="tag" sprite="nametag" scroll="0" scale="1" x="0" y="600" alpha="0"/>
+
+</stage>

@@ -1,8 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character x="0" icon="MX_Faker" y="0" isGF="false" color="#870C0A" isPlayer="false" holdTime="6.1" sprite="MX_Faker">
-	<anim x="0" loop="false" y="0" fps="24" anim="Idle" name="idle"/>
-	<anim x="-10" loop="false" y="30" fps="24" anim="Up" name="singUP"/>
-	<anim x="54" loop="false" y="1" fps="24" anim="Left0" name="singLEFT"/>
-	<anim x="-30" loop="false" y="12" fps="24" anim="Right0" name="singRIGHT"/>
-	<anim x="-5" loop="false" y="-15" fps="24" anim="Down0" name="singDOWN"/>
-</character>

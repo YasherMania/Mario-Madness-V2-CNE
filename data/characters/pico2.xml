@@ -1,0 +1,18 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="pico" y="350" isGF="false" flipX="true" isPlayer="true" sprite="pico">
+	<anim x="211" loop="false" y="174" fps="24" anim="PicoShoot0" name="singLEFT-alt"/>
+	<anim x="211" loop="false" y="174" fps="24" anim="PicoShoot0" name="singDOWN-alt"/>
+	<anim x="211" loop="false" y="174" fps="24" anim="PicoShoot0" name="singUP-alt"/>
+	<anim x="211" loop="false" y="174" fps="24" anim="PicoShoot0" name="singRIGHT-alt"/>
+	<anim x="16" loop="false" y="47" fps="24" anim="PicoDialogue" name="dialog1"/>
+	<anim x="-70" loop="false" y="-40" fps="24" anim="PicoDIalogue" name="dialog2"/>
+	<anim x="8" loop="false" y="-20" fps="24" anim="PicoLeft0" name="singLEFT"/>
+	<anim x="-30" loop="false" y="-90" fps="24" anim="PicoDown0" name="singDOWN"/>
+	<anim x="-69" loop="false" y="57" fps="24" anim="PicoUp0" name="singUP"/>
+	<anim x="-92" loop="false" y="23" fps="24" anim="PicoRight0" name="singRIGHT"/>
+	<anim x="13" loop="false" y="8" fps="24" anim="PicoLeftMiss" name="singLEFTmiss"/>
+	<anim x="5" loop="false" y="-63" fps="24" anim="PicoDownMiss" name="singDOWNmiss"/>
+	<anim x="-66" loop="false" y="67" fps="24" anim="PicoUpMiss" name="singUPmiss"/>
+	<anim x="-54" loop="false" y="42" fps="24" anim="PicoRightMiss" name="singRIGHTmiss"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="Pico Idle Dance" name="idle"/>
+</character>
