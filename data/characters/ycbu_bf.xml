@@ -5,8 +5,4 @@
 	<anim x="-20" loop="false" y="0" fps="24" anim="BF NOTE LEFT0" name="singLEFT"/>
 	<anim x="-12" loop="false" y="0" fps="24" anim="BF NOTE RIGHT0" name="singRIGHT"/>
 	<anim x="-25" loop="false" y="0" fps="24" anim="BF NOTE DOWN0" name="singDOWN"/>
-	<anim x="-26" loop="false" y="0" fps="24" anim="BF NOTE UP ALT0" name="singUP-alt"/>
-	<anim x="-20" loop="false" y="0" fps="24" anim="BF NOTE LEFT ALT0" name="singLEFT-alt"/>
-	<anim x="-12" loop="false" y="0" fps="24" anim="BF NOTE RIGHT ALT0" name="singRIGHT-alt"/>
-	<anim x="-25" loop="false" y="0" fps="24" anim="BF NOTE DOWN ALT0" name="singDOWN-alt"/>
 </character>

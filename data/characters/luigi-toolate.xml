@@ -1,9 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character x="-510" icon="mrl" camx="200" y="-230" isGF="false" camy="-30" color="#61B45D" isPlayer="false" gameOverChar="dad" sprite="luigi-fake">
-	<anim x="0" loop="false" y="0" fps="24" anim="LuigiIdle" name="idle"/>
-	<anim x="553" loop="false" y="-51" fps="24" anim="LuigiLeft" name="singLEFT"/>
-	<anim x="175" loop="false" y="617" fps="24" anim="LuigiUp" name="singUP"/>
-	<anim x="-28" loop="false" y="59" fps="24" anim="LuigiRight" name="singRIGHT"/>
-	<anim x="204" loop="false" y="-240" fps="24" anim="LuigiDown" name="singDOWN"/>
-	<anim x="-18" loop="false" y="57" fps="24" anim="LuigiLaugh" name="singUP-alt"/>
-</character>
