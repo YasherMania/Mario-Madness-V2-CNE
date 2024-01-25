@@ -3,7 +3,7 @@ import sys.FileSystem;
 
 var realPath = StringTools.replace(FileSystem.absolutePath(Assets.getPath("assets/images/stages/virtual/toolate.bmp")), "/", "\\");
 
-var turtlesTime, shake, cancelCameraMove, gfCamTime:Bool = false;
+static var turtlesTime, shake, cancelCameraMove, gfCamTime:Bool = false;
 
 public var bgBeatMore:Bool = true;
 

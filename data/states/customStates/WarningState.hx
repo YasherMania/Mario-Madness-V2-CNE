@@ -26,9 +26,15 @@ function pressedEnter(){
     FlxTween.tween(warning, {y: 750}, 1, {
         ease: FlxEase.cubeIn,
         onComplete: function(twn:FlxTween){
-            FlxTween.tween(window, {x: 500, y: 175, width: fsX / 2, height: fsY / 1.5}, 1.5, {
-                ease: FlxEase.cubeInOut,
+            FlxG.updateFramerate = 30; // for the smoothness
+            FlxTween.tween(window, {x: 500, y: 195, width: fsX / 2.084691, height: fsY / 1.562952}, 1.5, {
+                ease: FlxEase.circInOut,
                 onComplete: function(twn:FlxTween){
+                    FlxG.resizeWindow(fsX / 2.084691, fsY / 1.562952);
+                    FlxG.resizeGame(fsX / 2.084691, fsY / 1.562952);
+                    FlxG.scaleMode.width = fsX / 2.084691;
+                    FlxG.scaleMode.height = fsY / 1.562952;
+                    FlxG.updateFramerate = Options.fpsCounter;
                     FlxG.switchState(new TitleState());
                 }
             });

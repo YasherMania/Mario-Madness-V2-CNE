@@ -10,6 +10,7 @@ FlxG.scaleMode.width = fsX / 2.084691;
 FlxG.scaleMode.height = fsY / 1.562952;
 FlxG.mouse.visible = false;
 window.x = 500;
+window.y = 195;
 
 Framerate.fpsCounter.visible = false;
 Framerate.memoryCounter.visible = false;
@@ -19,10 +20,11 @@ var camEnter = new FlxCamera();
 
 var hands:Array<FlxSprite> = [];
 
-var ntsc:CustomShader = null;
-var staticShader:CustomShader = null;
-var bloom:CustomShader = null;
-var ntscGlitch:CustomShader = null;
+var ntsc, staticShader, bloom, ntscGlitch:CustomShader = null;
+
+var twn1, twn2:NumTween;
+
+var zoomOutTwn, curtainUpTwn:FlxTween;
 
 function new(){
     CoolUtil.playMenuSong();
@@ -32,6 +34,7 @@ function new(){
 function create(){
     FlxG.cameras.add(camEnter, false);
 	camEnter.bgColor = 0x00000000;
+    camEnter.height += 1;
     camEnter.width += 1;
 
     FlxG.camera.shake(0.000005, 999999999999);
@@ -137,7 +140,6 @@ function create(){
 	add(blackSprite);
 
     new FlxTimer().start(Conductor.stepCrochet/1000 * 2, (_) -> {
-        FlxG.sound.music.volume = 0;
         FlxG.sound.music.fadeIn((Conductor.stepCrochet/1000 * 16) * 2, 0, 1.2);
 
         FlxTween.tween(blackSprite, {alpha: 0}, Conductor.stepCrochet/1000 * 6, {onComplete: (_) -> {
@@ -145,9 +147,9 @@ function create(){
             FlxFlicker.flicker(blackSprite, 999999999999);
         }});
         
-        FlxTween.tween(curtain, {y: -682.501606766917}, Conductor.stepCrochet/1000 * 4, {ease: FlxEase.circOut, startDelay: (Conductor.stepCrochet/1000) / 8});
+        curtainUpTwn = FlxTween.tween(curtain, {y: -682.501606766917}, Conductor.stepCrochet/1000 * 4, {ease: FlxEase.circOut, startDelay: (Conductor.stepCrochet/1000) / 8});
         FlxG.camera.zoom += 0.075;
-        FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom - 0.075}, (Conductor.stepCrochet/1000 * 12), {ease: FlxEase.circOut});
+        zoomOutTwn = FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom - 0.075}, (Conductor.stepCrochet/1000 * 12), {ease: FlxEase.circOut});
     });
 }
 
@@ -175,22 +177,20 @@ function update(){
 function enterPressed(){
     canDoShit = false;
     CoolUtil.playMenuSFX(1);
-    /*if (FlxG.save.data.flashingLights && bloom != null){
+    
+    /*if (FlxG.save.data.flashingLights){
         bloom.data.Size.value = [18 * 2, 18 * 2];
         bloom.data.dim.value = [0.25, 0.25];
 
-        var twn1:NumTween;
-        var twn2:NumTween;
-
         twn1 = FlxTween.num(18.0 * 2, 3.0, 1.5, {
             onUpdate: (_) -> {
-                bloom.data.Size.value = [twn1.value, twn1.value];
+                bloom.data.Size.value = [3, 3];
             }
         });
 
         twn2 = FlxTween.num(0.25, 2.0, 1.5, {
             onUpdate: (_) -> {
-                bloom.data.dim.value = [twn2.value, twn2.value];
+                bloom.data.dim.value = [2, 2];
             }
         });
     }*/

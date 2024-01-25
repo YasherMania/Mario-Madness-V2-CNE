@@ -74,6 +74,7 @@ function stepHit(){
             case 935:
                 for (i in [tweenWindow2X, tweenWindow2Y]) i.active = false;
                 FlxTween.tween(window, {x: winX, y: winY}, .5, {ease: FlxEase.cubeInOut});
+            case 962: dad.playAnim("talk");
             case 1168: 
                 timer = .75;
                 timerTween = FlxTween.num(.75, .075, 1, {ease: FlxEase.quartIn, onUpdate: (_) -> {
@@ -89,8 +90,9 @@ function stepHit(){
             case 1292: FlxTween.tween(camGame, {zoom: .875}, .1, {ease: FlxEase.quintOut}).onComplete = function(){bfZoom = .875;}
             case 1294: FlxTween.tween(camGame, {zoom: .925}, .1, {ease: FlxEase.quintOut}).onComplete = function(){bfZoom = .925;}
             case 1296: if (FlxG.save.data.flashingLights) camGame.flash(FlxColor.BLACK, 1);
+            case 1344: dad.playAnim("transform");
             case 1348:
-                FlxTween.tween(camGame, {zoom: .5}, .775, {ease: FlxEase.quadOut}).onComplete = function(){
+                FlxTween.tween(camGame, {zoom: .5}, .775, {ease: FlxEase.circInOut}).onComplete = function(){
                     dadZoom = .5;
                     bfZoom = .85;
                 }
