@@ -1,0 +1,16 @@
+<!DOCTYPE codename-engine-stage>
+<stage folder="stages/exesequel/"> 
+	<sprite x="-1100" name="sky" sprite="SS_sky" y="-600" scale ="1.1"/>
+	<sprite x="-1225" name="castle" sprite="SS_castle" y="-600" />
+	<sprite x="-1400" name="fireL" sprite="Starman_BG_Fire_Assets" y="-850"/>
+	<sprite x="-950" name="far" sprite="SS_farplatforms" y="-600" />
+	<sprite x="835" name="pow" sprite="SS_POWblock" y="610"/>
+	<sprite x="-850" name="mid" sprite="SS_midplatforms" y="-600"/>
+	<sprite x="-750" name="floor" sprite="SS_floor" y="-600"/>
+	<dad x="-20" y="0"/>
+	<gf x="1850" y="300"/>
+	<bf x="1650" y="120"/>
+	<sprite x="-750" name="foreground" sprite="SS_foreground" y="-600"/>
+	<sprite x="-9131" name="rando" sprite="SS_foreground" y="-39.75"/>
+	<combo x="1650" y="150"/>
+</stage>
