@@ -56,17 +56,12 @@ public var ratingStuff:Array<Dynamic> = [
     ['SS+', 1]
 ];
 
-function onPostNoteCreation(event) {    
-    if (FlxG.save.data.Splashes) {
-    	var note = event.note;
-	    note.splash = "diamond";
-    }
-    else if (FlxG.save.data.Splashes == 0) {
-        var note = event.note;
-        note.splash = "vanilla";
-    }
-    else if (FlxG.save.data.Splashes == null) {
-        return;
+function onPostNoteCreation(event) {
+    var note = event.note;
+    if (!curStage == "virtual"){
+        if (FlxG.save.data.Splashes) note.splash = "diamond";
+        else if (FlxG.save.data.Splashes == 0) note.splash = "vanilla";
+        else return;
     }
 }
 
@@ -140,8 +135,8 @@ function create() {
 
     FlxG.cameras.add(camFPS = new HudCamera(), false);
     camFPS.bgColor = 0;
-    fpsfunniCounter = new FlxText(10,10, 400, 18);
-    fpsfunniCounter.setFormat("_sans", 14, FlxColor.WHITE, "LEFT");
+    fpsfunniCounter = new FlxText(10, 8, 400, 18);
+    fpsfunniCounter.setFormat("Mario2.ttf", 10, 0xFFA11B1B);
     fpsfunniCounter.antialiasing = true;
     fpsfunniCounter.scrollFactor.set();
     fpsfunniCounter.cameras = [camFPS];
