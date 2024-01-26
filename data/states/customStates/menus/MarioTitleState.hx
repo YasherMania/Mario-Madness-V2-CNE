@@ -20,7 +20,7 @@ var hands:Array<FlxSprite> = [];
 
 var ntsc, staticShader, bloom, ntscGlitch:CustomShader = null;
 
-var twn1, twn2:NumTween;
+var bloomTwn1, bloomTwn2:NumTween;
 
 var zoomOutTwn, curtainUpTwn:FlxTween;
 
@@ -84,6 +84,7 @@ function create(){
         bottomGroup.add(hand);
 
         ntscGlitch = new CustomShader("NTSCGlitch");
+        ntscGlitch.data.glitchAmount.value = [1.25, 1.25];
         hand.shader = ntscGlitch;
 
         hand.flipX = i == 1; // WHAT NO WAY!!
@@ -182,22 +183,23 @@ function enterPressed(){
     transitioning = true;
     CoolUtil.playMenuSFX(1);
     
-    /*if (FlxG.save.data.flashingLights){
-        bloom.data.Size.value = [18 * 2, 18 * 2];
-        bloom.data.dim.value = [0.25, 0.25];
+    if (FlxG.save.data.flashingLights){
+        FlxG.camera.addShader(bloom);
+        bloom.data.Size.value = [18 * 4, 18 * 2];
+        bloom.data.dim.value = [0.1, 0.1];
 
-        twn1 = FlxTween.num(18.0 * 2, 3.0, 1.5, {
-            onUpdate: (_) -> {
-                bloom.data.Size.value = [3, 3];
-            }
-        });
+        bloomTwn1 = FlxTween.num(18.0 * 4, 3.0, 1.5, {onUpdate: (_) -> {
+            bloom.data.Size.value = [bloomTwn1.value, bloomTwn1.value];
+        }});
+        bloomTwn1.onComplete = function(){
+            trace(bloomTwn1.value);
+            trace(bloomTwn2.value);
+        }
 
-        twn2 = FlxTween.num(0.25, 2.0, 1.5, {
-            onUpdate: (_) -> {
-                bloom.data.dim.value = [2, 2];
-            }
-        });
-    }*/
+        bloomTwn2 = FlxTween.num(0.1, 0.5, 1.5, {onUpdate: (_) -> {
+            bloom.data.dim.value = [bloomTwn2.value, bloomTwn2.value];
+        }});
+    }
 
     enterSprite.offset.set(127, 85);
 	enterSprite.animation.play("press", true);
