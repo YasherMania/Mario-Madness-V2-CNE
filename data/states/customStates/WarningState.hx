@@ -4,6 +4,8 @@ import funkin.backend.system.framerate.Framerate;
 var canDoShit:Bool = false;
 var optionsPressed:Bool = false;
 
+window.resizable = false;
+
 function create(){
     window.title = "Friday Night Funkin': Mario's Madness";
     
@@ -22,7 +24,7 @@ function update(){
 }
 
 function pressedEnter(){
-	canDoShit = window.resizable = false;
+	canDoShit = false;
     FlxG.sound.play(Paths.sound("warpzone/accept"));
     FlxTween.tween(warning, {y: 750}, 1, {
         ease: FlxEase.cubeIn,
