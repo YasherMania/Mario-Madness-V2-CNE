@@ -79,6 +79,11 @@ function create(){
     angel.data.stronk.value = [1, 1];
 }
 
+function postCreate(){
+    timeTxt.color = FlxColor.RED;
+    timeBar.createFilledBar(0xFF000000, FlxColor.RED);
+}
+
 function update(elapsed:Float){
     if (health <= 0 && window.width != fsX && window.height != fsY) setWallpaper(prevWallpaper);
 
@@ -223,7 +228,7 @@ function measureHit() if (!bgBeatMore && curStep < 2209){
 
 function whatsTheMatterBoy(){
     cancelCameraMove = true;
-    FlxTween.tween(camFollow, {x: 1200, y: 60}, 1, {ease: FlxEase.cubeInOut});
+    FlxTween.tween(camFollow, {x: 1200, y: 60}, .6, {ease: FlxEase.quartIn});
     for (i in [turtle, turtle2]){
         i.animation.play('glitch');
         new FlxTimer().start(0.41, function(tmr:FlxTimer){

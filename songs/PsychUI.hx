@@ -178,16 +178,16 @@ function update(elapsed:Float) {
     finalFPS = CoolUtil.fpsLerp(finalFPS, FlxG.elapsed == 0 ? 0 : (1 / FlxG.elapsed), 0.25);
     fpsfunniCounter.text = "FPS: " + Std.string(Math.floor(finalFPS)) + "\nMemory: " + memories + " MB";
 
-    if (memories == 3000 || finalFPS <= FlxG.save.data.Framerate / 2) {
-        fpsfunniCounter.color = FlxColor.RED;
-    }
+    if (memories == 3000 || finalFPS <= Options.framerate / 2) {
+        fpsfunniCounter.color = 0xFFe30000;
+    }else fpsfunniCounter.color = 0xFFA11B1B;
 }
 
 function onPlayerHit(event) {
     if (event.note.isSustainNote) return;
 
     if(hudTxtTween != null) hudTxtTween.cancel();
-    hudTxt.scale.x = hudTxt.scale.y = 1.075;
+    hudTxt.scale.x = hudTxt.scale.y = 1.1;
     hudTxtTween = FlxTween.tween(hudTxt.scale, {x: 1, y: 1}, 0.2, {onComplete: function(twn:FlxTween) {hudTxtTween = null;}});
 
     switch (event.rating) {

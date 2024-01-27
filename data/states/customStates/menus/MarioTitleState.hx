@@ -38,6 +38,8 @@ function create(){
     FlxG.camera.shake(0.001, 999999999999);
 	FlxG.camera.zoom = 0.875 * 1.1;
 
+    FlxG.camera.visible = camEnter.visible = false;
+
     staticShader = new CustomShader("TVStatic");
     staticShader.data.strengthMulti.value = [1, 1];
     FlxG.camera.addShader(staticShader);
@@ -50,8 +52,6 @@ function create(){
     camEnter.addShader(ntsc);
 
     blackSprite = new FlxSprite().makeGraphic(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
-	blackSprite.updateHitbox();
-	blackSprite.screenCenter();
 
     _static = new FlxSprite(0,-350);
 	_static.frames = Paths.getSparrowAtlas('menus/estatica_uwu');
@@ -135,10 +135,11 @@ function create(){
 
     prevWallpaper = getWallpaper(); // this is for paranoia
 
-    blackSprite.cameras = [camEnter];
-	add(blackSprite);
-
     new FlxTimer().start(Conductor.stepCrochet/1000 * 2, (_) -> {
+        blackSprite.cameras = [camEnter];
+        add(blackSprite);
+
+        FlxG.camera.visible = camEnter.visible = true;
         FlxG.sound.music.fadeIn((Conductor.stepCrochet/1000 * 16) * 2, 0, 1.2);
 
         FlxTween.tween(blackSprite, {alpha: 0}, Conductor.stepCrochet/1000 * 6, {onComplete: (_) -> {
@@ -185,10 +186,10 @@ function enterPressed(){
     
     if (FlxG.save.data.flashingLights){
         FlxG.camera.addShader(bloom);
-        bloom.data.Size.value = [18 * 4, 18 * 2];
-        bloom.data.dim.value = [0.1, 0.1];
+        bloom.data.Size.value = [1.5, 1.5];
+        bloom.data.dim.value = [.1, .1];
 
-        bloomTwn1 = FlxTween.num(18.0 * 4, 3.0, 1.5, {onUpdate: (_) -> {
+        bloomTwn1 = FlxTween.num(1.5, 3, 1.5, {onUpdate: (_) -> {
             bloom.data.Size.value = [bloomTwn1.value, bloomTwn1.value];
         }});
         bloomTwn1.onComplete = function(){
@@ -196,7 +197,7 @@ function enterPressed(){
             trace(bloomTwn2.value);
         }
 
-        bloomTwn2 = FlxTween.num(0.1, 0.5, 1.5, {onUpdate: (_) -> {
+        bloomTwn2 = FlxTween.num(.1, .5, 1.5, {onUpdate: (_) -> {
             bloom.data.dim.value = [bloomTwn2.value, bloomTwn2.value];
         }});
     }
@@ -256,8 +257,9 @@ function completeWindowTwn(){
 function stepHit(){
     if (enterSprite != null && curStep % 2 == 0 && enterSprite.animation.name != "press")
         enterSprite.animation.play("idle", true);
+}
 
-    if (curStep % 2 == 0)
-        bf.animation.play("idle");
-        gf.animation.play("idle");
+function beatHit(){
+    bf.animation.play("idle");
+    gf.animation.play("idle");
 }
