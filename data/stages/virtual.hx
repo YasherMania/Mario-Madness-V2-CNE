@@ -186,20 +186,15 @@ function startShake() shake = true;
 
 function stopShake() shake = false;
 
-function hideCam() camGame.visible = false;
-
 function beatHit(){
     if (turtlesTime) for (i in [turtle, turtle2]) i.animation.play('idle');
+
+    if (shake && curBeat % 8 == 0) for (i in [camGame, camHUD]) i.shake(.0035, .2);
 
     if (bgBeatMore && curBeat % 2 == 0){
         yourhead.alpha = 0.8;
         yourhead.y = -200;
         FlxTween.tween(yourhead, {y: -122, alpha: 0.2}, 0.4, {ease: FlxEase.quadOut});
-    }
-
-    if (shake && curBeat % 8 == 0){
-        camGame.shake(0.0035, 0.2);
-        camHUD.shake(0.0035, 0.2);
     }
 
     if(dupeTimer != 0){
@@ -244,11 +239,8 @@ function whatsTheMatterBoy(){
 }
 
 function noMoreFullscreen(){
-    cancelCameraMove = false;
-    gfCamTime = false;
-    window.borderless = false;
-    cameraMovementEnabled = true;
-    canPause = true;
+    cancelCameraMove = gfCamTime = window.borderless = crazyFloor.visible = false;
+    cameraMovementEnabled = canPause = yourhead.visible = true;
     for (i in [hudTxt, timeTxt, timeBar, timeBarBG]) i.visible = true;
     FlxG.updateFramerate = 30;
     FlxTween.tween(window, {x: winX, y: winY, width: resizex, height: resizey}, 1, {
@@ -257,35 +249,40 @@ function noMoreFullscreen(){
             FlxG.updateFramerate = Options.fpsCounter;
         }
     });
-    crazyFloor.visible = false;
-    yourhead.visible = true;
     dadZoom = bfZoom = .85;
     FlxG.camera.followLerp = 0.04;
     camGame.shake(.00225, .001);
     camHUD.shake(.00175, .001);
     if (FlxG.save.data.virtualTrans) removeTransparent();
-    showTaskbar();
     if (FlxG.save.data.virtualApps) showWindows(prevHidden);
+    showTaskbar();
 }
 
 function preGfWindow(){
     if (FlxG.save.data.virtualWindow){
-        FlxG.updateFramerate = 30;
-        FlxTween.tween(window, {x: 0, y: 0, width: fsX, height: fsY}, 1.6, {
-            ease: FlxEase.expoIn,
-            onComplete: function(twn:FlxTween){
-                FlxG.updateFramerate = Options.fpsCounter;
-                window.borderless = false;
-                hideTaskbar();
-                if (FlxG.save.data.virtualApps) prevHidden = hideWindows(window.title);
-                if (FlxG.save.data.virtualWallpaper){
-                    setWallpaper(realPath);
-                    trace(realPath);
-                }
-            }
-        });
+        FlxG.updateFramerate = 45; // helps the window tween smoother
+        FlxTween.tween(window, {x: 0, y: 0, width: fsX, height: fsY}, 1.6, {ease: FlxEase.expoIn});
     }
 }
+
+function gfPrepare(){
+    hideTaskbar();
+    camGame.visible = false;
+    FlxG.updateFramerate = Options.fpsCounter;
+    if (FlxG.save.data.virtualWallpaper) setWallpaper("blehhhhhh :P"); // just in case if you have more than 1 monitor
+    if (FlxG.save.data.virtualApps) prevHidden = hideWindows(window.title);
+}
+
+function transformCamTwn(){
+    cancelCameraMove = true;
+    FlxTween.tween(camFollow, {x: 412, y: 275}, .725, {ease: FlxEase.circInOut});
+    FlxTween.tween(camGame, {zoom: .5}, .725, {ease: FlxEase.circInOut}).onComplete = function(){
+        dadZoom = .5;
+        bfZoom = .85;
+    }
+}
+
+function stopCamTwn() cancelCameraMove = false;
 
 function dupingTime1(){
     dupeTimer = 4;
@@ -312,15 +309,18 @@ function gf(){
         remove(e, true);
         e.destroy();
     }
-    turtlesTime = false;
+    turtlesTime = cameraMovementEnabled = canPause = false;
     trace(prevHidden);
     if (!FlxG.save.data.virtualTrans) yourhead.visible = true;
     FlxG.camera.bgColor = 0xFF000101;
     camHUD.alpha = 1;
     dadZoom = bfZoom = .4;
     gfCamTime = true;
-    cameraMovementEnabled = canPause = false;
     if (FlxG.save.data.virtualTrans) setTransparent(true, 0, 1, 1);
+    if (FlxG.save.data.virtualWallpaper){
+        setWallpaper(realPath);
+        trace(realPath);
+    }
 }
 
 function destroy(){

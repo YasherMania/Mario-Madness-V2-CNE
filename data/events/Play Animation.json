@@ -1,10 +1,10 @@
 {
-	"params": [
-	{
-		"name": "Character",
-		"type": "String",
-		"defaultValue": ""
-	},
+    "params": [
+        {
+            "name": "Character",
+            "type": " StrumLine",
+            "defaultValue": 0
+        },
         {
             "name": "Animation",
             "type": "String",
@@ -13,7 +13,7 @@
         {
             "name": "Force",
             "type": "Bool",
-            "defaultValue": "false"
+            "defaultValue": false
         }
-	]
+    ]
 }
