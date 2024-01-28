@@ -186,10 +186,10 @@ function enterPressed(){
     
     if (FlxG.save.data.flashingLights){
         FlxG.camera.addShader(bloom);
-        bloom.data.Size.value = [1.5, 1.5];
-        bloom.data.dim.value = [.1, .1];
+        bloom.data.Size.value = [4, 4];
+        bloom.data.dim.value = [.025, .025];
 
-        bloomTwn1 = FlxTween.num(1.5, 3, 1.5, {onUpdate: (_) -> {
+        bloomTwn1 = FlxTween.num(4, 3, 1.5, {onUpdate: (_) -> {
             bloom.data.Size.value = [bloomTwn1.value, bloomTwn1.value];
         }});
         bloomTwn1.onComplete = function(){
@@ -197,7 +197,7 @@ function enterPressed(){
             trace(bloomTwn2.value);
         }
 
-        bloomTwn2 = FlxTween.num(.1, .5, 1.5, {onUpdate: (_) -> {
+        bloomTwn2 = FlxTween.num(.025, .5, 1.5, {onUpdate: (_) -> {
             bloom.data.dim.value = [bloomTwn2.value, bloomTwn2.value];
         }});
     }

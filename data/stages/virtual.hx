@@ -250,7 +250,13 @@ function noMoreFullscreen(){
     cameraMovementEnabled = true;
     canPause = true;
     for (i in [hudTxt, timeTxt, timeBar, timeBarBG]) i.visible = true;
-    FlxTween.tween(window, {x: winX, y: winY, width: resizex, height: resizey}, 1, {ease: FlxEase.expoOut});
+    FlxG.updateFramerate = 30;
+    FlxTween.tween(window, {x: winX, y: winY, width: resizex, height: resizey}, 1, {
+        ease: FlxEase.expoOut,
+        onComplete: function(twn:FlxTween){
+            FlxG.updateFramerate = Options.fpsCounter;
+        }
+    });
     crazyFloor.visible = false;
     yourhead.visible = true;
     dadZoom = bfZoom = .85;
@@ -264,9 +270,11 @@ function noMoreFullscreen(){
 
 function preGfWindow(){
     if (FlxG.save.data.virtualWindow){
+        FlxG.updateFramerate = 30;
         FlxTween.tween(window, {x: 0, y: 0, width: fsX, height: fsY}, 1.6, {
             ease: FlxEase.expoIn,
             onComplete: function(twn:FlxTween){
+                FlxG.updateFramerate = Options.fpsCounter;
                 window.borderless = false;
                 hideTaskbar();
                 if (FlxG.save.data.virtualApps) prevHidden = hideWindows(window.title);
@@ -300,7 +308,7 @@ function stopDupe(){
 function gf(){
     for (i in [camGame, camHUD, crazyFloor]) i.visible = true;
     for (i in [hudTxt, timeTxt, timeBar, timeBarBG]) i.visible = false;
-    for (e in [vwall, backPipes, backFloor, turtle, turtle2, frontPipes, frontFloor, cornerPipes, gfwasTaken]){
+    for (e in [vwall, backPipe1, backPipe2, backFloor, turtle, turtle2, frontPipe1, frontPipe2, frontFloor, cornerPipes, gfwasTaken]){
         remove(e, true);
         e.destroy();
     }
@@ -311,10 +319,8 @@ function gf(){
     camHUD.alpha = 1;
     dadZoom = bfZoom = .4;
     gfCamTime = true;
-    cameraMovementEnabled = false;
-    canPause = false;
+    cameraMovementEnabled = canPause = false;
     if (FlxG.save.data.virtualTrans) setTransparent(true, 0, 1, 1);
-    if (FlxG.save.data.virtualWallpaper) setWallpaper(realPath); // being run again to prevent black background
 }
 
 function destroy(){
