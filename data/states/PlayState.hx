@@ -27,51 +27,11 @@ function create() {
 			autor = 'Sandi ft. RedTV53\n FriedFrick and theWAHbox';
 		case 'i-hate-you':
 			autor = 'iKenny';
-		case 'Powerdown':
-				autor = 'iKenny ft. TaeSkull';
 		case 'Demise':
-			autor = 'iKenny';
-		case 'Alone':
-			autor = 'RedTV53';
-		case 'Apparition':
-			autor = 'FriedFrick';
-		// Extra songs
-		case 'Racetraitors':
-			autor = 'iKenny';
-		case 'Dark Forest':
-			autor = 'iKenny';
-		case 'Bad Day':
-			autor = 'RedTV53';
-		case 'So Cool':
-			autor = 'FriedFrick ft. TheWAHBox';
-		case 'Nourishing Blood':
 			autor = 'iKenny';
 		case 'Unbeatable':
 			autor = 'RedTV53\n ft. theWAHbox and scrumbo_';
-		case 'Paranoia':
-			autor = 'Sandi ft. iKenny';
-		case 'Day Out':
-			autor = 'TheWAHBox';
-		case 'Thalassophobia':
-			autor = 'Hazy ft. TaeSkull';
-		case 'Promotion':
-			autor = 'Sandi';
-		case 'Dictator':
-			autor = 'iKenny';
-		case 'Last Course':
-			autor = 'FriedFrick ft. Sandi';
-		case 'No Hope':
-			autor = 'FriedFrick';
-		case 'The End':
-			autor = 'iKenny';
-		case 'MARIO SING AND GAME RYTHM 9':
-			autor = 'TaeSkull';
-		case 'Overdue':
-			autor = 'FriedFrick ft. Sandi';
-		case 'Abandoned':
-			autor = 'TheWAHBox ft. FriedFrick';
-		case 'No Party':
-			autor = 'iKenny';
+
     }
 
     format.leading = -5;
