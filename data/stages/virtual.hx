@@ -1,4 +1,5 @@
 import flixel.addons.display.FlxBackdrop;
+import funkin.backend.utils.ShaderResizeFix; // thanks ne_eo :)
 import sys.FileSystem;
 
 var realPath = StringTools.replace(FileSystem.absolutePath(Assets.getPath("assets/images/stages/virtual/toolate.bmp")), "/", "\\");
@@ -41,6 +42,8 @@ if (FlxG.save.data.virtualWindow){
 }
 
 camGame.visible = camHUD.visible = false;
+
+ShaderResizeFix.doResizeFix = false;
 
 function create(){
     yourhead = new FlxBackdrop(Paths.image('stages/virtual/headbg'), -400, -200, 1, 1);
@@ -240,13 +243,13 @@ function whatsTheMatterBoy(){
 
 function noMoreFullscreen(){
     cancelCameraMove = gfCamTime = window.borderless = crazyFloor.visible = false;
-    cameraMovementEnabled = canPause = yourhead.visible = true;
+    cameraMovementEnabled = canPause = yourhead.visible = ShaderResizeFix.doResizeFix = true;
     for (i in [hudTxt, timeTxt, timeBar, timeBarBG]) i.visible = true;
-    FlxG.updateFramerate = 30;
     FlxTween.tween(window, {x: winX, y: winY, width: resizex, height: resizey}, 1, {
         ease: FlxEase.expoOut,
         onComplete: function(twn:FlxTween){
-            FlxG.updateFramerate = Options.fpsCounter;
+            ShaderResizeFix.doResizeFix = true;
+            ShaderResizeFix.fixSpritesShadersSizes();
         }
     });
     dadZoom = bfZoom = .85;
@@ -260,15 +263,19 @@ function noMoreFullscreen(){
 
 function preGfWindow(){
     if (FlxG.save.data.virtualWindow){
-        FlxG.updateFramerate = 45; // helps the window tween smoother
-        FlxTween.tween(window, {x: 0, y: 0, width: fsX, height: fsY}, 1.6, {ease: FlxEase.expoIn});
+        FlxTween.tween(window, {x: 0, y: 0, width: fsX, height: fsY}, 1.6, {
+            ease: FlxEase.expoIn,
+            onComplete: function(twn:FlxTween){
+                ShaderResizeFix.doResizeFix = true;
+                ShaderResizeFix.fixSpritesShadersSizes();
+            }
+        });
     }
 }
 
 function gfPrepare(){
     hideTaskbar();
     camGame.visible = false;
-    FlxG.updateFramerate = Options.fpsCounter;
     if (FlxG.save.data.virtualWallpaper) setWallpaper("blehhhhhh :P"); // just in case if you have more than 1 monitor
     if (FlxG.save.data.virtualApps) prevHidden = hideWindows(window.title);
 }
@@ -317,10 +324,9 @@ function gf(){
     dadZoom = bfZoom = .4;
     gfCamTime = true;
     if (FlxG.save.data.virtualTrans) setTransparent(true, 0, 1, 1);
-    if (FlxG.save.data.virtualWallpaper){
+    if (FlxG.save.data.virtualWallpaper)
         setWallpaper(realPath);
         trace(realPath);
-    }
 }
 
 function destroy(){

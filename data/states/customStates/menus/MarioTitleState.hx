@@ -13,23 +13,21 @@ window.x = 500;
 window.y = 195;
 
 Framerate.fpsCounter.alpha = Framerate.memoryCounter.alpha = Framerate.codenameBuildField.alpha = .6;
-
 var camGame, camEnter = new FlxCamera();
-
 var hands:Array<FlxSprite> = [];
-
 var ntsc, staticShader, bloom, ntscGlitch:CustomShader = null;
-
 var bloomTwn1, bloomTwn2:NumTween;
-
 var zoomOutTwn, curtainUpTwn:FlxTween;
+var bottomGroup:FlxSpriteGroup;
 
 function new(){
     CoolUtil.playMenuSong();
     FlxG.sound.music.volume = 0;
+
+    startDaIntro();
 }
 
-function create(){
+function startDaIntro(){
     FlxG.cameras.add(camEnter, false);
 	camEnter.bgColor = 0x00000000;
     camEnter.height += 1;
@@ -37,8 +35,6 @@ function create(){
 
     FlxG.camera.shake(0.001, 999999999999);
 	FlxG.camera.zoom = 0.875 * 1.1;
-
-    FlxG.camera.visible = camEnter.visible = false;
 
     staticShader = new CustomShader("TVStatic");
     staticShader.data.strengthMulti.value = [1, 1];
@@ -64,9 +60,9 @@ function create(){
 	add(_static);
 
     bottomGroup = new FlxSpriteGroup();
-	bottomGroup.cameras = [FlxG.camera];
+    bottomGroup.cameras = [FlxG.camera];
     bottomGroup.setPosition(-170, -26.5);
-	add(bottomGroup);
+    add(bottomGroup);
 
     floor = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/title/floor'));
 	floor.scale.set(0.95, 0.95);
@@ -135,11 +131,10 @@ function create(){
 
     prevWallpaper = getWallpaper(); // this is for paranoia
 
-    new FlxTimer().start(Conductor.stepCrochet/1000 * 2, (_) -> {
-        blackSprite.cameras = [camEnter];
-        add(blackSprite);
+    blackSprite.cameras = [camEnter];
+    add(blackSprite);
 
-        FlxG.camera.visible = camEnter.visible = true;
+    new FlxTimer().start(Conductor.stepCrochet/1000 * 2, (_) -> {
         FlxG.sound.music.fadeIn((Conductor.stepCrochet/1000 * 16) * 2, 0, 1.2);
 
         FlxTween.tween(blackSprite, {alpha: 0}, Conductor.stepCrochet/1000 * 6, {onComplete: (_) -> {
@@ -149,24 +144,27 @@ function create(){
         
         curtainUpTwn = FlxTween.tween(curtain, {y: -682.501606766917}, Conductor.stepCrochet/1000 * 4, {ease: FlxEase.circOut, startDelay: (Conductor.stepCrochet/1000) / 8});
         FlxG.camera.zoom += 0.075;
-        zoomOutTwn = FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom - 0.075}, (Conductor.stepCrochet/1000 * 12), {ease: FlxEase.circOut});
+        zoomOutTwn = FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom - 0.075}, (Conductor.stepCrochet/1000 * 12), {ease: FlxEase.circOut, startDelay: (Conductor.stepCrochet/1000) / 8});
     });
 }
 
 function update(){
-    if (FlxG.sound.music != null) Conductor.songPosition = FlxG.sound.music.time;
+    if (FlxG.sound.music != null)
+        Conductor.songPosition = FlxG.sound.music.time;
 
-    if (ntsc != null) ntsc.data.uFrame.value = [Conductor.songPosition];
+    if (ntsc != null)
+        ntsc.data.uFrame.value = [Conductor.songPosition];
 
-    if (staticShader != null) staticShader.data.iTime.value = [Conductor.songPosition];
+    if (staticShader != null)
+        staticShader.data.iTime.value = [Conductor.songPosition];
 
-    if (controls.ACCEPT) enterPressed();
+    if (controls.ACCEPT)
+        enterPressed();
 
     var currentBeat = (Conductor.songPosition / 1000) * (Conductor.bpm / 60);
 
-    if (bloom != null && !transitioning) {
+    if (bloom != null && !transitioning) 
         bloom.data.Size.value = [1.0 + (0.5 * FlxMath.fastSin(currentBeat * 2))];
-    }
 
     for (hand in hands) {
         if (hand != null) {
