@@ -245,13 +245,15 @@ function noMoreFullscreen(){
     cancelCameraMove = gfCamTime = window.borderless = crazyFloor.visible = false;
     cameraMovementEnabled = canPause = yourhead.visible = ShaderResizeFix.doResizeFix = true;
     for (i in [hudTxt, timeTxt, timeBar, timeBarBG]) i.visible = true;
-    FlxTween.tween(window, {x: winX, y: winY, width: resizex, height: resizey}, 1, {
-        ease: FlxEase.expoOut,
-        onComplete: function(twn:FlxTween){
-            ShaderResizeFix.doResizeFix = true;
-            ShaderResizeFix.fixSpritesShadersSizes();
-        }
-    });
+    if (FlxG.save.data.virtualWindow){
+        FlxTween.tween(window, {x: winX, y: winY, width: resizex, height: resizey}, 1, {
+            ease: FlxEase.expoOut,
+            onComplete: function(twn:FlxTween){
+                ShaderResizeFix.doResizeFix = true;
+                ShaderResizeFix.fixSpritesShadersSizes();
+            }
+        });
+    }
     dadZoom = bfZoom = .85;
     FlxG.camera.followLerp = 0.04;
     camGame.shake(.00225, .001);
