@@ -1,53 +1,54 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="MM_Main_Menu_text.png">
-	<!-- Created with Adobe Animate version 19.2.1.408 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="EnterBegin0000" x="0" y="0" width="800" height="282"/>
-	<SubTexture name="EnterBegin0001" x="805" y="0" width="800" height="282"/>
-	<SubTexture name="EnterBegin0002" x="805" y="0" width="800" height="282"/>
-	<SubTexture name="EnterBegin0003" x="0" y="287" width="800" height="282"/>
-	<SubTexture name="EnterBegin0004" x="0" y="287" width="800" height="282"/>
-	<SubTexture name="EnterBegin0005" x="805" y="287" width="800" height="282"/>
-	<SubTexture name="EnterBegin0006" x="805" y="287" width="800" height="282"/>
-	<SubTexture name="EnterBegin0007" x="0" y="574" width="800" height="282"/>
-	<SubTexture name="EnterBegin0008" x="0" y="574" width="800" height="282"/>
-	<SubTexture name="EnterBegin0009" x="805" y="574" width="800" height="282"/>
-	<SubTexture name="EnterBegin0010" x="805" y="574" width="800" height="282"/>
-	<SubTexture name="EnterBegin0011" x="0" y="861" width="800" height="282"/>
-	<SubTexture name="EnterBegin0012" x="0" y="861" width="800" height="282"/>
-	<SubTexture name="EnterBegin0013" x="805" y="861" width="800" height="282"/>
-	<SubTexture name="EnterBegin0014" x="805" y="861" width="800" height="282"/>
-	<SubTexture name="EnterLoop0000" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0001" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0002" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0003" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0004" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0005" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0006" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0007" x="561" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0008" x="561" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0009" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0010" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0011" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0012" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0013" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0014" x="1122" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0015" x="1122" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0016" x="0" y="1267" width="556" height="114"/>
-	<SubTexture name="EnterLoop0017" x="0" y="1267" width="556" height="114"/>
-	<SubTexture name="EnterLoop0018" x="561" y="1267" width="556" height="114"/>
-	<SubTexture name="EnterLoop0019" x="561" y="1267" width="556" height="114"/>
-	<SubTexture name="EnterLoop0020" x="561" y="1267" width="556" height="114"/>
-	<SubTexture name="EnterLoop0021" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0022" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0023" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0024" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0025" x="0" y="1148" width="556" height="114"/>
-	<SubTexture name="EnterLoop0026" x="1122" y="1267" width="556" height="114"/>
-	<SubTexture name="EnterLoop0027" x="1122" y="1267" width="556" height="114"/>
-	<SubTexture name="EnterLoop0028" x="0" y="1386" width="556" height="114"/>
-	<SubTexture name="EnterLoop0029" x="0" y="1386" width="556" height="114"/>
-	<SubTexture name="EnterLoop0030" x="561" y="1386" width="556" height="114"/>
-	<SubTexture name="EnterLoop0031" x="561" y="1386" width="556" height="114"/>
-	<SubTexture name="EnterLoop0032" x="561" y="1386" width="556" height="114"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="enter.png" width="982" height="885">
+	<SubTexture name="EnterBegin0000" x="619" y="1" width="104" height="495" rotated="true" frameX="-156" frameY="-87" frameWidth="800" frameHeight="282"/>
+	<SubTexture name="EnterBegin0001" x="413" y="1" width="117" height="501" rotated="true" frameX="-154" frameY="-81" frameWidth="800" frameHeight="282"/>
+	<SubTexture name="EnterBegin0002" x="413" y="1" width="117" height="501" rotated="true" frameX="-154" frameY="-81" frameWidth="800" frameHeight="282"/>
+	<SubTexture name="EnterBegin0003" x="1" y="601" width="496" height="119" frameX="-156" frameY="-80" frameWidth="800" frameHeight="282"/>
+	<SubTexture name="EnterBegin0004" x="1" y="601" width="496" height="119" frameX="-156" frameY="-80" frameWidth="800" frameHeight="282"/>
+	<SubTexture name="EnterBegin0005" x="327" y="510" width="476" height="83" frameX="-164" frameY="-98" frameWidth="800" frameHeight="282"/>
+	<SubTexture name="EnterBegin0006" x="327" y="510" width="476" height="83" frameX="-164" frameY="-98" frameWidth="800" frameHeight="282"/>
+	<SubTexture name="EnterBegin0007" x="1" y="723" width="494" height="75" frameX="-156" frameY="-101" frameWidth="800" frameHeight="282"/>
+	<SubTexture name="EnterBegin0008" x="1" y="723" width="494" height="75" frameX="-156" frameY="-101" frameWidth="800" frameHeight="282"/>
+	<SubTexture name="EnterBegin0009" x="327" y="1" width="83" height="506" rotated="true" frameX="-149" frameY="-98" frameWidth="800" frameHeight="282"/>
+	<SubTexture name="EnterBegin0010" x="327" y="1" width="83" height="506" rotated="true" frameX="-149" frameY="-98" frameWidth="800" frameHeight="282"/>
+	<SubTexture name="EnterBegin0011" x="1" y="1" width="173" height="597" rotated="true" frameX="-101" frameY="-52" frameWidth="800" frameHeight="282"/>
+	<SubTexture name="EnterBegin0012" x="1" y="1" width="173" height="597" rotated="true" frameX="-101" frameY="-52" frameWidth="800" frameHeight="282"/>
+	<SubTexture name="EnterBegin0013" x="177" y="1" width="147" height="579" rotated="true" frameX="-111" frameY="-65" frameWidth="800" frameHeight="282"/>
+	<SubTexture name="EnterBegin0014" x="177" y="1" width="147" height="579" rotated="true" frameX="-111" frameY="-65" frameWidth="800" frameHeight="282"/>
+	<SubTexture name="EnterLoop0000" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0001" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0002" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0003" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0004" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0005" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0006" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0007" x="898" y="1" width="83" height="475" rotated="true" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0008" x="898" y="1" width="83" height="475" rotated="true" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0009" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0010" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0011" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0012" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0013" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0014" x="533" y="1" width="83" height="498" rotated="true" frameX="-27" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0015" x="533" y="1" width="83" height="498" rotated="true" frameX="-27" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0016" x="1" y="801" width="476" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0017" x="1" y="801" width="476" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0018" x="500" y="596" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0019" x="500" y="596" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0020" x="500" y="596" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0021" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0022" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0023" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0024" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0025" x="480" y="801" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0026" x="726" y="1" width="83" height="478" rotated="true" frameX="-40" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0027" x="726" y="1" width="83" height="478" rotated="true" frameX="-40" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0028" x="812" y="1" width="83" height="476" rotated="true" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0029" x="812" y="1" width="83" height="476" rotated="true" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0030" x="500" y="682" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0031" x="500" y="682" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
+	<SubTexture name="EnterLoop0032" x="500" y="682" width="475" height="83" frameX="-39" frameY="-13" frameWidth="556" frameHeight="114"/>
 </TextureAtlas>

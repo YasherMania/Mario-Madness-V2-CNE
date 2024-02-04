@@ -1,7 +1,7 @@
-public var icoP1:HealthIcon;
-public var icoP2:HealthIcon;
+static var icoP1:HealthIcon;
+static var icoP2:HealthIcon;
 
-public var flipIcoBop:Bool = false; // use this for when bf is on the other side!! (like for day out for example)
+static var flipIcoBop:Bool = false; // use this for when bf is on the other side!! (like for day out for example)
 
 function postCreate() {
     icoP1 = new HealthIcon(boyfriend != null ? boyfriend.getIcon() : "face", true);
@@ -28,6 +28,6 @@ function beatHit(){
         i.scale.set(1.1, 1.1);
         FlxTween.tween(i.scale, {x: 1, y: 1}, (0.5 * (1 / (Conductor.bpm / 60))), {ease: FlxEase.cubeOut});
     }
-    if (!flipIcoBop) icoP2.origin.set(175, 80);
-    else icoP1.origin.set(-20, 80);
+    if (!flipIcoBop) icoP2.origin.set(175, 77.5);
+    else icoP1.origin.set(-20, 77.5);
 }
