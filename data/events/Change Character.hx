@@ -68,7 +68,7 @@ function onEvent(_)
                 remove(icon);
                 icon = new HealthIcon(character.getIcon(), isPlayer);
                 icon.cameras = [camHUD];
-                icon.y = healthBar.y - (icon.height / 2);
+                icon.y = icoP2.y;
                 insert(members.indexOf(healthBar)+2, icon);
     
                 if (isPlayer) {
