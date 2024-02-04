@@ -43,8 +43,6 @@ if (FlxG.save.data.virtualWindow){
 
 camGame.visible = camHUD.visible = false;
 
-ShaderResizeFix.doResizeFix = false;
-
 function create(){
     yourhead = new FlxBackdrop(Paths.image('stages/virtual/headbg'), -400, -200, 1, 1);
     yourhead.setGraphicSize(Std.int(yourhead.width * 2));
@@ -75,7 +73,8 @@ function create(){
     dupe = new CustomShader("camDupe");
     dupe.multi = 1;
     dupe.mirrorS = false;
-    if (FlxG.save.data.virtualShaders) camGame.addShader(dupe);
+    if (FlxG.save.data.virtualShaders)
+        camGame.addShader(dupe);
 
     angel = new CustomShader("angel");
     angel.data.pixel.value = [1, 1];
@@ -88,19 +87,22 @@ function postCreate(){
 }
 
 function update(elapsed:Float){
-    if (health <= 0 && window.width != fsX && window.height != fsY) setWallpaper(prevWallpaper);
+    if (health <= 0 && window.width != fsX && window.height != fsY)
+        setWallpaper(prevWallpaper);
+
+    if (FlxG.save.data.virtualWindow)
+        ShaderResizeFix.doResizeFix = false;
 
     switch (curCameraTarget){
         case 0: defaultCamZoom = dadZoom;
         case 1: defaultCamZoom = bfZoom;
     }
 
-    if(angel != null){
+    if(angel != null)
         angel.data.stronk.value[0] = FlxMath.lerp(angel.data.stronk.value[0], 0, FlxMath.bound(elapsed * 8, 0, 1));
 
         angel.data.pixel.value[0] = FlxMath.lerp(angel.data.pixel.value[0], 1, FlxMath.bound(elapsed * 4, 0, 1));
         angel.data.iTime.value = [Conductor.songPosition / 1000];
-    }
 
     if (gfCamTime){
         timer += elapsed;
@@ -108,11 +110,6 @@ function update(elapsed:Float){
         camFollow.y = (500 + (100 * Math.cos(timer)));
         camGame.shake(.00225, 99999999999);
         camHUD.shake(.00175, 99999999999);
-    }
-
-    if (FlxG.keys.justPressed.TWO){
-        FlxG.switchState(new FreeplayState());
-        onSongEnd();
     }
 }
 
@@ -149,12 +146,15 @@ function onStrumCreation(event) {
 
 function onPostNoteCreation(event) {  
     var note = event.note;
-    if (FlxG.save.data.Splashes) note.splash = "redDiamond";
-    else if (FlxG.save.data.Splashes == 0) note.splash = "redVanilla";
+    if (FlxG.save.data.Splashes)
+        note.splash = "redDiamond";
+    else if (FlxG.save.data.Splashes == 0)
+        note.splash = "redVanilla";
     else return;
 
     // fixes sustain note's x offset
-    if (note.isSustainNote)  note.frameOffset.x -= note.frameWidth / 4; 
+    if (note.isSustainNote)
+        note.frameOffset.x -= note.frameWidth / 4; 
 }
 
 function onPlayerHit(event:NoteHitEvent) event.ratingPrefix = "game/score/paranoia/"; // this sucks but coloring the rating stuff with coding didnt work sooo
@@ -278,8 +278,10 @@ function preGfWindow(){
 function gfPrepare(){
     hideTaskbar();
     camGame.visible = false;
-    if (FlxG.save.data.virtualWallpaper) setWallpaper("blehhhhhh :P"); // just in case if you have more than 1 monitor
-    if (FlxG.save.data.virtualApps) prevHidden = hideWindows(window.title);
+    if (FlxG.save.data.virtualWallpaper)
+        setWallpaper("blehhhhhh :P"); // just in case if you have more than 1 monitor
+    if (FlxG.save.data.virtualApps)
+        prevHidden = hideWindows(window.title);
 }
 
 function transformCamTwn(){
@@ -296,7 +298,8 @@ function stopCamTwn() cancelCameraMove = false;
 function dupingTime1(){
     dupeTimer = 4;
     dupeMax = 3;
-    if (FlxG.save.data.virtualShaders) for (i in [camGame, camHUD]) i.addShader(angel);
+    if (FlxG.save.data.virtualShaders)
+        for (i in [camGame, camHUD]) i.addShader(angel);
 }
 
 function dupingTime2(){
@@ -325,7 +328,8 @@ function gf(){
     camHUD.alpha = 1;
     dadZoom = bfZoom = .4;
     gfCamTime = true;
-    if (FlxG.save.data.virtualTrans) setTransparent(true, 0, 1, 1);
+    if (FlxG.save.data.virtualTrans)
+        setTransparent(true, 0, 1, 1);
     if (FlxG.save.data.virtualWallpaper)
         setWallpaper(realPath);
         trace(realPath);
