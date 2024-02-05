@@ -1,0 +1,9 @@
+{
+	"params": [
+		{
+			"name": "Text",
+			"type": "String",
+			"defaultValue": ""
+		}
+	]
+}
