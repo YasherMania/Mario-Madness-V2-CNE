@@ -133,7 +133,7 @@ function create() {
     luigiLogo.scale.set(0.3, 0.3);
     luigiLogo.updateHitbox();
     luigiLogo.screenCenter(FlxAxes.X);
-    luigiLogo.y = timeBarBG.y + ((!downscroll ? 40 : -90));
+    luigiLogo.y = timeBarBG.y + ((!downscroll ? 40 : 40));
     luigiLogo.alpha = 0.000001;
     luigiLogo.visible = FlxG.save.data.botplayOption;
     add(luigiLogo);

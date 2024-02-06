@@ -216,12 +216,8 @@ function selectOption() {
 			PlayState.instance.registerSmoothTransition();
 			FlxG.resetState();
 		case "Botplay":
-            if (FlxG.save.data.ShowPsychUI) {
-                FlxG.save.data.botplayOption = !FlxG.save.data.botplayOption;
-                botplaytxt.alpha = FlxG.save.data.botplayOption ? 1 : 0;
-            } else {
-                PlayState.player.cpu = !PlayState.player.cpu;
-            }
+            FlxG.save.data.botplayOption = !FlxG.save.data.botplayOption;
+            botplaytxt.alpha = FlxG.save.data.botplayOption ? 1 : 0;
             // Unless there is a way to get the luigi strum skin to regenerate the strums there is no way to get the luigi strum to appear without reloading the song
 		case "Exit":
 			CoolUtil.playMenuSong();
