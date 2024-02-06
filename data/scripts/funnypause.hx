@@ -141,7 +141,7 @@ function create(event) {
 }
 
 function destroy() {
-	FlxG.cameras.remove(pauseCam);
+	//FlxG.cameras.remove(pauseCam);
 }
 
 var canDoShit = true;
@@ -219,9 +219,10 @@ function selectOption() {
             if (FlxG.save.data.ShowPsychUI) {
                 FlxG.save.data.botplayOption = !FlxG.save.data.botplayOption;
                 botplaytxt.alpha = FlxG.save.data.botplayOption ? 1 : 0;
+            } else {
+                PlayState.player.cpu = !PlayState.player.cpu;
             }
             // Unless there is a way to get the luigi strum skin to regenerate the strums there is no way to get the luigi strum to appear without reloading the song
-            //player.cpu = !player.cpu; Imma figure out why this doesn't work (Yes I have tried putting PlayState.player.cpu)
 		case "Exit":
 			CoolUtil.playMenuSong();
 			FlxG.switchState(PlayState.isStoryMode ? new StoryMenuState() : new FreeplayState());

@@ -12,7 +12,6 @@
     <number id="PauseMusic" name="Choose pause music" desc="Choose between breakfast [0] or tea-time! [1]" min="0" max="1" change="1"/>
     <number id="Splashes" name="Choose Splashes" desc="Choices: Vanilla [0] | diamond [1]" min="0" max="1" change="1"/>
     <checkbox id="botplayOption" name="Botplay" desc="Enables botplay!" />
-    <checkbox id="colouredBar" name="Coloured Timebar" desc="Makes the TimeBar coloured based on the opponents healthbar colour." />
     <checkbox id="showBar" name="Hide Timebar" desc="Hides the TimeBar."/>
     <checkbox id="showTxt" name="Hide ScoreTxt" desc="Hides the Psych ScoreTxt"/> 
 </menu>

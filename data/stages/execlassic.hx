@@ -15,7 +15,6 @@ function create() {
     FlxG.cameras.add(camBR = new HudCamera(), false);
     camBR.bgColor = 0;
     defaultCamZoom = 0.5;
-    bfexeidleAlt = false;
 
     mosaic = new CustomShader("mosaicShader");
     mosaic.data.uBlocksize.value = [0.1,0.1];
@@ -38,7 +37,7 @@ function create() {
 
     boyfriend.cameraOffset = FlxPoint.weak(camxoffset, camyoffset);
     dad.cameraOffset = FlxPoint.weak(dadxoffset, dadyoffset);
-    strumLines.members[0].characters[1].cameraOffset = FlxPoint.weak(dadxoffset, dadyoffset);
+    strumLines.members[0].characters[1].cameraOffset = FlxPoint.weak(dadxoffset + 60, dadyoffset);
 
     bg = new FlxSprite(-1000, -850).loadGraphic(Paths.image(path + "Castillo fondo de hasta atras"));
     bg.antialiasing = true;
@@ -98,42 +97,48 @@ function create() {
 
 function beatHit(curBeat) {
     switch (curBeat) {
-        case 18:
-            FlxTween.tween(FlxG.camera, {zoom: 0.62}, 0.2, {ease: FlxEase.sineInOut});
-            defaultCamZoom = 0.62;
-        case 22:
-            defaultCamZoom = 0.64;
-            FlxTween.tween(FlxG.camera, {zoom: 0.64}, 0.2, {ease: FlxEase.sineInOut});
-        case 26:
-            defaultCamZoom = 0.68;
-            FlxTween.tween(FlxG.camera, {zoom: 0.68}, 0.2, {ease: FlxEase.sineInOut});
-        case 30:
-            defaultCamZoom = 0.7;
-            FlxTween.tween(FlxG.camera, {zoom: 0.7}, 0.2, {ease: FlxEase.sineInOut});
-        case 35:
-            defaultCamZoom = 0.52;
+        case 268:
+            defaultCamZoom = 0.45;
+        case 272:
+            defaultCamZoom = 0.6;
+        case 304:
+            defaultCamZoom = 0.5;
         case 340:
-            bfexeidleAlt = true;
             dark.cameras = [camBR];
             dad.playAnim("laugh");
             camHUD.alpha = 0.0001;
-            defaultCamZoom = 0.7;
+            defaultCamZoom = 0.6;
+        case 344:
+            defaultCamZoom = 0.45;
         case 355:
             dark.cameras = [camHUD];
             camHUD.alpha = 1;
             defaultCamZoom = 0.5;
             strumLines.members[0].characters[1].visible = true;
             dad.visible = false;
+        case 484:
+            defaultCamZoom = 0.65;
+        case 488:
+            defaultCamZoom = 0.7;
+        case 492:
+            defaultCamZoom = 0.75;
+        case 496:
+            defaultCamZoom = 0.8;
+        case 500:
+            defaultCamZoom = 0.6;
+        case 504:
+            defaultCamZoom = 0.55;
+        case 508:
+            defaultCamZoom = 0.5;
+        case 512:
+            defaultCamZoom = 0.45;
         case 516:
             strumLines.members[0].characters[1].playAnim("laugh");
             FlxTween.tween(fireL, {y: -800}, 20, {ease: FlxEase.quadInOut});
             FlxTween.tween(fireR, {y: -800}, 20, {ease: FlxEase.quadInOut});
             FlxTween.tween(smoke, {alpha: 1}, 25);
             FlxTween.tween(FlxG.camera, {zoom: 0.7}, 13, {ease: FlxEase.sineInOut});
-        case 553:
-            defaultCamZoom = 0.7;
-        case 580:
-            defaultCamZoom = 1;
+            defaultCamZoom = 0.75;
         case 583:
             mosaicTween = FlxTween.num(0.1, 80, 5, {ease: FlxEase.circInOut, onUpdate: (_) -> {
                 mosaic.data.uBlocksize.value = [mosaicTween.value, mosaicTween.value];

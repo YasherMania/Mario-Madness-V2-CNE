@@ -22,27 +22,21 @@ import funkin.options.Options;
 
 if (FlxG.save.data.ShowPsychUI) {
 // fps vars
-var finalFPS:Float = 0;
-var memories = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
+public var finalFPS:Float = 0;
+public var memories = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
 public var camFPS = null;
 public var fpsfunniCounter:FlxText;
 
-var cacheCount:Int;
-var currentTime:Float;
-var times:Array<Float>;
-
-public var colouredBar = (dad != null && dad.xml != null && dad.xml.exists("color")) ? CoolUtil.getColorFromDynamic(dad.xml.get("color")) : 0xFFFFFFFF;
 public var sicks:Int = 0;
 public var goods:Int = 0;
 public var bads:Int = 0;
 public var shits:Int = 0;
 public var timeBarBG:FlxSprite;
 public var timeBar:FlxBar;
-public var timeTxt:FlxText; // I forgot why I made these public variables.......
+public var timeTxt:FlxText;
 public var hudTxt:FlxText;
 public var hudTxtTween:FlxTween;
 public var ratingFC:String = "FC";
-public var botplayTxt:FlxText;
 public var botplaySine:Float = 0;
 public var ratingStuff:Array<Dynamic> = [
     ['F', 0.2],
@@ -83,15 +77,31 @@ function getRating(accuracy:Float):String {
     return ratingStuff[ratingStuff.length - 1][0];
 }
 
+function new() {
+    FlxG.cameras.add(camFPS = new HudCamera(), false);
+    camFPS.bgColor = 0;
+    fpsfunniCounter = new FlxText(10,10, 400, 18);
+    fpsfunniCounter.setFormat("Mario2.ttf", 10,0xFFa11b1b /*0xFFe30000*/);
+    fpsfunniCounter.antialiasing = true;
+    fpsfunniCounter.scrollFactor.set();
+    fpsfunniCounter.cameras = [camFPS];
+    add(fpsfunniCounter);
+    finalFPS = 0;
+    Framerate.fpsCounter.visible = false;
+    Framerate.memoryCounter.visible = false;
+    Framerate.codenameBuildField.visible = false;
+}
+
 function create() {
     timeTxt = new FlxText(0, 19, 400, "X:XX", 22);
     timeTxt.setFormat(Paths.font("Mario2.ttf"), 22, 0xFFf42626, "center", FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     timeTxt.antialiasing = true;
     timeTxt.scrollFactor.set();
-    timeTxt.alpha = 0;
+    timeTxt.alpha = 0.000001;
     timeTxt.borderColor = 0xFF000000;
     timeTxt.borderSize = 2;
     timeTxt.screenCenter(FlxAxes.X);
+    timeTxt.color = FlxG.save.data.botplayOption ? 0xFF25cd49 : 0xFFf42626;
 
     hudTxt = new FlxText(0, 685, FlxG.width, "Score: 0      Misses: 0      Rating: ?");
     hudTxt.setFormat(Paths.font("Mario2.ttf"), 15, 0xFFf42626, "center", FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -99,15 +109,7 @@ function create() {
     hudTxt.antialiasing = true;
     hudTxt.scrollFactor.set();
     hudTxt.screenCenter(FlxAxes.X);
-
-    botplayTxt = new FlxText(400, 83, FlxG.width - 800, "BOTPLAY", 32);
-    botplayTxt.setFormat(Paths.font("Mario2.ttf"), 32, FlxColor.WHITE, "center", FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-    botplayTxt.scrollFactor.set();
-    botplayTxt.borderSize = 1.25;
-    botplayTxt.alpha = 0;
-    botplayTxt.cameras = [camHUD];
-    botplayTxt.visible = false;
-    add(botplayTxt);
+    hudTxt.color = FlxG.save.data.botplayOption ? 0xFF25cd49 : 0xFFf42626;
 
     timeBarBG = new FlxSprite();
     timeBarBG.x = timeTxt.x;
@@ -119,14 +121,22 @@ function create() {
 
     timeBar = new FlxBar(timeBarBG.x + 4, timeBarBG.y + 4, FlxBar.FILL_LEFT_TO_RIGHT, Std.int(timeBarBG.width - 8), Std.int(timeBarBG.height - 8), Conductor, 'songPosition', 0, 1);
     timeBar.scrollFactor.set();
-    timeBar.createFilledBar(0xFF000000,0xFFf42626);
-    if (FlxG.save.data.colouredBar) {
-        timeBar.createFilledBar(0xFF000000, colouredBar);
-    }
+    timeBar.createFilledBar(0xFF000000, FlxG.save.data.botplayOption ? 0xFF25cd49 : 0xFFF42626);
     timeBar.numDivisions = 400;
-    timeBar.alpha = 0;
+    timeBar.alpha = 0.000001;
     timeBar.value = Conductor.songPosition / Conductor.songDuration;
     timeBar.unbounded = true;
+
+    luigiLogo = new FlxSprite(400, timeBarBG.y + 55);
+    luigiLogo.loadGraphic(Paths.image("game/luigi"));
+    luigiLogo.scrollFactor.set();
+    luigiLogo.scale.set(0.3, 0.3);
+    luigiLogo.updateHitbox();
+    luigiLogo.screenCenter(FlxAxes.X);
+    luigiLogo.y = timeBarBG.y + ((!downscroll ? 40 : -90));
+    luigiLogo.alpha = 0.000001;
+    luigiLogo.visible = FlxG.save.data.botplayOption;
+    add(luigiLogo);
     add(timeBarBG);
     add(timeBar);
     add(timeTxt);
@@ -138,26 +148,10 @@ function create() {
     timeBar.cameras = [camHUD];
     timeBarBG.cameras = [camHUD];
     timeTxt.cameras = [camHUD];
-    PauseSubState.script = 'data/scripts/funnypause';
-
-    FlxG.cameras.add(camFPS = new HudCamera(), false);
-    camFPS.bgColor = 0;
-    fpsfunniCounter = new FlxText(10,10, 400, 18);
-    fpsfunniCounter.setFormat("Mario2.ttf", 10, 0xFFe30000);
-    fpsfunniCounter.antialiasing = true;
-    fpsfunniCounter.scrollFactor.set();
-    fpsfunniCounter.cameras = [camFPS];
-    add(fpsfunniCounter);
-    cacheCount = 0;
-    currentTime = 0;
-    times = [];
-    finalFPS = 0;
-    Framerate.fpsCounter.visible = false;
-    Framerate.memoryCounter.visible = false;
-    Framerate.codenameBuildField.visible = false;
+    luigiLogo.cameras = [camHUD];
 }
 
-function onSongStart() for (i in [timeBar, timeBarBG, timeTxt, botplayTxt]) FlxTween.tween(i, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+function onSongStart() for (i in [timeBar, timeBarBG, timeTxt, luigiLogo]) FlxTween.tween(i, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 
 function update(elapsed:Float) {
     if (inst != null && timeBar != null && timeBar.max != inst.length) timeBar.setRange(0, Math.max(1, inst.length));
@@ -169,21 +163,12 @@ function update(elapsed:Float) {
         timeTxt.text = minutes + ":" + seconds;
     }
 
+    botplaySine += 180 * elapsed;
+    luigiLogo.angle = ((1 - Math.sin((Math.PI * botplaySine) / 180)) * 20) - 20;
+
     var acc = FlxMath.roundDecimal(Math.max(accuracy, 0) * 100, 2);
     var rating:String = getRating(accuracy);
     if (songScore > 0 || acc > 0 || misses > 0) hudTxt.text = "Score: " + songScore + "    Misses: " + misses +  "    Rating: " + rating + " (" + acc + "%)";
-
-    if (FlxG.save.data.botplayOption) {
-       // botplaySine += 180 *  FlxG.elapsed;
-        //botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
-        player.cpu = true;
-        hudTxt.color = 0xFF007403;
-        timeTxt.color = 0xFF007403;
-    } else if (!FlxG.save.data.botplayOption) {
-        player.cpu = false;
-        hudTxt.color = 0xFFf42626;
-        timeTxt.color = 0xFFf42626;
-    }
 
     finalFPS = CoolUtil.fpsLerp(finalFPS, FlxG.elapsed == 0 ? 0 : (1 / FlxG.elapsed), 0.25);
     fpsfunniCounter.text = "FPS: " + Std.string(Math.floor(finalFPS)) + "\nMemory: " + memories + " MB";
@@ -191,6 +176,15 @@ function update(elapsed:Float) {
     if (memories == 3000 || finalFPS <= FlxG.save.data.Framerate / 2) {
         fpsfunniCounter.color = FlxColor.RED;
     }
+}
+
+function onSubstateClose(state) {
+    player.cpu = FlxG.save.data.botplayOption;
+    hudTxt.color = FlxG.save.data.botplayOption ? 0xFF25cd49 : 0xFFf42626;
+    timeTxt.color = FlxG.save.data.botplayOption ? 0xFF25cd49 : 0xFFf42626;
+    luigiLogo.visible = FlxG.save.data.botplayOption;
+    timeBar.createFilledBar(0xFF000000, FlxG.save.data.botplayOption ? 0xFF25cd49 : 0xFFF42626);
+    timeBar.updateFilledBar();
 }
 
 function onPlayerHit(event) {
