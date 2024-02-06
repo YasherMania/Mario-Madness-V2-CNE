@@ -1,0 +1,24 @@
+{
+	"params": [
+        {
+			"name": "Show Song",
+			"type": "Bool",
+			"defaultValue": true
+		},
+		{
+			"name": "Musician",
+			"type": "String",
+			"defaultValue": ""
+		},
+        {
+            "name": "Porter",
+            "type": "String",
+            "defaultValue": ""
+        },
+		{
+			"name": "Fade out Timer",
+			"type": "String",
+			"defaultValue": "5"
+		}
+	]
+}

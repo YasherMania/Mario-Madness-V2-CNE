@@ -5,6 +5,7 @@
     <menu name="Accessability Options">
         <number id="transparency_value" name="alpha" desc="Sets the transparency of the screen filter,&#xA;increase it if you have a hard time seeing notes" min="0" max="0.9" change="0.1"/>
     </menu>
+    <checkbox id="peppino" name="Funny Alone" desc="If checked, it will play the 'Peppino, that is my name.. Peppino, pizza tower's my name' sound clip."/>
 </menu>
 
 <menu name="Psych UI options" desc="Psych UI options real"> <!-- Options will change this is so Psych UI doesn't begin to freak out -->

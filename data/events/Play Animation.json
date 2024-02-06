@@ -1,0 +1,19 @@
+{
+	"params": [
+	{
+		"name": "Character",
+		"type": "String",
+		"defaultValue": ""
+	},
+        {
+            "name": "Animation",
+            "type": "String",
+            "defaultValue": ""
+        },
+        {
+            "name": "Force",
+            "type": "Bool",
+            "defaultValue": "false"
+        }
+	]
+}
