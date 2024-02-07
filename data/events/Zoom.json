@@ -1,0 +1,14 @@
+{
+    "params": [
+        {
+            "name": "New Zoom",
+            "type": "String",
+            "defaultValue": "1"
+        },
+        {
+            "name": "Type",
+            "type": "DropDown('Add', 'Subtract', 'Multiply', 'Divide', 'Set')",
+            "defaultValue": "Set"
+        }
+    ]
+}

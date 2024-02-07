@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="texture.png" width="2655" height="2619">
+	<SubTexture name="MISSSCAREDDOWN0000" x="1358" y="957" width="402" height="395" frameX="-0" frameY="-12" frameWidth="402" frameHeight="407"/>
+	<SubTexture name="MISSSCAREDDOWN0001" x="1802" y="1" width="404" height="388" rotated="true" frameX="-6" frameY="-1" frameWidth="402" frameHeight="407"/>
+	<SubTexture name="MISSSCAREDDOWN0002" x="1802" y="1" width="404" height="388" rotated="true" frameX="-6" frameY="-1" frameWidth="402" frameHeight="407"/>
+	<SubTexture name="MISSSCAREDDOWN0003" x="1706" y="2220" width="400" height="392" rotated="true" frameX="-4" frameY="-5" frameWidth="402" frameHeight="407"/>
+	<SubTexture name="MISSSCAREDDOWN0004" x="1706" y="2220" width="400" height="392" rotated="true" frameX="-4" frameY="-5" frameWidth="402" frameHeight="407"/>
+	<SubTexture name="MISSSCAREDDOWN0005" x="1706" y="2220" width="400" height="392" rotated="true" frameX="-4" frameY="-5" frameWidth="402" frameHeight="407"/>
+	<SubTexture name="MISSSCAREDDOWN0006" x="1706" y="2220" width="400" height="392" rotated="true" frameX="-4" frameY="-5" frameWidth="402" frameHeight="407"/>
+	<SubTexture name="MISSSCAREDDOWN0007" x="1706" y="2220" width="400" height="392" rotated="true" frameX="-4" frameY="-5" frameWidth="402" frameHeight="407"/>
+	<SubTexture name="MISSSCAREDDOWN0008" x="1706" y="2220" width="400" height="392" rotated="true" frameX="-4" frameY="-5" frameWidth="402" frameHeight="407"/>
+	<SubTexture name="MISSSCAREDDOWN0009" x="1706" y="2220" width="400" height="392" rotated="true" frameX="-4" frameY="-5" frameWidth="402" frameHeight="407"/>
+	<SubTexture name="MISSSCAREDDOWN0010" x="1706" y="2220" width="400" height="392" rotated="true" frameX="-4" frameY="-5" frameWidth="402" frameHeight="407"/>
+	<SubTexture name="MISSSCAREDDOWN0011" x="1706" y="2220" width="400" height="392" rotated="true" frameX="-4" frameY="-5" frameWidth="402" frameHeight="407"/>
+	<SubTexture name="MISSSCAREDDOWN0012" x="1706" y="2220" width="400" height="392" rotated="true" frameX="-4" frameY="-5" frameWidth="402" frameHeight="407"/>
+	<SubTexture name="MISSSCAREDLEFT0000" x="884" y="496" width="442" height="462" rotated="true" frameX="-0" frameY="-21" frameWidth="464" frameHeight="465"/>
+	<SubTexture name="MISSSCAREDLEFT0001" x="453" y="1569" width="458" height="465" frameX="-6" frameY="-0" frameWidth="464" frameHeight="465"/>
+	<SubTexture name="MISSSCAREDLEFT0002" x="453" y="1569" width="458" height="465" frameX="-6" frameY="-0" frameWidth="464" frameHeight="465"/>
+	<SubTexture name="MISSSCAREDLEFT0003" x="454" y="999" width="457" height="465" frameX="-5" frameY="-0" frameWidth="464" frameHeight="465"/>
+	<SubTexture name="MISSSCAREDLEFT0004" x="454" y="999" width="457" height="465" frameX="-5" frameY="-0" frameWidth="464" frameHeight="465"/>
+	<SubTexture name="MISSSCAREDLEFT0005" x="454" y="999" width="457" height="465" frameX="-5" frameY="-0" frameWidth="464" frameHeight="465"/>
+	<SubTexture name="MISSSCAREDLEFT0006" x="454" y="999" width="457" height="465" frameX="-5" frameY="-0" frameWidth="464" frameHeight="465"/>
+	<SubTexture name="MISSSCAREDLEFT0007" x="454" y="999" width="457" height="465" frameX="-5" frameY="-0" frameWidth="464" frameHeight="465"/>
+	<SubTexture name="MISSSCAREDLEFT0008" x="454" y="999" width="457" height="465" frameX="-5" frameY="-0" frameWidth="464" frameHeight="465"/>
+	<SubTexture name="MISSSCAREDLEFT0009" x="454" y="999" width="457" height="465" frameX="-5" frameY="-0" frameWidth="464" frameHeight="465"/>
+	<SubTexture name="MISSSCAREDLEFT0010" x="454" y="999" width="457" height="465" frameX="-5" frameY="-0" frameWidth="464" frameHeight="465"/>
+	<SubTexture name="MISSSCAREDRIGHT0000" x="914" y="1422" width="441" height="429" rotated="true" frameX="-2" frameY="-30" frameWidth="436" frameHeight="471"/>
+	<SubTexture name="MISSSCAREDRIGHT0001" x="430" y="2064" width="424" height="469" frameX="-1" frameY="-1" frameWidth="436" frameHeight="471"/>
+	<SubTexture name="MISSSCAREDRIGHT0002" x="430" y="2064" width="424" height="469" frameX="-1" frameY="-1" frameWidth="436" frameHeight="471"/>
+	<SubTexture name="MISSSCAREDRIGHT0003" x="1" y="2064" width="426" height="470" frameX="-1" frameY="-0" frameWidth="436" frameHeight="471"/>
+	<SubTexture name="MISSSCAREDRIGHT0004" x="1" y="2064" width="426" height="470" frameX="-1" frameY="-0" frameWidth="436" frameHeight="471"/>
+	<SubTexture name="MISSSCAREDRIGHT0005" x="1" y="2064" width="426" height="470" frameX="-1" frameY="-0" frameWidth="436" frameHeight="471"/>
+	<SubTexture name="MISSSCAREDRIGHT0006" x="1" y="2064" width="426" height="470" frameX="-1" frameY="-0" frameWidth="436" frameHeight="471"/>
+	<SubTexture name="MISSSCAREDRIGHT0007" x="1" y="2064" width="426" height="470" frameX="-1" frameY="-0" frameWidth="436" frameHeight="471"/>
+	<SubTexture name="MISSSCAREDRIGHT0008" x="1" y="2064" width="426" height="470" frameX="-1" frameY="-0" frameWidth="436" frameHeight="471"/>
+	<SubTexture name="MISSSCAREDRIGHT0009" x="1" y="2064" width="426" height="470" frameX="-1" frameY="-0" frameWidth="436" frameHeight="471"/>
+	<SubTexture name="MISSSCAREDRIGHT0010" x="1" y="2064" width="426" height="470" frameX="-1" frameY="-0" frameWidth="436" frameHeight="471"/>
+	<SubTexture name="MISSSCAREDUP0000" x="427" y="1" width="450" height="500" frameX="-0" frameY="-28" frameWidth="451" frameHeight="532"/>
+	<SubTexture name="MISSSCAREDUP0001" x="1" y="535" width="428" height="528" frameX="-0" frameY="-4" frameWidth="451" frameHeight="532"/>
+	<SubTexture name="MISSSCAREDUP0002" x="1" y="535" width="428" height="528" frameX="-0" frameY="-4" frameWidth="451" frameHeight="532"/>
+	<SubTexture name="MISSSCAREDUP0003" x="1" y="1" width="423" height="531" frameX="-3" frameY="-0" frameWidth="451" frameHeight="532"/>
+	<SubTexture name="MISSSCAREDUP0004" x="1" y="1" width="423" height="531" frameX="-3" frameY="-0" frameWidth="451" frameHeight="532"/>
+	<SubTexture name="MISSSCAREDUP0005" x="1" y="1" width="423" height="531" frameX="-3" frameY="-0" frameWidth="451" frameHeight="532"/>
+	<SubTexture name="MISSSCAREDUP0006" x="1" y="1" width="423" height="531" frameX="-3" frameY="-0" frameWidth="451" frameHeight="532"/>
+	<SubTexture name="MISSSCAREDUP0007" x="1" y="1" width="423" height="531" frameX="-3" frameY="-0" frameWidth="451" frameHeight="532"/>
+	<SubTexture name="MISSSCAREDUP0008" x="1" y="1" width="423" height="531" frameX="-3" frameY="-0" frameWidth="451" frameHeight="532"/>
+	<SubTexture name="MISSSCAREDUP0009" x="1" y="1" width="423" height="531" frameX="-3" frameY="-0" frameWidth="451" frameHeight="532"/>
+	<SubTexture name="MISSSCAREDUP0010" x="1" y="1" width="423" height="531" frameX="-3" frameY="-0" frameWidth="451" frameHeight="532"/>
+	<SubTexture name="SCAREDDOWN0000" x="1358" y="957" width="402" height="395" frameX="-0" frameY="-6" frameWidth="402" frameHeight="401"/>
+	<SubTexture name="SCAREDDOWN0001" x="1358" y="957" width="402" height="395" frameX="-0" frameY="-6" frameWidth="402" frameHeight="401"/>
+	<SubTexture name="SCAREDDOWN0002" x="1358" y="1355" width="401" height="398" rotated="true" frameX="-1" frameY="-0" frameWidth="402" frameHeight="401"/>
+	<SubTexture name="SCAREDDOWN0003" x="1358" y="1355" width="401" height="398" rotated="true" frameX="-1" frameY="-0" frameWidth="402" frameHeight="401"/>
+	<SubTexture name="SCAREDDOWN0004" x="1358" y="1756" width="401" height="398" rotated="true" frameX="-1" frameY="-0" frameWidth="402" frameHeight="401"/>
+	<SubTexture name="SCAREDDOWN0005" x="1358" y="1756" width="401" height="398" rotated="true" frameX="-1" frameY="-0" frameWidth="402" frameHeight="401"/>
+	<SubTexture name="SCAREDDOWN0006" x="1302" y="2220" width="401" height="398" rotated="true" frameX="-1" frameY="-0" frameWidth="402" frameHeight="401"/>
+	<SubTexture name="SCAREDDOWN0007" x="1302" y="2220" width="401" height="398" rotated="true" frameX="-1" frameY="-0" frameWidth="402" frameHeight="401"/>
+	<SubTexture name="SCAREDDOWN0008" x="1302" y="2220" width="401" height="398" rotated="true" frameX="-1" frameY="-0" frameWidth="402" frameHeight="401"/>
+	<SubTexture name="SCAREDDOWN0009" x="1302" y="2220" width="401" height="398" rotated="true" frameX="-1" frameY="-0" frameWidth="402" frameHeight="401"/>
+	<SubTexture name="SCAREDDOWN0010" x="1302" y="2220" width="401" height="398" rotated="true" frameX="-1" frameY="-0" frameWidth="402" frameHeight="401"/>
+	<SubTexture name="SCAREDDOWN0011" x="1302" y="2220" width="401" height="398" rotated="true" frameX="-1" frameY="-0" frameWidth="402" frameHeight="401"/>
+	<SubTexture name="SCAREDDOWN0012" x="1302" y="2220" width="401" height="398" rotated="true" frameX="-1" frameY="-0" frameWidth="402" frameHeight="401"/>
+	<SubTexture name="SCAREDDOWN0013" x="1302" y="2220" width="401" height="398" rotated="true" frameX="-1" frameY="-0" frameWidth="402" frameHeight="401"/>
+	<SubTexture name="SCAREDIDLE0000" x="2215" y="443" width="439" height="438" frameX="-2" frameY="-3" frameWidth="441" frameHeight="441"/>
+	<SubTexture name="SCAREDIDLE0001" x="2215" y="884" width="439" height="437" frameX="-0" frameY="-4" frameWidth="441" frameHeight="441"/>
+	<SubTexture name="SCAREDIDLE0002" x="2215" y="884" width="439" height="437" frameX="-0" frameY="-4" frameWidth="441" frameHeight="441"/>
+	<SubTexture name="SCAREDIDLE0003" x="2215" y="1" width="439" height="439" frameX="-0" frameY="-2" frameWidth="441" frameHeight="441"/>
+	<SubTexture name="SCAREDIDLE0004" x="2215" y="1" width="439" height="439" frameX="-0" frameY="-2" frameWidth="441" frameHeight="441"/>
+	<SubTexture name="SCAREDIDLE0005" x="1773" y="462" width="439" height="441" frameX="-0" frameY="-0" frameWidth="441" frameHeight="441"/>
+	<SubTexture name="SCAREDIDLE0006" x="1773" y="462" width="439" height="441" frameX="-0" frameY="-0" frameWidth="441" frameHeight="441"/>
+	<SubTexture name="SCAREDIDLE0007" x="1773" y="462" width="439" height="441" frameX="-0" frameY="-0" frameWidth="441" frameHeight="441"/>
+	<SubTexture name="SCAREDIDLE0008" x="1773" y="906" width="438" height="441" frameX="-1" frameY="-0" frameWidth="441" frameHeight="441"/>
+	<SubTexture name="SCAREDIDLE0009" x="1773" y="906" width="438" height="441" frameX="-1" frameY="-0" frameWidth="441" frameHeight="441"/>
+	<SubTexture name="SCAREDIDLE0010" x="1773" y="906" width="438" height="441" frameX="-1" frameY="-0" frameWidth="441" frameHeight="441"/>
+	<SubTexture name="SCAREDIDLE0011" x="1763" y="1350" width="441" height="438" rotated="true" frameX="-1" frameY="-0" frameWidth="441" frameHeight="441"/>
+	<SubTexture name="SCAREDIDLE0012" x="1763" y="1350" width="441" height="438" rotated="true" frameX="-1" frameY="-0" frameWidth="441" frameHeight="441"/>
+	<SubTexture name="SCAREDIDLE0013" x="1763" y="1350" width="441" height="438" rotated="true" frameX="-1" frameY="-0" frameWidth="441" frameHeight="441"/>
+	<SubTexture name="SCAREDIDLE0014" x="1763" y="1350" width="441" height="438" rotated="true" frameX="-1" frameY="-0" frameWidth="441" frameHeight="441"/>
+	<SubTexture name="SCAREDLEFT0000" x="857" y="2037" width="442" height="462" rotated="true" frameX="-0" frameY="-0" frameWidth="462" frameHeight="442"/>
+	<SubTexture name="SCAREDLEFT0001" x="857" y="2037" width="442" height="462" rotated="true" frameX="-0" frameY="-0" frameWidth="462" frameHeight="442"/>
+	<SubTexture name="SCAREDLEFT0002" x="914" y="961" width="441" height="458" rotated="true" frameX="-3" frameY="-1" frameWidth="462" frameHeight="442"/>
+	<SubTexture name="SCAREDLEFT0003" x="914" y="961" width="441" height="458" rotated="true" frameX="-3" frameY="-1" frameWidth="462" frameHeight="442"/>
+	<SubTexture name="SCAREDLEFT0004" x="1329" y="496" width="441" height="458" rotated="true" frameX="-3" frameY="-1" frameWidth="462" frameHeight="442"/>
+	<SubTexture name="SCAREDLEFT0005" x="1329" y="496" width="441" height="458" rotated="true" frameX="-3" frameY="-1" frameWidth="462" frameHeight="442"/>
+	<SubTexture name="SCAREDLEFT0006" x="1358" y="1" width="441" height="458" rotated="true" frameX="-3" frameY="-1" frameWidth="462" frameHeight="442"/>
+	<SubTexture name="SCAREDLEFT0007" x="1358" y="1" width="441" height="458" rotated="true" frameX="-3" frameY="-1" frameWidth="462" frameHeight="442"/>
+	<SubTexture name="SCAREDLEFT0008" x="1358" y="1" width="441" height="458" rotated="true" frameX="-3" frameY="-1" frameWidth="462" frameHeight="442"/>
+	<SubTexture name="SCAREDLEFT0009" x="1358" y="1" width="441" height="458" rotated="true" frameX="-3" frameY="-1" frameWidth="462" frameHeight="442"/>
+	<SubTexture name="SCAREDLEFT0010" x="1358" y="1" width="441" height="458" rotated="true" frameX="-3" frameY="-1" frameWidth="462" frameHeight="442"/>
+	<SubTexture name="SCAREDLEFT0011" x="1358" y="1" width="441" height="458" rotated="true" frameX="-3" frameY="-1" frameWidth="462" frameHeight="442"/>
+	<SubTexture name="SCAREDRIGHT0000" x="2207" y="1753" width="441" height="429" rotated="true" frameX="-1" frameY="-0" frameWidth="430" frameHeight="441"/>
+	<SubTexture name="SCAREDRIGHT0001" x="2207" y="1753" width="441" height="429" rotated="true" frameX="-1" frameY="-0" frameWidth="430" frameHeight="441"/>
+	<SubTexture name="SCAREDRIGHT0002" x="2214" y="1324" width="440" height="426" rotated="true" frameX="-0" frameY="-1" frameWidth="430" frameHeight="441"/>
+	<SubTexture name="SCAREDRIGHT0003" x="2214" y="1324" width="440" height="426" rotated="true" frameX="-0" frameY="-1" frameWidth="430" frameHeight="441"/>
+	<SubTexture name="SCAREDRIGHT0004" x="1762" y="1791" width="440" height="426" rotated="true" frameX="-0" frameY="-1" frameWidth="430" frameHeight="441"/>
+	<SubTexture name="SCAREDRIGHT0005" x="1762" y="1791" width="440" height="426" rotated="true" frameX="-0" frameY="-1" frameWidth="430" frameHeight="441"/>
+	<SubTexture name="SCAREDRIGHT0006" x="2205" y="2185" width="440" height="426" rotated="true" frameX="-0" frameY="-1" frameWidth="430" frameHeight="441"/>
+	<SubTexture name="SCAREDRIGHT0007" x="2205" y="2185" width="440" height="426" rotated="true" frameX="-0" frameY="-1" frameWidth="430" frameHeight="441"/>
+	<SubTexture name="SCAREDRIGHT0008" x="2205" y="2185" width="440" height="426" rotated="true" frameX="-0" frameY="-1" frameWidth="430" frameHeight="441"/>
+	<SubTexture name="SCAREDRIGHT0009" x="2205" y="2185" width="440" height="426" rotated="true" frameX="-0" frameY="-1" frameWidth="430" frameHeight="441"/>
+	<SubTexture name="SCAREDRIGHT0010" x="2205" y="2185" width="440" height="426" rotated="true" frameX="-0" frameY="-1" frameWidth="430" frameHeight="441"/>
+	<SubTexture name="SCAREDRIGHT0011" x="2205" y="2185" width="440" height="426" rotated="true" frameX="-0" frameY="-1" frameWidth="430" frameHeight="441"/>
+	<SubTexture name="SCAREDUP0000" x="1" y="1066" width="450" height="500" frameX="-0" frameY="-0" frameWidth="451" frameHeight="500"/>
+	<SubTexture name="SCAREDUP0001" x="1" y="1066" width="450" height="500" frameX="-0" frameY="-0" frameWidth="451" frameHeight="500"/>
+	<SubTexture name="SCAREDUP0002" x="432" y="504" width="449" height="492" frameX="-0" frameY="-8" frameWidth="451" frameHeight="500"/>
+	<SubTexture name="SCAREDUP0003" x="432" y="504" width="449" height="492" frameX="-0" frameY="-8" frameWidth="451" frameHeight="500"/>
+	<SubTexture name="SCAREDUP0004" x="880" y="1" width="449" height="492" frameX="-0" frameY="-8" frameWidth="451" frameHeight="500"/>
+	<SubTexture name="SCAREDUP0005" x="880" y="1" width="449" height="492" frameX="-0" frameY="-8" frameWidth="451" frameHeight="500"/>
+	<SubTexture name="SCAREDUP0006" x="1" y="1569" width="449" height="492" frameX="-0" frameY="-8" frameWidth="451" frameHeight="500"/>
+	<SubTexture name="SCAREDUP0007" x="1" y="1569" width="449" height="492" frameX="-0" frameY="-8" frameWidth="451" frameHeight="500"/>
+	<SubTexture name="SCAREDUP0008" x="1" y="1569" width="449" height="492" frameX="-0" frameY="-8" frameWidth="451" frameHeight="500"/>
+	<SubTexture name="SCAREDUP0009" x="1" y="1569" width="449" height="492" frameX="-0" frameY="-8" frameWidth="451" frameHeight="500"/>
+	<SubTexture name="SCAREDUP0010" x="1" y="1569" width="449" height="492" frameX="-0" frameY="-8" frameWidth="451" frameHeight="500"/>
+	<SubTexture name="SCAREDUP0011" x="1" y="1569" width="449" height="492" frameX="-0" frameY="-8" frameWidth="451" frameHeight="500"/>
+	<SubTexture name="SCAREDUP0012" x="1" y="1569" width="449" height="492" frameX="-0" frameY="-8" frameWidth="451" frameHeight="500"/>
+	<SubTexture name="SCAREDUP0013" x="1" y="1569" width="449" height="492" frameX="-0" frameY="-8" frameWidth="451" frameHeight="500"/>
+</TextureAtlas>
