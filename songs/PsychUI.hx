@@ -172,6 +172,7 @@ function update(elapsed:Float) {
 
     finalFPS = CoolUtil.fpsLerp(finalFPS, FlxG.elapsed == 0 ? 0 : (1 / FlxG.elapsed), 0.25);
     fpsfunniCounter.text = "FPS: " + Std.string(Math.floor(finalFPS)) + "\nMemory: " + memories + " MB";
+    player.cpu = FlxG.save.data.botplayOption;
 
     if (memories == 3000 || finalFPS <= FlxG.save.data.Framerate / 2) {
         fpsfunniCounter.color = FlxColor.RED;
@@ -179,7 +180,6 @@ function update(elapsed:Float) {
 }
 
 function onSubstateClose(state) {
-    player.cpu = FlxG.save.data.botplayOption;
     hudTxt.color = FlxG.save.data.botplayOption ? 0xFF25cd49 : 0xFFf42626;
     timeTxt.color = FlxG.save.data.botplayOption ? 0xFF25cd49 : 0xFFf42626;
     luigiLogo.visible = FlxG.save.data.botplayOption;

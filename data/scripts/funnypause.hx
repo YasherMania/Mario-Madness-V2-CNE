@@ -27,6 +27,7 @@ var songName = PlayState.SONG.meta.displayName;
 var author = PlayState.SONG.meta.author;
 var funni:Array<String> = [];
 var ispixel:Array<String> = ['', '0', '150', '1', '0', '0', '215'];
+var shader:CustomShader = null;
 
 function create(event) {
     event.cancel();
@@ -43,9 +44,17 @@ function create(event) {
 	pauseCam.bgColor = 0x88000000;
     pauseCam.alpha = 0;
 
+    shader = new CustomShader("TVStatic");
+    //shader.data.maxStrength = 2;
+    shader.data.strengthMulti = 0.5;
+    trace(shader.data.strengthMulti);
+    //FlxG.camera.addShader(shader);
+    //trace(shader.data.maxStrength.value);
+
     bg = new FlxSprite(-400,0).loadGraphic(Paths.image("menus/pausemenu/momichi"));
     bg.cameras = [pauseCam];
     bg.alpha = 0;
+    bg.shader = shader;
     add(bg);
 
     modeTxt = new FlxText(566, 31,0,"Freeplay",17);
@@ -136,20 +145,21 @@ function create(event) {
     for (i in grpMenuShit.members) {
         FlxTween.tween(i, {x:25}, 1, {ease:FlxEase.circOut});
     }
-
     cameras = [pauseCam];
 }
 
 function destroy() {
 	//FlxG.cameras.remove(pauseCam);
+    FlxG.camera.removeShader(shader);
 }
 
 var canDoShit = true;
 var time:Float = 0;
 function update(elapsed:Float) {
     pauseCam.alpha = lerp(pauseCam.alpha, 1, 0.25);
-    time +- elapsed;
-
+    time += elapsed;
+    shader.data.iTime.value = [time, time];
+    //trace(shader.data.iTime.value);
     if (!canDoShit) return;
 	var oldSec = curSelected;
 	if (controls.DOWN_P)

@@ -1,3 +1,18 @@
 {
-	"bpm":120.0
+	"beatsPerMeasure": 4,
+	"opponentModeAllowed": false,
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"bpm": 120,
+	"difficulties": [
+		"NORMAL"
+	],
+	"needsVoices": true,
+	"parsedColor": -7376387,
+	"displayName": "so-cool",
+	"icon": "chris-pratt",
+	"name": "so-cool",
+	"color": "#8F71FD",
+	"customValues": {},
+	"author": "FriedFrick ft. TheWahBox"
 }

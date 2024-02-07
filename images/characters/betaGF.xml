@@ -1,45 +1,46 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="Beta_Luigi_GF_Assets.png">
-	<!-- Created with Adobe Animate version 19.2.1.408 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="GFIdle0000" x="0" y="0" width="518" height="580"/>
-	<SubTexture name="GFIdle0001" x="0" y="0" width="518" height="580"/>
-	<SubTexture name="GFIdle0002" x="523" y="0" width="518" height="580"/>
-	<SubTexture name="GFIdle0003" x="523" y="0" width="518" height="580"/>
-	<SubTexture name="GFIdle0004" x="523" y="0" width="518" height="580"/>
-	<SubTexture name="GFIdle0005" x="1046" y="0" width="518" height="580"/>
-	<SubTexture name="GFIdle0006" x="1046" y="0" width="518" height="580"/>
-	<SubTexture name="GFIdle0007" x="1046" y="0" width="518" height="580"/>
-	<SubTexture name="GFIdle0008" x="0" y="585" width="518" height="580"/>
-	<SubTexture name="GFIdle0009" x="0" y="585" width="518" height="580"/>
-	<SubTexture name="GFIdle0010" x="0" y="585" width="518" height="580"/>
-	<SubTexture name="GFIdle0011" x="523" y="585" width="518" height="580"/>
-	<SubTexture name="GFIdle0012" x="523" y="585" width="518" height="580"/>
-	<SubTexture name="GFIdle0013" x="1046" y="585" width="518" height="580"/>
-	<SubTexture name="GFIdle0014" x="1046" y="585" width="518" height="580"/>
-	<SubTexture name="GFIdle0015" x="0" y="1170" width="518" height="580"/>
-	<SubTexture name="GFIdle0016" x="0" y="1170" width="518" height="580"/>
-	<SubTexture name="GFIdle0017" x="523" y="1170" width="518" height="580"/>
-	<SubTexture name="GFIdle0018" x="523" y="1170" width="518" height="580"/>
-	<SubTexture name="GFIdle0019" x="523" y="1170" width="518" height="580"/>
-	<SubTexture name="GFIdle0020" x="1046" y="1170" width="518" height="580"/>
-	<SubTexture name="GFIdle0021" x="1046" y="1170" width="518" height="580"/>
-	<SubTexture name="GFIdle0022" x="1046" y="1170" width="518" height="580"/>
-	<SubTexture name="GFIdle0023" x="0" y="1755" width="518" height="580"/>
-	<SubTexture name="GFIdle0024" x="0" y="1755" width="518" height="580"/>
-	<SubTexture name="GFIdle0025" x="523" y="1755" width="518" height="580"/>
-	<SubTexture name="GFIdle0026" x="523" y="1755" width="518" height="580"/>
-	<SubTexture name="GFIdle0027" x="1046" y="1755" width="518" height="580"/>
-	<SubTexture name="GFIdle0028" x="1046" y="1755" width="518" height="580"/>
-	<SubTexture name="GFIdle0029" x="1046" y="1755" width="518" height="580"/>
-	<SubTexture name="GFMiss0000" x="1569" y="1755" width="431" height="558"/>
-	<SubTexture name="GFMiss0001" x="1569" y="1755" width="431" height="558"/>
-	<SubTexture name="GFMiss0002" x="0" y="2340" width="431" height="558"/>
-	<SubTexture name="GFMiss0003" x="0" y="2340" width="431" height="558"/>
-	<SubTexture name="GFMiss0004" x="436" y="2340" width="431" height="558"/>
-	<SubTexture name="GFMiss0005" x="436" y="2340" width="431" height="558"/>
-	<SubTexture name="GFMiss0006" x="436" y="2340" width="431" height="558"/>
-	<SubTexture name="GFMiss0007" x="436" y="2340" width="431" height="558"/>
-	<SubTexture name="GFMiss0008" x="436" y="2340" width="431" height="558"/>
-	<SubTexture name="GFMiss0009" x="436" y="2340" width="431" height="558"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="betaGF.png" width="6353" height="553">
+	<SubTexture name="GFIdle0000" x="1" y="1" width="425" height="526" frameX="-16" frameY="-25" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0001" x="1" y="1" width="425" height="526" frameX="-16" frameY="-25" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0002" x="1228" y="1" width="419" height="538" frameX="-11" frameY="-29" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0003" x="1228" y="1" width="419" height="538" frameX="-11" frameY="-29" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0004" x="1228" y="1" width="419" height="538" frameX="-11" frameY="-29" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0005" x="1650" y="1" width="408" height="542" frameX="-8" frameY="-27" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0006" x="1650" y="1" width="408" height="542" frameX="-8" frameY="-27" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0007" x="1650" y="1" width="408" height="542" frameX="-8" frameY="-27" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0008" x="5486" y="1" width="410" height="549" frameX="-6" frameY="-16" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0009" x="5486" y="1" width="410" height="549" frameX="-6" frameY="-16" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0010" x="5486" y="1" width="410" height="549" frameX="-6" frameY="-16" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0011" x="4194" y="1" width="400" height="545" frameX="-23" frameY="-10" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0012" x="4194" y="1" width="400" height="545" frameX="-23" frameY="-10" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0013" x="2932" y="1" width="396" height="543" frameX="-29" frameY="-10" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0014" x="2932" y="1" width="396" height="543" frameX="-29" frameY="-10" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0015" x="828" y="1" width="397" height="537" frameX="-42" frameY="-16" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0016" x="828" y="1" width="397" height="537" frameX="-42" frameY="-16" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0017" x="5063" y="1" width="420" height="548" frameX="-42" frameY="-18" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0018" x="5063" y="1" width="420" height="548" frameX="-42" frameY="-18" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0019" x="5063" y="1" width="420" height="548" frameX="-42" frameY="-18" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0020" x="5899" y="1" width="453" height="551" frameX="-42" frameY="-19" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0021" x="5899" y="1" width="453" height="551" frameX="-42" frameY="-19" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0022" x="5899" y="1" width="453" height="551" frameX="-42" frameY="-19" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0023" x="4597" y="1" width="463" height="546" frameX="-41" frameY="-16" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0024" x="4597" y="1" width="463" height="546" frameX="-41" frameY="-16" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0025" x="2061" y="1" width="452" height="542" frameX="-38" frameY="-5" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0026" x="2061" y="1" width="452" height="542" frameX="-38" frameY="-5" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0027" x="3331" y="1" width="440" height="543" frameX="-29" frameY="-6" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0028" x="3331" y="1" width="440" height="543" frameX="-29" frameY="-6" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFIdle0029" x="3331" y="1" width="440" height="543" frameX="-29" frameY="-6" frameWidth="518" frameHeight="580"/>
+	<SubTexture name="GFMiss0000" x="429" y="1" width="396" height="532" frameX="-13" frameY="-12" frameWidth="431" frameHeight="558"/>
+	<SubTexture name="GFMiss0001" x="429" y="1" width="396" height="532" frameX="-13" frameY="-12" frameWidth="431" frameHeight="558"/>
+	<SubTexture name="GFMiss0002" x="2516" y="1" width="413" height="542" frameX="-7" frameY="-7" frameWidth="431" frameHeight="558"/>
+	<SubTexture name="GFMiss0003" x="2516" y="1" width="413" height="542" frameX="-7" frameY="-7" frameWidth="431" frameHeight="558"/>
+	<SubTexture name="GFMiss0004" x="3774" y="1" width="417" height="544" frameX="-5" frameY="-6" frameWidth="431" frameHeight="558"/>
+	<SubTexture name="GFMiss0005" x="3774" y="1" width="417" height="544" frameX="-5" frameY="-6" frameWidth="431" frameHeight="558"/>
+	<SubTexture name="GFMiss0006" x="3774" y="1" width="417" height="544" frameX="-5" frameY="-6" frameWidth="431" frameHeight="558"/>
+	<SubTexture name="GFMiss0007" x="3774" y="1" width="417" height="544" frameX="-5" frameY="-6" frameWidth="431" frameHeight="558"/>
+	<SubTexture name="GFMiss0008" x="3774" y="1" width="417" height="544" frameX="-5" frameY="-6" frameWidth="431" frameHeight="558"/>
+	<SubTexture name="GFMiss0009" x="3774" y="1" width="417" height="544" frameX="-5" frameY="-6" frameWidth="431" frameHeight="558"/>
 </TextureAtlas>
