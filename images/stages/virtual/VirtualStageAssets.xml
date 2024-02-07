@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="VirtualStageAssets.png" width="3549" height="3466">
+	<SubTexture name="Back Pipes-left" x="2190" y="2677" width="775" height="560" frameX="-447" frameY="-753" frameWidth="3840" frameHeight="2160"/>
+	<SubTexture name="Back Pipes-right" x="1617" y="2678" width="560" height="775" rotated="true" frameX="-2555" frameY="-765" frameWidth="3840" frameHeight="2160"/>
+	<SubTexture name="Back Platform" x="1" y="3030" width="1613" height="404" frameX="-1076" frameY="-1206" frameWidth="3840" frameHeight="2160"/>
+	<SubTexture name="Corner top Left Pipes" x="2975" y="1658" width="438" height="1787" rotated="true" frameX="-0" frameY="-0" frameWidth="2927" frameHeight="1403"/>
+	<SubTexture name="Front Pipes-left" x="2190" y="1658" width="782" height="1016" frameX="-0" frameY="-684" frameWidth="3840" frameHeight="2160"/>
+	<SubTexture name="Front Pipes-right" x="1405" y="1658" width="782" height="1017" frameX="-3058" frameY="-718" frameWidth="3840" frameHeight="2160"/>
+	<SubTexture name="Main Platform" x="1" y="926" width="3137" height="729" frameX="-310" frameY="-1431" frameWidth="3840" frameHeight="2160"/>
+	<SubTexture name="Platform" x="1" y="1" width="3547" height="922" frameX="-132" frameY="-845" frameWidth="3840" frameHeight="2160"/>
+	<SubTexture name="Wall Bg" x="1" y="1658" width="1401" height="1369" frameX="-1167" frameY="-0" frameWidth="3840" frameHeight="2160"/>
+	<SubTexture name="square" x="2180" y="3448" width="68" height="17" frameX="-0" frameY="-0" frameWidth="68" frameHeight="17"/>
+</TextureAtlas>

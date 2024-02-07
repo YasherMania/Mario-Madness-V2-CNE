@@ -1,7 +1,10 @@
 import funkin.options.OptionsMenu;
+import funkin.backend.system.framerate.Framerate;
 
-var canDoShit:Bool = true;
+var canDoShit:Bool = false;
 var optionsPressed:Bool = false;
+
+window.resizable = false;
 
 function create(){
     window.title = "Friday Night Funkin': Mario's Madness";
@@ -10,26 +13,35 @@ function create(){
     warning.screenCenter(FlxAxes.X);
     FlxTween.tween(warning, {y: 75}, .75, {ease: FlxEase.cubeOut}).onComplete = function() {canDoShit = true;}
     add(warning);
+
+    FlxG.sound.play(Paths.sound("menu/warningMenu"));
 }
 
 function update(){
-    new FlxTimer().start(.2, function() {FlxTween.tween(warning, {alpha: 1}, .75);});
+    new FlxTimer().start(.2, function(){FlxTween.tween(warning, {alpha: 1}, .75);});
 
     if (FlxG.keys.justPressed.ENTER && canDoShit) pressedEnter();
-    else if (FlxG.keys.justPressed.ESCAPE) pressedEscape();
 }
 
 function pressedEnter(){
 	canDoShit = false;
-    FlxTween.tween(FlxG.camera, {alpha: 0}, .75, {ease: FlxEase.quintOut});
-	CoolUtil.playMenuSFX(1);
-    FlxTween.tween(window, {x: 500, y: 175, width: 960, height: 720}, 1, {ease: FlxEase.sineOut});
-	new FlxTimer().start(2, function() {
-		FlxG.switchState(new TitleState());
-	});
-}
-
-function pressedEscape(){
-	FlxG.switchState(new OptionsMenu());
-	optionsPressed = true;
+    FlxG.sound.play(Paths.sound("warpzone/accept"));
+    FlxTween.tween(warning, {y: 750}, 1, {
+        ease: FlxEase.cubeIn,
+        onComplete: function(twn:FlxTween){
+            FlxG.updateFramerate = 30; // for the smoothness
+            for (i in [Framerate.fpsCounter, Framerate.memoryCounter, Framerate.codenameBuildField]) FlxTween.tween(i, {alpha: .6}, 1.5, {ease: FlxEase.circInOut});
+            FlxTween.tween(window, {x: 500, y: 195, width: fsX / 2.084691, height: fsY / 1.562952}, 1.5, {
+                ease: FlxEase.circInOut,
+                onComplete: function(twn:FlxTween){
+                    FlxG.resizeWindow(fsX / 2.084691, fsY / 1.562952);
+                    FlxG.resizeGame(fsX / 2.084691, fsY / 1.562952);
+                    FlxG.scaleMode.width = fsX / 2.084691;
+                    FlxG.scaleMode.height = fsY / 1.562952;
+                    FlxG.updateFramerate = Options.fpsCounter;
+                    FlxG.switchState(new TitleState());
+                }
+            });
+        }
+    });
 }

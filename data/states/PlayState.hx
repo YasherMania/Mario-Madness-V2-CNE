@@ -1,4 +1,4 @@
-var healthOverlay:FlxSprite;
+static var healthOverlay:FlxSprite;
 
 function new() {     
     PauseSubState.script = 'data/scripts/funnypause';

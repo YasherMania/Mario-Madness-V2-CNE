@@ -395,6 +395,7 @@ function chatMessage() {
 				'DastardlyDeacon',
 				'VibingLeaf',
 				'RedTv53',
+				"apurples",
 				//ones below here have special messages for their names
 				
 				'Joe_Biden',
@@ -455,4 +456,19 @@ function chatMessage() {
 			
 			livechat.text = livechat.text + chosenUsername + " : " + chosenMessage + "\n";
 			txtNum += 1;
+
+			// randomizeUserColor(); - this dont work yet - apurples
 		}
+
+function randomizeUserColor(){
+	function shuffle(){
+		switch(FlxG.random.int(1, 5)){
+			case 1: chosenUsername.color = FlxColor.RED;
+			case 2: chosenUsername.color = 0xFF4888F0;
+			case 3: chosenUsername.color = FlxColor.RED;
+			case 4: chosenUsername.color = 0xFF4888F0;
+			case 5: chosenUsername.color = FlxColor.RED;
+		}
+	}
+	shuffle();
+}

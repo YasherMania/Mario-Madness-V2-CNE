@@ -9,11 +9,14 @@ const float minStrength = 0.3;
 
 const float speed = 20.00;
 
-float random (vec2 noise) {
+float random (vec2 noise)
+{
 	return fract(sin(dot(noise.xy,vec2(10.998,98.233)))*12433.14159265359);
 }
 
-void main() {
+void main()
+{
+		
 	vec2 uv = openfl_TextureCoordv.xy;
 	vec2 uv2 = fract(openfl_TextureCoordv.xy*fract(sin(iTime*speed)));
 		

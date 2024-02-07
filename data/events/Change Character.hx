@@ -63,28 +63,36 @@ function onEvent(_)
         strumLines.members[_.event.params[0]].characters.insert(_.event.params[1], character);
 
         if (_.event.params[1] == '0') {
-            var icon:HealthIcon = isPlayer ? iconP1 : iconP2;
+            var icon:HealthIcon = isPlayer ? icoP1 : icoP2;
             if (icon.graphic != data.preloadData.icon) {
                 remove(icon);
                 icon = new HealthIcon(character.getIcon(), isPlayer);
                 icon.cameras = [camHUD];
-                icon.y = healthBar.y - (icon.height / 2);
-                insert(members.indexOf(healthBar)+1, icon);
-
+                icon.y = icoP2.y;
+                insert(members.indexOf(healthBar)+2, icon);
+    
                 if (isPlayer) {
                     icon.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 1, 0)) - 26);
-                    iconP1 = icon;
+                    icoP1 = icon;
+                    icon.health = healthBar.percent;
                 }
                 else {
                     icon.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 1, 0))) - (icon.width - 26);
-                    iconP2 = icon;
+                    icoP2 = icon;
+                    icon.health = healthBar.percent;
                 }
-
+    
                 var leftColor:Int = dad.iconColor != null && Options.colorHealthBar ? dad.iconColor : 0xFFFF0000;
                 var rightColor:Int = boyfriend.iconColor != null && Options.colorHealthBar ? boyfriend.iconColor : 0xFF66FF33;
                 var colors = [leftColor, rightColor];
                 healthBar.createFilledBar((PlayState.opponentMode ? colors[1] : colors[0]), (PlayState.opponentMode ? colors[0] : colors[1]));
                 healthBar.updateBar();
+
+                // this is such a shitty way for losing icon detection but whatever it works LOL - apurples
+                health -= .001;
+                new FlxTimer().start(.001, function(tmr:FlxTimer){
+                    health += .001;
+                });
             }
         }
     }
