@@ -18,7 +18,7 @@
 		{
 			"name": "Porter Text Size",
 			"type": "String",
-			"defaultValue": "22.5"
+			"defaultValue": "1"
 		},
 		{
 			"name": "Fade out Timer",
