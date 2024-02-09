@@ -1,5 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character x="0" icon="bf4" y="350" isGF="false" color="#31B1D1" isPlayer="true" sprite="Act_4_FINALE_DEATH">
-	<anim x="0" loop="false" y="0" fps="24" anim="Death" name="die"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Game Over" name="over"/>
-</character>

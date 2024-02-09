@@ -1,0 +1,9 @@
+<!DOCTYPE codename-engine-character>
+<character x="-45" icon="gfv" y="360" isGF="false" camx="-75" camy="-350" color="#FF0000" isPlayer="false" holdTime="6.1" sprite="Mr_Virtual_GF_V2_Assets">
+	<anim x="0" loop="false" y="450" fps="24" anim="VAltIdle" name="idle"/>
+	<anim x="379" loop="false" y="380" fps="24" anim="VAltLeft" name="singLEFT"/>
+	<anim x="-54" loop="false" y="339" fps="24" anim="VAltRight" name="singRIGHT"/>
+	<anim x="80" loop="false" y="590" fps="24" anim="VAltUp" name="singUP"/>
+	<anim x="100" loop="false" y="280" fps="24" anim="VAltDown" name="singDOWN"/>
+	<anim x="118" loop="false" y="744" fps="24" anim="VTransformation" name="transform"/>
+</character>

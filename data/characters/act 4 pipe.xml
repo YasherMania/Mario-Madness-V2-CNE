@@ -1,4 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character x="0" icon="bf4" y="350" isGF="false" color="#31B1D1" flipX="true" isPlayer="true" sprite="Act_4_secondperspective">
-	<anim x="0" loop="false" y="0" fps="24" anim="pipe0000" name="idle"/>
-</character>

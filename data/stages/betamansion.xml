@@ -1,0 +1,12 @@
+<!DOCTYPE codename-engine-stage>
+<stage folder="stages/LuigiBeta/" zoom="0.8">
+	<sprite scrolly="0.1" x="-851.9" y="-559.875" sprite="Skybox" scrollx="0.1" name="sky"/>
+	<sprite x="-1157" scrolly="0.8" sprite="BackBg" y="-900" name="back" scrollx="0.8"/>
+	<sprite x="-1175.75" name="front" sprite="FrontBG" y="-871.5"/>
+	<sprite x="-287.25" name="flame1" sprite="Alone_Fire" y="-663"/>
+	<sprite x="1298.75" name="flame2" sprite="Alone_Fire" y="-666"/>
+	<gf/>
+	<dad x="100" y="90"/>
+	<bf x="900"/>
+	<combo/>
+</stage>

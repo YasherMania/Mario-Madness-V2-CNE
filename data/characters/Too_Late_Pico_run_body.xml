@@ -1,9 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character x="240" icon="pico" y="620" isGF="false" color="#B7D855" flipX="true" isPlayer="false" sprite="Too_Late_Pico_run">
-	<anim x="-5" loop="false" y="0" fps="24" anim="TopDialgoue" name="talk"/>
-	<anim x="0" loop="true" y="0" fps="24" anim="TopIdle" name="idle"/>
-	<anim x="-60" loop="false" y="40" fps="24" anim="TopUpFront" name="singUP"/>
-	<anim x="25" loop="false" y="0" fps="24" anim="TopRightFront" name="singRIGHT"/>
-	<anim x="-80" loop="false" y="30" fps="24" anim="TopLeftFront" name="singLEFT"/>
-	<anim x="0" loop="false" y="35" fps="24" anim="TopDown" name="singDOWN"/>
-</character>

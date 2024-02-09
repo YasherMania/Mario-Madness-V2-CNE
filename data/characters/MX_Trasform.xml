@@ -1,4 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character x="0" icon="MX" y="0" isGF="false" scale ="1.0" color="#870C0A" isPlayer="false" holdTime="6.1" sprite="MX_Trasform">
-	<anim x="0" loop="false" y="0" fps="24" anim="MX Transformation" name="trasform"/>
-</character>
