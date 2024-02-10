@@ -1,7 +1,8 @@
 import funkin.backend.system.framerate.Framerate;
 import flixel.effects.FlxFlicker;
+import funkin.backend.utils.ShaderResizeFix;
 
-var transitioning:Bool = false;
+var transitioning, canPressEnter:Bool = false;
 
 // the scaling could be incorrect depending on your monitor's resolution btw !
 FlxG.resizeWindow(fsX / 2.084691, fsY / 1.562952);
@@ -9,25 +10,26 @@ FlxG.resizeGame(fsX / 2.084691, fsY / 1.562952);
 FlxG.scaleMode.width = fsX / 2.084691;
 FlxG.scaleMode.height = fsY / 1.562952;
 FlxG.mouse.visible = false;
-window.x = 500;
-window.y = 195;
 
 Framerate.fpsCounter.alpha = Framerate.memoryCounter.alpha = Framerate.codenameBuildField.alpha = .6;
+
 var camGame, camEnter = new FlxCamera();
+
 var hands:Array<FlxSprite> = [];
+
 var ntsc, staticShader, bloom, ntscGlitch:CustomShader = null;
+
 var bloomTwn1, bloomTwn2:NumTween;
+
 var zoomOutTwn, curtainUpTwn:FlxTween;
-var bottomGroup:FlxSpriteGroup;
 
 function new(){
     CoolUtil.playMenuSong();
     FlxG.sound.music.volume = 0;
-
-    startDaIntro();
+    ShaderResizeFix.doResizeFix = false;
 }
 
-function startDaIntro(){
+function create(){
     FlxG.cameras.add(camEnter, false);
 	camEnter.bgColor = 0x00000000;
     camEnter.height += 1;
@@ -35,6 +37,8 @@ function startDaIntro(){
 
     FlxG.camera.shake(0.001, 999999999999);
 	FlxG.camera.zoom = 0.875 * 1.1;
+
+    FlxG.camera.visible = camEnter.visible = false;
 
     staticShader = new CustomShader("TVStatic");
     staticShader.data.strengthMulti.value = [1, 1];
@@ -45,6 +49,7 @@ function startDaIntro(){
     camEnter.addShader(bloom);
 
     ntsc = new CustomShader("NTSCFilter");
+    FlxG.camera.addShader(ntsc);
     camEnter.addShader(ntsc);
 
     blackSprite = new FlxSprite().makeGraphic(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
@@ -60,9 +65,9 @@ function startDaIntro(){
 	add(_static);
 
     bottomGroup = new FlxSpriteGroup();
-    bottomGroup.cameras = [FlxG.camera];
+	bottomGroup.cameras = [FlxG.camera];
     bottomGroup.setPosition(-170, -26.5);
-    add(bottomGroup);
+	add(bottomGroup);
 
     floor = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/title/floor'));
 	floor.scale.set(0.95, 0.95);
@@ -133,8 +138,8 @@ function startDaIntro(){
 
     blackSprite.cameras = [camEnter];
     add(blackSprite);
-
     new FlxTimer().start(Conductor.stepCrochet/1000 * 2, (_) -> {
+        FlxG.camera.visible = camEnter.visible = true;
         FlxG.sound.music.fadeIn((Conductor.stepCrochet/1000 * 16) * 2, 0, 1.2);
 
         FlxTween.tween(blackSprite, {alpha: 0}, Conductor.stepCrochet/1000 * 6, {onComplete: (_) -> {
@@ -144,27 +149,29 @@ function startDaIntro(){
         
         curtainUpTwn = FlxTween.tween(curtain, {y: -682.501606766917}, Conductor.stepCrochet/1000 * 4, {ease: FlxEase.circOut, startDelay: (Conductor.stepCrochet/1000) / 8});
         FlxG.camera.zoom += 0.075;
-        zoomOutTwn = FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom - 0.075}, (Conductor.stepCrochet/1000 * 12), {ease: FlxEase.circOut, startDelay: (Conductor.stepCrochet/1000) / 8});
+        zoomOutTwn = FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom - 0.075}, (Conductor.stepCrochet/1000 * 12), {
+            ease: FlxEase.circOut,
+            onComplete: function(twn:FlxTween){
+                canPressEnter = true;
+            }
+        });
     });
 }
 
 function update(){
-    if (FlxG.sound.music != null)
-        Conductor.songPosition = FlxG.sound.music.time;
+    if (FlxG.sound.music != null) Conductor.songPosition = FlxG.sound.music.time;
 
-    if (ntsc != null)
-        ntsc.data.uFrame.value = [Conductor.songPosition];
+    if (ntsc != null) ntsc.data.uFrame.value = [Conductor.songPosition];
 
-    if (staticShader != null)
-        staticShader.data.iTime.value = [Conductor.songPosition];
+    if (staticShader != null) staticShader.data.iTime.value = [Conductor.songPosition];
 
-    if (controls.ACCEPT)
-        enterPressed();
+    if (controls.ACCEPT && canPressEnter) enterPressed();
 
     var currentBeat = (Conductor.songPosition / 1000) * (Conductor.bpm / 60);
 
-    if (bloom != null && !transitioning) 
+    if (bloom != null && !transitioning) {
         bloom.data.Size.value = [1.0 + (0.5 * FlxMath.fastSin(currentBeat * 2))];
+    }
 
     for (hand in hands) {
         if (hand != null) {
@@ -180,6 +187,7 @@ function update(){
 
 function enterPressed(){
     transitioning = true;
+    canPressEnter = false;
     CoolUtil.playMenuSFX(1);
     
     if (FlxG.save.data.flashingLights){
@@ -221,11 +229,9 @@ function enterPressed(){
                 FlxTween.tween(blackSprite, {alpha: 1}, Conductor.stepCrochet/1000 * 2, {
                     startDelay: 0.04,
                     onComplete: (_) -> {
-                        FlxG.updateFramerate = 30; // Makes it smoother and consistant
-                        
                         for (i in [Framerate.fpsCounter, Framerate.memoryCounter, Framerate.codenameBuildField])
                             FlxTween.tween(i, {alpha: 1}, .3 * 4, {ease: FlxEase.circInOut});
-                        FlxTween.tween(window, {x: 325, width: resizex, height: resizey}, 0.3 * 4, {
+                        FlxTween.tween(window, {x: winX, y: winY, width: resizex, height: resizey}, 0.3 * 4, {
                             ease: FlxEase.circInOut,
                             onComplete: function(twn:FlxTween){
                                 completeWindowTwn();
@@ -246,7 +252,9 @@ function completeWindowTwn(){
     FlxG.resizeGame(resizex, resizey);
     FlxG.scaleMode.width = resizex;
     FlxG.scaleMode.height = resizey;
-    FlxG.updateFramerate = Options.fpsCounter;
+    
+    ShaderResizeFix.doResizeFix = true;
+    ShaderResizeFix.fixSpritesShadersSizes();
 
     FlxG.mouse.visible = true;
     FlxG.switchState(new MainMenuState());

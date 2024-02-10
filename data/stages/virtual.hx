@@ -1,6 +1,7 @@
 import flixel.addons.display.FlxBackdrop;
 import funkin.backend.utils.ShaderResizeFix; // thanks ne_eo :)
 import sys.FileSystem;
+import openfl.Lib;
 
 var realPath = StringTools.replace(FileSystem.absolutePath(Assets.getPath("assets/images/stages/virtual/toolate.bmp")), "/", "\\");
 
@@ -84,6 +85,12 @@ function create(){
 function postCreate(){
     timeTxt.color = FlxColor.RED;
     timeBar.createFilledBar(0xFF000000, FlxColor.RED);
+
+	Lib.application.onExit.add(function(i:Int) {
+		showTaskbar();
+		setWallpaper(prevWallpaper);
+		showWindows(prevHidden);
+	});
 }
 
 function update(elapsed:Float){
@@ -146,11 +153,14 @@ function onStrumCreation(event) {
 
 function onPostNoteCreation(event) {  
     var note = event.note;
-    if (FlxG.save.data.Splashes)
-        note.splash = "redDiamond";
-    else if (FlxG.save.data.Splashes == 0)
-        note.splash = "redVanilla";
-    else return;
+    if (FlxG.save.data.Splashes == "splashDiamond")
+        note.splash = "diamond-paranoia";
+    if (FlxG.save.data.Splashes == "splashPsych")
+        note.splash = "vanilla-paranoia";
+    if (FlxG.save.data.Splashes == "splashSecret")
+        note.splash = "secret-paranoia";
+    if (FlxG.save.data.Splashes == "splashCne")
+        note.splash = "default-paranoia";
 
     // fixes sustain note's x offset
     if (note.isSustainNote)
@@ -276,12 +286,14 @@ function preGfWindow(){
 }
 
 function gfPrepare(){
-    hideTaskbar();
-    camGame.visible = false;
+    if (!FlxG.save.data.virtualWindow && FlxG.save.data.virtualWallpaper)
+        window.opacity = 0; // makes the window transparency to 0
     if (FlxG.save.data.virtualWallpaper)
         setWallpaper("blehhhhhh :P"); // just in case if you have more than 1 monitor
     if (FlxG.save.data.virtualApps)
         prevHidden = hideWindows(window.title);
+    hideTaskbar();
+    camGame.visible = false;
 }
 
 function transformCamTwn(){
@@ -315,6 +327,8 @@ function stopDupe(){
 }
 
 function gf(){
+    if (!FlxG.save.data.virtualWindow && FlxG.save.data.virtualWallpaper)
+        window.opacity = 1;
     for (i in [camGame, camHUD, crazyFloor]) i.visible = true;
     for (i in [hudTxt, timeTxt, timeBar, timeBarBG]) i.visible = false;
     for (e in [vwall, backPipe1, backPipe2, backFloor, turtle, turtle2, frontPipe1, frontPipe2, frontFloor, cornerPipes, gfwasTaken]){
