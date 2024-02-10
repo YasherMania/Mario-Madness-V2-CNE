@@ -86,6 +86,9 @@ function postCreate(){
     timeTxt.color = FlxColor.RED;
     timeBar.createFilledBar(0xFF000000, FlxColor.RED);
 
+    if (FlxG.save.data.Splashes == "splashDisabled")
+        splashHandler.visible = false;
+
 	Lib.application.onExit.add(function(i:Int) {
 		showTaskbar();
 		setWallpaper(prevWallpaper);
