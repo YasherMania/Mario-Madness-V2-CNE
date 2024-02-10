@@ -52,8 +52,8 @@ function new(){
     if (FlxG.save.data.Splashes == null) FlxG.save.data.Splashes = 0;
     if (FlxG.save.data.botplayOption == null) FlxG.save.data.botplayOption = false;
     if (FlxG.save.data.colouredBar == null) FlxG.save.data.colouredBar = false;
-    if (FlxG.save.data.timeBar == null) FlxG.save.data.timeBar = false;
-    if (FlxG.save.data.scoreTxt == null) FlxG.save.data.showTxt = false;
+    if (FlxG.save.data.showBar == null) FlxG.save.data.showBar = false;
+    if (FlxG.save.data.showTxt == null) FlxG.save.data.showTxt = false;
 
     window.setIcon(Image.fromBytes(Assets.getBytes(Paths.image('icon16'))));
 }
