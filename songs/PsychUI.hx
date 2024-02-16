@@ -51,15 +51,6 @@ public var ratingStuff:Array<Dynamic> = [
     ['SS+', 1]
 ];
 
-function onPostNoteCreation(event) {
-    var note = event.note;
-    if (!curStage == "virtual"){
-        if (FlxG.save.data.Splashes) note.splash = "diamond";
-        else if (FlxG.save.data.Splashes == 0) note.splash = "vanilla";
-        else return;
-    }
-}
-
 function getRating(accuracy:Float):String {
     if (accuracy < 0) {
         return "?";
@@ -169,9 +160,8 @@ function update(elapsed:Float) {
     fpsfunniCounter.text = "FPS: " + Std.string(Math.floor(finalFPS)) + "\nMemory: " + memories + " MB";
     player.cpu = FlxG.save.data.botplayOption;
 
-    if (memories == 3000 || finalFPS <= Options.framerate / 2) {
-        fpsfunniCounter.color = 0xFFe30000;
-    }else fpsfunniCounter.color = 0xFFA11B1B;
+    if (memories == 3000 || finalFPS <= Options.framerate / 2) fpsfunniCounter.color = 0xFFe30000;
+    else fpsfunniCounter.color = 0xFFA11B1B;
 }
 
 function onSubstateClose(state) {

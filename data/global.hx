@@ -26,8 +26,8 @@ static var hideIcon = NdllUtil.getFunction('ndll-mario', 'hide_window_icon', 0);
 static var showIcon = NdllUtil.getFunction('ndll-mario', 'show_window_icon', 0);
 
 // DEFAULT WINDOW POSITIONS
-static var winX:Int = 325;
-static var winY:Int = 185;
+static var winX:Int = FlxG.stage.application.window.display.bounds.width / 6;
+static var winY:Int = FlxG.stage.application.window.display.bounds.height / 6;
 
 // MONITOR RESOLUTION
 static var fsX:Int = Capabilities.screenResolutionX;
@@ -47,11 +47,9 @@ function new(){
     if (FlxG.save.data.virtualApps == null) FlxG.save.data.virtualApps = true;
     if (FlxG.save.data.virtualShaders == null) FlxG.save.data.virtualShaders = true;
     if (FlxG.save.data.transparency_value == null) FlxG.save.data.transparency_value = 0;
-    if (PlayState.allowGitaroo == null) PlayState.allowGitaroo = false;
-    // Psych Options
-    if (FlxG.save.data.ShowPsychUI == null) FlxG.save.data.ShowPsychUI = true;
+
+    // UI Options
     if (FlxG.save.data.Splashes == null) FlxG.save.data.Splashes = 0;
-    if (FlxG.save.data.PauseMusic == null) FlxG.save.data.PauseMusic = 0;
     if (FlxG.save.data.botplayOption == null) FlxG.save.data.botplayOption = false;
     if (FlxG.save.data.showBar == null) FlxG.save.data.showBar = false;
     if (FlxG.save.data.showTxt == null) FlxG.save.data.showTxt = false;
