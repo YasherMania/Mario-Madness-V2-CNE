@@ -1,10 +1,14 @@
 import funkin.options.OptionsMenu;
+import funkin.backend.utils.ShaderResizeFix;
 import funkin.backend.system.framerate.Framerate;
 
 var canDoShit:Bool = false;
 var optionsPressed:Bool = false;
 
+window.x = winX;
+window.y = winY;
 window.resizable = false;
+ShaderResizeFix.doResizeFix = false;
 
 function create(){
     window.title = "Friday Night Funkin': Mario's Madness";
@@ -29,16 +33,16 @@ function pressedEnter(){
     FlxTween.tween(warning, {y: 750}, 1, {
         ease: FlxEase.cubeIn,
         onComplete: function(twn:FlxTween){
-            FlxG.updateFramerate = 30; // for the smoothness
             for (i in [Framerate.fpsCounter, Framerate.memoryCounter, Framerate.codenameBuildField]) FlxTween.tween(i, {alpha: .6}, 1.5, {ease: FlxEase.circInOut});
-            FlxTween.tween(window, {x: 500, y: 195, width: fsX / 2.084691, height: fsY / 1.562952}, 1.5, {
+            FlxTween.tween(window, {x: winX + 180, y: winY + 15, width: fsX / 2.084691, height: fsY / 1.562952}, 1.5, {
                 ease: FlxEase.circInOut,
                 onComplete: function(twn:FlxTween){
                     FlxG.resizeWindow(fsX / 2.084691, fsY / 1.562952);
                     FlxG.resizeGame(fsX / 2.084691, fsY / 1.562952);
                     FlxG.scaleMode.width = fsX / 2.084691;
                     FlxG.scaleMode.height = fsY / 1.562952;
-                    FlxG.updateFramerate = Options.fpsCounter;
+                    ShaderResizeFix.doResizeFix = true;
+                    ShaderResizeFix.fixSpritesShadersSizes();
                     FlxG.switchState(new TitleState());
                 }
             });
