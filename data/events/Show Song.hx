@@ -53,6 +53,32 @@ function update(){
         autorText.y = titleText.y + 70;
         porterText.y = autorText.y + 55;
     }
+	//boyfriend.x -= 2;
+}
+var thingy = 0;
+var test:String = "help me!";
+function postCreate() {
+    for (event in events) {
+        if (event.name == 'Show Song') {
+		window.title = "Friday Night Funkin': Mario's Madness | ";
+		trace(test.length);
+		for (i in 0...PlayState.SONG.meta.displayName.length) {
+			window.title = window.title + "?";
+		}
+
+		window.title = window.title + " | ";
+
+		for (i in 0...event.params[1].length) {
+			window.title = window.title + "?";
+		}
+
+		window.title = window.title + " | ";
+
+		for (i in 0...event.params[2].length) {
+			window.title = window.title + "?";
+		}
+	}
+    }
 }
 
 function onEvent(_){
