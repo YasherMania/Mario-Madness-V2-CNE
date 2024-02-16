@@ -55,8 +55,13 @@ function update(){
     }
 	//boyfriend.x -= 2;
 }
-var thingy = 0;
-var test:String = "help me!";
+
+//hiiiii guysssssss!!!!!! it's ya boi, bromaster 819!!!!
+//apurples did a great job on this script but couldnt get the question mark thingy working!!!
+//"iason mason | goober" > "??????????? | ??????"
+//so i did it and it's great!!
+//all i added was the post create
+//anyways sorry for rambling on have a good day!!!!!! :3c
 function postCreate() {
     for (event in events) {
         if (event.name == 'Show Song') {
