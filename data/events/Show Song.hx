@@ -66,7 +66,6 @@ function postCreate() {
     for (event in events) {
         if (event.name == 'Show Song') {
 		window.title = "Friday Night Funkin': Mario's Madness | ";
-		trace(test.length);
 		for (i in 0...PlayState.SONG.meta.displayName.length) {
 			window.title = window.title + "?";
 		}
