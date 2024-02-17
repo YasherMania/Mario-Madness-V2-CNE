@@ -131,21 +131,6 @@ function create() {
 
     //FlxTween.tween(boyfriendGroup, { x: 100}, 2.5, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut,});
     
-
-    add(bg1);
-    add(bg);
-    add(bush);
-    add(floor);
-    add(arm);
-    add(legs);
-    add(dad);
-    add(arm2);
-    add(legs2);
-    add(boyfriend);
-    add(bgf1);
-    add(bgf2);
-    add(bgf3);
-    add(bgf4);
 }
 
 function postUpdate() {
@@ -156,8 +141,8 @@ function postUpdate() {
 function update() { 
     arm.visible = dad.animation.curAnim.name == "idle";
     arm2.visible = boyfriend.animation.curAnim.name == "idle";
-    if(boyfriend.animation.name == "idle") arm.playAnim("Right Arm");
-    if(dad.animation.name == "idle") arm.playAnim("Right Arm");
+    //if(boyfriend.animation.name == "idle") arm.playAnim("Right Arm");
+    //if(dad.animation.name == "idle") arm.playAnim("Right Arm");
 }
 
 function onCameraMove(){
@@ -167,9 +152,42 @@ function onCameraMove(){
            defaultCamZoom = 0.85;
 }
 
+function beatHit(curBeat) {
+    arm2.playAnim("Right Arm");
+    arm.playAnim("Right Arm");
+}
+
 function stepHit() {
-    switch (curStep)
-    {
-        //case :
+    if (curStep == 1){
+        add(bg1);
+        add(bg);
+        add(bush);
+        add(floor);
+        add(arm);
+        add(legs);
+        add(dad);
+        add(arm2);
+        add(legs2);
+        add(boyfriend);
+        add(bgf1);
+        add(bgf2);
+        add(bgf3);
+        add(bgf4);
+    }
+    if (curStep == 314){
+        destroy(bg1);
+        destroy(bg);
+        destroy(bush);
+        remove(floor);
+        remove(arm);
+        remove(legs);
+        remove(dad);
+        remove(arm2);
+        remove(legs2);
+        remove(boyfriend);
+        remove(bgf1);
+        remove(bgf2);
+        remove(bgf3);
+        remove(bgf4);
     }
 }
