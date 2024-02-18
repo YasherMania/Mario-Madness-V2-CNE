@@ -5,4 +5,5 @@ function postCreate() {
     healthOverlay.cameras = [camHUD];
     insert(members.indexOf(iconP1), healthOverlay);
     healthBarBG.visible = false;
+    PauseSubState.script = "data/states/pauseScript";
 }

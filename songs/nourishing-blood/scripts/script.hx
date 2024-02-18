@@ -4,24 +4,31 @@ function onCameraMove(e) {
     if (!followchars) e.cancel();
 }
 
-function onCountdown(e) e.cancel();
+function onCountdown(e) e.cancel(); // Removes the countdown (as in sprites and sounds as it doesn't skip it last time I tested)
 
 function postCreate() {
     if (!followchars) grandDadIntro(); // Me when I don't use events
+    GameOverSubstate.script = 'data/gameOverScripts/grandDad';
 }
 
 function grandDadIntro() {
     Conductor.songPosition = 0; // Skips countdown
     camHUD.alpha = 0;
-    defaultCamZoom = 0.6;
-    var gdtitleSpr = stage.getSprite("gdtitle");
-    // camFollow.setPosition(
-    //     gdtitleSpr.x + (gdtitleSpr.width / 2),
-    //     gdtitleSpr.y + (gdtitleSpr.height / 2)
-    // );
-    snapCamTo(gdtitleSpr.x + (gdtitleSpr.width / 2), gdtitleSpr.y + (gdtitleSpr.height / 2));
+    /** 
+    The number of times the default camera zoom has been changed:
+        * Right before the cutscene starts: 0.65 (default)
+        * When the cutscene is playing: 0.5
+        * Right after the cutscene is done (after Mario jumps off of the logo): 0.4
+    **/
+    FlxTween.tween(camGame, {zoom: 0.5}, (2 * (1 / (Conductor.bpm / 60))), {startDelay: 0.3, ease: FlxEase.expoOut});
+
+    var gdtitleSpr = stage.getSprite("gdtitle"); // Takes gdtitle's name property from the xml stage
+    snapCamTo(
+        gdtitleSpr.x + (gdtitleSpr.width / 2),
+        gdtitleSpr.y + (gdtitleSpr.height / 2)
+    );
     camGame.fade(FlxColor.BLACK, Conductor.crochet / 1500, true, function() {
-        defaultCamZoom = 0.5;
+        defaultCamZoom = 0.4;
         trace("camGame faded in");
     });
 }
@@ -33,7 +40,7 @@ function snapCamTo(x:Float, y:Float) {
 
 function beatHit() {
     if (healthBar.percent > 80) {
-        FlxTween.angle(icoP2, -5, -20, (0.5 * (1 / (Conductor.bpm / 60))), {ease: FlxEase.backOut, type: FlxTween.BACKWARD});
+        FlxTween.angle(icoP2, -5, -15, (0.5 * (1 / (Conductor.bpm / 60))), {ease: FlxEase.backOut, type: FlxTween.BACKWARD});
     }
 
     switch (curBeat) {
@@ -49,8 +56,8 @@ function beatHit() {
                 {onComplete: function() remove(hamster)} // Self explanatory, right?
             );
 
-        case 4:
-            followchars = true;
+        case 4: followchars = true;
+        case 68: defaultCamZoom = 0.65;
     }
 if (curBeat >= 4 && curBeat <= 228) {
     camZoomingInterval = 1;
