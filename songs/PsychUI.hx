@@ -56,15 +56,6 @@ public var ratingStuff:Array<Dynamic> = [
     ['SS+', 1]
 ];
 
-function onPostNoteCreation(event) {
-    var note = event.note;
-    if (!curStage == "virtual"){
-        if (FlxG.save.data.Splashes) note.splash = "diamond";
-        else if (FlxG.save.data.Splashes == 0) note.splash = "vanilla";
-        else return;
-    }
-}
-
 function getRating(accuracy:Float):String {
     if (accuracy < 0) {
         return "?";
@@ -120,9 +111,7 @@ function create() {
     timeBar.alpha = 0;
     timeBar.value = Conductor.songPosition / Conductor.songDuration;
     timeBar.unbounded = true;
-    add(timeBarBG);
-    add(timeBar);
-    add(timeTxt);
+    if (FlxG.save.data.timeBar) for (i in [timeBarBG, timeBar, timeTxt]) add(i);
 
     timeBarBG.x = timeBar.x - 4;
     timeBarBG.y = timeBar.y - 4;
@@ -140,11 +129,11 @@ function create() {
     fpsfunniCounter.antialiasing = true;
     fpsfunniCounter.scrollFactor.set();
     fpsfunniCounter.cameras = [camFPS];
-    add(fpsfunniCounter);
     cacheCount = 0;
     currentTime = 0;
     times = [];
     finalFPS = 0;
+    add(fpsfunniCounter);
     Framerate.fpsCounter.visible = false;
     Framerate.memoryCounter.visible = false;
     Framerate.codenameBuildField.visible = false;
@@ -178,9 +167,8 @@ function update(elapsed:Float) {
     finalFPS = CoolUtil.fpsLerp(finalFPS, FlxG.elapsed == 0 ? 0 : (1 / FlxG.elapsed), 0.25);
     fpsfunniCounter.text = "FPS: " + Std.string(Math.floor(finalFPS)) + "\nMemory: " + memories + " MB";
 
-    if (memories == 3000 || finalFPS <= Options.framerate / 2) {
-        fpsfunniCounter.color = 0xFFe30000;
-    }else fpsfunniCounter.color = 0xFFA11B1B;
+    if (memories == 3000 || finalFPS <= Options.framerate / 2) fpsfunniCounter.color = 0xFFe30000;
+    else fpsfunniCounter.color = 0xFFA11B1B;
 }
 
 function onPlayerHit(event) {

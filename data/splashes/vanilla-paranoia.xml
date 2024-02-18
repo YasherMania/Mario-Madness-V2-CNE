@@ -1,0 +1,19 @@
+<!DOCTYPE codename-engine-splashes>
+<splashes sprite="game/splashes/vanilla/paranoia" antialiasing="false" alpha="0.6" scale="3.5">
+<strum id="0"> <!-- LEFT -->
+    <anim name="splashright1" anim="splash 1" fps="24" x="-2" y="1" indices="0,1,2,3" />
+    <anim name="splashright2" anim="splash 2" fps="24" x="0" y="-2" indices="0,1,2,3" />
+</strum>
+<strum id="1"> <!-- DOWN -->
+    <anim name="splashright1" anim="splash 1" fps="24" x="-2" y="1" indices="0,1,2,3" />
+    <anim name="splashright2" anim="splash 2" fps="24" x="0" y="-2" indices="0,1,2,3" />
+</strum>
+<strum id="2"> <!-- UP -->
+    <anim name="splashright1" anim="splash 1" fps="24" x="-2" y="1" indices="0,1,2,3" />
+    <anim name="splashright2" anim="splash 2" fps="24" x="0" y="-2" indices="0,1,2,3" />
+</strum>
+<strum id="3"> <!-- RIGHT -->
+    <anim name="splashright1" anim="splash 1" fps="24" x="-2" y="1" indices="0,1,2,3" />
+    <anim name="splashright2" anim="splash 2" fps="24" x="0" y="-2" indices="0,1,2,3" />
+</strum>
+</splashes>

@@ -29,7 +29,7 @@ function beatHit(){
 
 function stepHit(){
     if (FlxG.save.data.virtualWindow){
-        switch (curStep){
+        switch(curStep){
             case 320:
                 window.x = changex - 20;
                 window.y = changey + 50;
@@ -74,19 +74,25 @@ function stepHit(){
             case 935:
                 for (i in [tweenWindow2X, tweenWindow2Y]) i.active = false;
                 FlxTween.tween(window, {x: winX, y: winY}, .5, {ease: FlxEase.cubeInOut});
-            case 1168: 
-                timer = .75;
-                timerTween = FlxTween.num(.75, .075, 1, {ease: FlxEase.quartIn, onUpdate: (_) -> {
-                    timer = .075;
-                }});
-            case 1232:
-                gfCamX = 1350;
-                FlxG.camera.followLerp = .005;
-                FlxTween.tween(camGame, {zoom: .775}, 4, {ease: FlxEase.quadInOut}).onComplete = function(){
-                    bfZoom = .775;
-                }
-            case 1288, 1292, 1294: FlxTween.tween(camGame, {zoom: defaultCamZoom + .075}, .25, {ease: FlxEase.quintOut}).onComplete = function(){bfZoom = camGame.zoom + .075;}
-            case 1296: if (FlxG.save.data.flashingLights) camGame.flash(FlxColor.BLACK, 1);
         }
+    }
+
+    switch(curStep){
+        case 1168: 
+            timer = .75;
+            timerTween = FlxTween.num(.75, .075, 1, {ease: FlxEase.quartIn, onUpdate: (_) -> {
+                timer = .075;
+            }});
+        case 1232:
+            gfCamX = 1350;
+            FlxG.camera.followLerp = .005;
+            FlxTween.tween(camGame, {zoom: .775}, 4, {ease: FlxEase.quadInOut}).onComplete = function(){
+                bfZoom = .775;
+            }
+        case 1288, 1292, 1294:
+            FlxTween.tween(camGame, {zoom: defaultCamZoom + .075}, .25, {ease: FlxEase.quintOut}).onComplete = function(){bfZoom = camGame.zoom + .075;}
+        case 1296:
+            if (FlxG.save.data.flashingLights)
+                camGame.flash(FlxColor.BLACK, 1);
     }
 }
