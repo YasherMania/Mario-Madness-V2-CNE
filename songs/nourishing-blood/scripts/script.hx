@@ -1,6 +1,9 @@
 var followchars = false;
 
 function onCameraMove(e) {
+    // Event for when the camera moves
+    // I don't want it to move in the cutscene hence
+    //why the if statement here
     if (!followchars) e.cancel();
 }
 
@@ -27,12 +30,14 @@ function grandDadIntro() {
         gdtitleSpr.x + (gdtitleSpr.width / 2),
         gdtitleSpr.y + (gdtitleSpr.height / 2)
     );
+    // Cam fade in
     camGame.fade(FlxColor.BLACK, Conductor.crochet / 1500, true, function() {
         defaultCamZoom = 0.4;
         trace("camGame faded in");
     });
 }
 
+// Function for cam snapping like the og mod
 function snapCamTo(x:Float, y:Float) {
     camFollow.setPosition(x, y);
     camGame.snapToTarget();
@@ -56,7 +61,7 @@ function beatHit() {
                 {onComplete: function() remove(hamster)} // Self explanatory, right?
             );
 
-        case 4: followchars = true;
+        case 4: followchars = true; // Make camera focus on characters because the cutscene ended
         case 68: defaultCamZoom = 0.65;
     }
 if (curBeat >= 4 && curBeat <= 228) {
