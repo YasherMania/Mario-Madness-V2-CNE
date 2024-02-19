@@ -1,0 +1,7 @@
+<!DOCTYPE codename-engine-character> <!-- Made with WizardMantis's Character Converter -->
+<character y="350" flipX="true">
+	<anim name="idle" anim="BF idle dance" x="-5"/>
+	<anim name="firstDeath" anim="BF dies" x="97" y="181"/>
+	<anim name="deathLoop" anim="BF Dead Loop" x="-60" y="181"/>
+	<anim name="deathConfirm" anim="BF Dead confirm" x="167" y="209"/>
+</character>

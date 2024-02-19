@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="gdad" camx="-30" y="200" isGF="false" scale="1.2" camy="-60" isPlayer="false" sprite="grand">
+	<anim x="-85" loop="false" y="6" fps="24" anim="GrandIdle" name="idle"/>
+	<anim x="-35" loop="false" y="-170" fps="24" anim="GrandDown" name="singDOWN"/>
+	<anim x="-66" loop="false" y="13" fps="24" anim="GrandLeft" name="singLEFT"/>
+	<anim x="-40" loop="false" y="136" fps="24" anim="GrandUp" name="singUP"/>
+	<anim x="-108" loop="false" y="10" fps="24" anim="GrandRight" name="singRIGHT"/>
+</character>

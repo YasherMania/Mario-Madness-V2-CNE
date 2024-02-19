@@ -1,0 +1,9 @@
+<stage zoom="0.65" name="bootleg" folder="stages/bootleg">
+    <solid name="bg" color="#165fd9" width="0" height="0"/> <!--When getDefault isn't set, so you have to-->
+    <sprite name="gdtitle" x="" y="-1000" sprite="gdtitle" scale="1"/>
+    <sprite name="hamster" x="180" y="-1000" sprite="hamster" scale="0.95"/>
+    <sprite name="start" x="400" y="1500" sprite="start" antialiasing="false" />
+    <girlfriend x="400" y="450"/>
+    <dad x="-300" y="590"/>
+    <boyfriend x="1200" y="525" camxoffset="-300"/>
+</stage>
