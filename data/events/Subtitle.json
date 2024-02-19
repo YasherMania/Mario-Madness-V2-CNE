@@ -1,0 +1,29 @@
+{
+	"params": [
+		{
+			"name": "Text",
+			"type": "String",
+			"defaultValue": ""
+		},
+		{
+			"name": "Color",
+			"type": "ColorWheel",
+			"defaultValue": "WHITE"
+		},
+        {
+            "name": "Scale",
+            "type": "String",
+            "defaultValue": "1"
+        },
+        {
+            "name": "Font Type",
+            "type": "DropDown('ttf', 'otf')",
+            "defaultValue": "ttf"
+        },
+        {
+            "name": "Font",
+            "type": "String",
+            "defaultValue": "vcr"
+        }
+	]
+}

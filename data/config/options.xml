@@ -1,8 +1,19 @@
 <!DOCTYPE codename-mod-options>
 <menu name="Mario Options" desc="Options for Mario's Madness">
-    <checkbox id="flashingLights" name="Flashing Lights" desc="If checked, flashing lights will occur in menus and songs. Disable if you are sensitive to this!"/>
-    <checkbox id="streamerMode" name="Streamer Mode" desc="Changes parameters that can be annoying when playing. If you are a streamer or if you are recording this game, we recommend you to activate this option. (This does not disable other options in this menu.)"/>
-    <menu name="Accessability Options">
+    <menu name="Gameplay">
+        <menu name="Mr Virtual Options">
+            <checkbox id="virtualWindow" name="Window Mechanics" desc="If checked, windows will move around while playing Paranoia. You can disable if you find this annoying."/>
+            <checkbox id="virtualTrans" name="Transparent Window" desc="If checked, the window will go transparent during a specific part in Paranoia. May or may not work depending on your pc specs!!"/>
+            <checkbox id="virtualWallpaper" name="Wallpaper" desc="If checked, the wallpaper will get changed during a specific part in Paranoia. Your original wallpaper comes back when ending, restarting, or leaving the song though!"/>
+            <checkbox id="virtualApps" name="Hide Apps" desc="If checked, all of your apps running in the background will get hidden during a specific part in Paranoia. This will not fully close your apps by the way, so you don't have to worry about your work being lost!"/>
+            <checkbox id="virtualShaders" name="Shaders" desc="If checked, shaders will occur in paranoia. Disable if you're sensitive to cameras duplicating and/or if you are sensitive to flashy shaders."/>
+        </menu>
+        <checkbox id="streamerMode" name="Streamer Mode" desc="Changes parameters that can be annoying when playing. If you are a streamer or if you are recording this game, we recommend you to activate this option. (This does not disable other options in this menu.)"/>
+    </menu>
+    <menu name="Visual">
+        <checkbox id="flashingLights" name="Flashing Lights" desc="If checked, flashing lights will occur in menus and songs. Disable if you are sensitive to this!"/>
+    </menu>
+    <menu name="Accessability">
         <number id="transparency_value" name="alpha" desc="Sets the transparency of the screen filter,&#xA;increase it if you have a hard time seeing notes" min="0" max="0.9" change="0.1"/>
     </menu>
     <checkbox id="peppino" name="Funny Alone" desc="If checked, it will play the 'Peppino, that is my name.. Peppino, pizza tower's my name' sound clip."/>
@@ -10,7 +21,13 @@
 
 <menu name="Psych UI options" desc="Psych UI options real"> <!-- Options will change this is so Psych UI doesn't begin to freak out -->
     <number id="PauseMusic" name="Choose pause music" desc="Choose between breakfast [0] or tea-time! [1]" min="0" max="1" change="1"/>
-    <number id="Splashes" name="Choose Splashes" desc="Choices: Vanilla [0] | diamond [1]" min="0" max="1" change="1"/>
+    <choice id="Splashes" name="Splashes" desc="Choose your type of note splashes!">
+        <value name="Codename" value="splashCne" />
+        <value name="Psych" value="splashPsych" />
+        <value name="Diamond" value="splashDiamond"/>
+        <value name="Secret" value="splashSecret"/>
+        <value name="Disabled" value="splashDisabled" />
+    </choice>
     <checkbox id="botplayOption" name="Botplay" desc="Enables botplay!" />
     <checkbox id="colouredBar" name="Coloured Timebar" desc="Makes the TimeBar coloured based on the opponents healthbar colour." />
     <checkbox id="showBar" name="Hide Timebar" desc="Hides the TimeBar."/>

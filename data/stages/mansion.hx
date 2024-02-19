@@ -2,7 +2,6 @@ import openfl.Lib;
 
 var shader:CustomShader = null;
 var shader2:CustomShader = null;
-
 function create() {
         Lib.application.window.title="Friday Night Funkin': Mario's Madness | Iason Mason | KennyL ft GP, VanScotch, Scrubb & Dewott GAMERRR";
 	shader = new CustomShader("hueshift");

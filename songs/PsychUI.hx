@@ -56,20 +56,6 @@ public var ratingStuff:Array<Dynamic> = [
     ['SS+', 1]
 ];
 
-function onPostNoteCreation(event) {    
-    if (FlxG.save.data.Splashes) {
-    	var note = event.note;
-	    note.splash = "diamond";
-    }
-    else if (FlxG.save.data.Splashes == 0) {
-        var note = event.note;
-        note.splash = "vanilla";
-    }
-    else if (FlxG.save.data.Splashes == null) {
-        return;
-    }
-}
-
 function getRating(accuracy:Float):String {
     if (accuracy < 0) {
         return "?";
@@ -125,9 +111,7 @@ function create() {
     timeBar.alpha = 0;
     timeBar.value = Conductor.songPosition / Conductor.songDuration;
     timeBar.unbounded = true;
-    add(timeBarBG);
-    add(timeBar);
-    add(timeTxt);
+    if (FlxG.save.data.timeBar) for (i in [timeBarBG, timeBar, timeTxt]) add(i);
 
     timeBarBG.x = timeBar.x - 4;
     timeBarBG.y = timeBar.y - 4;
@@ -140,16 +124,16 @@ function create() {
 
     FlxG.cameras.add(camFPS = new HudCamera(), false);
     camFPS.bgColor = 0;
-    fpsfunniCounter = new FlxText(10,10, 400, 18);
-    fpsfunniCounter.setFormat("_sans", 14, FlxColor.WHITE, "LEFT");
+    fpsfunniCounter = new FlxText(10, 8, 400, 18);
+    fpsfunniCounter.setFormat("Mario2.ttf", 10, 0xFFA11B1B);
     fpsfunniCounter.antialiasing = true;
     fpsfunniCounter.scrollFactor.set();
     fpsfunniCounter.cameras = [camFPS];
-    add(fpsfunniCounter);
     cacheCount = 0;
     currentTime = 0;
     times = [];
     finalFPS = 0;
+    add(fpsfunniCounter);
     Framerate.fpsCounter.visible = false;
     Framerate.memoryCounter.visible = false;
     Framerate.codenameBuildField.visible = false;
@@ -183,16 +167,15 @@ function update(elapsed:Float) {
     finalFPS = CoolUtil.fpsLerp(finalFPS, FlxG.elapsed == 0 ? 0 : (1 / FlxG.elapsed), 0.25);
     fpsfunniCounter.text = "FPS: " + Std.string(Math.floor(finalFPS)) + "\nMemory: " + memories + " MB";
 
-    if (memories == 3000 || finalFPS <= FlxG.save.data.Framerate / 2) {
-        fpsfunniCounter.color = FlxColor.RED;
-    }
+    if (memories == 3000 || finalFPS <= Options.framerate / 2) fpsfunniCounter.color = 0xFFe30000;
+    else fpsfunniCounter.color = 0xFFA11B1B;
 }
 
 function onPlayerHit(event) {
     if (event.note.isSustainNote) return;
 
     if(hudTxtTween != null) hudTxtTween.cancel();
-    hudTxt.scale.x = hudTxt.scale.y = 1.075;
+    hudTxt.scale.x = hudTxt.scale.y = 1.1;
     hudTxtTween = FlxTween.tween(hudTxt.scale, {x: 1, y: 1}, 0.2, {onComplete: function(twn:FlxTween) {hudTxtTween = null;}});
 
     switch (event.rating) {
