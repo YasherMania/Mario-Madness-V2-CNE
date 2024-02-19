@@ -1,0 +1,13 @@
+{
+	"params": [
+		{
+			"name": "Only Left?",
+			"type": "Bool",
+			"defaultValue": "false"
+		}, {
+			"name": "Only Right?",
+			"type": "Bool",
+			"defaultValue": "false"
+		}
+	]
+}

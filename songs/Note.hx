@@ -5,3 +5,7 @@ function onNoteCreation(event) {
 function onStrumCreation(event) {
     event.sprite = 'game/notes/Mariodefault';
 }
+
+function postCreate() {
+    disableScript();
+}

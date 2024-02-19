@@ -1,0 +1,17 @@
+<!DOCTYPE codename-engine-character>
+<character x="-150" icon="bfcommercial" camx="-300" y="50" isGF="false" flipX="true" isPlayer="true" sprite="YouCannotBeatUS_BF_Assets" color="#31b0d1">
+	<anim x="-5" loop="false" y="0" fps="24" anim="BF idle dance" name="idle"/>
+	<anim x="-15" loop="false" y="0" fps="24" anim="BF NOTE LEFT0" name="singLEFT"/>
+	<anim x="-22" loop="false" y="0" fps="24" anim="BF NOTE DOWN0" name="singDOWN"/>
+	<anim x="-31" loop="false" y="0" fps="24" anim="BF NOTE UP0" name="singUP"/>
+	<anim x="-15" loop="false" y="-1" fps="24" anim="BF NOTE RIGHT0" name="singRIGHT"/>
+	<anim x="25" loop="false" y="0" fps="24" anim="BF NOTE LEFT ALT" name="singLEFT-alt"/>
+	<anim x="-22" loop="false" y="0" fps="24" anim="BF NOTE DOWN ALT" name="singDOWN-alt"/>
+	<anim x="29" loop="false" y="0" fps="24" anim="BF NOTE UP ALT" name="singUP-alt"/>
+	<anim x="15" loop="false" y="-1" fps="24" anim="BF NOTE RIGHT ALT" name="singRIGHT-alt"/>
+	<anim x="-5" loop="false" y="-1" fps="24" anim="BF Hey" name="hey"/>
+	<anim x="-15" loop="false" y="0" fps="24" anim="BF NOTE LEFT MISS" name="singLEFTmiss"/>
+	<anim x="-22" loop="false" y="0" fps="24" anim="BF NOTE DOWN MISS" name="singDOWNmiss"/>
+	<anim x="-31" loop="false" y="0" fps="24" anim="BF NOTE UP MISS" name="singUPmiss"/>
+	<anim x="-15" loop="false" y="-1" fps="24" anim="BF NOTE RIGHT MISS" name="singRIGHTmiss"/>
+</character>

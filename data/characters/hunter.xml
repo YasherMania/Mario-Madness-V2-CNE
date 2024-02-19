@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character>
+<character x="-300" icon="hunt" camx="-30" y="30" isGF="false" camy="-60" isPlayer="false" sprite="YouCannotBeatUS_DuckHunt" color="#915834">
+	<anim x="-85" loop="false" y="6" fps="24" anim="Idle" name="idle"/>
+	<anim x="-105" loop="false" y="10" fps="24" anim="Down" name="singDOWN"/>
+	<anim x="-103" loop="false" y="6" fps="24" anim="Left" name="singLEFT"/>
+	<anim x="-100" loop="false" y="6" fps="24" anim="Up" name="singUP"/>
+	<anim x="-78" loop="false" y="0" fps="24" anim="Right" name="singRIGHT"/>
+</character>

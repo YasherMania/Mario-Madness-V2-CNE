@@ -1,0 +1,24 @@
+{
+	"params": [
+		{
+			"name": "Text",
+			"type": "String",
+			"defaultValue": ""
+		},
+		{
+			"name": "Black?",
+			"type": "Bool",
+			"defaultValue": "false"
+		},
+		{
+			"name": "Gyromite Chant?",
+			"type": "Bool",
+			"defaultValue": "false"
+		},
+		{
+			"name": "Lakitu Chant?",
+			"type": "Bool",
+			"defaultValue": "false"
+		}
+	]
+}

@@ -1,9 +1,15 @@
-static var icoP1:HealthIcon;
-static var icoP2:HealthIcon;
+public var icoP1:HealthIcon;
+public var icoP2:HealthIcon;
 
-static var flipIcoBop:Bool = false; // use this for when bf is on the other side!! (like for day out for example)
+public var flipIcoBop:Bool = false; // use this for when bf is on the other side!! (like for day out for example)
+public var disableIcons:Bool = false;
 
 function postCreate() {
+    if (disableIcons) {
+        disableScript();
+        return;
+    }
+    
     icoP1 = new HealthIcon(boyfriend != null ? boyfriend.getIcon() : "face", true);
     icoP2 = new HealthIcon(dad != null ? dad.getIcon() : "face", false);
     for(ico in [icoP1, icoP2]) {

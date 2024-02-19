@@ -1,0 +1,29 @@
+<!DOCTYPE codename-engine-stage>
+<stage zoom="0.9" name="nesbeat" folder="stages/nesbeat">
+	<!-- you cannot beat us -->
+    <sprite name="bg" sprite="bars" scale="3" scroll="0"/>
+
+    <!-- aim your zapper guns -->
+	<box name="duckbg" width="1423" height="800" color="#FFFFFF"/>
+	<sprite name="ducktree" sprite="tree" x="-600" y="-100" scroll="0.6" scale="6.5" antialiasing="false"/>
+	<sprite name="duckleafs" sprite="arbust" x="1600" y="400" scroll="0.8" scale="6.5" antialiasing="false"/>
+	<sprite name="duckfloor" sprite="grass" x="0" y="550" scale="6.5" antialiasing="false"/>
+	
+    <!-- discover new worlds -->
+    <sprite name="bowbg" sprite="castle" x="-700" y="800" scroll="0.4" scale="5" updateHitbox="true" antialiasing="false"/>
+    <sprite name="bowbg2" sprite="castle2" x="-700" y="-400" scroll="0.4" scale="5" updateHitbox="true" antialiasing="false"/>
+    <sprite name="bowplat" sprite="platnes" x="1600" y="300" scroll="0.5" scale="5" updateHitbox="true" antialiasing="false"/>
+    <sprite name="bowlava" sprite="neslava" x="-300" y="900" scroll="0.85" scale="5" updateHitbox="true" antialiasing="false">
+        <anim name="idle" anim="lava hot ow ow its too hot aaa" fps="5" loop="true"/>
+    </sprite>
+
+	<solid name="blackinfrontobowser" width="1423" height="800" color="#000000"/>
+
+	<solid name="screencolor" width="1423" height="800" color="#FF0000"/>
+	<solid name="blackBarThingie" width="1423" height="800" color="#000000"/>
+    <sprite name="ycbuCrosshair" sprite="duckCrosshair" scale="28" antialiasing="false"/>
+	
+    <dad x="400" y="100"/>
+    <gf x="250" y="150"/>
+	<bf x="100" y="150"/>
+</stage>

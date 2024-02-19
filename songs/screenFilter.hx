@@ -9,4 +9,5 @@ function postCreate() {
     if (FlxG.save.data.transparency_value != 0) {
         camHUD.bgColor = FlxColor.fromRGBFloat(0, 0, 0, FlxG.save.data.transparency_value);
     }
+    disableScript();
 }

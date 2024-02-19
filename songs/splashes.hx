@@ -8,9 +8,12 @@ function onPostNoteCreation(event) {
         note.splash = "secret";
 }
 
-function postCreate()
+function postCreate() {
     if (FlxG.save.data.Splashes == "splashDisabled")
         splashHandler.visible = false;
 
     if (curStage == "virtual")
         disableScript();
+
+    disableScript();
+}
