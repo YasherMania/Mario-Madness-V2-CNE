@@ -29,6 +29,8 @@ public var border:CustomShader;
 public var beatend:CustomShader;
 public var angel:CustomShader;
 function postCreate() {
+    multipleIcons = true;
+
     iconSys = new HealthIcon("sys", false);
     iconHunter = new HealthIcon("hunt", false);
     iconBowser = new HealthIcon("bowser", false);
@@ -71,15 +73,35 @@ function update(elapsed:Float) {
         angel.data.pixel.value[0] = FlxMath.lerp(angel.data.pixel.value[0], 1, FlxMath.bound(elapsed * 4, 0, 1));
         angel.data.iTime.value = [Conductor.songPosition / 1000];
     }
+
+    if (startingSong || !canPause || paused || health <= 0) return;
+    updateSpeed(FlxG.keys.pressed.TWO);
+
+    if (FlxG.keys.pressed.THREE)
+        player.cpu = true;
+}
+
+function updateSpeed(fast:Bool) {
+    if (!PlayState.opponentMode) {
+        FlxG.timeScale = inst.pitch = vocals.pitch = (player.cpu = fast) ? 10 : 1;
+        FlxG.sound.muted = fast;
+        health = !(canDie != fast) ? 2 : health;
+    }
 }
 
 function postUpdate() {
     healthBar.updateHitbox();
     for (i in [iconSys, iconHunter, iconBowser]) {
-        i.setPosition(iconP2.x + iconPos[iconOrder.indexOf(i)][0], iconP2.y + iconPos[iconOrder.indexOf(i)][1]);
-        i.scale.set(iconP2.scale.x, iconP2.scale.y);
-        i.updateHitbox();
+        i.x = healthBar.x + iconPos[iconOrder.indexOf(i)][0] + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 1, 0))) - (i.width - 26);
+        i.y = icoP1.y + iconPos[iconOrder.indexOf(i)][1];
         i.health = iconP2.health;
         i.alpha = iconP2.alpha;
     }
 }
+
+function beatHit()
+    for (i in [iconSys, iconHunter, iconBowser]){
+        i.scale.set(1.1, 1.1);
+        FlxTween.tween(i.scale, {x: 1, y: 1}, (0.5 * (1 / (Conductor.bpm / 60))), {ease: FlxEase.cubeOut});
+        i.origin.set(175, 77.5);
+    }
