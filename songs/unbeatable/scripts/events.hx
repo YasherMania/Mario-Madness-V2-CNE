@@ -300,7 +300,6 @@ function stepHit(c) {
             fireBar.visible = true;
             fireBar.angle = 180;
             fireBar.y = 750;
-            trace(fireBar.y);
             FlxTween.tween(fireBar, {y: 450}, (2 / (Conductor.bpm / 60)), {ease: FlxEase.expoOut});
         case 3856: // bye firebar
             FlxTween.tween(fireBar, {y: 750}, (2 / (Conductor.bpm / 60)), {ease: FlxEase.backIn});
