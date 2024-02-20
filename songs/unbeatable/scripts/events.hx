@@ -3,7 +3,8 @@
 import flixel.text.FlxText.FlxTextAlign;
 import flixel.addons.display.FlxBackdrop;
 
-var camMovement:Bool = true;
+var dadZoom:Float = 0.9;
+var bfZoom:Float = 1;
 
 introLength = 4;
 function onCountdown(e)
@@ -145,12 +146,6 @@ function stepHit(c) {
             FlxTween.tween(camHUD, {alpha: 1}, 5, {ease: FlxEase.quadInOut});
         case 128:
             stage("blackinfrontobowser").alpha = 0;
-        case 256, 544, 864, 928, 992, 1056:
-            cZoomingInterval = 1;
-            // 162342.925479429/(((60 / 143) * (1000/4))) step == 1547
-        case 505, 842, 896, 960, 1024, 1090: // fix the 1090 one
-            cZoomingInterval = 4;
-
         case 1344: // we are nintendo
             for (i in 0...4)
                 FlxTween.tween(cpuStrums.members[i], {alpha: 0}, cFloat(8), {ease: FlxEase.quadInOut});
@@ -163,7 +158,6 @@ function stepHit(c) {
         case 1376:
             angel.data.stronk.value[0] = 0.325;
             showHeads();
-            cZoomingInterval = 1;
         case 1392, 1408, 1424, 1440, 1574, 1606, 1638, 1670:
             angel.data.stronk.value[0] = 0.1;
             swapHeads();
@@ -174,7 +168,6 @@ function stepHit(c) {
         case 1516, 1548:
             swapHeads();
         case 1568, 1600, 1632, 1664:
-            cZoomingInterval = 4; // i give up
             angel.data.stronk.value[0] = 0.1;
             stopHeads();
             skipHeads();
@@ -199,6 +192,8 @@ function stepHit(c) {
                 FlxTween.tween(i, {alpha: 0}, 2, {ease: FlxEase.quadInOut});
         case 1728: // you cannot beat us
             var tempY:Float = dad.y;
+
+            bfZoom = 1;
 
             setDad("hunter", true);
 
@@ -294,8 +289,11 @@ function stepHit(c) {
                 FlxTween.tween(dad, {y: (tempY)}, 1, {ease: FlxEase.quadInOut});
             }});
         case 3216:
+            dadZoom = 1;
             stage("screencolor").alpha = 0.7;
             FlxTween.tween(stage("screencolor"), {alpha: 0}, (1 / (Conductor.bpm / 60)));
+        case 3280:
+            dadZoom = 0.9;
         case 3344: // firebar
             fireBar.visible = true;
             fireBar.angle = 180;
@@ -303,10 +301,13 @@ function stepHit(c) {
             trace(fireBar.y);
             FlxTween.tween(fireBar, {y: downscroll ? 250 : 450}, (2 / (Conductor.bpm / 60)), {ease: FlxEase.expoOut});
         case 3856: // bye firebar
+            dadZoom = 1.1;
             FlxTween.tween(fireBar, {y: 750}, (2 / (Conductor.bpm / 60)), {ease: FlxEase.backIn});
             new FlxTimer().start((2 / (Conductor.bpm / 60)), function(tmr:FlxTimer) {
                 fireBar.visible = false;
             });
+        case 3864:
+            dadZoom = 1;
         case 3991: // moved it back a curstep just in case
             setHeads("lakitu");
         case 3992:
@@ -321,6 +322,14 @@ function stepHit(c) {
         case 4120:
             angel.data.stronk.value[0] = 0.325;
             ycbuLightningL.alpha = ycbuLightningR.alpha = ycbuHeadL.alpha = ycbuHeadR.alpha = 0.001;
+        case 4136, 4168:
+            bfZoom = 1.125;
+        case 4150, 4184:
+            bfZoom = 1;
+        case 4200, 4232:
+            dadZoom = bfZoom = 1.125;
+        case 4214:
+            dadZoom = 1;
         case 4246: // not needed but ima keep just in case
             setHeads("lakitu");
         case 4247: // note to self check why this number feels weird
@@ -353,6 +362,12 @@ function stepHit(c) {
                 FlxTween.tween(clownCar, {y: -1100}, 2, {ease: FlxEase.quintIn});
                 FlxTween.tween(clownCar.scale, {x: 4, y: 4}, 2, {ease: FlxEase.cubeOut});
             });
+        case 4552:
+            bfZoom = 1.15;
+        case 4565:
+            bfZoom = 1.2;
+        case 4568:
+            bfZoom = dadZoom = 0.9;
         case 4704:
             ycbuWhite.color = FlxColor.BLACK;
             FlxTween.tween(camHUD, {alpha: 0}, 0.5, {ease: FlxEase.quadInOut});
@@ -415,6 +430,8 @@ function stepHit(c) {
             if (health > 1)
                 health = 1;
 
+        case 4800:
+            bfZoom = 1;
         case 4943:
             setHeads("you cannot beat us lololol");
         case 4944:
@@ -488,6 +505,8 @@ function stepHit(c) {
 
             stage("blackinfrontobowser").alpha = 0.85;
             cutbg.visible = cutskyline.visible = cutstatic.visible = false;
+        case 5712:
+            bfZoom = 0.9;
         case 5840:
             /* triggers universal 18 "0.03, 1"
                 var split:Array<String> = value2.split(',');
@@ -987,32 +1006,16 @@ function onNoteHit(e:NoteHitEvent) {
         //     e.characters = [dadChars["mrSYS"], dadChars["mrSYSwb"], dadChars["hunter"], dadChars["koopa"]];
         // else
         //     e.characters = [dadChars["mrSYS"], dadChars["mrSYSwb"], dadChars["hunter"]];
-
-    switch (e.note.noteType) {
-        case "Alt Animation":
-            e.animSuffix = '-alt';
-        case "No Animation":
-            e.preventAnim();
-        case "Hey!":
-            e.preventAnim();
-            boyfriend.playAnim("hey", true);
-            gf.playAnim("hey", true);
-        case "Yoshi Note": // used for bowser at end chant
-            //e.cancel();
-            e.preventAnim();
-            dadChars["koopa"].animation.play(["singLEFT", "singDOWN", "singUP", "singRIGHT"][e.direction], true);
-    }
 }
 
 function postUpdate() {
     camFollow.setPosition(620, 450);
-    if (camMovement)
-        switch (strumLines.members[curCameraTarget].characters[0].getAnimName()) {
-            case "singLEFT", "singLEFT-alt": camFollow.x -= 20;
-            case "singDOWN", "singDOWN-alt": camFollow.y += 20;
-            case "singUP", "singUP-alt": camFollow.y -= 20;
-            case "singRIGHT", "singRIGHT-alt": camFollow.x += 20;
-        }
+
+    if (curCameraTarget == 1){
+        defaultCamZoom = bfZoom;
+    }else{
+        defaultCamZoom = dadZoom;
+    }
 }
 
 function cFloat(s:Float) {
@@ -1116,4 +1119,8 @@ function setIcon(people:Array<String>) {
     if (people[0] == "mrSYS") iconOrder = [iconSys, iconHunter, iconBowser];
     if (people[0] == "hunter") iconOrder = [iconHunter, iconBowser, iconSys];
     if (people[0] == "koopa") iconOrder = [iconBowser, iconSys, iconHunter];
+}
+
+function destroy() {
+    bfZoom = dadZoom = 0.9;
 }
