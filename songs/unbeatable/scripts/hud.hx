@@ -81,9 +81,10 @@ function update(elapsed:Float) {
         player.cpu = true;
 }
 
+// this is here just for testing reasons LOL, will remove when port is fully finished - apurples
 function updateSpeed(fast:Bool) {
     if (!PlayState.opponentMode) {
-        FlxG.timeScale = inst.pitch = vocals.pitch = (player.cpu = fast) ? 10 : 1;
+        FlxG.timeScale = inst.pitch = vocals.pitch = (player.cpu = fast) ? 20 : 1;
         FlxG.sound.muted = fast;
         health = !(canDie != fast) ? 2 : health;
     }

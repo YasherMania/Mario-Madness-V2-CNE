@@ -298,9 +298,10 @@ function stepHit(c) {
             FlxTween.tween(stage("screencolor"), {alpha: 0}, (1 / (Conductor.bpm / 60)));
         case 3344: // firebar
             fireBar.visible = true;
-            fireBar.angle = downscroll ? -180 : 180;
-            fireBar.y = downscroll ? -400 : 750;
-            FlxTween.tween(fireBar, {y: downscroll ? -100 : 450}, (2 / (Conductor.bpm / 60)), {ease: FlxEase.expoOut});
+            fireBar.angle = 180;
+            fireBar.y = 750;
+            trace(fireBar.y);
+            FlxTween.tween(fireBar, {y: 450}, (2 / (Conductor.bpm / 60)), {ease: FlxEase.expoOut});
         case 3856: // bye firebar
             FlxTween.tween(fireBar, {y: 750}, (2 / (Conductor.bpm / 60)), {ease: FlxEase.backIn});
             new FlxTimer().start((2 / (Conductor.bpm / 60)), function(tmr:FlxTimer) {
