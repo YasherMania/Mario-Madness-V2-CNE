@@ -12,6 +12,7 @@
     </menu>
     <menu name="Visual">
         <checkbox id="flashingLights" name="Flashing Lights" desc="If checked, flashing lights will occur in menus and songs. Disable if you are sensitive to this!"/>
+        <checkbox id="tvShader" name="TV Shaders" desc="If checked, tv shaders will display in menus, songs, etc. Can drain down fps on some lower end pcs."/>
     </menu>
     <menu name="Accessability">
         <number id="transparency_value" name="alpha" desc="Sets the transparency of the screen filter,&#xA;increase it if you have a hard time seeing notes" min="0" max="0.9" change="0.1"/>

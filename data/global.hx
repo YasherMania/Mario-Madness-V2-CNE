@@ -47,6 +47,7 @@ function new(){
     if (FlxG.save.data.virtualApps == null) FlxG.save.data.virtualApps = true;
     if (FlxG.save.data.virtualShaders == null) FlxG.save.data.virtualShaders = true;
     if (FlxG.save.data.transparency_value == null) FlxG.save.data.transparency_value = 0;
+    if (FlxG.save.data.tvShader == null) FlxG.save.data.tvShader = true;
 
     // UI Options
     if (FlxG.save.data.Splashes == null) FlxG.save.data.Splashes = 0;

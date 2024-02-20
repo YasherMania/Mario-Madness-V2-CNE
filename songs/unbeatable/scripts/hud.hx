@@ -10,7 +10,7 @@ function create() {
     camEst.bgColor = 0x00000000;
     FlxG.cameras.add(camEst, false);
 
-    disableIcons = true;
+    //disableIcons = true;
 }
 
 public var iconSys:HealthIcon; // sys guy
@@ -55,7 +55,7 @@ function postCreate() {
     angel.data.pixel.value = [1, 1];
     angel.data.stronk.value = [1, 1];
 
-    for (i in [camGame, camHUD, camEst]) {
+    if (FlxG.save.data.tvShader) for (i in [camGame, camHUD, camEst]) {
         i.addShader(vcr);
         i.addShader(border);
     }
