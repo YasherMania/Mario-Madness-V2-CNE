@@ -4,7 +4,7 @@ import flixel.text.FlxText.FlxTextAlign;
 import flixel.addons.display.FlxBackdrop;
 
 var dadZoom:Float = 0.9;
-var bfZoom:Float = 1;
+var bfZoom:Float = 0.9;
 
 introLength = 4;
 function onCountdown(e)

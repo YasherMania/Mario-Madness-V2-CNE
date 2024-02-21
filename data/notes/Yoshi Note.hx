@@ -1,3 +1,5 @@
+// may have to mess with this later
+
 function onNoteHit(e)
     if (e.noteType == "Yoshi Note"){
         e.preventAnim();
