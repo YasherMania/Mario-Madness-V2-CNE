@@ -6,7 +6,7 @@ var iconGlitch:FlxSprite;
 function postCreate() {
     iconGlitch = new FlxSprite().makeGraphic(Std.int(iconP1.width / 2), Std.int(iconP1.height / 2), FlxColor.WHITE);
     iconGlitch.cameras = [camHUD];
-    iconGlitch.alpha = 0.0001;
+    iconGlitch.visible = false;
     insert(members.indexOf(iconP1) + 1, iconGlitch);
 
     fireBar = new FlxSprite(80, 750);
@@ -24,14 +24,15 @@ function postCreate() {
 
 function onEvent(_) {
     if (_.event.name == "Hunter Glitch") {
-        iconGlitch.setPosition(iconP1.x + 60, iconP1.y + 30);
-        iconGlitch.alpha = 1;
+        iconGlitch.setPosition(icoP1.x + 60, icoP1.y + 30);
+        iconGlitch.visible = true;
         new FlxTimer().start(0.05, function() {
-            iconP1.color = 0x000000;
-            iconGlitch.alpha = 0.0001;
-            new FlxTimer().start(0.05, function() {
-                iconP1.color = 0xFFFFFF;
-            });
+            icoP1.color = 0x000000;
+            iconGlitch.visible = false;
+        });
+
+        new FlxTimer().start(0.1, function() {
+            icoP1.color = 0xFFFFFF;
         });
 
         FlxTween.num(health, health - 0.1, 0.1, {ease: FlxEase.quadOut}, (val) -> {
@@ -76,8 +77,8 @@ function update(elapsed:Float) {
             if (fireBar.angle == placeVals[i][0] && fireBar.animation.frameIndex >= placeVals[i][1] && fireBar.animation.frameIndex <= placeVals[i][2]) {
                 if (health > placeVals[i][3]) {
                     health -= elapsed * 2;
-                    FlxTween.angle(iconP1, FlxG.random.float(-20, 20), 0, ((1 / (Conductor.bpm / 60))), {ease: FlxEase.backOut});
-                    FlxTween.color(iconP1, (1 / (Conductor.bpm / 60)), 0xFF3B3B3B, FlxColor.WHITE, {ease: FlxEase.circOut});
+                    FlxTween.angle(icoP1, FlxG.random.float(-20, 20), 0, ((1 / (Conductor.bpm / 60))), {ease: FlxEase.backOut});
+                    FlxTween.color(icoP1, (1 / (Conductor.bpm / 60)), 0xFF3B3B3B, FlxColor.WHITE, {ease: FlxEase.circOut});
                 }
             }
         }

@@ -1,5 +1,5 @@
-public var icoP1:HealthIcon;
-public var icoP2:HealthIcon;
+static var icoP1:HealthIcon;
+static var icoP2:HealthIcon;
 
 public var flipIcoBop:Bool = false; // use this for when bf is on the other side!! (like for day out for example)
 public var multipleIcons:Bool = false; // use when the song youre porting has multiple icons for the opponent (like all stars for example)

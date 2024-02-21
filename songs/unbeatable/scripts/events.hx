@@ -152,7 +152,7 @@ function stepHit(c) {
         case 1360: // you cannot beat us
             for (i in 0...4)
                 FlxTween.tween(playerStrums.members[i], {x: playerStrums.members[i].x - 320}, cFloat(16), {ease: FlxEase.cubeInOut});
-            for (i in [healthBar, healthOverlay, iconP1, iconP2, accuracyTxt, scoreTxt, missesTxt])
+            for (i in [healthBar, healthOverlay, icoP1, iconP2, accuracyTxt, scoreTxt, missesTxt, hudTxt])
                 FlxTween.tween(i, {alpha: 0}, 1);
             noMiss = true;
         case 1376:
@@ -179,7 +179,7 @@ function stepHit(c) {
         case 1696:
             angel.data.stronk.value[0] = 0.325;
             ycbuLightningL.alpha = ycbuLightningR.alpha = ycbuHeadL.alpha = ycbuHeadR.alpha = 0.001;
-            for (i in [healthBar, healthOverlay, iconP1, iconP2, accuracyTxt, scoreTxt, missesTxt])
+            for (i in [healthBar, healthOverlay, icoP1, iconP2, accuracyTxt, scoreTxt, missesTxt, hudTxt])
                 i.alpha = 1;
             for (i in 0...4) {
                 cpuStrums.members[i].alpha = 1;
