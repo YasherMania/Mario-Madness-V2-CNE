@@ -99,6 +99,10 @@ function create() {
     bloom.data.Size.value = [1, 1];
     bloom.data.dim.value = [.5, .5];
     FlxG.camera.addShader(bloom);
+
+    new FlxTimer().start(0.01, function(tmr:FlxTimer){
+        skipTransition = false;
+    });
 }
 
 var selectedSomethin:Bool = false;
@@ -134,6 +138,10 @@ function update(elapsed:Float) {
         if (controls.ACCEPT)
         {
             selectItem();
+
+            if (optionShit[curSelected] == "Options"){
+                skipTransition = true;
+            }
         }
     }
 
