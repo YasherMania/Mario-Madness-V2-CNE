@@ -99,7 +99,8 @@ function beatHit(curBeat) {
     switch (curBeat) {
         case 268:
             defaultCamZoom = 0.45;
-        case 272:
+        case 270:
+            FlxTween.tween(FlxG.camera, {zoom: 0.6}, 0.42, {ease: FlxEase.sineInOut});
             defaultCamZoom = 0.6;
         case 304:
             defaultCamZoom = 0.5;

@@ -1,4 +1,3 @@
-import funkin.backend.utils.NativeAPI;
 import openfl.system.Capabilities;
 import funkin.backend.utils.NdllUtil;
 import lime.graphics.Image;
@@ -61,11 +60,6 @@ static var redirectStates:Map<FlxState, String> = [
     TitleState => "customStates/menus/MarioTitleState",
     MainMenuState => "customStates/menus/MarioMainMenuState",
 ];
-
-function update(elapsed) {
-    if (FlxG.keys.justPressed.F6)
-        NativeAPI.allocConsole();
-}
 
 function preStateSwitch() {
     FlxG.camera.bgColor = 0xFF000000;

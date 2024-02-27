@@ -41,7 +41,7 @@ function new() if (FlxG.sound.music == null || !FlxG.sound.music.playing) CoolUt
 
 function create() {
     window.title = "Friday Night Funkin': Mario's Madness";
-    bg = new FlxBackdrop(Paths.image('menus/mainmenu/bgs/bg0'));
+    bg = new FlxBackdrop(Paths.image('menus/mainmenu/bgs/bg0'), FlxAxes.X);
     bg.scale.set(3.4,3.4);
     bg.velocity.set(-50, 0);
     bg.y = 250;
