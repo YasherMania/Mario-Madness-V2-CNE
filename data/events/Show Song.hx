@@ -64,22 +64,52 @@ function update(){
         autorText.y = titleText.y + 70;
         porterText.y = autorText.y + 55;
     }
+	//boyfriend.x -= 2;
+}
+
+//hiiiii guysssssss!!!!!! it's ya boi, bromaster 819!!!!
+//apurples did a great job on this script but couldnt get the question mark thingy working!!!
+//"iason mason | goober" > "??????????? | ??????"
+//so i did it and it's great!!
+//all i added was the post create
+//anyways sorry for rambling on have a good day!!!!!! :3c
+function postCreate() {
+    for (event in events) {
+        if (event.name == 'Show Song') {
+		window.title = "Friday Night Funkin': Mario's Madness | ";
+		for (i in 0...PlayState.SONG.meta.displayName.length) {
+			window.title = window.title + "?";
+		}
+
+		window.title = window.title + " | ";
+
+		for (i in 0...event.params[1].length) {
+			window.title = window.title + "?";
+		}
+
+		window.title = window.title + " | ";
+
+		for (i in 0...event.params[2].length) {
+			window.title = window.title + "?";
+		}
+	}
+    }
 }
 
 function onEvent(_){
     if (_.event.name == "Show Song" && _.event.params[0]){
         autorText.text = _.event.params[1];
-        porterText.text = "Ported by: " + _.event.params[2];
         porterText.scale.set(_.event.params[3], _.event.params[3]);
+        porterText.text = "Ported By: " + _.event.params[2];
         window.title = "Friday Night Funkin': Mario's Madness | " + PlayState.SONG.meta.displayName + " | " + autorText.text + " | " + porterText.text;
-        for (i in [autorText, porterText]) i.screenCenter(FlxAxes.X);
-        for (i in [titleText, autorText, porterText/*, titleLine1, titleLine2, porterLine1, porterLine2*/]){
+        for (i in [titleText, autorText, porterText/*, line1, line2*/]){
             if (downscroll) FlxTween.tween(i, {alpha: 1, y: i.y + 30}, 0.5, {ease: FlxEase.cubeOut});
             else FlxTween.tween(i, {alpha: 1, y: i.y - 30}, 0.5, {ease: FlxEase.cubeOut});
         }
-
-        new FlxTimer().start(_.event.params[4], function (tmr:FlxTimer){
-            for (i in [titleText, autorText, porterText/*, titleLine1, titleLine2, porterLine1, porterLine2*/]) FlxTween.tween(i, {alpha: 0}, 0.5, {ease: FlxEase.cubeOut});
+	autorText.screenCenter(FlxAxes.X);
+	porterText.screenCenter(FlxAxes.X);
+        new FlxTimer().start(_.event.params[3], function (tmr:FlxTimer){
+            for (i in [titleText, autorText, porterText/*, line1, line2*/]) FlxTween.tween(i, {alpha: 0}, 0.5, {ease: FlxEase.cubeOut});
         });
     }
 }
