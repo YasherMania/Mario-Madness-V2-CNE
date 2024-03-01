@@ -10,6 +10,8 @@ function postCreate(){
         if (option.desc == "Modify mod options here")
             main.members.remove(option);
 
+    CoolUtil.playMusic(Paths.music("options"), false, 1, true, 95);
+
     staticThingy = new FlxSprite(0, 0);
 	staticThingy.frames = Paths.getSparrowAtlas('menus/estatica_uwu');
     staticThingy.animation.addByPrefix('idle', "Estatica papu", 15);
