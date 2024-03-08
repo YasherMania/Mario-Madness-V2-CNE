@@ -236,22 +236,20 @@ function selectOption() {
 }
 
 function changeSelection(change:Int = 0):Void {
-		var event = EventManager.get(MenuChangeEvent).recycle(curSelected, FlxMath.wrap(curSelected + change, 0, menuItems.length-1), change, change != 0);
-		pauseScript.call("onChangeItem", [event]);
-		if (event.cancelled) return;
+	var event = EventManager.get(MenuChangeEvent).recycle(curSelected, FlxMath.wrap(curSelected + change, 0, menuItems.length-1), change, change != 0);
+	pauseScript.call("onChangeItem", [event]);
+	if (event.cancelled) return;
 
-		curSelected = event.value;
+	curSelected = event.value;
 
-		var bullShit:Int = 0;
+	var bullShit:Int = 0;
 
-		for (item in grpMenuShit.members)
-		{
-			item.ID = bullShit - curSelected;
-			bullShit++;
-
-			if (item.ID == 0)
-				item.alpha = 1;
-			else
-				item.alpha = 0.6;
-		}
+	for (item in grpMenuShit.members) {
+		item.ID = bullShit - curSelected;
+		bullShit++;
+        if (item.ID == 0)
+			item.alpha = 1;
+		else
+			item.alpha = 0.6;
+	}
 }

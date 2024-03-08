@@ -1,16 +1,20 @@
 function onNoteCreation(e) {
+    if (curStage == "virtual")
+        disableScript();
     e.noteSprite = FlxG.save.data.botplayOption ? "game/notes/Luigidefault" : "game/notes/Mariodefault";
 }
 
 function onStrumCreation(e) {
+    if (curStage == "virtual")
+        disableScript();
     e.sprite = FlxG.save.data.botplayOption ? "game/notes/Luigidefault" : "game/notes/Mariodefault";
 }
 
 function onSubstateClose() {
-    if (FlxG.save.data.botplayOption) {
+    if (FlxG.save.data.botplayOption && curSong != "mario-sing-and-game-rhythm-9") {
         changeStrumsTexture(player, "game/notes/Luigidefault");
         changeStrumsTexture(cpu, "game/notes/Luigidefault");
-    } else {
+    } else if (FlxG.save.data.botplayOption == false && curSong != "mario-sing-and-game-rhythm-9") {
         changeStrumsTexture(player, "game/notes/Mariodefault");
         changeStrumsTexture(cpu, "game/notes/Mariodefault");
     }

@@ -1,4 +1,6 @@
 function onPostNoteCreation(event) {
+    if (curStage == "virtual")
+        disableScript();
     var note = event.note;
     if (FlxG.save.data.Splashes == "splashDiamond")
         note.splash = "diamond";

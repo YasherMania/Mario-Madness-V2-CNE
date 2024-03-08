@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character> <!-- Made with WizardMantis's Character Converter -->
+<character antialiasing="false" y="390" camx="170" camy="0" scale="4.00000000000001">
+	<anim name="idle" anim="somari idle" fps="12"/>
+	<anim name="singLEFT" anim="somari left0" fps="12"/>
+	<anim name="singRIGHT" anim="somari right0" fps="12"/>
+	<anim name="singDOWN" anim="somari down0" fps="12"/>
+	<anim name="singUP" anim="somari up0" fps="12"/>
+</character>

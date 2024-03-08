@@ -48,7 +48,7 @@ function new(){
     if (FlxG.save.data.transparency_value == null) FlxG.save.data.transparency_value = 0;
 
     // UI Options
-    if (FlxG.save.data.Splashes == null) FlxG.save.data.Splashes = 0;
+    if (FlxG.save.data.Splashes == null) FlxG.save.data.Splashes = "splashPsych";
     if (FlxG.save.data.botplayOption == null) FlxG.save.data.botplayOption = false;
     if (FlxG.save.data.showBar == null) FlxG.save.data.showBar = false;
     if (FlxG.save.data.showTxt == null) FlxG.save.data.showTxt = false;

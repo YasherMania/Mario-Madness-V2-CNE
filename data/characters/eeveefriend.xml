@@ -1,0 +1,10 @@
+<!DOCTYPE codename-engine-character> <!-- Made with WizardMantis's Character Converter -->
+<character antialiasing="false" y="390" camx="-170" camy="-230" scale="4">
+	<anim name="danceLeft" anim="eeveefriend idle" fps="12"/>
+	<anim name="sad2" anim="eeveefriend two miss" fps="12" loop="true" indices="0,1,0,1,0,1,0,1,0,1"/>
+	<anim name="sad3" anim="eeveefriend three miss" fps="12" loop="true" indices="0,1,0,1,0,1,0,1,0,1"/>
+	<anim name="sad4" anim="eeveefriend four miss" fps="12" loop="true" indices="0,1,0,1,0,1,0,1,0,1"/>
+	<anim name="die" anim="eeveefriend die" fps="12" loop="true"/>
+	<anim name="danceRight" anim="eeveefriend idle" fps="12"/>
+	<anim name="sad1" anim="eeveefriend one miss" fps="12" indices="0,1,0,1,0,1,0,1,0,1"/>
+</character>
