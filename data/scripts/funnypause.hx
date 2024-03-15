@@ -1,7 +1,6 @@
 import flixel.text.FlxText;
 import flixel.text.FlxTextBorderStyle;
 import flixel.util.FlxAxes;
-import flixel.addons.display.FlxBackdrop;
 import funkin.backend.scripting.events.MenuChangeEvent;
 import funkin.backend.scripting.events.NameEvent;
 import funkin.backend.scripting.EventManager;
@@ -11,7 +10,6 @@ import openfl.utils.Assets;
 import PlayState;
 import funkin.game.StrumLine;
 import flixel.tweens.FlxTweenType;
-import funkin.game.StrumLine;
 
 var pauseCam = new FlxCamera();
 var bg:FlxSprite;
@@ -32,6 +30,7 @@ var shader:CustomShader = null;
 function create(event) {
     event.cancel();
     event.music = "mario-time" + Std.string(FlxG.random.int(1,3));
+    FlxG.sound.play(Paths.sound("menu/pauseb"));
 
     if (menuItems.contains("Botplay") && PlayState.isStoryMode) {
 		menuItems.remove("Botplay");
@@ -45,11 +44,7 @@ function create(event) {
     pauseCam.alpha = 0;
 
     shader = new CustomShader("TVStatic");
-    //shader.data.maxStrength = 2;
     shader.data.strengthMulti = 0.5;
-    trace(shader.data.strengthMulti);
-    //FlxG.camera.addShader(shader);
-    //trace(shader.data.maxStrength.value);
 
     bg = new FlxSprite(-400,0).loadGraphic(Paths.image("menus/pausemenu/momichi"));
     bg.cameras = [pauseCam];
@@ -211,7 +206,6 @@ function blink() {
 
 function selectOption() {
 	var event = EventManager.get(NameEvent).recycle(menuItems[curSelected]);
-	pauseScript.call("onSelectOption", [event]);
 
 	if (event.cancelled) return;
 
@@ -228,16 +222,14 @@ function selectOption() {
 		case "Botplay":
             FlxG.save.data.botplayOption = !FlxG.save.data.botplayOption;
             botplaytxt.alpha = FlxG.save.data.botplayOption ? 1 : 0;
-            // Unless there is a way to get the luigi strum skin to regenerate the strums there is no way to get the luigi strum to appear without reloading the song
 		case "Exit":
 			CoolUtil.playMenuSong();
 			FlxG.switchState(PlayState.isStoryMode ? new StoryMenuState() : new FreeplayState());
 	}
 }
 
-function changeSelection(change:Int = 0):Void {
+function changeSelection(change:Int = 0) {
 	var event = EventManager.get(MenuChangeEvent).recycle(curSelected, FlxMath.wrap(curSelected + change, 0, menuItems.length-1), change, change != 0);
-	pauseScript.call("onChangeItem", [event]);
 	if (event.cancelled) return;
 
 	curSelected = event.value;

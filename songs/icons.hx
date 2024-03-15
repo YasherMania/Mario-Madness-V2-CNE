@@ -1,5 +1,5 @@
-static var icoP1:HealthIcon;
-static var icoP2:HealthIcon;
+public static var icoP1:HealthIcon;
+public static var icoP2:HealthIcon;
 
 static var flipIcoBop:Bool = false; // use this for when bf is on the other side!! (like for day out for example)
 
@@ -10,6 +10,12 @@ function postCreate() {
         ico.y = healthBar.y - (ico.height / 2);
         ico.cameras = [camHUD];
         insert(members.indexOf(healthBar) + 2, ico);
+    }
+
+    if (curSong == "mario-sing-and-game-rhythm-9") {
+        for (ico in [icoP1, icoP2]) {
+            ico.visible = false;
+        }
     }
 
     for (i in [iconP1, iconP2]) remove(i); // fuck you og icons

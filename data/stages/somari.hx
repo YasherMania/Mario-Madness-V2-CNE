@@ -1,13 +1,14 @@
 import flixel.addons.display.FlxBackdrop;
 
+public var ringDisplay:FlxText;
 var path = "stages/somari/";
-var camoffsets = [0,-20,0,0];
+var camoffsets = [3,-20,200,4];
 
 function create() {
-    defaultCamZoom = 1.3;
+    defaultCamZoom = 1.35;
     cameraMovementEnabled = false;
     PlayState.instance.comboGroup.visible = false;
-    
+
     remove(dad);
     remove(gf);
     remove(boyfriend);
@@ -53,6 +54,19 @@ function create() {
     platform.antialiasing = false;
     platform.updateHitbox();
 
+    ringDisplay = new FlxText(1080, 670, FlxG.width, '00', 24);
+    ringDisplay.setFormat(Paths.font("mariones.ttf"), 40, FlxColor.WHITE, "RIGHT");
+    ringDisplay.antialiasing = false;
+    ringDisplay.cameras = [camHUD];
+    add(ringDisplay);
+
+    ringicon = new FlxSprite(1020, ringDisplay.y).loadGraphic(Paths.image(path+"image"));
+    ringicon.scale.set(8, 8);
+    ringicon.updateHitbox();
+    ringicon.antialiasing = false;
+    ringicon.cameras = [camHUD];
+    add(ringicon);
+
     add(bgstars);
     add(building);
     add(bg);
@@ -60,6 +74,25 @@ function create() {
     add(dad);
     add(gf);
     add(boyfriend);
+}
+
+function postCreate() {
+    for (i in [timeTxt, timeBar, timeBarBG, hudTxt, healthBar, healthOverlay]) {
+        i.visible = false;
+    }
+}
+
+var wobble = 2.5;
+function update(elapsed:Float) {
+    ringDisplay.text = ringCounter;
+    if (!Note.isSustainNote) {
+        //daNote.x = daNote.x + Math.sin(time * Math.PI * 3) * wobble;
+    }
+}
+
+function destroy() {
+    FlxG.scaleMode.width = 1280;
+    FlxG.resizeWindow(1280, 720);
 }
 
 var noteSize:Float = 6.5;
@@ -91,4 +124,11 @@ function onStrumCreation(event) {
 	strum.updateHitbox();
 
     strum.scale.set(noteSize, noteSize);
+}
+
+function onPostNoteCreation(event) {
+    var note = event.note;
+    if (note.isSustainNote)
+        note.frameOffset.x = 0.4;
+        //trace(note.frameOffset.x);
 }

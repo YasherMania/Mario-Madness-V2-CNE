@@ -1,7 +1,11 @@
 static var healthOverlay:FlxSprite;
 
-function new() {     
-    PauseSubState.script = 'data/scripts/funnypause';
+function new() {
+	if (curSong == "mario-sing-and-game-rhythm-9") {
+		PauseSubState.script = 'data/scripts/retropause';
+	} else {
+		PauseSubState.script = 'data/scripts/funnypause';
+	}
 }
 
 function postUpdate() {
