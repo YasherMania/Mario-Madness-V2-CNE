@@ -38,7 +38,10 @@ window.resizable = true;
 function new() if (FlxG.sound.music == null || !FlxG.sound.music.playing) CoolUtil.playMenuSong();
 
 function create() {
+    FlxTween.tween(Framerate.offset, {y: 0}, .75, {ease: FlxEase.elasticOut});
+
     window.title = "Friday Night Funkin': Mario's Madness";
+
     bg = new FlxBackdrop(Paths.image('menus/mainmenu/bgs/bg0'));
     bg.scale.set(3.4,3.4);
     bg.velocity.set(-50, 0);
@@ -97,6 +100,10 @@ function create() {
     bloom.data.Size.value = [1, 1];
     bloom.data.dim.value = [.5, .5];
     FlxG.camera.addShader(bloom);
+
+    new FlxTimer().start(0.05, function(tmr:FlxTimer){
+        skipTransition = false;
+    });
 }
 
 var selectedSomethin:Bool = false;
@@ -132,6 +139,11 @@ function update(elapsed:Float) {
         if (controls.ACCEPT)
         {
             selectItem();
+
+            if (optionShit[curSelected] == "Options"){
+                skipTransition = true;
+                FlxTween.tween(FlxG.sound.music, {volume: 0}, .75, {ease: FlxEase.quadInOut});
+            }
         }
     }
 
