@@ -1,6 +1,5 @@
 import funkin.backend.utils.DiscordUtil;
 import funkin.backend.scripting.events.DiscordPresenceUpdateEvent;
-import discord_rpc.DiscordRpc;
 import funkin.menus.MainMenuState;
 import funkin.backend.scripting.events.MenuChangeEvent;
 import funkin.backend.scripting.events.NameEvent;
@@ -124,12 +123,13 @@ function update(elapsed:Float) {
             persistentUpdate = false;
             persistentDraw = true;
         }
-        if (controls.LEFT_P)
+        
+        if (controls.LEFT_P || FlxG.mouse.wheel > 0)
             changeItem(-1);
 
-        if (controls.RIGHT_P)
+        if (controls.RIGHT_P || FlxG.mouse.wheel < 0)
             changeItem(1);
-
+        
         if (controls.ACCEPT)
         {
             selectItem();
