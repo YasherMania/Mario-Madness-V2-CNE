@@ -1,7 +1,5 @@
 import funkin.backend.utils.DiscordUtil;
 import funkin.backend.scripting.events.DiscordPresenceUpdateEvent;
-import discord_rpc.DiscordRpc;
-import funkin.menus.MainMenuState;
 import funkin.backend.scripting.events.MenuChangeEvent;
 import funkin.backend.scripting.events.NameEvent;
 import funkin.backend.scripting.EventManager;
