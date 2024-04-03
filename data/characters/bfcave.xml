@@ -1,0 +1,12 @@
+<!DOCTYPE codename-engine-character> <!-- Made with WizardMantis's Character Converter -->
+<character icon="cavebf" antialiasing="false" x="-90" y="338" flipX="true" scale="12">
+	<anim name="idle" anim="cavebfpixel idle" fps="12"/>
+	<anim name="singLEFT" anim="cavebfpixel left" fps="12"/>
+	<anim name="singDOWN" anim="cavebfpixel down" fps="12"/>
+	<anim name="singUP" anim="cavebfpixel up" fps="12"/>
+	<anim name="singRIGHT" anim="cavebfpixel right" fps="12"/>
+	<anim name="singLEFTmiss" anim="cavebfpixel mleft" fps="12"/>
+	<anim name="singDOWNmiss" anim="cavebfpixel mdown" fps="12"/>
+	<anim name="singUPmiss" anim="cavebfpixel mup" fps="12"/>
+	<anim name="singRIGHTmiss" anim="cavebfpixel mright" fps="12"/>
+</character>

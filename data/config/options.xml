@@ -14,7 +14,7 @@
         <checkbox id="flashingLights" name="Flashing Lights" desc="If checked, flashing lights will occur in menus and songs. Disable if you are sensitive to this!"/>
     </menu>
     <menu name="Accessability">
-        <number id="transparency_value" name="alpha" desc="Sets the transparency of the screen filter,&#xA;increase it if you have a hard time seeing notes" min="0" max="0.9" change="0.1"/>
+        <number id="transparency_value" name="alpha" desc="Sets the transparency of the screen filter,&#xA;increase it if you have a hard time seeing notes" min="0.2" max="0.9" change="0.1"/>
     </menu>
     <checkbox id="peppino" name="Funny Alone" desc="If checked, it will play the 'Peppino, that is my name.. Peppino, pizza tower's my name' sound clip."/>
 </menu>

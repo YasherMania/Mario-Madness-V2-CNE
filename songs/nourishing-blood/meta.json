@@ -1,0 +1,16 @@
+{
+	"opponentModeAllowed": true,
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"beatsPerMesure": 4,
+	"bpm": 165,
+	"difficulties": [
+		"Hard"
+	],
+	"needsVoices": true,
+	"parsedColor": -12287156,
+	"displayName": "Nourishing Blood",
+	"icon": "gdad",
+	"name": "nourishing-blood",
+	"color": "#44834C"
+}
