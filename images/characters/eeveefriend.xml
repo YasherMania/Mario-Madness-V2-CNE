@@ -1,17 +1,20 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="eeveefriend.png"><SubTexture name="eeveefriend idle0000" x="0" y="0" width="29" height="32" frameX="0" frameY="0" frameWidth="29" frameHeight="32" />
-<SubTexture name="eeveefriend idle0001" x="29" y="0" width="29" height="32" frameX="0" frameY="0" frameWidth="29" frameHeight="32" />
-<SubTexture name="eeveefriend idle0002" x="58" y="0" width="29" height="32" frameX="0" frameY="0" frameWidth="29" frameHeight="32" />
-<SubTexture name="eeveefriend idle0003" x="0" y="32" width="29" height="32" frameX="0" frameY="0" frameWidth="29" frameHeight="32" />
-<SubTexture name="eeveefriend one miss0000" x="29" y="32" width="29" height="32" frameX="0" frameY="0" frameWidth="29" frameHeight="32" />
-<SubTexture name="eeveefriend one miss0001" x="58" y="32" width="29" height="32" frameX="0" frameY="0" frameWidth="29" frameHeight="32" />
-<SubTexture name="eeveefriend two miss0000" x="87" y="0" width="29" height="32" frameX="0" frameY="0" frameWidth="29" frameHeight="32" />
-<SubTexture name="eeveefriend two miss0001" x="87" y="32" width="29" height="32" frameX="0" frameY="0" frameWidth="29" frameHeight="32" />
-<SubTexture name="eeveefriend three miss0000" x="0" y="64" width="29" height="32" frameX="0" frameY="0" frameWidth="29" frameHeight="32" />
-<SubTexture name="eeveefriend three miss0001" x="29" y="64" width="29" height="32" frameX="0" frameY="0" frameWidth="29" frameHeight="32" />
-<SubTexture name="eeveefriend four miss0000" x="58" y="64" width="29" height="32" frameX="0" frameY="0" frameWidth="29" frameHeight="32" />
-<SubTexture name="eeveefriend four miss0001" x="87" y="64" width="29" height="32" frameX="0" frameY="0" frameWidth="29" frameHeight="32" />
-<SubTexture name="eeveefriend die0000" x="116" y="0" width="29" height="32" frameX="0" frameY="0" frameWidth="29" frameHeight="32" />
-<SubTexture name="eeveefriend pls0000" x="116" y="32" width="29" height="32" frameX="0" frameY="0" frameWidth="29" frameHeight="32" />
-<SubTexture name="eeveefriend pls0001" x="116" y="64" width="29" height="32" frameX="0" frameY="0" frameWidth="29" frameHeight="32" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="eeveefriend.png" width="89" height="110">
+	<SubTexture name="eeveefriend idle0000" x="27" y="1" width="25" height="20" frameX="-2" frameY="-10" frameWidth="29" frameHeight="32"/>
+	<SubTexture name="eeveefriend idle0001" x="53" y="1" width="22" height="23" frameX="-4" frameY="-7" frameWidth="29" frameHeight="32"/>
+	<SubTexture name="eeveefriend idle0002" x="1" y="53" width="21" height="28" frameX="-6" frameY="-2" frameWidth="29" frameHeight="32"/>
+	<SubTexture name="eeveefriend idle0003" x="47" y="25" width="21" height="26" frameX="-6" frameY="-4" frameWidth="29" frameHeight="32"/>
+	<SubTexture name="eeveefriend one miss0000" x="61" y="81" width="19" height="25" frameX="-6" frameY="-5" frameWidth="29" frameHeight="32"/>
+	<SubTexture name="eeveefriend one miss0001" x="63" y="52" width="19" height="25" frameX="-6" frameY="-5" frameWidth="29" frameHeight="32"/>
+	<SubTexture name="eeveefriend two miss0000" x="41" y="81" width="19" height="27" frameX="-6" frameY="-3" frameWidth="29" frameHeight="32"/>
+	<SubTexture name="eeveefriend two miss0001" x="43" y="53" width="19" height="27" frameX="-6" frameY="-3" frameWidth="29" frameHeight="32"/>
+	<SubTexture name="eeveefriend three miss0000" x="21" y="82" width="19" height="27" frameX="-6" frameY="-3" frameWidth="29" frameHeight="32"/>
+	<SubTexture name="eeveefriend three miss0001" x="27" y="25" width="19" height="27" frameX="-6" frameY="-3" frameWidth="29" frameHeight="32"/>
+	<SubTexture name="eeveefriend four miss0000" x="1" y="82" width="19" height="27" frameX="-6" frameY="-3" frameWidth="29" frameHeight="32"/>
+	<SubTexture name="eeveefriend four miss0001" x="23" y="53" width="19" height="27" frameX="-6" frameY="-3" frameWidth="29" frameHeight="32"/>
+	<SubTexture name="eeveefriend die0000" x="69" y="25" width="19" height="23" frameX="-6" frameY="-6" frameWidth="29" frameHeight="32"/>
+	<SubTexture name="eeveefriend pls0000" x="1" y="1" width="25" height="51" frameX="-4" frameY="-13" frameWidth="29" frameHeight="64"/>
 </TextureAtlas>
