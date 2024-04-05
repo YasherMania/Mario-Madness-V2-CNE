@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="title_text.png" width="303" height="38">
+	<SubTexture name="text0_idle" x="164" y="1" width="37" height="34" frameX="-0" frameY="-0" frameWidth="37" frameHeight="34"/>
+	<SubTexture name="text10_idle" x="1" y="1" width="35" height="28" frameX="-0" frameY="-0" frameWidth="35" frameHeight="28"/>
+	<SubTexture name="text11_idle" x="65" y="1" width="33" height="30" frameX="-0" frameY="-0" frameWidth="33" frameHeight="30"/>
+	<SubTexture name="text1_idle" x="130" y="1" width="33" height="33" frameX="-0" frameY="-0" frameWidth="33" frameHeight="33"/>
+	<SubTexture name="text2_idle" x="202" y="1" width="27" height="35" frameX="-0" frameY="-0" frameWidth="27" frameHeight="35"/>
+	<SubTexture name="text3_idle" x="255" y="1" width="15" height="36" frameX="-0" frameY="-0" frameWidth="15" frameHeight="36"/>
+	<SubTexture name="text4_idle" x="37" y="1" width="27" height="28" frameX="-0" frameY="-0" frameWidth="27" frameHeight="28"/>
+	<SubTexture name="text5_idle" x="230" y="1" width="24" height="35" frameX="-0" frameY="-0" frameWidth="24" frameHeight="35"/>
+	<SubTexture name="text6_idle" x="130" y="1" width="33" height="33" frameX="-0" frameY="-0" frameWidth="33" frameHeight="33"/>
+	<SubTexture name="text7_idle" x="202" y="1" width="27" height="35" frameX="-0" frameY="-0" frameWidth="27" frameHeight="35"/>
+	<SubTexture name="text8_idle" x="99" y="1" width="30" height="32" frameX="-0" frameY="-0" frameWidth="30" frameHeight="32"/>
+	<SubTexture name="text9_idle" x="271" y="1" width="31" height="36" frameX="-0" frameY="-0" frameWidth="31" frameHeight="36"/>
+</TextureAtlas>

@@ -7,7 +7,7 @@ import openfl.Lib;
 
 public var topCam:FlxCamera;
 public var botCam:FlxCamera;
-	
+
 public var titleGroup:FlxTypedGroup<FlxSprite>;
 
 public var topChecker:FlxBackdrop;
@@ -49,7 +49,7 @@ public var textPlaces:Array<Int> = [
 ];
 
 function create(){
-	FlxG.sound.music.stop();
+	if(FlxG.sound.music != null) FlxG.sound.music.stop();
 	FlxG.mouse.visible = true;
 	FlxG.sound.soundTrayEnabled = false;
 
@@ -61,10 +61,10 @@ function create(){
 	topCam.bgColor = 0xFF000000;
 	botCam = new FlxCamera(0, -216, 256, 192, 2);
 	botCam.bgColor = 0xFF000000;
-		
+
 	FlxG.cameras.add(topCam);
 	FlxG.cameras.add(botCam);
-		
+
 	Lib.current.scaleX = 2.5;
 	Lib.current.scaleY = 2.5;
 	window.move(window.x + Std.int((window.width - 512) / 2), window.y + Std.int((window.height - 768) / 2));
@@ -78,7 +78,7 @@ function create(){
 	// TODO: put all this shit into a function so i can replay it after demo sequence
 	titleGroup = new FlxTypedGroup();
 	add(titleGroup);
-		
+
 	topBg = new FlxSprite(0, 0).loadGraphic(Paths.image('game/mpds/topbg'));
 	topBg.antialiasing = false;
 	topBg.cameras = [topCam];
@@ -95,28 +95,28 @@ function create(){
 	titleGroup.add(topCoinStatic);
 
 	topCoinSmallLeft = new FlxSprite(0, 35);
-	topCoinSmallLeft.frames = Paths.getSparrowAtlas('game/mpds/MPDS_Left_Small_Coin');
+	topCoinSmallLeft.frames = Paths.getSparrowAtlas('game/mpds/Coins');
 	topCoinSmallLeft.animation.addByPrefix('idle', 'small coin left screen', 28, true);
 	topCoinSmallLeft.antialiasing = false;
 	topCoinSmallLeft.cameras = [topCam];
 	titleGroup.add(topCoinSmallLeft);
 
 	topCoinSmallRight = new FlxSprite(0, 35);
-	topCoinSmallRight.frames = Paths.getSparrowAtlas('game/mpds/MPDS_Right_Small_Coin');
+	topCoinSmallRight.frames = Paths.getSparrowAtlas('game/mpds/Coins');
 	topCoinSmallRight.animation.addByPrefix('idle', 'small coin right screen', 20, true);
 	topCoinSmallRight.antialiasing = false;
 	topCoinSmallRight.cameras = [topCam];
 	titleGroup.add(topCoinSmallRight);
 
 	topCoinBigLeft = new FlxSprite(0, 35);
-	topCoinBigLeft.frames = Paths.getSparrowAtlas('game/mpds/MPDS_Big_Coins');
+	topCoinBigLeft.frames = Paths.getSparrowAtlas('game/mpds/Coins');
 	topCoinBigLeft.animation.addByPrefix('idle', 'big coin left screen', 20, true);
 	topCoinBigLeft.antialiasing = false;
 	topCoinBigLeft.cameras = [topCam];
 	titleGroup.add(topCoinBigLeft);
 
 	topCoinBigRight = new FlxSprite(0, 35);
-	topCoinBigRight.frames = Paths.getSparrowAtlas('game/mpds/MPDS_Big_Coins');
+	topCoinBigRight.frames = Paths.getSparrowAtlas('game/mpds/Coins');
 	topCoinBigRight.animation.addByPrefix('idle', 'big coin right screen', 32, true);
 	topCoinBigRight.antialiasing = false;
 	topCoinBigRight.cameras = [topCam];
@@ -170,7 +170,7 @@ function create(){
 	// titleTouch.cameras = [botCam];
 	titleTouch.alpha = 0.0001;
 	titleGroup.add(titleTouch);
-		
+
 	topChecker = new FlxBackdrop(Paths.image('game/mpds/rules/checkerboard'));
 	topChecker.x = topChecker.y = 0;
 	topChecker.velocity.set(24, 16);
@@ -203,30 +203,30 @@ function create(){
 	botBorder.cameras = [botCam];
 	rulesGroup.add(botBorder);
 
-	leftTouch = new FlxSprite().makeGraphic(Std.int(17 * botCam.zoom), Std.int(23 * botCam.zoom), FlxColor.BLACK);
+	leftTouch = new FlxSprite().makeSolid(Std.int(17 * botCam.zoom), Std.int(23 * botCam.zoom), FlxColor.BLACK);
 	leftTouch.setGraphicSize(Std.int(leftTouch.width * botCam.zoom));
 	leftTouch.setPosition(20 * botCam.zoom, botCam.y);
 	leftTouch.alpha = 0.0001;
 	// leftTouch.cameras = [botCam];
 
-	rightTouch = new FlxSprite().makeGraphic(Std.int(17 * botCam.zoom), Std.int(23 * botCam.zoom), FlxColor.WHITE);
+	rightTouch = new FlxSprite().makeSolid(Std.int(17 * botCam.zoom), Std.int(23 * botCam.zoom), FlxColor.WHITE);
 	rightTouch.setGraphicSize(Std.int(rightTouch.width * botCam.zoom));
 	rightTouch.setPosition(222 * botCam.zoom, botCam.y);
 	rightTouch.alpha = 0.0001;
 	// rightTouch.cameras = [botCam];
 
-	tipsTouch = new FlxSprite().makeGraphic(Std.int(92 * botCam.zoom), Std.int(23 * botCam.zoom), FlxColor.BLACK);
+	tipsTouch = new FlxSprite().makeSolid(Std.int(92 * botCam.zoom), Std.int(23 * botCam.zoom), FlxColor.BLACK);
 	tipsTouch.setGraphicSize(Std.int(tipsTouch.width * botCam.zoom));
 	tipsTouch.setPosition(130 * botCam.zoom, botCam.y);
 	tipsTouch.alpha = 0.0001;
 	// tipsTouch.cameras = [botCam];
 
-	rulesTouch = new FlxSprite().makeGraphic(Std.int(92 * botCam.zoom), Std.int(23 * botCam.zoom), FlxColor.WHITE);
+	rulesTouch = new FlxSprite().makeSolid(Std.int(92 * botCam.zoom), Std.int(23 * botCam.zoom), FlxColor.WHITE);
 	rulesTouch.setPosition(38 * botCam.zoom, botCam.y);
 	rulesTouch.alpha = 0.0001;
 	// rulesTouch.cameras = [botCam];
 
-	startTouch = new FlxSprite().makeGraphic(Std.int(70 * botCam.zoom), Std.int(28 * botCam.zoom), FlxColor.WHITE);
+	startTouch = new FlxSprite().makeSolid(Std.int(70 * botCam.zoom), Std.int(28 * botCam.zoom), FlxColor.WHITE);
 	startTouch.setPosition(92 * botCam.zoom, botCam.y + (164 * botCam.zoom));
 	trace(startTouch.y);
 	startTouch.alpha = 0.0001;
@@ -236,7 +236,7 @@ function create(){
 	botTips.cameras = [botCam];
 	botTips.visible = false;
 	rulesGroup.add(botTips);
-		
+
 	botRules = new FlxSprite(0, 0).loadGraphic(Paths.image('game/mpds/rules/rules'));
 	botRules.antialiasing = false;
 	botRules.cameras = [botCam];
@@ -266,11 +266,11 @@ function create(){
 	hudson.cameras = [botCam];
 	add(hudson);
 
-	hiderT = new FlxSprite(0, 0).makeGraphic(256, 192, FlxColor.BLACK);
+	hiderT = new FlxSprite(0, 0).makeSolid(256, 192, FlxColor.BLACK);
 	hiderT.cameras = [topCam];
 	add(hiderT);
 
-	hiderB = new FlxSprite(0, 0).makeGraphic(256, 192, FlxColor.BLACK);
+	hiderB = new FlxSprite(0, 0).makeSolid(256, 192, FlxColor.BLACK);
 	hiderB.cameras = [botCam];
 	add(hiderB);
 
@@ -316,12 +316,20 @@ function create(){
 		}
 		FlxTween.tween(topStar, {y: 140}, 2.671, {startDelay: 1, ease: FlxEase.smoothStepOut});
 		FlxTween.tween(topDice, {y: 107}, 2.671, {startDelay: 1, ease: FlxEase.smoothStepOut});
-		
-		for (i in [topStar, topDice, topCoinSmallLeft, topCoinSmallRight, topCoinBigLeft, topCoinBigRight]) i.animation.play("idle", true);
+
+		for (i in [topStar, topDice, topCoinSmallLeft, topCoinSmallRight, topCoinBigLeft, topCoinBigRight]) {
+			i.animation.play("idle", true);
+			i.updateHitbox();
+		}
+
+		var textSpritesheet = Paths.getSparrowAtlas('game/mpds/title_text');
 
 		var i:Int = 9;
 		while (i >= 0){
-			var temp:FlxSprite = new FlxSprite(textPlaces[i * 2], textPlaces[i * 2 + 1] - 100).loadGraphic(Paths.image('game/mpds/text' + Std.string(i)));
+			var temp:FlxSprite = new FlxSprite(textPlaces[i * 2], textPlaces[i * 2 + 1] - 100);
+			temp.frames = textSpritesheet;
+			temp.animation.addByPrefix('idle', 'text' + Std.string(i) + "_idle", 24, false);
+			temp.animation.play("idle", true);
 			temp.antialiasing = false;
 			temp.cameras = [topCam];
 			textGroup.add(temp);
@@ -330,7 +338,10 @@ function create(){
 			i--;
 		}
 		for (i in 10...12){
-			var temp:FlxSprite = new FlxSprite(textPlaces[i * 2], textPlaces[i * 2 + 1]).loadGraphic(Paths.image('game/mpds/text' + Std.string(i)));
+			var temp:FlxSprite = new FlxSprite(textPlaces[i * 2], textPlaces[i * 2 + 1]);
+			temp.frames = textSpritesheet;
+			temp.animation.addByPrefix('idle', 'text' + Std.string(i) + "_idle", 24, false);
+			temp.animation.play("idle", true);
 			temp.antialiasing = false;
 			temp.scale.set(0, 0);
 			temp.cameras = [topCam];
@@ -365,7 +376,7 @@ function update(elapsed:Float){
 				clickAction(3);
 		}
 		if (canStart && FlxG.mouse.overlaps(titleTouch))
-			clickAction(4);		
+			clickAction(4);
 	}
 }
 

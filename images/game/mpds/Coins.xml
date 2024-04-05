@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="Coins.png" width="118" height="106">
+	<SubTexture name="small coin left screen0000" x="72" y="67" width="20" height="19" frameX="-15" frameY="-173" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin left screen0001" x="72" y="67" width="20" height="19" frameX="-15" frameY="-173" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin left screen0002" x="90" y="34" width="13" height="22" frameX="-18" frameY="-170" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin left screen0003" x="90" y="34" width="13" height="22" frameX="-18" frameY="-170" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin left screen0004" x="100" y="1" width="13" height="22" frameX="-17" frameY="-170" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin left screen0005" x="100" y="1" width="13" height="22" frameX="-17" frameY="-170" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin left screen0006" x="1" y="82" width="19" height="19" frameX="-15" frameY="-173" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin left screen0007" x="1" y="82" width="19" height="19" frameX="-15" frameY="-173" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin left screen0008" x="42" y="86" width="22" height="16" frameX="-14" frameY="-175" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin left screen0009" x="42" y="86" width="22" height="16" frameX="-14" frameY="-175" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin left screen0000" x="31" y="25" width="22" height="27" frameX="-0" frameY="-77" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin left screen0001" x="31" y="25" width="22" height="27" frameX="-0" frameY="-77" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin left screen0002" x="72" y="34" width="17" height="32" frameX="-0" frameY="-73" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin left screen0003" x="72" y="34" width="17" height="32" frameX="-0" frameY="-73" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin left screen0004" x="83" y="1" width="16" height="32" frameX="-0" frameY="-73" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin left screen0005" x="83" y="1" width="16" height="32" frameX="-0" frameY="-73" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin left screen0006" x="31" y="53" width="21" height="28" frameX="-0" frameY="-76" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin left screen0007" x="31" y="53" width="21" height="28" frameX="-0" frameY="-76" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin left screen0008" x="1" y="58" width="23" height="23" frameX="-0" frameY="-80" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin left screen0009" x="1" y="58" width="23" height="23" frameX="-0" frameY="-80" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin right screen0000" x="53" y="53" width="18" height="32" frameX="-222" frameY="-149" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin right screen0001" x="53" y="53" width="18" height="32" frameX="-222" frameY="-149" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin right screen0002" x="1" y="1" width="29" height="28" frameX="-217" frameY="-152" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin right screen0003" x="1" y="1" width="29" height="28" frameX="-217" frameY="-152" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin right screen0004" x="31" y="1" width="32" height="23" frameX="-216" frameY="-156" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin right screen0005" x="31" y="1" width="32" height="23" frameX="-216" frameY="-156" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin right screen0006" x="1" y="30" width="29" height="27" frameX="-218" frameY="-153" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin right screen0007" x="1" y="30" width="29" height="27" frameX="-218" frameY="-153" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin right screen0008" x="64" y="1" width="18" height="32" frameX="-224" frameY="-149" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="big coin right screen0009" x="64" y="1" width="18" height="32" frameX="-224" frameY="-149" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin right screen0000" x="85" y="87" width="22" height="15" frameX="-145" frameY="-136" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin right screen0001" x="85" y="87" width="22" height="15" frameX="-145" frameY="-136" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin right screen0002" x="65" y="87" width="19" height="18" frameX="-146" frameY="-134" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin right screen0003" x="65" y="87" width="19" height="18" frameX="-146" frameY="-134" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin right screen0004" x="93" y="57" width="13" height="22" frameX="-148" frameY="-131" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin right screen0005" x="93" y="57" width="13" height="22" frameX="-148" frameY="-131" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin right screen0006" x="104" y="24" width="13" height="22" frameX="-149" frameY="-131" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin right screen0007" x="104" y="24" width="13" height="22" frameX="-149" frameY="-131" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin right screen0008" x="21" y="82" width="20" height="18" frameX="-146" frameY="-134" frameWidth="256" frameHeight="192"/>
+	<SubTexture name="small coin right screen0009" x="21" y="82" width="20" height="18" frameX="-146" frameY="-134" frameWidth="256" frameHeight="192"/>
+</TextureAtlas>
