@@ -23,8 +23,6 @@ static var curSelected:Int = 0;
 var canselectshit = true;
 var selectedSomethin = false;
 var lerpCamZoom = false;
-var smOpen = false;
-var optionShit:Array<String> = ["MainGame", "WarpZone", "Freeplay", "Options", "Credits"];
 var WEHOVERING:Bool = false;
 var corners:Array<FlxSprite> = [];
 var curButton:FlxSprite = null;
@@ -297,7 +295,7 @@ function update(elapsed:Float) {
                 }
             });
 
-            if (FlxG.mouse.justReleased && hovering && canSelectSomethin) trace("wowie this works insane!!!"); //goToState();
+            if (FlxG.mouse.justReleased && hovering && canselectshit) trace("wowie this works insane!!!"); //goToState();
         }	
     }
     if (curButton != null) postionCorners(curButton);

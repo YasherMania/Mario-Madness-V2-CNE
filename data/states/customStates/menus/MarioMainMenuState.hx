@@ -169,8 +169,8 @@ function selectItem() {
                 FlxG.switchState(new StoryMenuState());
             case 'WarpZone':
                 //FlxG.switchState(new ModState("customStates/game/WarpState"));
-                //FlxG.switchState(new MainMenuState());
-                FlxG.switchState(new ModState("customStates/menus/NewSuperMarioMainMenuState"));
+                FlxG.switchState(new MainMenuState());
+                //FlxG.switchState(new ModState("customStates/menus/NewSuperMarioMainMenuState"));
                 FlxTween.tween(FlxG.sound.music, {volume: 0}, .35);
             case 'Freeplay':
                 FlxG.switchState(new FreeplayState());
