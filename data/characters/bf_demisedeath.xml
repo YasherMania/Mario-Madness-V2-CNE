@@ -1,0 +1,6 @@
+<!DOCTYPE codename-engine-character>
+<character x="-540" icon="bfdemise" y="160" isGF="false" flipX="true" isPlayer="false" sprite="MX_DEMISE_GameOver_Assets">
+	<anim x="0" loop="false" y="0" fps="24" anim="BF Dead confirm" name="deathConfirm"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="BF dies" name="firstDeath"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="BF Dead Loop" name="deathLoop"/>
+</character>

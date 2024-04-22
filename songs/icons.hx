@@ -1,7 +1,7 @@
 public static var icoP1:HealthIcon;
 public static var icoP2:HealthIcon;
 
-static var flipIcoBop:Bool = false; // use this for when bf is on the other side!! (like for day out for example)
+public static var flipIcoBop:Bool = false; // use this for when bf is on the other side!! (like for day out for example)
 
 function postCreate() {
     icoP1 = new HealthIcon(boyfriend != null ? boyfriend.getIcon() : "face", true);
@@ -10,6 +10,11 @@ function postCreate() {
         ico.y = healthBar.y - (ico.height / 2);
         ico.cameras = [camHUD];
         insert(members.indexOf(healthBar) + 2, ico);
+    }
+
+    if (curSong == "demise") {
+        icoP2.visible = false;
+        icoP1.flipX = true;
     }
 
     if (curSong == "mario-sing-and-game-rhythm-9") {
